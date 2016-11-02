@@ -17,7 +17,7 @@ app.debug = True
 import settings
 
 _config = settings.config
-_searchEngine = SearchEngine({})
+_searchEngine = SearchEngine(_config)
 
 """------------------------------------------------------------------------------
 GLOBAL FUNCTIONS

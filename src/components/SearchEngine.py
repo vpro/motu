@@ -1,13 +1,10 @@
-#!/usr/bin/pythonw2.7
-
-from elasticsearch import Elasticsearch
+import requests
+import json
 
 class SearchEngine():
 
 	def __init__(self, config):
 		self.config = config
-		self.es = Elasticsearch(host='localhost', port=9210)
-		print self.es.info()
 
 	def getResource(self, resourceId, collectionId):
 		resp = self.es.get(index=collectionId, id=resourceId)
@@ -129,8 +126,12 @@ class SearchEngine():
 		return self.search(','.join(indices), query);
 
 	def search(self, searchIndices, query):
-		resp = self.es.search(index=searchIndices, body=query)
-		return self.__formatSearchResults(resp)
+		url = self.config['SEARCH_API'] + '/search/' + searchIndices
+		headers = {'content-type': 'application/json'}
+		resp = requests.post(url, json=query, headers=headers)
+		if resp.status_code == 200:
+			return self.__formatSearchResults(json.loads(resp.text))
+		return None
 
 	def __formatSearchResults(self, data):
 		if not data or not 'hits' in data:
