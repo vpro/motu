@@ -20,7 +20,6 @@ cd YOUR_DIR
 virtualenv venv
 
 git clone https://github.com/beeldengeluid/motu.git
-
 ```
 
 In YOUR_DIR you should now have the following two directories:
@@ -39,6 +38,28 @@ pip install -r requirements.txt
 ```
 
 **Note**: If you skip the first command, you will simply install the Python libraries globally on your system
+
+
+Now you're almost ready to start the server, the only thing to do is make sure to create a settings file:
+
+```
+cd YOUR_DIR/motu/src
+
+cp settings-example.py settings.py
+```
+
+Now you can test the server by running:
+
+```
+python server.py
+```
+
+**Note**:
+
+You can change the port and host of the server in settings.py
+
+To make the search functionalities of the app work, please contact me to give you a valid URL to fill in for the SEARCH_API parameter in the settings file.
+
 
 ## Client libraries
 
