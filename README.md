@@ -92,3 +92,22 @@ npm run build-playout
 
 After building the YOUR_DIR/src/static/dist directory is created and contains the javascript files needed to make the app work properly
 
+## Working on the React components
+
+The search functionality and the player are built in React components. All of the code for this is located in YOUR_DIR/motu/src/static/app
+
+If you want to update the Javascript, or the HTML that is rendered within the React code, the easiest thing to do is start a webpack watcher that will automatically build either the motu-app.js or motu-playout.js
+
+To start the watcher for the motu-app.js (containing the search functionalities):
+
+```
+npm run dev
+```
+
+To start the watcher for the motu-playout.js (containing the player functionalities):
+
+```
+npm run dev-playout
+```
+
+**Note**: execute these commands in YOUR_DIR/src/static
