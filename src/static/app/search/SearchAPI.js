@@ -1,8 +1,9 @@
 const SearchAPI = {
 
-	fragmentSearch :function(term, selectedFacets, offset, size, callback) {
+	fragmentSearch :function(term, searchLayers, selectedFacets, offset, size, callback) {
 		var params = {
 			term : term,
+			searchLayers : searchLayers,
 			selectedFacets : selectedFacets,
 			offset : offset,
 			size : size

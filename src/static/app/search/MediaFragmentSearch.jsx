@@ -27,6 +27,7 @@ export default class MediaFragmentSearch extends React.Component {
 		console.debug('reimplement this!');
 		SearchAPI.fragmentSearch(
 			term,
+			this.state.searchLayers,
 			this.formatSelectedFacets(this.state.selectedFacets),
 			offset,
 			size,
