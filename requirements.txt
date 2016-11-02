@@ -6,4 +6,5 @@ click==6.6
 itsdangerous==0.24
 requests==2.11.1
 simplejson==3.10.0
+uWSGI==2.0.14
 wsgiref==0.1.2

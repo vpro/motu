@@ -7,8 +7,11 @@ class SearchEngine():
 		self.config = config
 
 	def getResource(self, resourceId, collectionId):
-		resp = self.es.get(index=collectionId, id=resourceId)
-		return resp
+		url = '%s/document/get_doc/%s/%s' % (self.config['SEARCH_API'], collectionId, resourceId)
+		resp = requests.get(url)
+		if resp.status_code == 200:
+			return json.loads(resp.text)
+		return None
 
 	def fragmentSearch(self, collectionId, term, searchLayers, selectedFacets, offset=0 , size=10, innerHitsOffset=0, innerHitsSize=3):
 		indices = []
@@ -235,20 +238,3 @@ class SearchEngine():
 				'title' : 'Filming location'
 			}
 		]
-
-
-if __name__ == '__main__':
-	se = SearchEngine({}) #TODO maybe define a config
-	"""
-	print se.fragmentSearch(
-		'motu',
-		'humans',
-		{'motu' : True, 'motu__srt' : True, 'motu__topics' : True},
-		None, #selected facets
-		0, #offset
-		10, #size
-		0, #inner offset
-		3 #inner size
-	)
-	"""
-	print se.getResource('George_Church', 'motu')
