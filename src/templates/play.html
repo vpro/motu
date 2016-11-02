@@ -1,0 +1,49 @@
+<!doctype HTML>
+
+<html>
+
+<head>
+	<title>Mind of the Universe | Watch</title>
+	 {% include 'head.html' %}
+
+	 <script>
+	 	var metadata = {{ metadata|tojson }}
+	 	console.debug(metadata);
+	 </script>
+</head>
+
+<body>
+
+	{% with page='play' %}
+    {% include 'nav.html' %}
+    {% endwith %}
+
+	<div class="container">
+		<h3>Interview</h3>
+
+		<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
+		<div id="segment_player"/>
+
+		<!-- SHOW THE METADATA t.b.d. -->
+
+		<!-- SHOW RELATED VIDEOS t.b.d. -->
+
+	</div>
+
+</body>
+
+<script type="text/javascript" src="/static/vendor/jwplayer-7.5.0/jwplayer.js"></script>
+
+<!-- Babel is needed to parse the labo-components.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+
+
+<!-- The component library -->
+<script src="/static/dist/motu-playout.js"></script>
+<script type="text/babel" src="/static/js/motu-playout.js"></script>
+
+
+</html>

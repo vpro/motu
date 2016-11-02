@@ -1,0 +1,1 @@
+export {default as FlexPlayer} from './playout/FlexPlayer';

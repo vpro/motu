@@ -1,0 +1,42 @@
+/* custom timebar below the player */
+
+.timebar {
+	width:100%;
+	height:50px;
+	display:block;
+	position:relative;
+	margin-top:10px;
+	background-color: black;
+	cursor: crosshair;
+}
+
+/* search results */
+
+.search-result {
+	border:2px solid dodgerblue;
+	margin-bottom:10px;
+	padding:10px;
+	border-radius: 6px;
+}
+
+/* facets on the left side */
+
+.facet-group {
+	list-style:none;
+	padding:0px;
+}
+
+.facet-item :hover {
+	color:dodgerblue;
+}
+
+/* the check boxes below the search bar */
+
+.search-layer-options {
+
+}
+
+.search-layer-option {
+	margin:10px 10px 0px 0px;
+	padding-right:5px;
+}

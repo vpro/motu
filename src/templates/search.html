@@ -1,0 +1,36 @@
+<!doctype HTML>
+
+<html>
+
+<head>
+	<title>Mind of the Universe | Search</title>
+    {% include 'head.html' %}
+</head>
+
+<body>
+
+	{% with page='search' %}
+    {% include 'nav.html' %}
+    {% endwith %}
+
+	<div class="container">
+		<h3>Doorzoek de interviews</h3>
+		<div id="fragment_search"/>
+	</div>
+
+
+
+</body>
+
+<!-- Babel is needed to parse the labo-components.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+
+
+<!-- The component library -->
+<script src="/static/dist/motu-app.js"></script>
+<script type="text/babel" src="/static/js/motu-search.js"></script>
+
+</html>

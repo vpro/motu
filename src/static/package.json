@@ -1,0 +1,55 @@
+{
+  "name": "motu",
+  "version": "0.0.9",
+  "description": "Mind of the Universe (VPRO)",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "playout": "webpack -d --watch --config webpack.config-playout.js",
+    "build": "webpack -p --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beeldengeluid/motu.git"
+  },
+  "keywords": [
+    "Science"
+  ],
+  "author": "Jaap Blom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beeldengeluid/motu/issues"
+  },
+  "homepage": "https://github.com/beeldengeluid/motu",
+  "dependencies": {
+    "flux": "^2.1.1",
+    "jquery": "^3.0.0",
+    "microevent": "^1.0.0",
+    "moment": "^2.14.1",
+    "mousetrap": "^1.6.0",
+    "react-autosuggest": "^3.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.11.1",
+    "bootstrap-loader": "^1.0.10",
+    "bootstrap-sass": "^3.3.6",
+    "css-loader": "^0.23.1",
+    "d3": "^4.1.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "imports-loader": "^0.6.5",
+    "node-sass": "^3.8.0",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "resolve-url-loader": "^1.5.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
+  }
+}
