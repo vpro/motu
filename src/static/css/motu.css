@@ -17,6 +17,15 @@
 	margin-bottom:10px;
 	padding:10px;
 	border-radius: 6px;
+	cursor:pointer;
+}
+
+.fragment-hit {
+	cursor:pointer;
+}
+
+.fragment-hit :hover {
+	background-color: #e3e3e3;
 }
 
 /* facets on the left side */

@@ -24,6 +24,7 @@ export default class JWPlayer extends React.Component {
 			controls : true,
 			image: null,
 			autostart: false,
+			//start: this.props.mediaObject.start / 1000,
 			key: 'cp1KvUB8slrOvOjg+U8melMoNwxOm/honmDwGg=='
 		})
 		if(this.props.eventCallbacks) {

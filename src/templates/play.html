@@ -7,9 +7,10 @@
 	 {% include 'head.html' %}
 
 	 <script>
-	 	var metadata = {{ metadata|tojson }}
-	 	console.debug(metadata);
-	 </script>
+		var _metadata = {{ metadata|tojson }};
+		var _start = {{start}};
+		var _end = {{end}};
+	</script>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
 
 <script type="text/javascript" src="/static/vendor/jwplayer-7.5.0/jwplayer.js"></script>
 
-<!-- Babel is needed to parse the labo-components.js -->
+<!-- Babel is needed to parse the motu-playout.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
@@ -44,6 +45,5 @@
 <!-- The component library -->
 <script src="/static/dist/motu-playout.js"></script>
 <script type="text/babel" src="/static/js/motu-playout.js"></script>
-
 
 </html>

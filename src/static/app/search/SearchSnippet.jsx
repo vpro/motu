@@ -20,6 +20,13 @@ export default class SearchSnippet extends React.Component {
 		}
 	}
 
+	gotoItemDetails(fragment, e) {
+		e.stopPropagation();
+		if(this.props.gotoItemDetails) {
+			this.props.gotoItemDetails(this.props.data, fragment);
+		}
+	}
+
 	render() {
 		let poster = null; //poster of the media object
 		let fragments = null; //the fragments found within each media object
@@ -47,7 +54,7 @@ export default class SearchSnippet extends React.Component {
 					)
 				}
 				return (
-					<div key={'frag__' + index} className="media fragment-hit">
+					<div key={'frag__' + index} className="media fragment-hit" onClick={this.gotoItemDetails.bind(this, frag)}>
 						<div className="media-left media-middle">
 							<a href="#">
 								{fragPoster}

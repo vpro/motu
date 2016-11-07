@@ -19,6 +19,12 @@ import settings
 _config = settings.config
 _searchEngine = SearchEngine(_config)
 
+"""
+Think about using this to load the pages faster:
+	https://react-server.io/docs/guides/writing-pages
+	http://stackoverflow.com/questions/34408059/rendering-react-on-server
+"""
+
 """------------------------------------------------------------------------------
 GLOBAL FUNCTIONS
 ------------------------------------------------------------------------------"""
@@ -49,9 +55,15 @@ def scientist():
 def play():
 	rid = request.args.get('id', None)
 	cid = request.args.get('cid', None)
+	s = request.args.get('s', -1)
+	e = request.args.get('e', -1)
 	if rid and cid:
 		metadata = _searchEngine.getResource(rid, cid)
-	return render_template('play.html', metadata=metadata)
+	return render_template('play.html',
+		metadata=metadata,
+		start=s,
+		end=e
+	)
 
 @app.route('/search')
 def search():
@@ -65,16 +77,7 @@ def static_from_root():
 @app.route('/s', methods=['post'])
 def s():
 	params = request.get_json(force=True)
-	resp = _searchEngine.fragmentSearch(
-		'motu',
-		params['term'],
-		params['searchLayers'],#{'motu' : True, 'motu__srt' : True, 'motu__topics' : True}
-		params['selectedFacets'],
-		params['offset'],
-		params['size'],
-		0, #inner offset
-		3 #inner size
-	)
+	resp = _searchEngine.fragmentSearch(params)
 	if resp:
 		return Response(simplejson.dumps(resp), mimetype='application/json')
 	return Response(getErrorMessage('Nothing found'), mimetype='application/json')

@@ -1,12 +1,15 @@
-function init() {
+function init(metadata, start, end) {
+	console.debug(metadata);
 	var FlexPlayer = motu.FlexPlayer;
 	var mediaObject = {
-		url : 'http://os-immix-w/mindoftheuniverse/George_Church/mp4/george_church_H264_AVC_8mb_BenG_169.mp4',
-		mimeType : 'video/mp4'
+		url : metadata._source.playableContent[0].url,
+		mimeType : 'video/mp4',
+		start : start,
+		end : end
 	}
 	var component =	(
 		<FlexPlayer
-			mediaObject={mediaObject} //TODO make this plural for playlist support
+			mediaObject={mediaObject}
 		/>
 	);
 
@@ -17,4 +20,4 @@ function init() {
 	);
 }
 
-init();
+init(_metadata, _start, _end)

@@ -40,7 +40,9 @@ export default class MediaFragmentSearch extends React.Component {
 		//stores the current output of the last search in the state (for bookmarking)
 		this.setState({
 			searchResults: data ? data.results : null,
-			facets : data ? data.facets : null
+			facets : data ? data.facets : null,
+			totalHits : data ? data.totalHits : 0,
+			totalUniqueHits : data ? data.totalUniqueHits : 0
 		});
 	}
 
@@ -75,12 +77,16 @@ export default class MediaFragmentSearch extends React.Component {
 			{selectedFacets : facets},
 			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, this.formatSelectedFacets(facets))
 		)
-
 	}
 
 	//this obviously does not reset the paging
 	gotoPage(pageNumber) {
-		this.search(this.refs.searchTerm.value, (pageNumber-1) * this.state.pageSize, this.state.pageSize, this.state.facets)
+		this.search(
+			this.refs.searchTerm.value,
+			(pageNumber-1) * this.state.pageSize,
+			this.state.pageSize,
+			this.formatSelectedFacets(this.state.facets)
+		)
 	}
 
 	showMore(result) {
@@ -187,7 +193,7 @@ export default class MediaFragmentSearch extends React.Component {
 
 		//only do this when there are search results
 		if(this.state.searchResults) {
-			let numResults = this.state.searchResults.length;
+			let numResults = this.state.totalHits;
 			let items = this.state.searchResults.map((result, index) => {
 				return (
 					<FlexHits
@@ -244,7 +250,7 @@ export default class MediaFragmentSearch extends React.Component {
 			}
 
 			//draw the result stats
-			resultStats = (<h6>Found media objects: {numResults}</h6>);
+			resultStats = (<h6>Found media objects: {this.state.totalUniqueHits}/{numResults}</h6>);
 
 			//draw the paging buttons
 			let pagingButtons = []

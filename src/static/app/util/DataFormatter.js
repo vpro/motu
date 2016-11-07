@@ -16,6 +16,7 @@ const DataFormatter = {
 
 	getResultSnippetData : function (result) {
 		let snippet = {
+			_id : result._id,
 			title: result.title || result._id,
 			date: result.date,
 			posterURL : result.posterURL

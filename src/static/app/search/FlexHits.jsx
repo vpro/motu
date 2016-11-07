@@ -12,15 +12,19 @@ export default class FlexHits extends React.Component {
 	//BIG TODO: there must be an overarching persistent ID system to load individual records
 	//eventually this should simply handle persistent (media fragment) URIs, instead of these silly params
 
-	gotoItemDetails(result) {
+	gotoItemDetails(result, fragment) {
 		if(this.props.itemDetailsPath && result._id) {
 			let temp = window.location.href;
 			let arr = temp.split("/");
 			let protHostPort = arr[0] + "//" + arr[2];
 			let url = protHostPort + '/' + this.props.itemDetailsPath + '?id=' + result._id;
-			url += '&cid=' + result._index;
+			url += '&cid=motu'
 			if(this.props.searchTerm) {
 				url += '&fq=' + this.props.searchTerm;
+			}
+			if(fragment) {
+				url += '&s=' + fragment.start;
+				url += '&e=' + fragment.end;
 			}
 			document.location.href = url;
 		}
@@ -39,12 +43,14 @@ export default class FlexHits extends React.Component {
 			<div
 				className="search-result"
 				key={result._id}
-				onClick={this.gotoItemDetails.bind(this, result)}
+				onClick={this.gotoItemDetails.bind(this, result, null)}
 			>
 				<SearchSnippet
 					data={snippet}
 					showMore={this.showMore.bind(this)}
-					searchTerm={this.props.searchTerm}/>
+					searchTerm={this.props.searchTerm}
+					gotoItemDetails={this.gotoItemDetails.bind(this)}
+					/>
 			</div>
 		);
 	}

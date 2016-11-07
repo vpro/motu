@@ -23,7 +23,7 @@ export default class FlexPlayer extends React.Component {
 			duration : 0,
 			start : -1,
 			end : -1,
-			paused : true,//FIXME call the player API instead (isPaused)?
+			paused : true,
 			fragmentMode : false
 		}
 	}
