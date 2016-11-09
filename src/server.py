@@ -36,6 +36,33 @@ def getSuccessMessage(msg, data):
 	return simplejson.dumps({'success' : msg, 'data' : data})
 
 """------------------------------------------------------------------------------
+AUTHENTICATION
+------------------------------------------------------------------------------"""
+
+def check_auth(username, password):
+	return username == 'admin' and password == '1234__it-will-spin'
+
+def authenticate():
+	return Response(
+	'Could not verify your access level for that URL.\n'
+	'You have to login with proper credentials', 401,
+	{'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def isLoggedIn(request):
+	if request.authorization:
+		return True
+	return False
+
+def requires_auth(f):
+	@wraps(f)
+	def decorated(*args, **kwargs):
+		auth = request.authorization
+		if not auth or not check_auth(auth.username, auth.password):
+			return authenticate()
+		return f(*args, **kwargs)
+	return decorated
+
+"""------------------------------------------------------------------------------
 STATIC PAGES THAT DO NOT USE THE COMPONENT LIBRARY
 ------------------------------------------------------------------------------"""
 
@@ -52,6 +79,7 @@ def scientist():
 	return render_template('scientist.html')
 
 @app.route('/play')
+@requires_auth
 def play():
 	rid = request.args.get('id', None)
 	cid = request.args.get('cid', None)
