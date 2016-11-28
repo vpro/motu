@@ -73,7 +73,9 @@ def home():
 	#		=> home text from a file
 	#		=> lijst met wetenschappers (plaatje, vakgebied, onderwerpen/cloud)
 	#		=> tag cloud (afgeleid van top level UNESCO tags?)
-	return render_template('index.html')
+	return render_template('index.html',
+		random_video='http://rdbg.tuxic.nl/mindoftheuniverse/Erik_Demaine/mp4/ED_INTERVIEW_1_H264_AVC_8mb_BenG_169.1.mp4'
+	)
 
 @app.route('/about')
 def about():
@@ -91,8 +93,22 @@ def scientist():
 
 @app.route('/search')
 def search():
+	s = request.args.get('s', None)
+	sf = request.args.get('sf', None)
+	facets = {}
+	if sf:
+		tmp = sf.split(',')
+		for f in tmp:
+			facets[f] = True
+	#body.value.tags|Humanism, title_raw|Sara Seager, topics|astrophysicycs, topics|physics
+	params = {
+		'term' : s,
+		'facets' : facets
+	}
 	#TODO uitlezen search query uit URL
-	return render_template('search.html')
+	return render_template('search.html',
+		searchParams=params
+	)
 
 @app.route('/play')
 @requires_auth

@@ -5,6 +5,7 @@ function init() {
 		<MediaFragmentSearch
 			itemDetailsPath="play"
 			collection="motu"
+			searchParams={searchParams}
 		/>
 	);
 

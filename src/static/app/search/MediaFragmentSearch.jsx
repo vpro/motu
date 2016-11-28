@@ -11,24 +11,39 @@ export default class MediaFragmentSearch extends React.Component {
 			searchLayers : {'motu' : true, 'motu__srt' : false, 'motu__topics' : true},
 			displayFacets : true,
 			facets : {},
-			selectedFacets : {}
+			selectedFacets : this.props.searchParams ? this.props.searchParams.facets : {}
 		}
-		this.SEARCH_LAYER_MAPPING = {
-			'srt' : 'Subtitles',
-			'asr' : 'Automatic speech transcripts',
-			'topics' : 'Topical media fragments',
-			'default' : 'Archival metadata'
+	}
+
+	componentDidMount() {
+		//to an initial search if the URL contains search parameters
+		if(this.props.searchParams) {
+			this.refs.searchTerm.value = this.props.searchParams.term;
+			this.search(
+				this.props.searchParams.term,
+				0,
+				10,
+				this.formatSelectedFacets(this.props.searchParams.facets)
+			);
 		}
 	}
 
 	/*---------------------------------- SEARCH --------------------------------------*/
 
+	//update the browser address bar, but don't reload. Instead the browser history is used, so it is even possible to go back
+	//to previous searches
+	updateAddressBar() {
+		var sf = Object.keys(this.state.selectedFacets).join(',');
+		var url = "/search?s=" + this.refs.searchTerm.value + '&sf=' + sf;
+		window.history.pushState("search", "Search", url);
+	}
+
 	search(term, offset, size, facets) {
-		console.debug('reimplement this!');
+		console.debug(this.state.selectedFacets);
 		SearchAPI.fragmentSearch(
 			term,
 			this.state.searchLayers,
-			this.formatSelectedFacets(this.state.selectedFacets),
+			facets,
 			offset,
 			size,
 			this.onResults.bind(this)
@@ -36,14 +51,13 @@ export default class MediaFragmentSearch extends React.Component {
 	}
 
 	onResults(data) {
-		console.debug(data);
 		//stores the current output of the last search in the state (for bookmarking)
 		this.setState({
 			searchResults: data ? data.results : null,
 			facets : data ? data.facets : null,
 			totalHits : data ? data.totalHits : 0,
 			totalUniqueHits : data ? data.totalUniqueHits : 0
-		});
+		}, this.updateAddressBar());
 	}
 
 	//this resets the paging
@@ -51,7 +65,7 @@ export default class MediaFragmentSearch extends React.Component {
 		e.preventDefault();
 		this.setState(
 			{selectedFacets : {}},
-			this.search(this.refs.searchTerm.value, 0, this.state.pageSize)
+			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, [])
 		)
 	}
 
@@ -75,7 +89,7 @@ export default class MediaFragmentSearch extends React.Component {
 			this.refs.searchTerm.value,
 			(pageNumber-1) * this.state.pageSize,
 			this.state.pageSize,
-			this.formatSelectedFacets(this.state.facets)
+			this.formatSelectedFacets(this.state.selectedFacets)
 		)
 	}
 

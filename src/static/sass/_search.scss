@@ -41,22 +41,3 @@
 .facet-item :hover {
 	color:dodgerblue;
 }
-
-/* the check boxes below the search bar */
-
-.search-layer-options {
-	.search-layer-option {
-		display:inline;
-		margin-right:20px;
-		cursor:pointer;
-		font-weight:normal;
-		input {
-			margin-right:10px;
-		}
-	}
-}
-
-.search-layer-option {
-	margin:10px 10px 0px 0px;
-	padding-right:5px;
-}

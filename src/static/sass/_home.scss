@@ -12,28 +12,16 @@ body {
 	font-family: "Roboto" !important;
 }
 
-strong {
-	font-family:Arial;
-}
-
-h1, h2, h3 {
-
-}
-
-h4, h5, h6 {
-
-}
-
-.notice {
-	color:crimson;
-}
-
 .navbar-brand {
 	img {
 		height:22px;
 	}
 }
 
-.interactive {
-	cursor:pointer;
+.home-text {
+	@include block;
+}
+
+.home-video {
+
 }

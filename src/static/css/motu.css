@@ -1,6 +1,6 @@
 @charset "UTF-8";
-/* Default colors */
 /* Default margins */
+/* Colors */
 /* Override your bootstrap variables here */
 /* This is needed for the glyphicons to work */
 /* Further overrides */
@@ -8851,29 +8851,21 @@ body {
   font-family: "Roboto" !important;
 }
 
-/* line 15, ../sass/_home.scss */
-strong {
-  font-family: Arial;
-}
-
-/* line 27, ../sass/_home.scss */
-.notice {
-  color: crimson;
-}
-
-/* line 32, ../sass/_home.scss */
+/* line 16, ../sass/_home.scss */
 .navbar-brand img {
   height: 22px;
 }
 
-/* line 37, ../sass/_home.scss */
-.interactive {
-  cursor: pointer;
+/* line 21, ../sass/_home.scss */
+.home-text {
+  border: 1px solid royalblue;
+  box-shadow: 3px 3px 3px;
+  padding: 20px;
 }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 /* search results */
-/* line 5, ../sass/_component-library.scss */
+/* line 5, ../sass/_search.scss */
 .search-result {
   margin: 5px;
   padding: 5px;
@@ -8881,16 +8873,16 @@ strong {
   box-shadow: 3px 3px 3px;
   cursor: pointer;
 }
-/* line 11, ../sass/_component-library.scss */
+/* line 11, ../sass/_search.scss */
 .search-result:hover {
   background-color: #e3e3e3;
 }
-/* line 15, ../sass/_component-library.scss */
+/* line 15, ../sass/_search.scss */
 .search-result .fragment-hit:hover {
   background-color: #aaa;
 }
 
-/* line 21, ../sass/_component-library.scss */
+/* line 21, ../sass/_search.scss */
 .tag {
   font-size: 100% !important;
   display: inline-block !important;
@@ -8898,46 +8890,27 @@ strong {
 }
 
 /* facets on the left side */
-/* line 29, ../sass/_component-library.scss */
+/* line 29, ../sass/_search.scss */
 .facet-group {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
-/* line 33, ../sass/_component-library.scss */
+/* line 33, ../sass/_search.scss */
 .facet-group .facet-item {
   color: dodgerblue;
 }
-/* line 35, ../sass/_component-library.scss */
+/* line 35, ../sass/_search.scss */
 .facet-group .facet-item:hover {
   color: #ccc;
 }
 
-/* line 41, ../sass/_component-library.scss */
+/* line 41, ../sass/_search.scss */
 .facet-item :hover {
   color: dodgerblue;
 }
 
-/* the check boxes below the search bar */
-/* line 48, ../sass/_component-library.scss */
-.search-layer-options .search-layer-option {
-  display: inline;
-  margin-right: 20px;
-  cursor: pointer;
-  font-weight: normal;
-}
-/* line 53, ../sass/_component-library.scss */
-.search-layer-options .search-layer-option input {
-  margin-right: 10px;
-}
-
-/* line 59, ../sass/_component-library.scss */
-.search-layer-option {
-  margin: 10px 10px 0px 0px;
-  padding-right: 5px;
-}
-
-/* line 1, ../sass/_media-players.scss */
+/* line 1, ../sass/_playout.scss */
 .timebar {
   width: 100%;
   height: 50px;
@@ -8948,12 +8921,12 @@ strong {
   cursor: crosshair;
 }
 
-/* line 12, ../sass/_media-players.scss */
+/* line 12, ../sass/_playout.scss */
 .media-player img {
   max-width: 100%;
 }
 
-/* line 17, ../sass/_media-players.scss */
+/* line 17, ../sass/_playout.scss */
 .image-overlay {
   outline: 1px solid yellowchiffon;
   box-shadow: 10px 10px 5px #888888;
@@ -8961,7 +8934,7 @@ strong {
   background-color: rgba(255, 250, 205, 0.2);
   cursor: pointer;
 }
-/* line 23, ../sass/_media-players.scss */
+/* line 23, ../sass/_playout.scss */
 .image-overlay.active {
   outline: 1px solid red;
   box-shadow: 10px 10px 5px crimson;

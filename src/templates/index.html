@@ -14,17 +14,64 @@
     {% endwith %}
 
 	<div class="container">
+
+		<!-- FIRST ROW -->
 		<div class="row">
-			<div class="col-md-offset-3 col-md-6">
+
+			<!-- WELCOME HEADER -->
+			<div class="col-md-12">
 				<div class="text-center">
-					<h3>Welcome to Mind of the Universe</h3>
-					<br/>
-					<img src="/static/images/scientist.gif"
-						alt="CC BY-SA 3.0 (https://commons.wikimedia.org/wiki/User:MG)"
-						title="CC BY-SA 3.0 (https://commons.wikimedia.org/wiki/User:MG)">
+					<h1>Welcome to Mind of the Universe</h1>
 				</div>
 			</div>
 		</div>
+
+		<!-- SECOND ROW -->
+		<div class="row">
+
+			<!-- INTRO TEXT -->
+			<div class="col-md-6 home-text">
+				Mind of the Universe is a place of learning, a place where normal things are scrutinised in such ways that they won't appear normal very often anymore
+			</div>
+
+			<!-- RANDOM VIDEO -->
+			<div class="col-md-offset-1 col-md-5 home-video">
+				<video width="320" height="240" controls>
+					<source src="{{random_video}}" type="video/mp4">
+					Your browser does not support the video tag
+				</video>
+			</div>
+
+		</div>
+
+		<!-- THIRD ROW -->
+		<div class="row">
+			<div class="col-md-12">
+				<form class="form-inline" action="/search" method="GET">
+					<div class="form-group">
+						<label for="s">Search</label>
+						<input type="text" class="form-control" id="s" name="s" placeholder="Search"/>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+		<!-- FOURTH ROW -->
+		<div class="row">
+
+			<!-- LIST OF SCIENTISTS -->
+			<div class="col-md-6">
+
+			</div>
+
+			<!-- TAG CLOUD -->
+			<div class="col-md-3">
+
+			</div>
+
+		</div>
+
 	</div>
 
 </body>
