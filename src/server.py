@@ -68,6 +68,11 @@ STATIC PAGES THAT DO NOT USE THE COMPONENT LIBRARY
 
 @app.route('/')
 def home():
+	#TODO params:
+	#		=> most popular/random video
+	#		=> home text from a file
+	#		=> lijst met wetenschappers (plaatje, vakgebied, onderwerpen/cloud)
+	#		=> tag cloud (afgeleid van top level UNESCO tags?)
 	return render_template('index.html')
 
 @app.route('/about')
@@ -76,7 +81,18 @@ def about():
 
 @app.route('/scientist')
 def scientist():
+	#TODO params:
+	#		=> foto
+	#		=> wikipedia bio
+	#		=> lijst met interview videos van deze wetenschapper
+	#		=> tag cloud (afgeleid van ondertiteling / top UNESCO tags?)
+	#TODO feedback formulier
 	return render_template('scientist.html')
+
+@app.route('/search')
+def search():
+	#TODO uitlezen search query uit URL
+	return render_template('search.html')
 
 @app.route('/play')
 @requires_auth
@@ -92,10 +108,6 @@ def play():
 		start=s,
 		end=e
 	)
-
-@app.route('/search')
-def search():
-	return render_template('search.html')
 
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')

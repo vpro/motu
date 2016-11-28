@@ -8,7 +8,7 @@ export default class MediaFragmentSearch extends React.Component {
 		super(props);
 		this.state = {
 			pageSize : 10,
-			searchLayers : {'motu' : true, 'motu__srt' : true, 'motu__topics' : true},
+			searchLayers : {'motu' : true, 'motu__srt' : false, 'motu__topics' : true},
 			displayFacets : true,
 			facets : {},
 			selectedFacets : {}
@@ -53,16 +53,6 @@ export default class MediaFragmentSearch extends React.Component {
 			{selectedFacets : {}},
 			this.search(this.refs.searchTerm.value, 0, this.state.pageSize)
 		)
-	}
-
-	//this resets the paging
-	toggleSearchLayer(e) {
-		let searchLayers = this.state.searchLayers;
-		searchLayers[e.target.id] = !searchLayers[e.target.id];
-		this.setState(
-			{searchLayers : searchLayers},
-			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, this.formatSelectedFacets(this.state.selectedFacets))
-		);
 	}
 
 	//this resets the paging
@@ -135,28 +125,21 @@ export default class MediaFragmentSearch extends React.Component {
 	getFacets() {
 		return [
 			{
-				field: 'body.type',
-				title : 'Fragment type'
+				'field' : 'topics',
+				'title' : 'Topics'
 			},
 			{
-				field : '_index',
-				title : 'Index'
+				'field' : 'title_raw',
+				'title' : 'Researchers'
 			},
 			{
-				field : 'topics',
-				title : 'Topics'
+				'field' : 'tags',
+				'title' : 'Tags'
 			},
 			{
-				field : 'title_raw',
-				title : 'Researchers'
-			},
-			{
-				field : 'tags',
-				title : 'Tags'
-			},
-			{
-				field : 'location',
-				title : 'Filming location'
+				'field' : 'body.value.tags',
+				'title' : 'Segment tags',
+				'type' : 'nested'
 			}
 		]
 	}
@@ -169,27 +152,6 @@ export default class MediaFragmentSearch extends React.Component {
 		let resultStats = null;
 		let paging = null;
 		let heading = null;
-		let layerOptions = null;
-
-		//the checkboxes for selecting layers
-		if(this.state.searchLayers) {
-			let layers = Object.keys(this.state.searchLayers).map((layer, index) => {
-				return (
-					<label key={'layer__' + index} className="search-layer-option">
-						<input id={layer} type="checkbox" checked={this.state.searchLayers[layer]}
-							onChange={this.toggleSearchLayer.bind(this)}/>
-							&nbsp;{this.getSearchLayerName(this.props.collection, layer)}
-					</label>
-				)
-			})
-			if(layers) {
-				layerOptions = (
-					<div className="search-layer-options">
-						{layers}
-					</div>
-				)
-			}
-		}
 
 		//only do this when there are search results
 		if(this.state.searchResults) {
@@ -284,7 +246,6 @@ export default class MediaFragmentSearch extends React.Component {
 						</form>
 					</div>
 				</div>
-				{layerOptions}
 				{resultStats}
 				{paging}
 				<br/>

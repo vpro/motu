@@ -27,6 +27,15 @@ export default class SearchSnippet extends React.Component {
 		}
 	}
 
+	formatTranscriptTags(tags, index) {
+		if(tags) {
+			return tags.map((t, i) => {
+				return (<span key={'tag__' + index + '__' + i} className="label label-primary tag">{t}</span>);
+			});
+		}
+		return null
+	}
+
 	render() {
 		let poster = null; //poster of the media object
 		let fragments = null; //the fragments found within each media object
@@ -46,6 +55,7 @@ export default class SearchSnippet extends React.Component {
 			let innerHits = this.props.data.fragments.map((frag, index) => {
 				let fragPoster = null;
 				let fragSnippet = DataFormatter.formatTranscriptSnippet(frag.words, this.props.searchTerm);
+				let fragTags = this.formatTranscriptTags(frag.tags, index);
 				if(frag.posterURL) {
 					fragPoster = (
 						<img className="media-object" src={frag.posterURL}
@@ -65,6 +75,8 @@ export default class SearchSnippet extends React.Component {
 								{frag.title ? frag.title + ' ' : ''}{TimeUtil.formatMillisToTime(frag.start)}
 							</h4>
 							{fragSnippet}
+							&nbsp;
+							{fragTags}
 						</div>
 					</div>
 				)

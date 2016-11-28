@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/beeldengeluid/motu",
   "dependencies": {
+    "bootstrap-sass": "^3.3.7",
     "flux": "^2.1.1",
     "jquery": "^3.0.0",
     "microevent": "^1.0.0",

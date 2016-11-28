@@ -14,7 +14,7 @@ var BUILD_DIR = path.resolve(__dirname, 'dist/');
 var APP_DIR = path.resolve(__dirname, 'app');
 
 var config = {
-	entry: [ 'bootstrap-loader', APP_DIR + '/index-playout.jsx'],
+	entry: [ APP_DIR + '/index-playout.jsx'],
 
 	devtool: 'source-map',
 
@@ -24,7 +24,6 @@ var config = {
 		filename: 'motu-playout.js',
 		library: 'motu',
 		libraryTarget: 'umd'
-		//umdNamedDefine: true
 	},
 
 	resolve: { extensions: ['', '.js', '.jsx'] },
@@ -36,27 +35,7 @@ var config = {
 				include : APP_DIR,
 				loader : 'babel',
 				exclude: /node_modules/
-			},
-			{ test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
-			{
-				test: /\.css$/,
-				loaders: [
-					'style',
-					'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]',
-					'postcss',
-				],
-			},
-			{
-				test: /\.scss$/,
-				loaders: [
-					'style',
-					'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]',
-					'postcss',
-					'sass',
-				],
-			},
-			{ test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
-			{ test: /\.(ttf|eot)$/, loader: 'file' },
+			}
 		]
 	},
 

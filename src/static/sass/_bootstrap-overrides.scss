@@ -1,0 +1,69 @@
+/* Override your bootstrap variables here */
+
+$navbar-border-radius : 0px;
+$navbar-margin-bottom: 0px;
+$list-group-hover-bg: $clLightOrange;
+
+
+
+/* This is needed for the glyphicons to work */
+
+$icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/" !default;
+
+/* Further overrides */
+
+/* Defaults */
+
+$border-radius-base:        0px !default;
+$border-radius-large:       0px !default;
+$border-radius-small:       0px !default;
+
+
+/* Navbar */
+
+$navbar-margin-bottom : 0px;
+
+/* Panels */
+
+$panel-default-heading-bg: $lightmustard;
+$panel-heading-padding: 5px 10px;
+.panel {
+	margin:$defaultMargin 0px;
+}
+
+/* Thumbnail caption */
+
+$thumbnail-caption-padding : 0px;
+$thumbnail-padding: 1px;
+
+.thumbnail {
+	margin-bottom:0px !important;
+}
+
+
+/* Labels */
+
+.label {
+	border-radius:0px !important;
+}
+
+/* Modals */
+
+.modal-header {
+	padding:$defaultMargin !important;
+	background-color:$clGrey;
+}
+
+.modal-footer {
+	padding:$defaultMargin !important;
+}
+
+/* Custom additions to Bootstrap classes */
+
+.interactive.glyphicon {
+	cursor:pointer;
+}
+
+.selected.glyphicon {
+	color:$wonderblue;
+}

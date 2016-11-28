@@ -24,14 +24,6 @@ class SearchEngine():
 	def getDesiredFacets(self):
 		return [
 			{
-				'field': 'body.type',
-				'title' : 'Fragment type'
-			},
-			{
-				'field' : '_index',
-				'title' : 'Index'
-			},
-			{
 				'field' : 'topics',
 				'title' : 'Topics'
 			},
@@ -44,7 +36,8 @@ class SearchEngine():
 				'title' : 'Tags'
 			},
 			{
-				'field' : 'location',
-				'title' : 'Filming location'
+				'field' : 'body.value.tags',
+				'title' : 'Segment tags',
+				'type' : 'nested'
 			}
 		]

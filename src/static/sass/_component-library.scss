@@ -1,0 +1,62 @@
+/* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
+
+/* search results */
+
+.search-result {
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid $clBlue;
+	box-shadow: 3px 3px 3px;
+	cursor: pointer;
+	&:hover {
+		background-color: #e3e3e3;
+	}
+	.fragment-hit {
+		&:hover {
+			background-color: #aaa;
+		}
+	}
+}
+
+.tag {
+	font-size: 100% !important;
+	display: inline-block !important;
+	margin: 0px 5px 5px 0px;
+}
+
+/* facets on the left side */
+
+.facet-group {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	.facet-item {
+		color: dodgerblue;
+		&:hover {
+			color:#ccc;
+		}
+	}
+}
+
+.facet-item :hover {
+	color:dodgerblue;
+}
+
+/* the check boxes below the search bar */
+
+.search-layer-options {
+	.search-layer-option {
+		display:inline;
+		margin-right:20px;
+		cursor:pointer;
+		font-weight:normal;
+		input {
+			margin-right:10px;
+		}
+	}
+}
+
+.search-layer-option {
+	margin:10px 10px 0px 0px;
+	padding-right:5px;
+}
