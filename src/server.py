@@ -87,12 +87,6 @@ def about():
 
 @app.route('/scientist')
 def scientist():
-	#TODO params:
-	#		=> foto
-	#		=> wikipedia bio
-	#		=> lijst met interview videos van deze wetenschapper
-	#		=> tag cloud (afgeleid van ondertiteling / top UNESCO tags?)
-	#TODO feedback formulier
 	sid = request.args.get('id', None)
 	if sid:
 		scientist = _dataLoader.loadScientist(sid)
@@ -124,14 +118,14 @@ def search():
 @app.route('/play')
 @requires_auth
 def play():
-	rid = request.args.get('id', None)
-	cid = request.args.get('cid', None)
+	sid = request.args.get('id', None)
+	searchTerm = request.args.get('st', None)
 	s = request.args.get('s', -1)
 	e = request.args.get('e', -1)
-	if rid and cid:
-		metadata = _searchEngine.getResource(rid, cid)
+	if sid:
+		scientist = _dataLoader.loadScientist(sid)
 	return render_template('play.html',
-		metadata=metadata,
+		scientist=scientist,
 		start=s,
 		end=e
 	)

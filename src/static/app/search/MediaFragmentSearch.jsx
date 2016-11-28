@@ -257,9 +257,11 @@ export default class MediaFragmentSearch extends React.Component {
 						<form className="form-inline">
 							<div className="form-group">
 								<label htmlFor="search_term">Search</label>
+								&nbsp;
 								<input type="text" className="form-control" style={{width:'600px'}} id="search_term"
 									ref="searchTerm" placeholder="Search"/>
 							</div>
+							&nbsp;
 							<button className="btn btn-default" onClick={this.newSearch.bind(this)}>Submit</button>
 						</form>
 					</div>

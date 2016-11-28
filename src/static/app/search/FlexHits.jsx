@@ -18,9 +18,8 @@ export default class FlexHits extends React.Component {
 			let arr = temp.split("/");
 			let protHostPort = arr[0] + "//" + arr[2];
 			let url = protHostPort + '/' + this.props.itemDetailsPath + '?id=' + result._id;
-			url += '&cid=motu'
 			if(this.props.searchTerm) {
-				url += '&fq=' + this.props.searchTerm;
+				url += '&st=' + this.props.searchTerm;
 			}
 			if(fragment) {
 				url += '&s=' + fragment.start;

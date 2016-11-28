@@ -7,9 +7,10 @@
 	 {% include 'head.html' %}
 
 	 <script>
-		var _metadata = {{ metadata|tojson }};
+		var _scientist = {{ scientist|tojson }};
 		var _start = {{start}};
 		var _end = {{end}};
+		console.debug(_scientist);
 	</script>
 </head>
 
@@ -20,14 +21,60 @@
     {% endwith %}
 
 	<div class="container">
-		<h3>Interview</h3>
 
-		<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
-		<div id="segment_player"/>
+		<!-- FIRST ROW -->
+		<div class="row">
+			<div class="text-center">
+				<div class="col-md-12">
+					<form class="form-inline" action="/search" method="GET">
+						<div class="form-group">
+							<label for="st">Search</label>
+							<input type="text" class="form-control" style="width:800px;" id="st" name="st" placeholder="Search"/>
+						</div>
+						<input type="hidden" name="sf" value="{{'title_raw|' + scientist.name}}"/>
+						<input type="hidden" name="fr" value="0"/>
+						<input type="hidden" name="sz" value="10"/>
+					</form>
+				</div>
+			</div>
+		</div>
 
-		<!-- SHOW THE METADATA t.b.d. -->
+		<!-- SECOND ROW -->
+		<div class="row top-buffer">
+			<div class="col-md-12">
+				<h1>{{scientist.name}}</h1>
+			</div>
+		</div>
 
-		<!-- SHOW RELATED VIDEOS t.b.d. -->
+		<!-- THIRD ROW -->
+		<div class="row top-buffer">
+			<div class="col-md-12">
+				<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
+				<div id="video_player"></div>
+			</div>
+		</div>
+
+		<!-- FOURTH ROW -->
+		<div class="row top-buffer">
+			<div class="col-md-12">
+				<button class="btn btn-danger">DOWNLOAD THE VIDEO</button>
+			</div>
+		</div>
+
+		<!-- FIFTH ROW -->
+		<div class="row top-buffer">
+			<div class="col-md-12">
+				<div id="transcript-controls">
+					{% for line in scientist.transcript %}
+						<span id="{{line.number}}" class="sub" onclick="seek({{line.start}})">
+							{{line.content}}
+						</span><br>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+
 
 	</div>
 
@@ -46,6 +93,6 @@
 
 <!-- The component library -->
 <script src="/static/dist/motu-playout.js"></script>
-<script type="text/babel" src="/static/js/motu-playout.js"></script>
+<script src="/static/js/motu-playout.js"></script>
 
 </html>

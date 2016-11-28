@@ -12,23 +12,41 @@ body {
 	font-family: "Roboto" !important;
 }
 
+/* ------------ On several pages ------------*/
+
+.top-buffer {
+	margin-top:$defaultMargin * 2;
+}
+
+.video-embed {
+
+}
+
+.tag-cloud {
+	@include block;
+}
+
+
+
+/* ------------ nav.html ------------ */
+
 .navbar-brand {
 	img {
 		height:22px;
 	}
 }
 
-.top-buffer {
-	margin-top:$defaultMargin * 2;
-}
+
+
+/* ------------ index.html ------------ */
 
 .home-text {
 	@include block;
 }
 
-.video-embed {
 
-}
+
+/* ------------ scientist.html ------------ */
 
 .scientist {
 	img {
@@ -46,11 +64,24 @@ body {
 	@include block;
 }
 
-.tag-cloud {
-	@include block;
+
+/* ------------ play.html ------------ */
+
+#transcript-controls {
+	height: 200px;
+	width: 100%;
+	padding:$defaultMargin;
+	overflow-y:auto;
+	.active {
+		font-weight:bold;
+		color:red;
+	}
 }
 
-/* make it sticky */
-#footer {
 
+
+/* ------------ footer.html ------------ */
+
+#footer {
+	margin-top:$defaultMargin * 4;
 }

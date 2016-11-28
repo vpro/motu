@@ -8851,48 +8851,71 @@ body {
   font-family: "Roboto" !important;
 }
 
-/* line 16, ../sass/_home.scss */
-.navbar-brand img {
-  height: 22px;
-}
-
-/* line 21, ../sass/_home.scss */
+/* ------------ On several pages ------------*/
+/* line 17, ../sass/_home.scss */
 .top-buffer {
   margin-top: 20px;
 }
 
 /* line 25, ../sass/_home.scss */
-.home-text {
-  border: 1px solid royalblue;
-  box-shadow: 3px 3px 3px;
-  padding: 20px;
-}
-
-/* line 34, ../sass/_home.scss */
-.scientist img {
-  height: 80px;
-}
-
-/* line 40, ../sass/_home.scss */
-.scientist-photo img {
-  height: 200px;
-}
-
-/* line 45, ../sass/_home.scss */
-.scientist-bio {
-  border: 1px solid royalblue;
-  box-shadow: 3px 3px 3px;
-  padding: 20px;
-}
-
-/* line 49, ../sass/_home.scss */
 .tag-cloud {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
 }
 
-/* make it sticky */
+/* ------------ nav.html ------------ */
+/* line 34, ../sass/_home.scss */
+.navbar-brand img {
+  height: 22px;
+}
+
+/* ------------ index.html ------------ */
+/* line 43, ../sass/_home.scss */
+.home-text {
+  border: 1px solid royalblue;
+  box-shadow: 3px 3px 3px;
+  padding: 20px;
+}
+
+/* ------------ scientist.html ------------ */
+/* line 52, ../sass/_home.scss */
+.scientist img {
+  height: 80px;
+}
+
+/* line 58, ../sass/_home.scss */
+.scientist-photo img {
+  height: 200px;
+}
+
+/* line 63, ../sass/_home.scss */
+.scientist-bio {
+  border: 1px solid royalblue;
+  box-shadow: 3px 3px 3px;
+  padding: 20px;
+}
+
+/* ------------ play.html ------------ */
+/* line 70, ../sass/_home.scss */
+#transcript-controls {
+  height: 200px;
+  width: 100%;
+  padding: 10px;
+  overflow-y: auto;
+}
+/* line 75, ../sass/_home.scss */
+#transcript-controls .active {
+  font-weight: bold;
+  color: red;
+}
+
+/* ------------ footer.html ------------ */
+/* line 85, ../sass/_home.scss */
+#footer {
+  margin-top: 40px;
+}
+
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 /* search results */
 /* line 5, ../sass/_search.scss */
