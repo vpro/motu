@@ -8857,32 +8857,63 @@ body {
 }
 
 /* line 21, ../sass/_home.scss */
+.top-buffer {
+  margin-top: 20px;
+}
+
+/* line 25, ../sass/_home.scss */
 .home-text {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
 }
 
+/* line 34, ../sass/_home.scss */
+.scientist img {
+  height: 80px;
+}
+
+/* line 40, ../sass/_home.scss */
+.scientist-photo img {
+  height: 200px;
+}
+
+/* line 45, ../sass/_home.scss */
+.scientist-bio {
+  border: 1px solid royalblue;
+  box-shadow: 3px 3px 3px;
+  padding: 20px;
+}
+
+/* line 49, ../sass/_home.scss */
+.tag-cloud {
+  border: 1px solid royalblue;
+  box-shadow: 3px 3px 3px;
+  padding: 20px;
+}
+
+/* make it sticky */
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 /* search results */
 /* line 5, ../sass/_search.scss */
 .search-result {
-  margin: 5px;
-  padding: 5px;
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
+  padding: 20px;
+  margin: 5px;
+  padding: 5px;
   cursor: pointer;
 }
-/* line 11, ../sass/_search.scss */
+/* line 10, ../sass/_search.scss */
 .search-result:hover {
   background-color: #e3e3e3;
 }
-/* line 15, ../sass/_search.scss */
+/* line 14, ../sass/_search.scss */
 .search-result .fragment-hit:hover {
   background-color: #aaa;
 }
 
-/* line 21, ../sass/_search.scss */
+/* line 20, ../sass/_search.scss */
 .tag {
   font-size: 100% !important;
   display: inline-block !important;
@@ -8890,22 +8921,22 @@ body {
 }
 
 /* facets on the left side */
-/* line 29, ../sass/_search.scss */
+/* line 28, ../sass/_search.scss */
 .facet-group {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
-/* line 33, ../sass/_search.scss */
+/* line 32, ../sass/_search.scss */
 .facet-group .facet-item {
   color: dodgerblue;
 }
-/* line 35, ../sass/_search.scss */
+/* line 34, ../sass/_search.scss */
 .facet-group .facet-item:hover {
   color: #ccc;
 }
 
-/* line 41, ../sass/_search.scss */
+/* line 40, ../sass/_search.scss */
 .facet-item :hover {
   color: dodgerblue;
 }

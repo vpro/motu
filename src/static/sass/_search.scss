@@ -3,10 +3,9 @@
 /* search results */
 
 .search-result {
+	@include block;
 	margin: 5px;
 	padding: 5px;
-	border: 1px solid $clBlue;
-	box-shadow: 3px 3px 3px;
 	cursor: pointer;
 	&:hover {
 		background-color: #e3e3e3;

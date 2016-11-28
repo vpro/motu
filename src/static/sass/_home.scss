@@ -18,10 +18,39 @@ body {
 	}
 }
 
+.top-buffer {
+	margin-top:$defaultMargin * 2;
+}
+
 .home-text {
 	@include block;
 }
 
-.home-video {
+.video-embed {
+
+}
+
+.scientist {
+	img {
+		height: 80px;
+	}
+}
+
+.scientist-photo {
+	img {
+		height: 200px;
+	}
+}
+
+.scientist-bio {
+	@include block;
+}
+
+.tag-cloud {
+	@include block;
+}
+
+/* make it sticky */
+#footer {
 
 }

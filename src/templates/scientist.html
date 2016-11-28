@@ -15,26 +15,71 @@
 
 	<div class="container">
 
-		<div class="row">
-			<div class="col-md-offset-3 col-md-6">
-				<div class="media">
-					<div class="media-left">
-						<a href="#">
-							<img class="media-object" src="/static/images/scientist.gif"
-								alt="CC BY-SA 3.0 (https://commons.wikimedia.org/wiki/User:MG)"
-								title="CC BY-SA 3.0 (https://commons.wikimedia.org/wiki/User:MG)">
-						</a>
-					</div>
-					<div class="media-body">
-						<h4 class="media-heading">Robert Dijkgraaf</h4>
-						Robertus Henricus (Robbert) Dijkgraaf (Ridderkerk, 24 januari 1960) is een Nederlands wiskundige, theoretisch natuurkundige en universiteitshoogleraar aan de Universiteit van Amsterdam.
-			  		</div>
+		<!-- FIRST ROW -->
+		<div class="row top-buffer">
+			<div class="text-center">
+				<div class="col-md-12">
+					<form class="form-inline" action="/search" method="GET">
+						<div class="form-group">
+							<label for="st">Search</label>
+							<input type="text" class="form-control" style="width:800px;" id="st" name="st" placeholder="Search"/>
+						</div>
+						<input type="hidden" name="sf" value="{{'title_raw|' + scientist.name}}"/>
+						<input type="hidden" name="fr" value="0"/>
+						<input type="hidden" name="sz" value="10"/>
+					</form>
 				</div>
+			</div>
+		</div>
 
+		<!-- SECOND ROW -->
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{scientist.name}}</h1>
+			</div>
+		</div>
 
+		<!-- THIRD ROW -->
+		<div class="row">
+			<div class="col-md-6">
+				<div class="scientist-photo">
+					<img src="{{scientist.poster}}" alt="{{scientist.name}}">
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-5">
+				<div class="scientist-bio">
+					{{scientist.bio}}
+					BIO
+				</div>
+			</div>
+		</div>
 
+		<!-- FOURTH ROW -->
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Featured interviews</h3>
+				<div class="video-embed">
+					{% for video in scientist.videos %}
+						<video width="480" height="320" controls>
+							<source src="{{video.url}}" type="video/mp4">
+							Your browser does not support the video tag
+						</video>
+					{% endfor %}
+				</div>
 			</div>
 
+			<div class="col-md-offset-1 col-md-5">
+				<div class="tag-cloud">
+					CLOUD
+				</div>
+			</div>
+		</div>
+
+		<!-- FIFTH ROW -->
+		<div class="row">
+			<div class="col-md-12">
+				<button class="btn btn-danger">Share your knowledge</button>
+			</div>
 		</div>
 
 	</div>

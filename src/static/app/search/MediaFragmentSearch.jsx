@@ -21,33 +21,36 @@ export default class MediaFragmentSearch extends React.Component {
 			this.refs.searchTerm.value = this.props.searchParams.term;
 			this.search(
 				this.props.searchParams.term,
-				0,
-				10,
-				this.formatSelectedFacets(this.props.searchParams.facets)
+				this.props.searchParams.from,
+				this.props.searchParams.size,
+				this.props.searchParams.facets
 			);
 		}
 	}
 
 	/*---------------------------------- SEARCH --------------------------------------*/
 
-	//update the browser address bar, but don't reload. Instead the browser history is used, so it is even possible to go back
-	//to previous searches
-	updateAddressBar() {
-		var sf = Object.keys(this.state.selectedFacets).join(',');
-		var url = "/search?s=" + this.refs.searchTerm.value + '&sf=' + sf;
+	//update the browser address bar, but don't reload. Instead the browser history is used,
+	//so it is even possible to go back to previous searches
+	updateAddressBar(term, offset, size, facets) {
+		var url = "/search?st=" + term + '&sf=' + Object.keys(facets).join(',');
+		url += '&fr=' + offset + '&sz=' + size
 		window.history.pushState("search", "Search", url);
 	}
 
-	search(term, offset, size, facets) {
-		console.debug(this.state.selectedFacets);
+	search(term, offset, size, facets, updateUrl) {
 		SearchAPI.fragmentSearch(
 			term,
 			this.state.searchLayers,
-			facets,
+			this.formatSelectedFacets(facets),
 			offset,
 			size,
 			this.onResults.bind(this)
 		);
+
+		if(updateUrl) {
+			this.updateAddressBar(term, offset, size, facets);
+		}
 	}
 
 	onResults(data) {
@@ -57,7 +60,7 @@ export default class MediaFragmentSearch extends React.Component {
 			facets : data ? data.facets : null,
 			totalHits : data ? data.totalHits : 0,
 			totalUniqueHits : data ? data.totalUniqueHits : 0
-		}, this.updateAddressBar());
+		});
 	}
 
 	//this resets the paging
@@ -65,7 +68,7 @@ export default class MediaFragmentSearch extends React.Component {
 		e.preventDefault();
 		this.setState(
 			{selectedFacets : {}},
-			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, [])
+			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, [], true)
 		)
 	}
 
@@ -79,7 +82,7 @@ export default class MediaFragmentSearch extends React.Component {
 		}
 		this.setState(
 			{selectedFacets : facets},
-			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, this.formatSelectedFacets(facets))
+			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, facets, true)
 		)
 	}
 
@@ -89,7 +92,8 @@ export default class MediaFragmentSearch extends React.Component {
 			this.refs.searchTerm.value,
 			(pageNumber-1) * this.state.pageSize,
 			this.state.pageSize,
-			this.formatSelectedFacets(this.state.selectedFacets)
+			this.state.selectedFacets,
+			true
 		)
 	}
 
@@ -253,7 +257,7 @@ export default class MediaFragmentSearch extends React.Component {
 						<form className="form-inline">
 							<div className="form-group">
 								<label htmlFor="search_term">Search</label>
-								<input type="text" className="form-control" style={{width: '500px'}} id="search_term"
+								<input type="text" className="form-control" style={{width:'600px'}} id="search_term"
 									ref="searchTerm" placeholder="Search"/>
 							</div>
 							<button className="btn btn-default" onClick={this.newSearch.bind(this)}>Submit</button>

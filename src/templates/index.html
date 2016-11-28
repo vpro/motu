@@ -27,17 +27,17 @@
 		</div>
 
 		<!-- SECOND ROW -->
-		<div class="row">
+		<div class="row top-buffer">
 
 			<!-- INTRO TEXT -->
 			<div class="col-md-6 home-text">
-				Mind of the Universe is a place of learning, a place where normal things are scrutinised in such ways that they won't appear normal very often anymore
+				{{introText}}
 			</div>
 
 			<!-- RANDOM VIDEO -->
-			<div class="col-md-offset-1 col-md-5 home-video">
-				<video width="320" height="240" controls>
-					<source src="{{random_video}}" type="video/mp4">
+			<div class="col-md-offset-1 col-md-5 video-embed">
+				<video width="480" height="320" controls>
+					<source src="{{randomVideo}}" type="video/mp4">
 					Your browser does not support the video tag
 				</video>
 			</div>
@@ -45,29 +45,51 @@
 		</div>
 
 		<!-- THIRD ROW -->
-		<div class="row">
-			<div class="col-md-12">
-				<form class="form-inline" action="/search" method="GET">
-					<div class="form-group">
-						<label for="s">Search</label>
-						<input type="text" class="form-control" id="s" name="s" placeholder="Search"/>
-					</div>
-				</form>
+		<div class="row top-buffer">
+			<div class="text-center">
+				<div class="col-md-12">
+					<form class="form-inline" action="/search" method="GET">
+						<div class="form-group">
+							<label for="st">Search</label>
+							<input type="text" class="form-control" style="width:800px;" id="st" name="st" placeholder="Search"/>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 
 
 		<!-- FOURTH ROW -->
-		<div class="row">
+		<div class="row top-buffer">
 
 			<!-- LIST OF SCIENTISTS -->
-			<div class="col-md-6">
-
+			<div class="col-md-7">
+				{% for s in scientists%}
+					<div class="media scientist">
+						<div class="media-left">
+							<a href="/scientist?id={{s.id}}">
+								<img src="{{s.poster}}" alt="{{s.name}}">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">
+								{{s.name}}
+							</h4>
+							haha
+						</div>
+					</div>
+				{% endfor %}
 			</div>
 
 			<!-- TAG CLOUD -->
-			<div class="col-md-3">
-
+			<div class="col-md-5">
+				<div class="tag-cloud">
+					{% for tag in tagCloud%}
+					<a href="/search?st={{tag}}">
+						<span style="font-size:{{tagCloud[tag]}}pt;">{{tag}}</span>
+					</a>
+					{% endfor %}
+				</div>
 			</div>
 
 		</div>

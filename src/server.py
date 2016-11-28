@@ -7,6 +7,7 @@ from jinja2.exceptions import TemplateNotFound
 from functools import wraps
 
 from components.SearchEngine import SearchEngine
+from components.DataLoader import DataLoader
 
 import simplejson
 import os
@@ -18,6 +19,7 @@ import settings
 
 _config = settings.config
 _searchEngine = SearchEngine(_config)
+_dataLoader = DataLoader(_config)
 
 """
 Think about using this to load the pages faster:
@@ -68,13 +70,15 @@ STATIC PAGES THAT DO NOT USE THE COMPONENT LIBRARY
 
 @app.route('/')
 def home():
-	#TODO params:
-	#		=> most popular/random video
-	#		=> home text from a file
-	#		=> lijst met wetenschappers (plaatje, vakgebied, onderwerpen/cloud)
-	#		=> tag cloud (afgeleid van top level UNESCO tags?)
+	randomVideo = _dataLoader.loadRandomVideo()
+	introText = _dataLoader.loadIntroText()
+	scientists = _dataLoader.loadScientists()
+	tagCloud = _dataLoader.loadTagCloud()
 	return render_template('index.html',
-		random_video='http://rdbg.tuxic.nl/mindoftheuniverse/Erik_Demaine/mp4/ED_INTERVIEW_1_H264_AVC_8mb_BenG_169.1.mp4'
+		randomVideo=randomVideo,
+		introText=introText,
+		scientists=scientists,
+		tagCloud=tagCloud
 	)
 
 @app.route('/about')
@@ -89,23 +93,30 @@ def scientist():
 	#		=> lijst met interview videos van deze wetenschapper
 	#		=> tag cloud (afgeleid van ondertiteling / top UNESCO tags?)
 	#TODO feedback formulier
-	return render_template('scientist.html')
+	sid = request.args.get('id', None)
+	if sid:
+		scientist = _dataLoader.loadScientist(sid)
+		return render_template('scientist.html', scientist=scientist)
+	else:
+		return render_template('404.html'), 404
 
 @app.route('/search')
 def search():
-	s = request.args.get('s', None)
+	searchTerm = request.args.get('st', None)
 	sf = request.args.get('sf', None)
+	fr = request.args.get('fr', 0)
+	size = request.args.get('sz', 10)
 	facets = {}
 	if sf:
 		tmp = sf.split(',')
 		for f in tmp:
 			facets[f] = True
-	#body.value.tags|Humanism, title_raw|Sara Seager, topics|astrophysicycs, topics|physics
 	params = {
-		'term' : s,
-		'facets' : facets
+		'term' : searchTerm,
+		'facets' : facets,
+		'from' : fr,
+		'size' : size
 	}
-	#TODO uitlezen search query uit URL
 	return render_template('search.html',
 		searchParams=params
 	)
