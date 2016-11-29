@@ -10,7 +10,6 @@
 		var _scientist = {{ scientist|tojson }};
 		var _start = {{start}};
 		var _end = {{end}};
-		console.debug(_scientist);
 	</script>
 </head>
 
@@ -23,7 +22,7 @@
 	<div class="container">
 
 		<!-- FIRST ROW -->
-		<div class="row">
+		<div class="row top-buffer">
 			<div class="text-center">
 				<div class="col-md-12">
 					<form class="form-inline" action="/search" method="GET">

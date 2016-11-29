@@ -19,11 +19,8 @@ jw.on('bufferChange', loadProgress)
 .on('ready', onReady);
 
 function onReady() {
-	console.debug('player ready...');
+	_clickedLine = getCurrentAnnotation(_start / 1000);
 	jw.seek(_start / 1000);
-
-	console.debug(jw.getDuration());
-	console.debug(jw.getState());
 }
 
 function loadProgress() {
@@ -47,6 +44,7 @@ function onFinish() {
 }
 
 function onSeeked() {
+	console.debug('initial seek');
 	var sub = _clickedLine;
 	if(!sub) {
 		sub = getCurrentAnnotation(jw.getPosition());
@@ -60,7 +58,7 @@ function onSeeked() {
 		document.location.href = url + '#' + sub.number;
 
 		//reset the other highlights
-		var subs = document.getElementsByClassName('sub')
+		var subs = document.getElementsByClassName('sub');
 		for(var i=0;i<subs.length;i++) {
 			var elm = subs[i];
 			if(elm.id == sub.number) {
@@ -77,10 +75,15 @@ function getCurrentAnnotation(sec) {
 	if(_scientist.transcript) {
 		var pos = parseInt(sec) * 1000
 		var currentAnnotation = _scientist.transcript.filter((a, index)=> {
-			if(a.start < pos && a.end > pos) {
+			if(a.start <= pos && a.end >= pos) {
+				return true;
+			} else if(pos < a.start && pos >= a.start - 500) {//first try to fetch the closest one AHEAD
+				return true;
+			} else if(pos > a.end && pos <= a.end + 500) {//then try to fetch the closest one BEFORE
 				return true;
 			}
-		})
+			return false;
+		});
 		if(currentAnnotation.length > 0) {
 			return currentAnnotation[0];
 		}
