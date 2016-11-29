@@ -74,7 +74,13 @@ body {
 	overflow-y:auto;
 	.active {
 		font-weight:bold;
-		color:red;
+		color:crimson;
+	}
+	.sub {
+		cursor:pointer;
+		&:hover {
+			color:crimson;
+		}
 	}
 }
 

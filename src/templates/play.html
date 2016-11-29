@@ -66,8 +66,8 @@
 			<div class="col-md-12">
 				<div id="transcript-controls">
 					{% for line in scientist.transcript %}
-						<span id="{{line.number}}" class="sub" onclick="seek({{line.start}})">
-							{{line.content}}
+						<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">
+							[{{line.prettystart}}]&nbsp;{{line.content}}
 						</span><br>
 					{% endfor %}
 				</div>

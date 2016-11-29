@@ -67,7 +67,7 @@ class DataLoader():
 		with codecs.open(fn, 'r', 'utf-8') as f:
 			res = [list(g) for b,g in groupby(f, lambda x: bool(x.strip())) if b]
 
-			Subtitle = namedtuple('Subtitle', 'number start end content')
+			Subtitle = namedtuple('Subtitle', 'number start end content prettystart')
 			for sub in res:
 				if len(sub) >= 3: # not strictly necessary, but better safe than sorry
 					sub = [x.strip() for x in sub]
@@ -77,9 +77,14 @@ class DataLoader():
 						number,
 						self.__SRTTimetoMillis(start),
 						self.__SRTTimetoMillis(end),
-						content
+						content,
+						self.__SRTTimetoPrettyTime(start)
 					))
 		return subs
+
+	def __SRTTimetoPrettyTime(self, t):
+		x = datetime.strptime(t, '%H:%M:%S,%f')
+		return x.strftime('%H:%M:%S')
 
 	def __SRTTimetoMillis(self, t):
 		x = datetime.strptime(t, '%H:%M:%S,%f')

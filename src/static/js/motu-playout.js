@@ -1,3 +1,5 @@
+var _clickedLine = null;
+
 var jw = jwplayer('video_player').setup({
 	file: _scientist.videos[0].url,
 	width:'100%',
@@ -13,7 +15,7 @@ jw.on('bufferChange', loadProgress)
 .on('play', onPlay)
 .on('pause', onPause)
 .on('complete', onFinish)
-.on('seek', onSeek)
+.on('seeked', onSeeked)
 .on('ready', onReady);
 
 function onReady() {
@@ -44,12 +46,12 @@ function onFinish() {
 	//console.debug('Finished');
 }
 
-function onSeek() {
-	//console.debug('Seeking');
-	var current = determineCurrentAnnotation(jw.getPosition());
-	if(current && current.length > 0) {
-		var sub = current[0];
-		console.debug(sub)
+function onSeeked() {
+	var sub = _clickedLine;
+	if(!sub) {
+		sub = getCurrentAnnotation(jw.getPosition());
+	}
+	if(sub) {
 		//jump to the sub so you can read it
 		var url = document.location.href;
 		if(url.indexOf('#') != -1) {
@@ -67,22 +69,28 @@ function onSeek() {
 				elm.className = 'sub';
 			}
 		}
+		_clickedLine = null;
 	}
 }
 
-function determineCurrentAnnotation(sec) {
-	var currentAnnotation = null;
+function getCurrentAnnotation(sec) {
 	if(_scientist.transcript) {
 		var pos = parseInt(sec) * 1000
-		currentAnnotation = _scientist.transcript.filter((a, index)=> {
+		var currentAnnotation = _scientist.transcript.filter((a, index)=> {
 			if(a.start < pos && a.end > pos) {
 				return true;
 			}
 		})
+		if(currentAnnotation.length > 0) {
+			return currentAnnotation[0];
+		}
 	}
-	return currentAnnotation;
+	return null;
 }
 
-function seek(start) {
-	jw.seek(start / 1000);
+function gotoLine(index) {
+	_clickedLine = _scientist.transcript[index];
+	if(_clickedLine) {
+		jw.seek(_clickedLine.start / 1000);
+	}
 }

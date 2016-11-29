@@ -8907,11 +8907,19 @@ body {
 /* line 75, ../sass/_home.scss */
 #transcript-controls .active {
   font-weight: bold;
-  color: red;
+  color: crimson;
+}
+/* line 79, ../sass/_home.scss */
+#transcript-controls .sub {
+  cursor: pointer;
+}
+/* line 81, ../sass/_home.scss */
+#transcript-controls .sub:hover {
+  color: crimson;
 }
 
 /* ------------ footer.html ------------ */
-/* line 85, ../sass/_home.scss */
+/* line 91, ../sass/_home.scss */
 #footer {
   margin-top: 40px;
 }
