@@ -71,7 +71,7 @@ STATIC PAGES THAT DO NOT USE THE COMPONENT LIBRARY
 @app.route('/')
 def home():
 	randomVideo = _dataLoader.loadRandomVideo()
-	introText = _dataLoader.loadIntroText()
+	introText = _dataLoader.loadMarkdownFile('introtext.md')
 	scientists = _dataLoader.loadScientists()
 	tagCloud = _dataLoader.loadTagCloud()
 	return render_template('index.html',
@@ -83,7 +83,10 @@ def home():
 
 @app.route('/about')
 def about():
-	return render_template('about.html')
+	return render_template('about.html',
+		faq=_dataLoader.loadMarkdownFile('faq.md'),
+		colofon=_dataLoader.loadMarkdownFile('colofon.md')
+	)
 
 @app.route('/scientist')
 def scientist():

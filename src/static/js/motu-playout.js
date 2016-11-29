@@ -44,7 +44,6 @@ function onFinish() {
 }
 
 function onSeeked() {
-	console.debug('initial seek');
 	var sub = _clickedLine;
 	if(!sub) {
 		sub = getCurrentAnnotation(jw.getPosition());

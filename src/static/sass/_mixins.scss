@@ -2,5 +2,8 @@
 	border: 1px solid $clBlue;
 	box-shadow: 3px 3px 3px;
 	padding:$defaultMargin * 2;
+	strong {
+		font-weight:bold;
+	}
 }
 

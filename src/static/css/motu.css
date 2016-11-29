@@ -7,8 +7,7 @@
 /* Defaults */
 /* Navbar */
 /* Panels */
-@import url(https://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
 /* line 30, ../sass/_bootstrap-overrides.scss */
 .panel {
   margin: 10px 0px;
@@ -8838,12 +8837,12 @@ button.close {
     display: none !important;
   }
 }
-/* line 4, ../sass/_home.scss */
+/* line 3, ../sass/_home.scss */
 * {
   box-sizing: border-box !important;
 }
 
-/* line 8, ../sass/_home.scss */
+/* line 7, ../sass/_home.scss */
 body {
   margin: auto;
   background-color: #eee;
@@ -8852,74 +8851,86 @@ body {
 }
 
 /* ------------ On several pages ------------*/
-/* line 17, ../sass/_home.scss */
+/* line 16, ../sass/_home.scss */
 .top-buffer {
   margin-top: 20px;
 }
 
-/* line 25, ../sass/_home.scss */
+/* line 24, ../sass/_home.scss */
 .tag-cloud {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
 }
+/* line 5, ../sass/_mixins.scss */
+.tag-cloud strong {
+  font-weight: bold;
+}
 
 /* ------------ nav.html ------------ */
-/* line 34, ../sass/_home.scss */
+/* line 33, ../sass/_home.scss */
 .navbar-brand img {
   height: 22px;
 }
 
 /* ------------ index.html ------------ */
-/* line 43, ../sass/_home.scss */
+/* line 42, ../sass/_home.scss */
 .home-text {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
 }
+/* line 5, ../sass/_mixins.scss */
+.home-text strong {
+  font-weight: bold;
+}
 
 /* ------------ scientist.html ------------ */
-/* line 52, ../sass/_home.scss */
+/* line 51, ../sass/_home.scss */
 .scientist img {
   height: 80px;
 }
 
-/* line 58, ../sass/_home.scss */
+/* line 57, ../sass/_home.scss */
 .scientist-photo img {
   height: 200px;
 }
 
-/* line 63, ../sass/_home.scss */
+/* line 62, ../sass/_home.scss */
 .scientist-bio {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
 }
+/* line 5, ../sass/_mixins.scss */
+.scientist-bio strong {
+  font-weight: bold;
+}
 
 /* ------------ play.html ------------ */
-/* line 70, ../sass/_home.scss */
+/* line 69, ../sass/_home.scss */
 #transcript-controls {
   height: 200px;
   width: 100%;
   padding: 10px;
   overflow-y: auto;
 }
-/* line 75, ../sass/_home.scss */
+/* line 74, ../sass/_home.scss */
 #transcript-controls .active {
   font-weight: bold;
   color: crimson;
 }
-/* line 79, ../sass/_home.scss */
+/* line 78, ../sass/_home.scss */
 #transcript-controls .sub {
   cursor: pointer;
 }
-/* line 81, ../sass/_home.scss */
+/* line 80, ../sass/_home.scss */
 #transcript-controls .sub:hover {
   color: crimson;
 }
 
 /* ------------ footer.html ------------ */
-/* line 91, ../sass/_home.scss */
+/* line 90, ../sass/_home.scss */
 #footer {
   margin-top: 40px;
 }
@@ -8934,6 +8945,10 @@ body {
   margin: 5px;
   padding: 5px;
   cursor: pointer;
+}
+/* line 5, ../sass/_mixins.scss */
+.search-result strong {
+  font-weight: bold;
 }
 /* line 10, ../sass/_search.scss */
 .search-result:hover {

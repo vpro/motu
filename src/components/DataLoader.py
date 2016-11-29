@@ -5,16 +5,19 @@ import os
 import codecs
 from itertools import groupby
 from collections import namedtuple
+from markdown import markdown
 
 class DataLoader():
 
 	def __init__(self, config):
 		self.config = config
 
-	#TODO load the text from a file
-	def loadIntroText(self):
-		introText = "Mind of the Universe is a place of learning, a place where normal things are scrutinised in such ways that they won't appear normal very often anymore"
-		return introText
+	def loadMarkdownFile(self, fn):
+		text = None
+		f = open('%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], fn), 'r')
+		text = f.read()
+		f.close()
+		return markdown(text)
 
 	#TODO load random video from a static list
 	def loadRandomVideo(self):
@@ -56,7 +59,7 @@ class DataLoader():
 
 	def __loadTranscript(self, scientistId):
 		subs = []
-		for root, dirs, files in os.walk('%s/%s' % (self.config['TRANSCRIPT_DIR'], scientistId)):
+		for root, dirs, files in os.walk('%s/transcripts/%s' % (self.config['TEXTUAL_CONTENT_DIR'], scientistId)):
 			for f in files:
 				if f.find('.srt') != -1:
 					subs.extend(self.__parseSRT(os.path.join(root, f)))
