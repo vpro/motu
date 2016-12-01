@@ -143,16 +143,12 @@ export default class MediaFragmentSearch extends React.Component {
 	getFacets() {
 		return [
 			{
-				'field' : 'topics',
-				'title' : 'Topics'
-			},
-			{
 				'field' : 'title_raw',
 				'title' : 'Researchers'
 			},
 			{
-				'field' : 'tags',
-				'title' : 'Tags'
+				'field' : 'tags_raw',
+				'title' : 'Interview tags'
 			},
 			{
 				'field' : 'body.value.tags',
@@ -189,7 +185,8 @@ export default class MediaFragmentSearch extends React.Component {
 
 			if(items && numResults > 0) {
 				if(this.state.facets) {
-					facets = Object.keys(this.state.facets).map((key, index) => {
+					facets = [];
+					Object.keys(this.state.facets).forEach((key, index) => {
 						let options = this.state.facets[key].map((facet, fIndex) => {
 							let facetId = key + '|' + facet.key;
 							return (
@@ -206,14 +203,16 @@ export default class MediaFragmentSearch extends React.Component {
 								</li>
 							)
 						});
-						return (
-							<div key={'facet__' + index}>
-								<h5>{this.getFacetTitle(key)}</h5>
-								<ul className="facet-group">
-									{options}
-								</ul>
-							</div>
-						)
+						if(options.length > 0) {
+							facets.push((
+								<div key={'facet__' + index}>
+									<h5>{this.getFacetTitle(key)}</h5>
+									<ul className="facet-group">
+										{options}
+									</ul>
+								</div>
+							))
+						}
 					});
 				}
 				//draw the result list
