@@ -154,6 +154,10 @@ export default class MediaFragmentSearch extends React.Component {
 				'field' : 'body.value.tags_raw',
 				'title' : 'Segment tags',
 				'type' : 'nested'
+			},
+			{
+				'field' : 'location',
+				'title' : 'Filming location'
 			}
 		]
 	}
