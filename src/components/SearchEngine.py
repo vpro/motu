@@ -35,5 +35,9 @@ class SearchEngine():
 				'field' : 'body.value.tags_raw',
 				'title' : 'Segment tags',
 				'type' : 'nested'
+			},
+			{
+				'field' : 'location',
+				'title' : 'Filming location'
 			}
 		]
