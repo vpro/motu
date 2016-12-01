@@ -21,7 +21,7 @@ class DataLoader():
 
 	#TODO load random video from a static list
 	def loadRandomVideo(self):
-		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/Erik_Demaine/mp4/ED_INTERVIEW_1_H264_AVC_8mb_BenG_169.1.mp4'
+		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/Erik_Demaine/mp4/Erik_Demaine.mp4'
 		return randomVideo
 
 	def loadScientists(self):
