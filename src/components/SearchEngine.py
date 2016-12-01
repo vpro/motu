@@ -24,16 +24,12 @@ class SearchEngine():
 	def getDesiredFacets(self):
 		return [
 			{
-				'field' : 'topics',
-				'title' : 'Topics'
+				'field' : 'tags_raw',
+				'title' : 'Interview tags'
 			},
 			{
 				'field' : 'title_raw',
 				'title' : 'Researchers'
-			},
-			{
-				'field' : 'tags',
-				'title' : 'Tags'
 			},
 			{
 				'field' : 'body.value.tags',
