@@ -32,7 +32,7 @@ class SearchEngine():
 				'title' : 'Researchers'
 			},
 			{
-				'field' : 'body.value.tags',
+				'field' : 'body.value.tags_raw',
 				'title' : 'Segment tags',
 				'type' : 'nested'
 			}

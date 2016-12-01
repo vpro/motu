@@ -151,7 +151,7 @@ export default class MediaFragmentSearch extends React.Component {
 				'title' : 'Interview tags'
 			},
 			{
-				'field' : 'body.value.tags',
+				'field' : 'body.value.tags_raw',
 				'title' : 'Segment tags',
 				'type' : 'nested'
 			}
