@@ -81,18 +81,17 @@ export default class SearchSnippet extends React.Component {
 					</div>
 				)
 			});
-			if(this.props.data.fragments.length < this.props.data.docCount) {
-				showMore = (
-					<button className="btn btn-primary" onClick={this.showMore.bind(this)}>Show more</button>
-				)
-			}
+			// if(this.props.data.fragments.length < this.props.data.docCount) {
+			// 	showMore = (
+			// 		<button className="btn btn-primary" onClick={this.showMore.bind(this)}>Show more</button>
+			// 	)
+			// }
 
 			fragments = (
 				<div style={{paddingTop : '85px'}}>
 					<strong>Number of fragments found: {this.props.data.docCount}</strong>
 					{innerHits}
-					<br/>
-					{showMore}
+
 				</div>
 			)
 		}
@@ -110,6 +109,7 @@ export default class SearchSnippet extends React.Component {
 						{this.props.data.title ? this.props.data.title + ' ' : ''}
 						({this.props.data.date ? this.props.data.date : ''})
 					</h4>
+					{this.props.data.description ? this.props.data.description + ' ' : ''}
 					{fragments}
 				</div>
 			</div>

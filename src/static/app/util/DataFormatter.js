@@ -19,6 +19,7 @@ const DataFormatter = {
 			_id : result._id,
 			title: result.title || result._id,
 			date: result.date,
+			description : result.description,
 			posterURL : result.posterURL
 		}
 		if(result._type == 'annotation' || result._type == 'media_fragment') {
