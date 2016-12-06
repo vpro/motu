@@ -7,7 +7,7 @@ export default class MediaFragmentSearch extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageSize : 10,
+			pageSize : 25,
 			searchLayers : {'motu' : true, 'motu__srt' : false, 'motu__topics' : true},
 			displayFacets : true,
 			facets : {},
