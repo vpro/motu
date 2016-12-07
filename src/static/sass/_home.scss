@@ -6,7 +6,7 @@
 
 body {
 	margin:auto;
-	background-color:$clBackground;
+	background-color:$brightFont;
 	line-height:200%;
 	font-family: "Roboto" !important;
 }
@@ -89,4 +89,6 @@ body {
 
 #footer {
 	margin-top:$defaultMargin * 4;
+	color: $brightFont;
+	background-color: $nearBlack;
 }

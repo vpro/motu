@@ -29,7 +29,7 @@
 /* line 52, ../sass/_bootstrap-overrides.scss */
 .modal-header {
   padding: 10px !important;
-  background-color: #ccc;
+  background-color: #222;
 }
 
 /* line 57, ../sass/_bootstrap-overrides.scss */
@@ -8845,7 +8845,7 @@ button.close {
 /* line 7, ../sass/_home.scss */
 body {
   margin: auto;
-  background-color: #eee;
+  background-color: #efefef;
   line-height: 200%;
   font-family: "Roboto" !important;
 }
@@ -8933,6 +8933,8 @@ body {
 /* line 90, ../sass/_home.scss */
 #footer {
   margin-top: 40px;
+  color: #efefef;
+  background-color: #222;
 }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
