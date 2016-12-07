@@ -84,6 +84,7 @@ def home():
 @app.route('/about')
 def about():
 	return render_template('about.html',
+		about=_dataLoader.loadMarkdownFile('about.md'),
 		faq=_dataLoader.loadMarkdownFile('faq.md'),
 		colofon=_dataLoader.loadMarkdownFile('colofon.md')
 	)

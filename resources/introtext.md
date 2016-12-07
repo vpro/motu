@@ -1,4 +1,8 @@
-**Mind of the Universe** is a place of learning, a place where normal things are scrutinised in
-such ways that they won't appear as normal very often anymore.
+**Welcome to The Mind of the Universe**
 
-Let's hope that this text won't be too long because of overzealous editors with a passion for lyrical writing (although we sympathize)
+Browse through extensive video interviews with world renowned scientists.
+All videos are free to download under Creative Commons licence.
+
+Please share with us your use of the videos and thus contribute to The Mind of the Universe.
+
+More on this [project](http://motu.rdlabs.beeldengeluid.nl/about)
