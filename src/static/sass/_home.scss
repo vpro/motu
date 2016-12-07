@@ -83,7 +83,10 @@ body {
 	}
 }
 
-
+.share-panel {
+	display:none;
+	@include block;
+}
 
 /* ------------ footer.html ------------ */
 

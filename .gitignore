@@ -5,3 +5,5 @@ __pycache__
 node_modules
 *.pyc
 dist
+src/static/vendor/font-awesome-4.7.0/less
+src/static/vendor/font-awesome-4.7.0/scss

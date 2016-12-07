@@ -96,3 +96,21 @@ function gotoLine(index) {
 		jw.seek(_clickedLine.start / 1000);
 	}
 }
+
+function togglePanel(button, panelId) {
+	var current = document.getElementById('panel_' + panelId).style.display;
+
+	//reset all the panels, then toggle the selected one
+	var panels = document.getElementsByClassName('share-panel');
+	for(var i=0;i<panels.length;i++) {
+		panels[i].style.display = 'none';
+	}
+	document.getElementById('panel_' + panelId).style.display = current == 'block' ? 'none' : 'block';
+
+	//reset all the buttons, then toggle the selected one
+	var buttons = document.getElementsByClassName('share-btn');
+	for(var i=0;i<buttons.length;i++) {
+		buttons[i].className = 'btn btn-default share-btn';
+	}
+	button.className = 'btn' + (current == 'block' ? ' btn-default share-btn' : ' btn-danger share-btn');
+}

@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>Mind of the Universe | Watch</title>
+	<title>Mind of the Universe | Watch {{scientist.name}}</title>
 	 {% include 'head.html' %}
 
 	 <script>
@@ -56,12 +56,36 @@
 		<!-- FOURTH ROW -->
 		<div class="row top-buffer">
 			<div class="col-md-12">
-				<button class="btn btn-danger">DOWNLOAD THE VIDEO</button>
+				<div class="btn-group" role="group" aria-label="...">
+					<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'share')">Share</button>
+					<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'download')">Download</button>
+					<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'license')">License</button>
+				</div>
+				<br/>
+				<br/>
+				<div id="panel_share" class="well share-panel">
+					<h4>Share</h4>
+					<i class="fa fa-twitter" aria-hidden="true"></i>
+					<i class="fa fa-facebook" aria-hidden="true"></i>
+					<i class="fa fa-reddit" aria-hidden="true"></i>
+					<input class="form-control" type="text" value="page URL"/>
+					<br/>
+					<textarea class="form-control">Some embed code</textarea>
+				</div>
+				<div id="panel_download" class="well share-panel">
+					<h4>Download</h4>
+					MP4 (4Mb CBR) <a href="{{scientist.videos[0].url}}">{{scientist.name}}</a>
+				</div>
+				<div id="panel_license" class="well share-panel">
+					<h4>Public domain mark</h4>
+					<img src="http://i.creativecommons.org/p/mark/1.0/88x31.png" alt="Creative Commons License">
+					You're allowed to copy, change, disseminate and exhibit this work without permission of the authors, even for commercial purposes
+				</div>
 			</div>
 		</div>
 
 		<!-- FIFTH ROW -->
-		<div class="row top-buffer">
+		<div class="row">
 			<div class="col-md-12">
 				<div id="transcript-controls">
 					{% for line in scientist.transcript %}

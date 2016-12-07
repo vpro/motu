@@ -8929,8 +8929,20 @@ body {
   color: crimson;
 }
 
+/* line 86, ../sass/_home.scss */
+.share-panel {
+  display: none;
+  border: 1px solid royalblue;
+  box-shadow: 3px 3px 3px;
+  padding: 20px;
+}
+/* line 5, ../sass/_mixins.scss */
+.share-panel strong {
+  font-weight: bold;
+}
+
 /* ------------ footer.html ------------ */
-/* line 90, ../sass/_home.scss */
+/* line 93, ../sass/_home.scss */
 #footer {
   color: #efefef;
   background-color: #222;
