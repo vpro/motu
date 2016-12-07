@@ -8846,8 +8846,8 @@ button.close {
 body {
   margin: auto;
   background-color: #efefef;
-  line-height: 200%;
   font-family: "Roboto" !important;
+  padding-bottom: 120px;
 }
 
 /* ------------ On several pages ------------*/
@@ -8932,7 +8932,6 @@ body {
 /* ------------ footer.html ------------ */
 /* line 90, ../sass/_home.scss */
 #footer {
-  margin-top: 40px;
   color: #efefef;
   background-color: #222;
 }
