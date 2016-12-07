@@ -1,4 +1,4 @@
-The [Mind of the Universe](http://www.vpro.nl/programmas/the-mind-of-the-universe/kijk/extra/english.html) is an international tv series and open source digital platform about the rapid evolution of our knowledge. It explores the human destiny and the world of tomorrow through the eyes of great minds from all continents all over the globe.
+The [Mind of the Universe](www.vpro.nl/mindenglish) is an international tv series and open source digital platform about the rapid evolution of our knowledge. It explores the human destiny and the world of tomorrow through the eyes of great minds from all continents all over the globe.
 
 The Mind of the Universe is a unique and unprecedented open source project in its scope and intention to provide all raw footage for free to everyone interested in learning and knowledge.
 
