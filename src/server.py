@@ -98,6 +98,13 @@ def scientist():
 	else:
 		return render_template('404.html'), 404
 
+@app.route('/bio/<wikiID>')
+def bio(wikiID):
+	bio = _dataLoader.loadWikipediaBio(wikiID)
+	if bio:
+		return Response(bio, mimetype='text/plain')
+	return Response(getErrorMessage('could not find wiki page'), mimetype='application/json')
+
 @app.route('/search')
 def search():
 	searchTerm = request.args.get('st', None)

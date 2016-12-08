@@ -6,11 +6,24 @@ import codecs
 from itertools import groupby
 from collections import namedtuple
 from markdown import markdown
+#import wikipedia
 
 class DataLoader():
 
 	def __init__(self, config):
 		self.config = config
+		self.WIKI_MAPPING = {
+			'George_Church' : 'George_M._Church',
+			'Sara_Seager' : 'Sara_Seager',
+			'Erik_Demaine' : 'Erik_Demaine',
+			'Donald_Hoffman' : None,
+			'Guy_Consomagnio' : 'Guy_Consolmagno',
+			'Jean-Jacques_Hublain' : 'Jean-Jacques_Hublin',
+			'Trond-Helge_Torsvik' : 'Trond_Helge_Torsvik',
+			'Michael_Poulin' : None,
+			'Lee_Cronin' : 'Leroy_Cronin',
+			'Susant_Patnaik' : None
+		}
 
 	def loadMarkdownFile(self, fn):
 		text = None
@@ -36,6 +49,7 @@ class DataLoader():
 					scientists.append({
 						'id' : hit['_id'],
 						'name' : hit['_source']['title_raw'],
+						'bio' : '',#self.loadWikipediaBio(self.WIKI_MAPPING[hit['_id']]),
 						'poster' : hit['_source']['posterURL']
 					})
 		return scientists
@@ -97,3 +111,21 @@ class DataLoader():
 	def loadTagCloud(self):
 		tagCloud = {'Astrophysics' : 12, 'Biology' : 13, 'DNA' : 15, 'Humanity' : 19, 'Acceptance' : 12, 'Economics' : 17}
 		return tagCloud
+
+	"""
+	def loadWikipediaBio(self, wikiId):
+		bio = 'No Wikipedia article available'
+		if wikiId == None:
+			return bio
+		try:
+			bio = wikipedia.summary(wikiId)
+		except wikipedia.PageError, e:
+			pass
+		except wikipedia.exceptions.DisambiguationError, e:
+			bio = 'Ambiguous article'
+			pass
+		except KeyError, e:
+			bio = 'Incorrect id %s' % wikiId
+			pass
+		return bio
+	"""
