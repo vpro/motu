@@ -24,7 +24,7 @@
 							<label for="st">Search</label>
 							<input type="text" class="form-control" style="width:800px;" id="st" name="st" placeholder="Search"/>
 						</div>
-						<input type="hidden" name="sf" value="{{'title_raw|' + scientist.name}}"/>
+						<input type="hidden" name="sf" value="{{'name|' + scientist.name}}"/>
 					</form>
 				</div>
 			</div>
@@ -69,7 +69,9 @@
 			<div class="col-md-offset-1 col-md-5">
 				<div class="tag-cloud">
 					{% for t in scientist.termCloud.terms %}
-						<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
+						<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
+							<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
+						</a>
 					{% endfor %}
 				</div>
 			</div>

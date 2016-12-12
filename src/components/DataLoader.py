@@ -65,7 +65,7 @@ class DataLoader():
 			if '_source' in data:
 				scientist = {}
 				if 'title_raw' in data['_source']:
-					scientist['name'] = data['_source']['title_raw']
+					scientist['name'] = data['_source']['name']
 				if 'posterURL' in data['_source']:
 					scientist['poster'] = data['_source']['posterURL']
 				if 'playableContent' in data['_source']:
