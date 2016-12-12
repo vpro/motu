@@ -7,3 +7,7 @@ node_modules
 dist
 src/static/vendor/font-awesome-4.7.0/less
 src/static/vendor/font-awesome-4.7.0/scss
+resources/termcloud-cache/*
+!resources/termcloud-cache/README.md
+resources/wikipedia-cache/*
+!resources/wikipedia-cache/README.md

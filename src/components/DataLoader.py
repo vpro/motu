@@ -6,20 +6,20 @@ import codecs
 from itertools import groupby
 from collections import namedtuple
 from markdown import markdown
-#import wikipedia
+import wikipedia
 
 class DataLoader():
 
 	def __init__(self, config):
 		self.config = config
 		self.WIKI_MAPPING = {
-			'George_Church' : 'George_M._Church',
+			'George_Church' : 'George_M_Church',
 			'Sara_Seager' : 'Sara_Seager',
 			'Erik_Demaine' : 'Erik_Demaine',
 			'Donald_Hoffman' : None,
-			'Guy_Consomagnio' : 'Guy_Consolmagno',
-			'Jean-Jacques_Hublain' : 'Jean-Jacques_Hublin',
-			'Trond-Helge_Torsvik' : 'Trond_Helge_Torsvik',
+			'Guy_Consolmagno' : 'Guy_Consolmagno',
+			'Jean-Jacques_Hublin' : 'Jean_Jacques_Hublin',
+			'Trond_Helge_Torsvik' : None,
 			'Michael_Poulin' : None,
 			'Lee_Cronin' : 'Leroy_Cronin',
 			'Susant_Patnaik' : None
@@ -49,7 +49,7 @@ class DataLoader():
 					scientists.append({
 						'id' : hit['_id'],
 						'name' : hit['_source']['title_raw'],
-						'bio' : '',#self.loadWikipediaBio(self.WIKI_MAPPING[hit['_id']]),
+						'bio' : self.__loadWikipediaBio(hit['_id']),
 						'poster' : hit['_source']['posterURL']
 					})
 		return scientists
@@ -68,6 +68,10 @@ class DataLoader():
 				if 'playableContent' in data['_source']:
 					scientist['videos'] = data['_source']['playableContent']
 				scientist['transcript'] = self.__loadTranscript(scientistId)
+				scientist['bio'] = self.__loadWikipediaBio(scientistId)
+				tc = self.__loadTermCloud(scientistId)
+				if tc:
+					scientist['termCloud'] = json.loads(tc)
 				return scientist
 		return None
 
@@ -112,13 +116,32 @@ class DataLoader():
 		tagCloud = {'Astrophysics' : 12, 'Biology' : 13, 'DNA' : 15, 'Humanity' : 19, 'Acceptance' : 12, 'Economics' : 17}
 		return tagCloud
 
-	"""
-	def loadWikipediaBio(self, wikiId):
+	def __loadWikipediaBio(self, scientistId):
 		bio = 'No Wikipedia article available'
+		wikiId = None
+		#fetch the wikipedia ID from the mapping
+		try:
+			wikiId = self.WIKI_MAPPING[scientistId]
+		except KeyError, e:
+			print 'incorrect wiki mapping'
+			return bio
+
+		#if there is no proper wikipedia ID return nothing
 		if wikiId == None:
 			return bio
+
+		#try to fetch it from the cache
+		cachedData = self.__readFromCache(scientistId, 'wikipedia-cache')
+		if cachedData:
+			#print 'found %s  in cache' % scientistId
+			return cachedData
+
+		#try to fetch it from wikipedia (and subsequently cache it)
+		print 'trying to fetch %s from wikipedia' % wikiId
 		try:
 			bio = wikipedia.summary(wikiId)
+			if bio:
+				self.__writeToCache(scientistId, 'wikipedia-cache', bio)
 		except wikipedia.PageError, e:
 			pass
 		except wikipedia.exceptions.DisambiguationError, e:
@@ -128,4 +151,46 @@ class DataLoader():
 			bio = 'Incorrect id %s' % wikiId
 			pass
 		return bio
-	"""
+
+	def __loadTermCloud(self, scientistId):
+		cachedData = self.__readFromCache(scientistId, 'termcloud-cache')
+		if cachedData:
+			return cachedData
+
+		#otherwise run the transcript through the term extractor and get the term cloud
+		transcript = None
+		subs = self.__loadTranscript(scientistId)
+		if subs:
+			transcript = ''
+			for s in subs:
+				transcript += s.content
+		if transcript:
+			url = 'http://termextract.fivefilters.org/extract.php'
+			params = {
+				'text_or_url': transcript,
+				'output' : 'json'
+			}
+			resp = requests.post(url, data=params)
+			if resp.status_code == 200:
+				tc = '{ "terms" : %s}' % resp.text
+				self.__writeToCache(scientistId, 'termcloud-cache', tc)
+				return tc
+		return None
+
+	#cacheType = wikipedia-cache OR termcloud-cache
+	def __writeToCache(self, scientistId, cacheType, data):
+		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
+		f = open(cacheFile, 'w+')
+		f.write(data)
+		f.close()
+
+	def __readFromCache(self, scientistId, cacheType):
+		data = None
+		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
+		if os.path.exists(cacheFile):
+			f = open(cacheFile, 'r')
+			data = f.read()
+			f.close()
+		return data
+
+

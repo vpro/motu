@@ -12,7 +12,16 @@ from components.DataLoader import DataLoader
 import simplejson
 import os
 
+
+def score_to_fontsize(size):
+	if size > 40:
+		return 40 + ((size - 40) / 2)
+	if size < 12:
+		return 12 + (size / 2)
+	return size
+
 app = Flask(__name__)
+app.jinja_env.globals.update(score_to_fontsize=score_to_fontsize)
 app.debug = True
 
 import settings
@@ -97,13 +106,6 @@ def scientist():
 		return render_template('scientist.html', scientist=scientist)
 	else:
 		return render_template('404.html'), 404
-
-@app.route('/bio/<wikiID>')
-def bio(wikiID):
-	bio = _dataLoader.loadWikipediaBio(wikiID)
-	if bio:
-		return Response(bio, mimetype='text/plain')
-	return Response(getErrorMessage('could not find wiki page'), mimetype='application/json')
 
 @app.route('/search')
 def search():

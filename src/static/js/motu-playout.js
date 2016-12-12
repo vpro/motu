@@ -29,6 +29,19 @@ function loadProgress() {
 
 function playProgress() {
 	//console.debug('cur pos: ' + jw.getPosition());
+	sub = getCurrentAnnotation(jw.getPosition());
+	if(sub) {
+		//reset the other highlights
+		var subs = document.getElementsByClassName('sub');
+		for(var i=0;i<subs.length;i++) {
+			var elm = subs[i];
+			if(elm.id == sub.number) {
+				elm.className = 'sub active';
+			} else if(elm.className.indexOf('active') != -1) {
+				elm.className = 'sub';
+			}
+		}
+	}
 }
 
 function onPlay() {
@@ -62,7 +75,7 @@ function onSeeked() {
 			var elm = subs[i];
 			if(elm.id == sub.number) {
 				elm.className = 'sub active';
-			} else {
+			} else if(elm.className.indexOf('active') != -1) {
 				elm.className = 'sub';
 			}
 		}

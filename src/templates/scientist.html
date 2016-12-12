@@ -47,7 +47,6 @@
 			<div class="col-md-offset-1 col-md-5">
 				<div class="scientist-bio">
 					{{scientist.bio}}
-					BIO
 				</div>
 			</div>
 		</div>
@@ -66,11 +65,15 @@
 				</div>
 			</div>
 
+			{% if scientist.termCloud %}
 			<div class="col-md-offset-1 col-md-5">
 				<div class="tag-cloud">
-					CLOUD
+					{% for t in scientist.termCloud.terms %}
+						<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
+					{% endfor %}
 				</div>
 			</div>
+			{% endif %}
 		</div>
 
 		<!-- FIFTH ROW -->
