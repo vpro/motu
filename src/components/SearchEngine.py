@@ -24,12 +24,12 @@ class SearchEngine():
 	def getDesiredFacets(self):
 		return [
 			{
-				'field' : 'tags_raw',
-				'title' : 'Interview tags'
-			},
-			{
 				'field' : 'name',
 				'title' : 'Researchers'
+			},
+			{
+				'field' : 'tags_raw',
+				'title' : 'Interview tags'
 			},
 			{
 				'field' : 'body.value.tags_raw',
@@ -37,7 +37,11 @@ class SearchEngine():
 				'type' : 'nested'
 			},
 			{
-				'field' : 'location',
-				'title' : 'Filming location'
+				'field' : 'placeOfResidence',
+				'title' : 'Place of residence'
+			},
+			{
+				'field' : 'nationality',
+				'title' : 'Nationality'
 			}
 		]

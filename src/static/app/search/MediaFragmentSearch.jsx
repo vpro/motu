@@ -143,21 +143,25 @@ export default class MediaFragmentSearch extends React.Component {
 	getFacets() {
 		return [
 			{
-				'field' : 'name',
-				'title' : 'Researchers'
+				field : 'name',
+				title : 'Researchers'
 			},
 			{
-				'field' : 'tags_raw',
-				'title' : 'Interview tags'
+				field : 'body.value.tags_raw',
+				title : 'Segment tags',
+				type : 'nested'
 			},
 			{
-				'field' : 'body.value.tags_raw',
-				'title' : 'Segment tags',
-				'type' : 'nested'
+				field : 'tags_raw',
+				title : 'Interview tags'
 			},
 			{
-				'field' : 'location',
-				'title' : 'Filming location'
+				field : 'placeOfResidence',
+				title : 'Place of residence'
+			},
+			{
+				field : 'nationality',
+				title : 'Nationality'
 			}
 		]
 	}
