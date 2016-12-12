@@ -28,7 +28,7 @@ class SearchEngine():
 				'title' : 'Interview tags'
 			},
 			{
-				'field' : 'title_raw',
+				'field' : 'name',
 				'title' : 'Researchers'
 			},
 			{

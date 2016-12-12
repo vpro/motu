@@ -1,4 +1,5 @@
 import requests
+import random
 import json
 from datetime import datetime
 import os
@@ -12,6 +13,7 @@ class DataLoader():
 
 	def __init__(self, config):
 		self.config = config
+		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
 		self.WIKI_MAPPING = {
 			'George_Church' : 'George_M_Church',
 			'Sara_Seager' : 'Sara_Seager',
@@ -34,7 +36,8 @@ class DataLoader():
 
 	#TODO load random video from a static list
 	def loadRandomVideo(self):
-		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/Erik_Demaine/mp4/Erik_Demaine.mp4'
+		r = random.choice(self.WIKI_MAPPING.keys())
+		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/%s/mp4/%s.mp4' % (r, r)
 		return randomVideo
 
 	def loadScientists(self):
@@ -165,7 +168,7 @@ class DataLoader():
 			for s in subs:
 				transcript += s.content
 		if transcript:
-			url = 'http://termextract.fivefilters.org/extract.php'
+			url = self.TERM_EXTRACTION_API
 			params = {
 				'text_or_url': transcript,
 				'output' : 'json'

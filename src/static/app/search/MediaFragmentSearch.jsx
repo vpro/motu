@@ -143,7 +143,7 @@ export default class MediaFragmentSearch extends React.Component {
 	getFacets() {
 		return [
 			{
-				'field' : 'title_raw',
+				'field' : 'name',
 				'title' : 'Researchers'
 			},
 			{

@@ -8847,19 +8847,21 @@ body {
   margin: auto;
   background-color: #efefef;
   font-family: "Roboto" !important;
+  line-height: 150%;
 }
 
 /* ------------ On several pages ------------*/
-/* line 15, ../sass/_home.scss */
+/* line 16, ../sass/_home.scss */
 .top-buffer {
   margin-top: 20px;
 }
 
-/* line 23, ../sass/_home.scss */
+/* line 24, ../sass/_home.scss */
 .tag-cloud {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
+  margin-top: 20px;
 }
 /* line 5, ../sass/_mixins.scss */
 .tag-cloud strong {
@@ -8867,17 +8869,18 @@ body {
 }
 
 /* ------------ nav.html ------------ */
-/* line 32, ../sass/_home.scss */
+/* line 33, ../sass/_home.scss */
 .navbar-brand img {
   height: 22px;
 }
 
 /* ------------ index.html ------------ */
-/* line 41, ../sass/_home.scss */
+/* line 42, ../sass/_home.scss */
 .home-text {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
+  margin-top: 20px;
 }
 /* line 5, ../sass/_mixins.scss */
 .home-text strong {
@@ -8885,21 +8888,22 @@ body {
 }
 
 /* ------------ scientist.html ------------ */
-/* line 50, ../sass/_home.scss */
+/* line 51, ../sass/_home.scss */
 .scientist img {
   height: 80px;
 }
 
-/* line 56, ../sass/_home.scss */
+/* line 57, ../sass/_home.scss */
 .scientist-photo img {
   height: 200px;
 }
 
-/* line 61, ../sass/_home.scss */
+/* line 62, ../sass/_home.scss */
 .scientist-bio {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
+  margin-top: 20px;
 }
 /* line 5, ../sass/_mixins.scss */
 .scientist-bio strong {
@@ -8907,33 +8911,34 @@ body {
 }
 
 /* ------------ play.html ------------ */
-/* line 68, ../sass/_home.scss */
+/* line 69, ../sass/_home.scss */
 #transcript-controls {
   height: 200px;
   width: 100%;
   padding: 10px;
   overflow-y: auto;
 }
-/* line 73, ../sass/_home.scss */
+/* line 74, ../sass/_home.scss */
 #transcript-controls .active {
   font-weight: bold;
   color: crimson;
 }
-/* line 77, ../sass/_home.scss */
+/* line 78, ../sass/_home.scss */
 #transcript-controls .sub {
   cursor: pointer;
 }
-/* line 79, ../sass/_home.scss */
+/* line 80, ../sass/_home.scss */
 #transcript-controls .sub:hover {
   color: crimson;
 }
 
-/* line 85, ../sass/_home.scss */
+/* line 86, ../sass/_home.scss */
 .share-panel {
   display: none;
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
+  margin-top: 20px;
 }
 /* line 5, ../sass/_mixins.scss */
 .share-panel strong {
@@ -8941,7 +8946,7 @@ body {
 }
 
 /* ------------ footer.html ------------ */
-/* line 92, ../sass/_home.scss */
+/* line 93, ../sass/_home.scss */
 #footer {
   color: #efefef;
   background-color: #222;
@@ -8956,6 +8961,7 @@ body {
   border: 1px solid royalblue;
   box-shadow: 3px 3px 3px;
   padding: 20px;
+  margin-top: 20px;
   margin: 5px;
   padding: 5px;
   cursor: pointer;
