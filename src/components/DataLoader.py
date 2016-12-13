@@ -26,6 +26,18 @@ class DataLoader():
 			'Lee_Cronin' : 'Leroy_Cronin',
 			'Susant_Patnaik' : None
 		}
+		self.WIKIPEDIA_MAPPING = {
+			'George_Church' : 'George_M._Church',
+			'Sara_Seager' : 'Sara_Seager',
+			'Erik_Demaine' : 'Erik_Demaine',
+			'Donald_Hoffman' : None,
+			'Guy_Consolmagno' : 'Guy_Consolmagno',
+			'Jean-Jacques_Hublin' : 'Jean_Jacques_Hublin',
+			'Trond_Helge_Torsvik' : None,
+			'Michael_Poulin' : None,
+			'Lee_Cronin' : 'Leroy_Cronin',
+			'Susant_Patnaik' : None
+		}
 
 	def loadMarkdownFile(self, fn):
 		text = None
@@ -64,6 +76,7 @@ class DataLoader():
 			data = json.loads(resp.text)
 			if '_source' in data:
 				scientist = {}
+				scientist['id'] = data['_id']
 				if 'title_raw' in data['_source']:
 					scientist['name'] = data['_source']['name']
 				if 'posterURL' in data['_source']:
@@ -72,6 +85,8 @@ class DataLoader():
 					scientist['videos'] = data['_source']['playableContent']
 				scientist['transcript'] = self.__loadTranscript(scientistId)
 				scientist['bio'] = self.__loadWikipediaBio(scientistId)
+				scientist['wikiURL'] = 'http://wikipedia.org/wiki/%s' % self.WIKIPEDIA_MAPPING[scientistId]
+				scientist['annotations'] = self.__loadAnnotations(scientistId)
 				tc = self.__loadTermCloud(scientistId)
 				if tc:
 					scientist['termCloud'] = json.loads(tc)
@@ -196,4 +211,47 @@ class DataLoader():
 			f.close()
 		return data
 
-
+	def __loadAnnotations(self, scientistId):
+		links = []
+		classifications = []
+		keyMoments = []
+		targetUrl = '%s/%s/mp4/%s.mp4' % (self.config['BASE_MEDIA_URL'], scientistId, scientistId)
+		url = '%s/annotations/filter?target.source=%s&user=motu' % (
+			self.config['ANNOTATION_API'],
+			targetUrl
+		)
+		resp = requests.get(url)
+		if resp.status_code == 200:
+			data = json.loads(resp.text)
+			if data and 'annotations' in data:
+				for a in data['annotations']:
+					if 'body' in a and a['body']:
+						#these are the media object annotations
+						if not ('selector' in a['target'] and a['target']['selector']):
+							for annotation in a['body']:
+								if annotation['annotationType'] == 'link':
+									links.append(annotation)
+								elif annotation['annotationType'] == 'classification':
+									classifications.append(annotation)
+						else:#these are the segment annotations
+							for annotation in a['body']:
+								segmentTitle = None
+								keyMoment = None
+								if annotation['annotationType'] == 'metadata' and 'properties' in annotation:
+									for prop in annotation['properties']:
+										if prop['key'] == 'key moments' and prop['value'] and prop['value'] != '':
+											keyMoment = prop['value']
+										elif prop['key'] == 'title':
+											segmentTitle = prop['value']
+									if keyMoment and segmentTitle:
+										keyMoments.append({
+											'title' : segmentTitle,
+											'keyMoment' : keyMoment,
+											'start' : a['target']['selector']['start'] * 1000,
+											'end' : a['target']['selector']['end'] * 1000
+										})
+		return {
+			'links' : links,
+			'classifications' : classifications,
+			'keyMoments' : keyMoments
+		}

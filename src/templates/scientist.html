@@ -39,29 +39,56 @@
 
 		<!-- THIRD ROW -->
 		<div class="row">
-			<div class="col-md-6">
-				<div class="scientist-photo">
-					<img src="{{scientist.poster}}" alt="{{scientist.name}}">
-				</div>
-			</div>
-			<div class="col-md-offset-1 col-md-5">
+			<div class="col-md-12">
 				<div class="scientist-bio">
-					{{scientist.bio}}
+
+					<div class="media">
+						<div class="media-left">
+							<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">
+								<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">Bio</h4>
+							{{scientist.bio}}
+
+							{% if scientist.annotations.links | length > 0 %}
+								<h4>Additional links</h4>
+								{% for link in scientist.annotations.links %}
+									<i class="fa fa-link"></i>
+									<a href="{{link.url}}" target="_new">{{link.label}}</a>
+									<br/>
+								{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+
 				</div>
 			</div>
+
 		</div>
 
 		<!-- FOURTH ROW -->
 		<div class="row">
 			<div class="col-md-6">
-				<h3>Featured interviews</h3>
 				<div class="video-embed">
+					<h3>Available interviews</h3>
 					{% for video in scientist.videos %}
 						<video width="480" height="320" controls>
 							<source src="{{video.url}}" type="video/mp4">
 							Your browser does not support the video tag
 						</video>
 					{% endfor %}
+
+					{% if scientist.annotations.keyMoments | length > 0 %}
+						<h3>Key moments</h3>
+						{% for km in scientist.annotations.keyMoments %}
+							<a href="/play?id={{scientist.id}}&s={{km.start}}&e={{km.end}}">
+								{{km.title}}&nbsp;({{km.keyMoment}})
+							</a>
+							<br/>
+						{% endfor %}
+					{% endif %}
 				</div>
 			</div>
 
@@ -79,7 +106,7 @@
 		</div>
 
 		<!-- FIFTH ROW -->
-		<div class="row">
+		<div class="row top-buffer">
 			<div class="col-md-12">
 				<button class="btn btn-danger">Share your knowledge</button>
 			</div>
