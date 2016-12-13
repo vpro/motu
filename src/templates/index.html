@@ -84,9 +84,10 @@
 			<!-- TAG CLOUD -->
 			<div class="col-md-5">
 				<div class="tag-cloud">
+					<h4>Keywords added by us</h4>
 					{% for tag in tagCloud%}
 					<a href="/search?st={{tag}}">
-						<span style="font-size:{{tagCloud[tag]}}pt;">{{tag}}</span>
+						<span style="font-size:{{score_to_fontsize(tagCloud[tag])}}pt;">{{tag}}</span>
 					</a>
 					{% endfor %}
 				</div>

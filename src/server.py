@@ -16,8 +16,10 @@ import os
 def score_to_fontsize(size):
 	if size > 40:
 		return 40 + ((size - 40) / 2)
-	if size < 12:
+	elif size < 12 and size > 6:
 		return 12 + (size / 2)
+	elif size <= 6:
+		return 12 + size
 	return size
 
 app = Flask(__name__)
@@ -82,7 +84,7 @@ def home():
 	randomVideo = _dataLoader.loadRandomVideo()
 	introText = _dataLoader.loadMarkdownFile('introtext.md')
 	scientists = _dataLoader.loadScientists()
-	tagCloud = _dataLoader.loadTagCloud()
+	tagCloud = _dataLoader.loadKeywordTagCloud()
 	return render_template('index.html',
 		randomVideo=randomVideo,
 		introText=introText,

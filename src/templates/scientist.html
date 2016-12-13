@@ -83,10 +83,17 @@
 					{% if scientist.annotations.keyMoments | length > 0 %}
 						<h3>Key moments</h3>
 						{% for km in scientist.annotations.keyMoments %}
-							<a href="/play?id={{scientist.id}}&s={{km.start}}&e={{km.end}}">
-								{{km.title}}&nbsp;({{km.keyMoment}})
-							</a>
-							<br/>
+							<div class="media">
+								<div class="media-left">
+									<a href="/play?id={{scientist.id}}&s={{km.start}}&e={{km.end}}">
+										<img class="media-object" src="{{km.poster}}" alt="{{km.title}}" style="height:60px;">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">{{km.title}}</h4>
+									{{km.keyMoment}}
+								</div>
+							</div>
 						{% endfor %}
 					{% endif %}
 				</div>
@@ -95,6 +102,7 @@
 			{% if scientist.termCloud %}
 			<div class="col-md-offset-1 col-md-5">
 				<div class="tag-cloud">
+					<h4>This is what {{scientist.name}} talks about:</h4>
 					{% for t in scientist.termCloud.terms %}
 						<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
 							<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>

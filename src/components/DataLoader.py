@@ -86,7 +86,7 @@ class DataLoader():
 				scientist['transcript'] = self.__loadTranscript(scientistId)
 				scientist['bio'] = self.__loadWikipediaBio(scientistId)
 				scientist['wikiURL'] = 'http://wikipedia.org/wiki/%s' % self.WIKIPEDIA_MAPPING[scientistId]
-				scientist['annotations'] = self.__loadAnnotations(scientistId)
+				scientist['annotations'] = self.__loadScientistAnnotations(scientistId)
 				tc = self.__loadTermCloud(scientistId)
 				if tc:
 					scientist['termCloud'] = json.loads(tc)
@@ -129,9 +129,23 @@ class DataLoader():
 		x = datetime.strptime(t, '%H:%M:%S,%f')
 		return ((x.hour * 3600 + x.minute * 60 + x.second) * 1000) + int(str(x.microsecond)[0:3])
 
-	#TODO load the tags from elasticsearch
-	def loadTagCloud(self):
-		tagCloud = {'Astrophysics' : 12, 'Biology' : 13, 'DNA' : 15, 'Humanity' : 19, 'Acceptance' : 12, 'Economics' : 17}
+	#TODO load the terms from the annotation tags
+	def loadKeywordTagCloud(self):
+		#tagCloud = {'Astrophysics' : 12, 'Biology' : 13, 'DNA' : 15, 'Humanity' : 19, 'Acceptance' : 12, 'Economics' : 17}
+		tagCloud = {}
+		url = '%s/annotations/filter?user=motu' % (self.config['ANNOTATION_API'])
+		resp = requests.get(url)
+		if resp.status_code == 200:
+			data = json.loads(resp.text)
+			if data and 'annotations' in data:
+				for a in data['annotations']:
+					if 'body' in a and a['body']:
+						for annotation in a['body']:
+							if annotation['annotationType'] == 'classification':
+								if annotation['label'] in tagCloud:
+									tagCloud[annotation['label']] += 1
+								else:
+									tagCloud[annotation['label']] = 1
 		return tagCloud
 
 	def __loadWikipediaBio(self, scientistId):
@@ -211,7 +225,7 @@ class DataLoader():
 			f.close()
 		return data
 
-	def __loadAnnotations(self, scientistId):
+	def __loadScientistAnnotations(self, scientistId):
 		links = []
 		classifications = []
 		keyMoments = []
@@ -248,7 +262,14 @@ class DataLoader():
 											'title' : segmentTitle,
 											'keyMoment' : keyMoment,
 											'start' : a['target']['selector']['start'] * 1000,
-											'end' : a['target']['selector']['end'] * 1000
+											'end' : a['target']['selector']['end'] * 1000,
+											'poster' : '%s/%s/thumbnails/%s/%s_%04d.jpg' % (
+												self.config['BASE_MEDIA_URL'],
+												scientistId,
+												scientistId,
+												scientistId,
+												int(a['target']['selector']['start'])
+											)
 										})
 		return {
 			'links' : links,
