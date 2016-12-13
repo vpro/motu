@@ -13,6 +13,13 @@ class DataLoader():
 
 	def __init__(self, config):
 		self.config = config
+
+		#load all the stopwords
+		self.stopWords = []
+		f = open('%s/stopwords-en.txt' % config['TEXTUAL_CONTENT_DIR'], 'r')
+		for line in f:
+			self.stopWords.append(line.replace('\n', ''))
+
 		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
 		self.WIKI_MAPPING = {
 			'George_Church' : 'George_M_Church',
@@ -89,7 +96,7 @@ class DataLoader():
 				scientist['annotations'] = self.__loadScientistAnnotations(scientistId)
 				tc = self.__loadTermCloud(scientistId)
 				if tc:
-					scientist['termCloud'] = json.loads(tc)
+					scientist['termCloud'] = tc
 				return scientist
 		return None
 
@@ -187,7 +194,7 @@ class DataLoader():
 	def __loadTermCloud(self, scientistId):
 		cachedData = self.__readFromCache(scientistId, 'termcloud-cache')
 		if cachedData:
-			return cachedData
+			return json.loads(cachedData)
 
 		#otherwise run the transcript through the term extractor and get the term cloud
 		transcript = None
@@ -195,7 +202,7 @@ class DataLoader():
 		if subs:
 			transcript = ''
 			for s in subs:
-				transcript += s.content
+				transcript += ' %s' % s.content
 		if transcript:
 			url = self.TERM_EXTRACTION_API
 			params = {
@@ -204,10 +211,18 @@ class DataLoader():
 			}
 			resp = requests.post(url, data=params)
 			if resp.status_code == 200:
-				tc = '{ "terms" : %s}' % resp.text
-				self.__writeToCache(scientistId, 'termcloud-cache', tc)
+				tc = self.__filterStopWords(json.loads('{ "terms" : %s}' % resp.text))
+				self.__writeToCache(scientistId, 'termcloud-cache', json.dumps(tc))
 				return tc
 		return None
+
+	def __filterStopWords(self, terms):
+		filteredTerms = []
+		for t in terms['terms']:
+			if t[0] in self.stopWords:
+				continue
+			filteredTerms.append(t)
+		return {'terms' : filteredTerms}
 
 	#cacheType = wikipedia-cache OR termcloud-cache
 	def __writeToCache(self, scientistId, cacheType, data):
