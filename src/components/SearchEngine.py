@@ -21,6 +21,7 @@ class SearchEngine():
 			return json.loads(resp.text)
 		return None
 
+
 	def getDesiredFacets(self):
 		return [
 			{
