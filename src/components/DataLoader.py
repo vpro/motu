@@ -1,13 +1,13 @@
 import requests
 import random
 import json
-from datetime import datetime
 import os
 import codecs
 from itertools import groupby
 from collections import namedtuple
 from markdown import markdown
 import wikipedia
+from TimeUtil import TimeUtil
 
 class DataLoader():
 
@@ -121,20 +121,12 @@ class DataLoader():
 					start, end = start_end.split(' --> ')
 					subs.append(Subtitle(
 						number,
-						self.__SRTTimetoMillis(start),
-						self.__SRTTimetoMillis(end),
+						TimeUtil.SRTTimetoMillis(start),
+						TimeUtil.SRTTimetoMillis(end),
 						content,
-						self.__SRTTimetoPrettyTime(start)
+						TimeUtil.SRTTimetoPrettyTime(start)
 					))
 		return subs
-
-	def __SRTTimetoPrettyTime(self, t):
-		x = datetime.strptime(t, '%H:%M:%S,%f')
-		return x.strftime('%H:%M:%S')
-
-	def __SRTTimetoMillis(self, t):
-		x = datetime.strptime(t, '%H:%M:%S,%f')
-		return ((x.hour * 3600 + x.minute * 60 + x.second) * 1000) + int(str(x.microsecond)[0:3])
 
 	#TODO load the terms from the annotation tags
 	def loadKeywordTagCloud(self):
@@ -243,7 +235,7 @@ class DataLoader():
 	def __loadScientistAnnotations(self, scientistId):
 		links = []
 		classifications = []
-		keyMoments = []
+		segments = []
 		targetUrl = '%s/%s/mp4/%s.mp4' % (self.config['BASE_MEDIA_URL'], scientistId, scientistId)
 		url = '%s/annotations/filter?target.source=%s&user=motu' % (
 			self.config['ANNOTATION_API'],
@@ -253,6 +245,7 @@ class DataLoader():
 		if resp.status_code == 200:
 			data = json.loads(resp.text)
 			if data and 'annotations' in data:
+				number = 1
 				for a in data['annotations']:
 					if 'body' in a and a['body']:
 						#these are the media object annotations
@@ -266,18 +259,22 @@ class DataLoader():
 							for annotation in a['body']:
 								segmentTitle = None
 								keyMoment = None
+								start = -1
 								if annotation['annotationType'] == 'metadata' and 'properties' in annotation:
 									for prop in annotation['properties']:
 										if prop['key'] == 'key moments' and prop['value'] and prop['value'] != '':
 											keyMoment = prop['value']
 										elif prop['key'] == 'title':
 											segmentTitle = prop['value']
-									if keyMoment and segmentTitle:
-										keyMoments.append({
+									if segmentTitle:
+										start = a['target']['selector']['start'] * 1000
+										segments.append({
 											'title' : segmentTitle,
+											'number' : number,
 											'keyMoment' : keyMoment,
-											'start' : a['target']['selector']['start'] * 1000,
+											'start' : start,
 											'end' : a['target']['selector']['end'] * 1000,
+											'prettyStart' : TimeUtil.millisToPrettyTime(start),
 											'poster' : '%s/%s/thumbnails/%s/%s_%04d.jpg' % (
 												self.config['BASE_MEDIA_URL'],
 												scientistId,
@@ -286,8 +283,9 @@ class DataLoader():
 												int(a['target']['selector']['start'])
 											)
 										})
+										number += 1
 		return {
 			'links' : links,
 			'classifications' : classifications,
-			'keyMoments' : keyMoments
+			'segments' : segments
 		}

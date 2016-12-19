@@ -80,22 +80,6 @@
 						</video>
 					{% endfor %}
 
-					{% if scientist.annotations.keyMoments | length > 0 %}
-						<h3>Key moments</h3>
-						{% for km in scientist.annotations.keyMoments %}
-							<div class="media">
-								<div class="media-left">
-									<a href="/play?id={{scientist.id}}&s={{km.start}}&e={{km.end}}">
-										<img class="media-object" src="{{km.poster}}" alt="{{km.title}}" style="height:60px;">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">{{km.title}}</h4>
-									{{km.keyMoment}}
-								</div>
-							</div>
-						{% endfor %}
-					{% endif %}
 				</div>
 			</div>
 

@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, abort
+from flask import make_response, render_template, abort
 from flask import request, Response, send_from_directory
 
 from jinja2.exceptions import TemplateNotFound
@@ -78,11 +78,37 @@ def requires_auth(f):
 		return f(*args, **kwargs)
 	return decorated
 
+def add_response_headers(headers={}):
+	"""This decorator adds the headers passed in to the response"""
+	def decorator(f):
+		@wraps(f)
+		def decorated_function(*args, **kwargs):
+			resp = make_response(f(*args, **kwargs))
+			h = resp.headers
+			for header, value in headers.items():
+				h[header] = value
+			return resp
+		return decorated_function
+	return decorator
+
+def nocache(f):
+	"""This decorator passes X-Robots-Tag: noindex"""
+	@wraps(f)
+	@add_response_headers({
+		'Cache-Control': 'no-cache, no-store, must-revalidate',
+		'Pragma' : 'no-cache',
+		'Expires' : '0'
+	})
+	def decorated_function(*args, **kwargs):
+		return f(*args, **kwargs)
+	return decorated_function
+
 """------------------------------------------------------------------------------
 STATIC PAGES THAT DO NOT USE THE COMPONENT LIBRARY
 ------------------------------------------------------------------------------"""
 
 @app.route('/')
+@nocache
 def home():
 	randomVideo = _dataLoader.loadRandomVideo()
 	introText = _dataLoader.loadMarkdownFile('introtext.md')
@@ -96,6 +122,7 @@ def home():
 	)
 
 @app.route('/about')
+@nocache
 def about():
 	return render_template('about.html',
 		about=_dataLoader.loadMarkdownFile('about.md'),
@@ -104,6 +131,7 @@ def about():
 	)
 
 @app.route('/scientist')
+@nocache
 def scientist():
 	sid = request.args.get('id', None)
 	if sid:
@@ -113,6 +141,7 @@ def scientist():
 		return render_template('404.html'), 404
 
 @app.route('/search')
+@nocache
 def search():
 	searchTerm = request.args.get('st', None)
 	sf = request.args.get('sf', None)
@@ -135,6 +164,7 @@ def search():
 
 @app.route('/play')
 @requires_auth
+@nocache
 def play():
 	sid = request.args.get('id', None)
 	searchTerm = request.args.get('st', None)
@@ -151,7 +181,7 @@ def play():
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')
 def static_from_root():
-    return send_from_directory(app.static_folder, request.path[1:])
+	return send_from_directory(app.static_folder, request.path[1:])
 
 @app.route('/s', methods=['post'])
 def s():
@@ -168,11 +198,11 @@ ERROR HANDLERS
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+	return render_template('404.html'), 404
 
 @app.errorhandler(500)
 def page_not_found(e):
-    return render_template('500.html'), 500
+	return render_template('500.html'), 500
 
 if __name__ == '__main__':
 	app.run(port=_config['APP_PORT'], host=_config['APP_HOST'])

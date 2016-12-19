@@ -8913,26 +8913,34 @@ body {
 /* ------------ play.html ------------ */
 /* line 69, ../sass/_home.scss */
 #transcript-controls {
-  height: 200px;
+  height: 300px;
   width: 100%;
   padding: 10px;
   overflow-y: auto;
 }
-/* line 74, ../sass/_home.scss */
-#transcript-controls .active {
-  font-weight: bold;
-  color: crimson;
+
+/* line 76, ../sass/_home.scss */
+.segment-nav {
+  height: 240px;
+  overflow-y: auto;
 }
-/* line 78, ../sass/_home.scss */
-#transcript-controls .sub {
+
+/* line 81, ../sass/_home.scss */
+.sub, .segment {
   cursor: pointer;
 }
-/* line 80, ../sass/_home.scss */
-#transcript-controls .sub:hover {
+/* line 83, ../sass/_home.scss */
+.sub:hover, .segment:hover {
   color: crimson;
 }
 
-/* line 86, ../sass/_home.scss */
+/* line 88, ../sass/_home.scss */
+.active {
+  font-weight: bold;
+  color: crimson;
+}
+
+/* line 93, ../sass/_home.scss */
 .share-panel {
   display: none;
   border: 1px solid royalblue;
@@ -8945,8 +8953,14 @@ body {
   font-weight: bold;
 }
 
+/* line 98, ../sass/_home.scss */
+.segment-list {
+  list-style: none;
+  padding: 0px;
+}
+
 /* ------------ footer.html ------------ */
-/* line 93, ../sass/_home.scss */
+/* line 108, ../sass/_home.scss */
 #footer {
   color: #efefef;
   background-color: #222;

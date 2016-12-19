@@ -67,25 +67,40 @@ body {
 /* ------------ play.html ------------ */
 
 #transcript-controls {
-	height: 200px;
+	height: 300px;
 	width: 100%;
 	padding:$defaultMargin;
 	overflow-y:auto;
-	.active {
-		font-weight:bold;
+}
+
+.segment-nav {
+	height:240px;
+	overflow-y:auto;
+}
+
+.sub, .segment {
+	cursor:pointer;
+	&:hover {
 		color:crimson;
 	}
-	.sub {
-		cursor:pointer;
-		&:hover {
-			color:crimson;
-		}
-	}
+}
+
+.active {
+	font-weight:bold;
+	color:crimson;
 }
 
 .share-panel {
 	display:none;
 	@include block;
+}
+
+.segment-list {
+	list-style: none;
+	padding:0px;
+	li {
+
+	}
 }
 
 /* ------------ footer.html ------------ */

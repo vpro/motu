@@ -1,4 +1,5 @@
 var _clickedLine = null;
+var _clickedSegment = null;
 
 var jw = jwplayer('video_player').setup({
 	file: _scientist.videos[0].url,
@@ -6,6 +7,7 @@ var jw = jwplayer('video_player').setup({
 	type : 'mp4',
 	controls : true,
 	image: null,
+	mute: false,
 	autostart: false,
 	key: 'cp1KvUB8slrOvOjg+U8melMoNwxOm/honmDwGg=='
 })
@@ -20,6 +22,7 @@ jw.on('bufferChange', loadProgress)
 
 function onReady() {
 	_clickedLine = getCurrentAnnotation(_start / 1000);
+	_clickedSegment = getCurrentSegment(_start / 1000);
 	jw.seek(_start / 1000);
 }
 
@@ -28,20 +31,8 @@ function loadProgress() {
 }
 
 function playProgress() {
-	//console.debug('cur pos: ' + jw.getPosition());
-	sub = getCurrentAnnotation(jw.getPosition());
-	if(sub) {
-		//reset the other highlights
-		var subs = document.getElementsByClassName('sub');
-		for(var i=0;i<subs.length;i++) {
-			var elm = subs[i];
-			if(elm.id == sub.number) {
-				elm.className = 'sub active';
-			} else if(elm.className.indexOf('active') != -1) {
-				elm.className = 'sub';
-			}
-		}
-	}
+	highlight(getCurrentAnnotation(jw.getPosition()), 'sub');
+	highlight(getCurrentSegment(jw.getPosition()), 'segment');
 }
 
 function onPlay() {
@@ -57,10 +48,8 @@ function onFinish() {
 }
 
 function onSeeked() {
-	var sub = _clickedLine;
-	if(!sub) {
-		sub = getCurrentAnnotation(jw.getPosition());
-	}
+	var sub = _clickedLine || getCurrentAnnotation(jw.getPosition());
+	var segment = _clickedSegment || getCurrentSegment(jw.getPosition());
 	if(sub) {
 		//jump to the sub so you can read it
 		var url = document.location.href;
@@ -69,17 +58,12 @@ function onSeeked() {
 		}
 		document.location.href = url + '#' + sub.number;
 
-		//reset the other highlights
-		var subs = document.getElementsByClassName('sub');
-		for(var i=0;i<subs.length;i++) {
-			var elm = subs[i];
-			if(elm.id == sub.number) {
-				elm.className = 'sub active';
-			} else if(elm.className.indexOf('active') != -1) {
-				elm.className = 'sub';
-			}
-		}
+		highlight(sub, 'sub');
 		_clickedLine = null;
+	}
+	if(segment) {
+		highlight(segment, 'segment');
+		_clickedSegment = null;
 	}
 }
 
@@ -103,10 +87,56 @@ function getCurrentAnnotation(sec) {
 	return null;
 }
 
+function getCurrentSegment(sec) {
+	if(_scientist.annotations.segments) {
+		var pos = parseInt(sec) * 1000
+		var currentSegment = _scientist.annotations.segments.filter((a, index)=> {
+			if(a.start <= pos && a.end >= pos) {
+				return true;
+			} else if(pos < a.start && pos >= a.start - 500) {//first try to fetch the closest one AHEAD
+				return true;
+			} else if(pos > a.end && pos <= a.end + 500) {//then try to fetch the closest one BEFORE
+				return true;
+			}
+			return false;
+		});
+		if(currentSegment.length > 0) {
+			return currentSegment[0];
+		}
+	}
+	return null;
+}
+
+function highlight(line, type) {
+	if(line) {
+		var lines = document.getElementsByClassName(type);
+		for(var i=0;i<lines.length;i++) {
+			var elm = lines[i];
+			if(elm.id == line.number) {
+				elm.className = type + ' active';
+			} else if(elm.className.indexOf('active') != -1) {
+				elm.className = type;
+			}
+		}
+	} else { //reset all highlighting of this type
+		var lines = document.getElementsByClassName(type);
+		for(var i=0;i<lines.length;i++) {
+			lines[i].className = type;
+		}
+	}
+}
+
 function gotoLine(index) {
 	_clickedLine = _scientist.transcript[index];
 	if(_clickedLine) {
 		jw.seek(_clickedLine.start / 1000);
+	}
+}
+
+function gotoSegment(index) {
+	_clickedSegment = _scientist.annotations.segments[index];
+	if(_clickedSegment) {
+		jw.seek(_clickedSegment.start / 1000);
 	}
 }
 
