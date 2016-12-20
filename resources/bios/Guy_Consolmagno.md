@@ -1,0 +1,1 @@
+Brother Guy Consolmagno (astronomer, Vatican) - Combining his belief in God as director of the Vatican Observatory with his knowledge of meteorites, older than our planet

@@ -29,7 +29,7 @@ class DataLoader():
 			'Guy_Consolmagno' : 'Guy_Consolmagno',
 			'Jean-Jacques_Hublin' : 'Jean_Jacques_Hublin',
 			'Trond_Helge_Torsvik' : None,
-			'Michael_Poulin' : None,
+			'Michael_Poulin' : None, #name is probably incorrect
 			'Lee_Cronin' : 'Leroy_Cronin',
 			'Susant_Patnaik' : None
 		}
@@ -41,17 +41,19 @@ class DataLoader():
 			'Guy_Consolmagno' : 'Guy_Consolmagno',
 			'Jean-Jacques_Hublin' : 'Jean_Jacques_Hublin',
 			'Trond_Helge_Torsvik' : None,
-			'Michael_Poulin' : None,
+			'Michael_Poulin' : None, #name is probably incorrect
 			'Lee_Cronin' : 'Leroy_Cronin',
 			'Susant_Patnaik' : None
 		}
 
 	def loadMarkdownFile(self, fn):
-		text = None
-		f = open('%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], fn), 'r')
-		text = f.read()
-		f.close()
-		return markdown(text)
+		mdFile = '%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], fn)
+		if os.path.exists(mdFile):
+			f = open(mdFile, 'r')
+			text = f.read()
+			f.close()
+			return markdown(text)
+		return None
 
 	#TODO load random video from a static list
 	def loadRandomVideo(self):
@@ -61,19 +63,16 @@ class DataLoader():
 
 	def loadScientists(self):
 		scientists = []
-		url = '%s/search/motu' % self.config['SEARCH_API']
-		query = {"query":{"bool":{"must":[{"match_all":{}}],"must_not":[],"should":[]}},"from":0,"size":50,"sort":[],"aggs":{}}
-		resp = requests.post(url, data=json.dumps(query))
-		if resp.status_code == 200:
-			data = json.loads(resp.text)
-			if 'hits' in data and 'total' in data['hits']:
-				for hit in data['hits']['hits']:
-					scientists.append({
-						'id' : hit['_id'],
-						'name' : hit['_source']['title_raw'],
-						'bio' : self.__loadWikipediaBio(hit['_id']),
-						'poster' : hit['_source']['posterURL']
-					})
+		for root, dirs, files in os.walk('%s/bios' % self.config['TEXTUAL_CONTENT_DIR']):
+			for fn in files:
+				scientistId = fn[0:fn.rfind('.md')]
+				scientists.append({
+					'id' : scientistId,
+					'name' : scientistId.replace('_', ' '),
+					'bio' : self.__loadWikipediaBio(scientistId),
+					'shortBio' : self.loadMarkdownFile('bios/%s.md' % scientistId),
+					'poster' : '/static/images/scientists/%s.jpg' % scientistId
+				})
 		return scientists
 
 	def loadScientist(self, scientistId):

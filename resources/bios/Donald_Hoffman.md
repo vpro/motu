@@ -1,0 +1,1 @@
+Donald Hoffman (cognitive scientist, USA) - What is reality? Evolution and quantum physics let us experience other realities than we think

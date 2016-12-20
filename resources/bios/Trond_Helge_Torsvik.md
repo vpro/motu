@@ -1,0 +1,1 @@
+Trond Helge Torsvik (geophysicist, Iceland) - Looking for the origins of continental plate tectonics

@@ -1,0 +1,1 @@
+*Jean-Jacques Hublin* (archaeologist, Germany) - Researching the way homo sapiens conquered the world
