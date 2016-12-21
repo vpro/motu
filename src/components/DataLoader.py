@@ -22,28 +22,21 @@ class DataLoader():
 
 		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
 		self.WIKI_MAPPING = {
-			'George_Church' : 'George_M_Church',
-			'Sara_Seager' : 'Sara_Seager',
-			'Erik_Demaine' : 'Erik_Demaine',
-			'Donald_Hoffman' : None,
-			'Guy_Consolmagno' : 'Guy_Consolmagno',
-			'Jean-Jacques_Hublin' : 'Jean_Jacques_Hublin',
-			'Trond_Helge_Torsvik' : None,
-			'Michael_Poulin' : None, #name is probably incorrect
-			'Lee_Cronin' : 'Leroy_Cronin',
-			'Susant_Patnaik' : None
-		}
-		self.WIKIPEDIA_MAPPING = {
-			'George_Church' : 'George_M._Church',
-			'Sara_Seager' : 'Sara_Seager',
-			'Erik_Demaine' : 'Erik_Demaine',
-			'Donald_Hoffman' : None,
-			'Guy_Consolmagno' : 'Guy_Consolmagno',
-			'Jean-Jacques_Hublin' : 'Jean_Jacques_Hublin',
-			'Trond_Helge_Torsvik' : None,
-			'Michael_Poulin' : None, #name is probably incorrect
-			'Lee_Cronin' : 'Leroy_Cronin',
-			'Susant_Patnaik' : None
+			'Donald_Hoffman' : (None, None),
+			'Erik_Demaine' : ('Erik_Demaine', 'Erik_Demaine'),
+			'George_Church' : ('George_M_Church', 'George_M._Church'),
+			'Guy_Consolmagno' : ('Guy_Consolmagno', 'Guy_Consolmagno'),
+			'Jean-Jacques_Hublin' : ('Jean_Jacques_Hublin', 'Jean_Jacques_Hublin'),
+			'Hans_Clevers' : ('Hans_Clevers', 'Hans_Clevers'),
+			'Jian-Wei_Pan' : ('Pan_Jianwei', 'Pan_Jianwei'),
+			'Joanna_Aizenberg' : ('Joanna_Aizenberg', 'Joanna_Aizenberg'),
+			'Lee_Cronin' : ('Leroy_Cronin', 'Leroy_Cronin'),
+			'Michel_Poulin' : (None, None),
+			'Miguel_Nicolelis' : ('Miguel_Nicolelis', 'Miguel_Nicolelis'),
+			'Sara_Seager' : ('Sara_Seager', 'Sara_Seager'),
+			'Segenet_Kelemu' : ('Segenet_Kelemu', 'Segenet_Kelemu'),
+			'Susant_Patnaik' : (None, None),
+			'Trond_Helge_Torsvik' : ('Trond_Helge_Torsvik', 'Trond_Helge_Torsvik')
 		}
 
 	def loadMarkdownFile(self, fn):
@@ -52,7 +45,11 @@ class DataLoader():
 			f = open(mdFile, 'r')
 			text = f.read()
 			f.close()
-			return markdown(text)
+			try:
+				bio = markdown(text)
+				return bio
+			except UnicodeDecodeError, e:
+				print e
 		return None
 
 	#TODO load random video from a static list
@@ -71,7 +68,7 @@ class DataLoader():
 					'name' : scientistId.replace('_', ' '),
 					'bio' : self.__loadWikipediaBio(scientistId),
 					'shortBio' : self.loadMarkdownFile('bios/%s.md' % scientistId),
-					'poster' : '/static/images/scientists/%s.jpg' % scientistId
+					'poster' : self.__getPosterURL(scientistId)
 				})
 		return scientists
 
@@ -85,19 +82,45 @@ class DataLoader():
 				scientist['id'] = data['_id']
 				if 'title_raw' in data['_source']:
 					scientist['name'] = data['_source']['name']
-				if 'posterURL' in data['_source']:
-					scientist['poster'] = data['_source']['posterURL']
+				#if 'posterURL' in data['_source']:
+				#	scientist['poster'] = data['_source']['posterURL']
 				if 'playableContent' in data['_source']:
 					scientist['videos'] = data['_source']['playableContent']
+				scientist['poster'] = self.__getPosterURL(scientistId)
 				scientist['transcript'] = self.__loadTranscript(scientistId)
 				scientist['bio'] = self.__loadWikipediaBio(scientistId)
-				scientist['wikiURL'] = 'http://wikipedia.org/wiki/%s' % self.WIKIPEDIA_MAPPING[scientistId]
+				scientist['wikiURL'] = self.__getWikipediaUrl(scientistId)
 				scientist['annotations'] = self.__loadScientistAnnotations(scientistId)
 				tc = self.__loadTermCloud(scientistId)
 				if tc:
 					scientist['termCloud'] = tc
 				return scientist
 		return None
+
+	#TODO load the terms from the annotation tags
+	def loadKeywordTagCloud(self):
+		#tagCloud = {'Astrophysics' : 12, 'Biology' : 13, 'DNA' : 15, 'Humanity' : 19, 'Acceptance' : 12, 'Economics' : 17}
+		tagCloud = {}
+		url = '%s/annotations/filter?user=motu' % (self.config['ANNOTATION_API'])
+		resp = requests.get(url)
+		if resp.status_code == 200:
+			data = json.loads(resp.text)
+			if data and 'annotations' in data:
+				for a in data['annotations']:
+					if 'body' in a and a['body']:
+						for annotation in a['body']:
+							if annotation['annotationType'] == 'classification':
+								if annotation['label'] in tagCloud:
+									tagCloud[annotation['label']] += 1
+								else:
+									tagCloud[annotation['label']] = 1
+		return tagCloud
+
+	def __getPosterURL(self, scientistId):
+		fn = '%s/static/images/scientists/%s.jpg' % (self.config['APP_ROOT'], scientistId)
+		if os.path.exists(fn):
+			return '/static/images/scientists/%s.jpg' % scientistId
+		return '/static/images/scientist.gif'
 
 	def __loadTranscript(self, scientistId):
 		subs = []
@@ -127,31 +150,18 @@ class DataLoader():
 					))
 		return subs
 
-	#TODO load the terms from the annotation tags
-	def loadKeywordTagCloud(self):
-		#tagCloud = {'Astrophysics' : 12, 'Biology' : 13, 'DNA' : 15, 'Humanity' : 19, 'Acceptance' : 12, 'Economics' : 17}
-		tagCloud = {}
-		url = '%s/annotations/filter?user=motu' % (self.config['ANNOTATION_API'])
-		resp = requests.get(url)
-		if resp.status_code == 200:
-			data = json.loads(resp.text)
-			if data and 'annotations' in data:
-				for a in data['annotations']:
-					if 'body' in a and a['body']:
-						for annotation in a['body']:
-							if annotation['annotationType'] == 'classification':
-								if annotation['label'] in tagCloud:
-									tagCloud[annotation['label']] += 1
-								else:
-									tagCloud[annotation['label']] = 1
-		return tagCloud
+	def __getWikipediaUrl(self, scientistId):
+		if scientistId in self.WIKI_MAPPING:
+			if self.WIKI_MAPPING[scientistId][1]:
+				return 'http://wikipedia.org/wiki/%s' % self.WIKI_MAPPING[scientistId][1]
+		return 'javascript:void(0)'
 
 	def __loadWikipediaBio(self, scientistId):
 		bio = 'No Wikipedia article available'
 		wikiId = None
 		#fetch the wikipedia ID from the mapping
 		try:
-			wikiId = self.WIKI_MAPPING[scientistId]
+			wikiId = self.WIKI_MAPPING[scientistId][0]
 		except KeyError, e:
 			print 'incorrect wiki mapping'
 			return bio
@@ -218,15 +228,19 @@ class DataLoader():
 	#cacheType = wikipedia-cache OR termcloud-cache
 	def __writeToCache(self, scientistId, cacheType, data):
 		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
-		f = open(cacheFile, 'w+')
-		f.write(data)
+		f = codecs.open(cacheFile, 'w+', 'utf-8')
+		try:
+			f.write(data)
+		except UnicodeEncodeError, e:
+			print e
+			pass
 		f.close()
 
 	def __readFromCache(self, scientistId, cacheType):
 		data = None
 		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
 		if os.path.exists(cacheFile):
-			f = open(cacheFile, 'r')
+			f = codecs.open(cacheFile, 'r', 'utf-8')
 			data = f.read()
 			f.close()
 		return data

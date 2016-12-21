@@ -32,6 +32,7 @@ app.debug = True
 import settings
 
 _config = settings.config
+_config['APP_ROOT'] = app.root_path
 _searchEngine = SearchEngine(_config)
 _dataLoader = DataLoader(_config)
 
@@ -136,9 +137,9 @@ def scientist():
 	sid = request.args.get('id', None)
 	if sid:
 		scientist = _dataLoader.loadScientist(sid)
-		return render_template('scientist.html', scientist=scientist)
-	else:
-		return render_template('404.html'), 404
+		if scientist:
+			return render_template('scientist.html', scientist=scientist)
+	return render_template('404.html'), 404
 
 @app.route('/search')
 @nocache
