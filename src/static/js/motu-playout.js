@@ -2,7 +2,7 @@ var _clickedLine = null;
 var _clickedSegment = null;
 
 var jw = jwplayer('video_player').setup({
-	file: _scientist.videos[0].url,
+	file: _scientist.video.url,
 	width:'100%',
 	type : 'mp4',
 	controls : true,

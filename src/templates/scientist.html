@@ -73,11 +73,22 @@
 			<div class="col-md-6">
 				<div class="video-embed">
 					<h3>Available interviews</h3>
-					{% for video in scientist.videos %}
-						<video width="480" height="320" controls>
-							<source src="{{video.url}}" type="video/mp4">
-							Your browser does not support the video tag
-						</video>
+					{% for i in scientist.interviews %}
+						<div class="media">
+							<div class="media-left">
+								<a href="/play?id={{i.id}}">
+									<img class="media-object" src="{{i.poster}}" alt="{{i.id}}" style="height:100px;">
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">{{i.title}}</h4>
+								{% if i.annotations.keyMoments | length > 0 %}
+									{% for km in i.annotations.keyMoments %}
+										{{km.title}}&nbsp;({{km.category}})<br/>
+									{% endfor %}
+								{% endif %}
+							</div>
+						</div>
 					{% endfor %}
 
 				</div>

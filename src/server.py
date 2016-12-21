@@ -167,12 +167,12 @@ def search():
 @requires_auth
 @nocache
 def play():
-	sid = request.args.get('id', None)
+	iid = request.args.get('id', None)
 	searchTerm = request.args.get('st', None)
 	s = request.args.get('s', -1)
 	e = request.args.get('e', -1)
-	if sid:
-		scientist = _dataLoader.loadScientist(sid)
+	if iid:
+		scientist = _dataLoader.loadInterview(iid)
 	return render_template('play.html',
 		scientist=scientist,
 		start=s,

@@ -30,7 +30,7 @@
 							<label for="st">Search</label>
 							<input type="text" class="form-control" style="width:800px;" id="st" name="st" placeholder="Search"/>
 						</div>
-						<input type="hidden" name="sf" value="{{'title_raw|' + scientist.name}}"/>
+						<input type="hidden" name="sf" value="{{'name|' + scientist.name}}"/>
 						<input type="hidden" name="fr" value="0"/>
 						<input type="hidden" name="sz" value="10"/>
 					</form>
@@ -86,7 +86,7 @@
 				</div>
 				<div id="panel_download" class="well share-panel">
 					<h4>Download</h4>
-					MP4 (4Mb CBR) <a href="{{scientist.videos[0].url}}">{{scientist.name}}</a>
+					MP4 (4Mb CBR) <a href="{{scientist.video.url}}">{{scientist.name}}</a>
 				</div>
 				<div id="panel_license" class="well share-panel">
 					<h4>Public domain mark</h4>

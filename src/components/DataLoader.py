@@ -72,49 +72,69 @@ class DataLoader():
 				})
 		return scientists
 
+	#called from the person page
 	def loadScientist(self, scientistId):
-		url = '%s/document/get_doc/motu/%s' % (self.config['SEARCH_API'], scientistId)
+		scientist = {
+			'id' : scientistId,
+			'name' : scientistId.replace('_', ' ')
+		}
+		interviews = self.__getInterviewsOfScientist(scientistId)
+		scientist['bio'] = self.__loadWikipediaBio(scientistId)
+		scientist['wikiURL'] = self.__getWikipediaUrl(scientistId)
+		scientist['poster'] = self.__getPosterURL(scientistId)
+		scientist['interviews'] = interviews
+		scientist['termCloud'] = self.__loadTermCloud(scientistId)
+		scientist['annotations'] = { 'links' : [], 'classifications' : [], 'segments' : []}
+		return scientist
+
+	#called from the play-out page
+	def loadInterview(self, interviewId):
+		print 'loading the %s for play-out' % interviewId
+		url = '%s/document/get_doc/motu/%s' % (self.config['SEARCH_API'], interviewId)
 		resp = requests.get(url)
 		if resp.status_code == 200:
-			data = json.loads(resp.text)
-			if '_source' in data:
-				scientist = {}
-				scientist['id'] = data['_id']
-				if 'title_raw' in data['_source']:
-					scientist['name'] = data['_source']['name']
-				#if 'posterURL' in data['_source']:
-				#	scientist['poster'] = data['_source']['posterURL']
-				if 'playableContent' in data['_source']:
-					scientist['videos'] = data['_source']['playableContent']
-				scientist['poster'] = self.__getPosterURL(scientistId)
-				scientist['transcript'] = self.__loadTranscript(scientistId)
-				scientist['bio'] = self.__loadWikipediaBio(scientistId)
-				scientist['wikiURL'] = self.__getWikipediaUrl(scientistId)
-				scientist['annotations'] = self.__loadScientistAnnotations(scientistId)
-				tc = self.__loadTermCloud(scientistId)
-				if tc:
-					scientist['termCloud'] = tc
-				return scientist
+			return self.__formatInterview(json.loads(resp.text))
 		return None
 
-	#TODO load the terms from the annotation tags
-	def loadKeywordTagCloud(self):
-		#tagCloud = {'Astrophysics' : 12, 'Biology' : 13, 'DNA' : 15, 'Humanity' : 19, 'Acceptance' : 12, 'Economics' : 17}
-		tagCloud = {}
-		url = '%s/annotations/filter?user=motu' % (self.config['ANNOTATION_API'])
-		resp = requests.get(url)
-		if resp.status_code == 200:
-			data = json.loads(resp.text)
-			if data and 'annotations' in data:
-				for a in data['annotations']:
-					if 'body' in a and a['body']:
-						for annotation in a['body']:
-							if annotation['annotationType'] == 'classification':
-								if annotation['label'] in tagCloud:
-									tagCloud[annotation['label']] += 1
-								else:
-									tagCloud[annotation['label']] = 1
-		return tagCloud
+	def __getInterviewsOfScientist(self, scientistId):
+		print 'getting the interviews of %s' % scientistId
+		interviews = []
+		query = {
+			"query":{
+				"bool":{
+					"must":[{"term":{"name": scientistId.replace('_', ' ')}}],
+					"must_not":[],
+					"should":[]}
+				}, "from":0,"size":10,"sort":[],"aggs":{}
+		}
+		url = '%s/search/motu' % self.config['SEARCH_API']
+		resp = requests.post(url, data=json.dumps(query))
+		if resp and resp.status_code == 200:
+			result = json.loads(resp.text)
+			for hit in result['hits']['hits']:
+				interview = self.__formatInterview(hit)
+				if interview:
+					interviews.append(interview)
+		print interviews
+		return interviews
+
+	def __formatInterview(self, data):
+		print data
+		interviewId = scientistId = data['_id']
+		if interviewId.find('__') != -1:
+			scientistId = interviewId[0:interviewId.rfind('__')]
+		print 'Interview: %s' % interviewId
+		print 'Scientist: %s' % scientistId
+		interview = {
+			'id' : interviewId,
+			'name' : data['_source']['name'],
+			'title' : data['_source']['title_raw'],
+			'poster' : data['_source']['posterURL'],
+			'video' : data['_source']['playableContent'][0], #there is always one
+			'transcript' : self.__loadTranscript(scientistId, interviewId),
+			'annotations' : self.__loadInterviewAnnotations(scientistId, interviewId)
+		}
+		return interview
 
 	def __getPosterURL(self, scientistId):
 		fn = '%s/static/images/scientists/%s.jpg' % (self.config['APP_ROOT'], scientistId)
@@ -122,13 +142,15 @@ class DataLoader():
 			return '/static/images/scientists/%s.jpg' % scientistId
 		return '/static/images/scientist.gif'
 
-	def __loadTranscript(self, scientistId):
-		subs = []
-		for root, dirs, files in os.walk('%s/transcripts/%s' % (self.config['TEXTUAL_CONTENT_DIR'], scientistId)):
-			for f in files:
-				if f.find('.srt') != -1:
-					subs.extend(self.__parseSRT(os.path.join(root, f)))
-		return subs
+	def __loadTranscript(self, scientistId, interviewId):
+		srtFile = '%s/transcripts/%s/%s.srt' % (
+			self.config['TEXTUAL_CONTENT_DIR'],
+			scientistId,
+			interviewId
+		)
+		if os.path.exists(srtFile):
+			return self.__parseSRT(srtFile)
+		return None
 
 	def __parseSRT(self, fn):
 		subs = []
@@ -192,6 +214,25 @@ class DataLoader():
 			pass
 		return bio
 
+	#load the terms from the annotation tags (for the home page)
+	def loadKeywordTagCloud(self):
+		tagCloud = {}
+		url = '%s/annotations/filter?user=motu' % (self.config['ANNOTATION_API'])
+		resp = requests.get(url)
+		if resp.status_code == 200:
+			data = json.loads(resp.text)
+			if data and 'annotations' in data:
+				for a in data['annotations']:
+					if 'body' in a and a['body']:
+						for annotation in a['body']:
+							if annotation['annotationType'] == 'classification':
+								if annotation['label'] in tagCloud:
+									tagCloud[annotation['label']] += 1
+								else:
+									tagCloud[annotation['label']] = 1
+		return tagCloud
+
+	#load the term cloud from the transcript related to the main interview (for the person page)
 	def __loadTermCloud(self, scientistId):
 		cachedData = self.__readFromCache(scientistId, 'termcloud-cache')
 		if cachedData:
@@ -199,7 +240,7 @@ class DataLoader():
 
 		#otherwise run the transcript through the term extractor and get the term cloud
 		transcript = None
-		subs = self.__loadTranscript(scientistId)
+		subs = self.__loadTranscript(scientistId, scientistId)#always load the main interview file
 		if subs:
 			transcript = ''
 			for s in subs:
@@ -245,10 +286,11 @@ class DataLoader():
 			f.close()
 		return data
 
-	def __loadScientistAnnotations(self, scientistId):
+	def __loadInterviewAnnotations(self, scientistId, interviewId):
 		links = []
 		classifications = []
 		segments = []
+		keyMoments = []
 		targetUrl = '%s/%s/mp4/%s.mp4' % (self.config['BASE_MEDIA_URL'], scientistId, scientistId)
 		url = '%s/annotations/filter?target.source=%s&user=motu' % (
 			self.config['ANNOTATION_API'],
@@ -296,9 +338,16 @@ class DataLoader():
 												int(a['target']['selector']['start'])
 											)
 										})
+										#add the keymoment to the list of keymoments
+										if keyMoment:
+											keyMoments.append({
+												'title' : segmentTitle,
+												'category' : keyMoment
+											})
 										number += 1
 		return {
 			'links' : links,
 			'classifications' : classifications,
-			'segments' : segments
+			'segments' : segments,
+			'keyMoments' : keyMoments
 		}
