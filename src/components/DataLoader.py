@@ -50,14 +50,15 @@ class DataLoader():
 				return bio
 			except UnicodeDecodeError, e:
 				print e
-		return None
+		return ''
 
-	#TODO load random video from a static list
+	#shown on the home page
 	def loadRandomVideo(self):
 		r = random.choice(self.WIKI_MAPPING.keys())
 		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/%s/mp4/%s.mp4' % (r, r)
 		return randomVideo
 
+	#shown on the home page: loads the list of scientists by scanning the markdown files available in /bios
 	def loadScientists(self):
 		scientists = []
 		for root, dirs, files in os.walk('%s/bios' % self.config['TEXTUAL_CONTENT_DIR']):
@@ -128,12 +129,20 @@ class DataLoader():
 		interview = {
 			'id' : interviewId,
 			'name' : data['_source']['name'],
-			'title' : data['_source']['title_raw'],
+			'title' : '',
+			'description' : '',
+			'date' : None,
 			'poster' : data['_source']['posterURL'],
 			'video' : data['_source']['playableContent'][0], #there is always one
 			'transcript' : self.__loadTranscript(scientistId, interviewId),
 			'annotations' : self.__loadInterviewAnnotations(scientistId, interviewId)
 		}
+		if 'title_raw' in data['_source']:
+			interview['title'] = data['_source']['title_raw']
+		if 'description' in data['_source']:
+			interview['description'] = data['_source']['description']
+		if 'date' in data['_source']:
+			interview['date'] = data['_source']['date']
 		return interview
 
 	def __getPosterURL(self, scientistId):

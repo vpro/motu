@@ -1,0 +1,1 @@
+Segenet Kelemu (biologist, Kenia) - How Africa can conquer the world through its knowledge of the world of insects, creating new medicines and herbicides and sustainable food systems
