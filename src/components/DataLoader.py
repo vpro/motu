@@ -116,16 +116,12 @@ class DataLoader():
 				interview = self.__formatInterview(hit)
 				if interview:
 					interviews.append(interview)
-		print interviews
 		return interviews
 
 	def __formatInterview(self, data):
-		print data
 		interviewId = scientistId = data['_id']
 		if interviewId.find('__') != -1:
 			scientistId = interviewId[0:interviewId.rfind('__')]
-		print 'Interview: %s' % interviewId
-		print 'Scientist: %s' % scientistId
 		interview = {
 			'id' : interviewId,
 			'name' : data['_source']['name'],
@@ -204,7 +200,6 @@ class DataLoader():
 		#try to fetch it from the cache
 		cachedData = self.__readFromCache(scientistId, 'wikipedia-cache')
 		if cachedData:
-			#print 'found %s  in cache' % scientistId
 			return cachedData
 
 		#try to fetch it from wikipedia (and subsequently cache it)
@@ -283,7 +278,6 @@ class DataLoader():
 			f.write(data)
 		except UnicodeEncodeError, e:
 			print e
-			pass
 		f.close()
 
 	def __readFromCache(self, scientistId, cacheType):
