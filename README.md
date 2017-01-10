@@ -83,11 +83,10 @@ npm install
 
 This will install the list of packages, defined in package.json, into YOUR_DIR/motu/src/static/node_modules
 
-Now the last thing to do is to build the motu-app.js and the motu-playout.js
+Now the last thing to do is to build the motu-app.js
 
 ```
 npm run build
-npm run build-playout
 ```
 
 After building the YOUR_DIR/src/static/dist directory is created and contains the javascript files needed to make the app work properly
