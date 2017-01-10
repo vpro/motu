@@ -5,9 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack -d --watch",
-    "dev-playout": "webpack -d --watch --config webpack.config-playout.js",
-    "build": "webpack -p --progress",
-    "build-playout": "webpack -p --progress --config webpack.config-playout.js"
+    "build": "webpack -p --progress"
   },
   "repository": {
     "type": "git",
