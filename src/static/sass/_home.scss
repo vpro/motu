@@ -1,20 +1,38 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
+//@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
+
+@import url(https://files.vpro.nl/fontface/vpro_vesta/font.css);
+@import url(https://files.vpro.nl/fontface/simplistic_sans/font.css);
 
 * {
 	box-sizing: border-box !important;
 }
 
 body {
-	margin:auto;
-	background-color:$brightFont;
-	font-family: "Roboto" !important;
-	line-height:180%;
+	margin: auto;
+	//background-color: $brightFont;
+	//font-family: "Roboto" !important;
+	font-family: $default-font;
+	line-height: 24px;
+	font-size: 15px;
 }
 
 /* ------------ On several pages ------------*/
 
+a,
+a:hover,
+a:visited {
+	text-decoration: none;
+	color: $nearBlack;
+}
+
+p {
+	a {
+		text-decoration: underline;
+	}
+}
+
 .top-buffer {
-	margin-top:$defaultMargin * 2;
+	margin-top: $defaultMargin * 2;
 }
 
 .video-embed {
@@ -22,16 +40,33 @@ body {
 }
 
 .tag-cloud {
-	@include block;
+	//@include block;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: $title-font;
+}
 
+h4 {
+	font-size: 20px;
+	line-height: 20px;
+	margin-top: 0;
+}
+
+.data {
+	font-family: $data-font;
+	font-size: 15px;
+}
 
 /* ------------ nav.html ------------ */
 
 .navbar-brand {
 	img {
-		height:22px;
+		height: 22px;
 	}
 }
 
@@ -49,7 +84,7 @@ body {
 
 .scientist {
 	img {
-		height: 80px;
+		height: 85px;
 	}
 }
 
@@ -69,8 +104,9 @@ body {
 #transcript-controls {
 	height: 300px;
 	width: 100%;
-	padding:$defaultMargin;
-	overflow-y:auto;
+	padding: $defaultMargin;
+	overflow-y: auto;
+	border: 1px solid #ccc;
 }
 
 .segment-nav {
@@ -78,7 +114,8 @@ body {
 	overflow-y:auto;
 }
 
-.sub, .segment {
+.sub,
+.segment {
 	cursor:pointer;
 	&:hover {
 		color:crimson;
@@ -108,6 +145,12 @@ body {
 #footer {
 	color: $brightFont;
 	background-color: $nearBlack;
-	padding-top:3 * $defaultMargin;
-	margin-top:2 * $defaultMargin;
+	padding-top: 2 * $defaultMargin;
+	padding-bottom: 2 * $defaultMargin;
+	margin-top: 2 * $defaultMargin;
+
+	img {
+		height: 50px;
+		padding: 10px 10px 10px 0;
+	}
 }

@@ -4,100 +4,107 @@
 
 <head>
 	<title>Mind of the Universe | Home</title>
-	 {% include 'head.html' %}
+	{% include 'head.html' %}
 </head>
 
 <body>
 
-	{% with page='home' %}
-    {% include 'nav.html' %}
-    {% endwith %}
+{% with page='home' %}
+{% include 'nav.html' %}
+{% endwith %}
 
-	<div class="container">
+<div class="container">
 
-		<!-- FIRST ROW -->
-		<div class="row">
+	<!-- FIRST ROW -->
+	<div class="row">
 
-			<!-- WELCOME HEADER -->
-			<div class="col-md-12">
-				<div class="text-center">
-					<h1>Welcome to Mind of the Universe</h1>
-				</div>
-			</div>
+		<!-- WELCOME HEADER -->
+		<div class="col-md-12">
+			<h1>Welcome to Mind of the Universe</h1>
+		</div>
+	</div>
+
+	<!-- SECOND ROW -->
+	<div class="row top-buffer">
+
+		<!-- INTRO TEXT -->
+		<div class="col-md-6 home-text">
+			{{introText|safe}}
 		</div>
 
-		<!-- SECOND ROW -->
-		<div class="row top-buffer">
-
-			<!-- INTRO TEXT -->
-			<div class="col-md-6 home-text">
-				{{introText|safe}}
-			</div>
-
-			<!-- RANDOM VIDEO -->
-			<div class="col-md-offset-1 col-md-5 video-embed">
-				<video width="480" height="320" controls>
-					<source src="{{randomVideo}}" type="video/mp4">
-					Your browser does not support the video tag
-				</video>
-			</div>
-
-		</div>
-
-		<!-- THIRD ROW -->
-		<div class="row top-buffer">
-			<div class="text-center">
-				<div class="col-md-12">
-					<form class="form-inline" action="/search" method="GET">
-						<div class="form-group">
-							<label for="st">Search</label>
-							<input type="text" class="form-control" style="width:800px;" id="st" name="st" placeholder="Search"/>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-
-
-		<!-- FOURTH ROW -->
-		<div class="row top-buffer">
-
-			<!-- LIST OF SCIENTISTS -->
-			<div class="col-md-7">
-				{% for s in scientists%}
-					<div class="media scientist">
-						<div class="media-left">
-							<a href="/scientist?id={{s.id}}">
-								<img src="{{s.poster}}" alt="{{s.name}}">
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">
-								{{s.name}}
-							</h4>
-							{{s.shortBio|safe}}
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-
-			<!-- TAG CLOUD -->
-			<div class="col-md-5">
-				<div class="tag-cloud">
-					<h4>Keywords added by us</h4>
-					{% for tag in tagCloud%}
-					<a href="/search?st={{tag}}">
-						<span style="font-size:{{score_to_fontsize(tagCloud[tag])}}pt;">{{tag}}</span>
-					</a>
-					{% endfor %}
-				</div>
-			</div>
-
+		<!-- RANDOM VIDEO -->
+		<div class="col-md-offset-1 col-md-5 video-embed">
+			<video width="480" height="320" controls>
+				<source src="{{randomVideo}}" type="video/mp4">
+				Your browser does not support the video tag
+			</video>
 		</div>
 
 	</div>
 
-	{% include 'footer.html' %}
+	<!-- THIRD ROW -->
+	<div class="row top-buffer">
+		<div class="col-md-7">
+			<form action="/search" method="GET">
+
+				<div class="form-group row">
+
+					<div class="col-sm-12">
+						<input type="text" class="col-form-control col-sm-8" id="st" name="st" placeholder="Search"/>
+						<input type="submit" value="Search" class="col-sm-4 col-form-control">
+					</div>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+	<!-- FOURTH ROW -->
+	<div class="row top-buffer">
+
+		<!-- LIST OF SCIENTISTS -->
+		<div class="col-md-7">
+			{% for s in scientists%}
+
+			<div class="row media scientist">
+
+				<div class="col-md-3">
+					<a href="/scientist?id={{s.id}}">
+						<img src="{{s.poster}}" alt="{{s.name}}">
+					</a>
+				</div>
+
+				<div class="col-md-9">
+					<a href="/scientist?id={{s.id}}">
+						<h4 class="media-heading">
+							{{s.name}}
+						</h4>
+						{{s.shortBio|safe}}
+					</a>
+				</div>
+
+			</div>
+			{% endfor %}
+		</div>
+
+		<!-- TAG CLOUD -->
+		<div class="col-md-5">
+			<div class="tag-cloud">
+				<h4>Keywords added by us</h4>
+				{% for tag in tagCloud%}
+				<a href="/search?st={{tag}}">
+					<span style="font-size:{{score_to_fontsize(tagCloud[tag])}}pt;">{{tag}}</span>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+{% include 'footer.html' %}
 
 </body>
 
