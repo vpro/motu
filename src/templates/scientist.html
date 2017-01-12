@@ -4,120 +4,124 @@
 
 <head>
 	<title>Mind of the Universe | Person x</title>
-	 {% include 'head.html' %}
+	{% include 'head.html' %}
 </head>
 
 <body>
 
-	{% with page='scientist' %}
-    {% include 'nav.html' %}
-    {% endwith %}
+{% with page='scientist' %}
+{% include 'nav.html' %}
+{% endwith %}
 
-	<div class="container">
+<div class="container">
 
-		<!-- FIRST ROW -->
-		<div class="row top-buffer">
-			<div class="text-center">
-				<div class="col-md-12">
-					<form class="form-inline" action="/search" method="GET">
-						<div class="form-group">
-							<label for="st">Search</label>
-							<input type="text" class="form-control" style="width:800px;" id="st" name="st" placeholder="Search"/>
-						</div>
+	<!-- FIRST ROW -->
+	<div class="row top-buffer">
+		<div class="col-md-12">
+
+			<form action="/search" method="GET">
+				<div class="form-group row">
+
+					<div class="col-sm-12">
+						<input type="text" class="col-form-control col-sm-8" id="st" name="st" placeholder="Search"/>
+						<input type="submit" value="Search" class="col-form-control col-sm-4">
 						<input type="hidden" name="sf" value="{{'name|' + scientist.name}}"/>
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<!-- SECOND ROW -->
-		<div class="row">
-			<div class="col-md-12">
-				<h1>{{scientist.name}}</h1>
-			</div>
-		</div>
-
-		<!-- THIRD ROW -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="scientist-bio">
-
-					<div class="media">
-						<div class="media-left">
-							<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">
-								<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">Bio</h4>
-							{{scientist.bio}}
-
-							{% if scientist.annotations.links | length > 0 %}
-								<h4>Additional links</h4>
-								{% for link in scientist.annotations.links %}
-									<i class="fa fa-link"></i>
-									<a href="{{link.url}}" target="_new">{{link.label}}</a>
-									<br/>
-								{% endfor %}
-							{% endif %}
-						</div>
 					</div>
-
 				</div>
-			</div>
-
+			</form>
 		</div>
+	</div>
 
-		<!-- FOURTH ROW -->
-		<div class="row">
-			<div class="col-md-6">
-				<div class="video-embed">
-					<h3>Available interviews</h3>
-					{% for i in scientist.interviews %}
-						<div class="media">
-							<div class="media-left">
-								<a href="/play?id={{i.id}}">
-									<img class="media-object" src="{{i.poster}}" alt="{{i.id}}" style="height:100px;">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">{{i.title}}</h4>
-								{% if i.annotations.keyMoments | length > 0 %}
-									{% for km in i.annotations.keyMoments %}
-										{{km.title}}&nbsp;({{km.category}})<br/>
-									{% endfor %}
-								{% endif %}
-							</div>
-						</div>
-					{% endfor %}
+	<!-- SECOND ROW -->
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{scientist.name}}</h1>
+		</div>
+	</div>
 
-				</div>
-			</div>
+	<!-- THIRD ROW -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="scientist-bio">
 
-			{% if scientist.termCloud %}
-			<div class="col-md-offset-1 col-md-5">
-				<div class="tag-cloud">
-					<h4>This is what {{scientist.name}} talks about:</h4>
-					{% for t in scientist.termCloud.terms %}
-						<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
-							<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
+				<div class="media">
+					<div class="media-left">
+						<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">
+							<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
 						</a>
-					{% endfor %}
-				</div>
-			</div>
-			{% endif %}
-		</div>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">Bio</h4>
+						{{scientist.bio}}
 
-		<!-- FIFTH ROW -->
-		<div class="row top-buffer">
-			<div class="col-md-12">
-				<button class="btn btn-danger">Share your knowledge</button>
+						{% if scientist.annotations.links | length > 0 %}
+						<h4>Additional links</h4>
+						{% for link in scientist.annotations.links %}
+						<i class="fa fa-link"></i>
+						<a href="{{link.url}}" target="_new">{{link.label}}</a>
+						<br/>
+						{% endfor %}
+						{% endif %}
+					</div>
+				</div>
+
 			</div>
 		</div>
 
 	</div>
 
-	{% include 'footer.html' %}
+	<!-- FOURTH ROW -->
+	<div class="row top-buffer">
+		<div class="col-md-6">
+			<div class="video-embed">
+				<h3>Available interviews</h3>
+				{% for i in scientist.interviews %}
+				<div class="media">
+					<div class="media-left">
+						<a href="/play?id={{i.id}}">
+							<img class="media-object" src="{{i.poster}}" alt="{{i.id}}" style="height:100px;">
+						</a>
+					</div>
+					<div class="media-body">
+						<a href="/play?id={{i.id}}">
+							<h4 class="media-heading">{{i.title}}</h4>
+							{% if i.annotations.keyMoments | length > 0 %}
+							{% for km in i.annotations.keyMoments %}
+							{{km.title}}&nbsp;({{km.category}})<br/>
+							{% endfor %}
+							{% endif %}
+						</a>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+
+		{% if scientist.termCloud %}
+		<div class="col-md-offset-1 col-md-5">
+			<div class="tag-cloud">
+				<h3>This is what {{scientist.name}} talks about:</h3>
+				{% for t in scientist.termCloud.terms %}
+				<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
+					<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+		{% endif %}
+	</div>
+
+	<!-- FIFTH ROW -->
+	<div class="row top-buffer">
+		<div class="col-md-12">
+			<button class="btn btn-danger">Share your knowledge</button>
+		</div>
+	</div>
+
+</div>
+
+{% include 'footer.html' %}
 
 </body>
 
