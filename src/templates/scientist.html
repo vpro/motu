@@ -46,9 +46,7 @@
 
 				<div class="media">
 					<div class="media-left">
-						<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">
-							<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
-						</a>
+						<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">Bio</h4>
@@ -61,6 +59,13 @@
 						<a href="{{link.url}}" target="_new">{{link.label}}</a>
 						<br/>
 						{% endfor %}
+						{% endif %}
+
+						{% if scientist.wikiURL %}
+						<p>
+							<br/>
+							<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>
+						</p>
 						{% endif %}
 					</div>
 				</div>
