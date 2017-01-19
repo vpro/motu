@@ -5893,7 +5893,7 @@ h4 {
 
 /* ------------ scientist.html ------------ */
 .scientist img {
-  height: 85px; }
+  width: 100%; }
 
 .scientist-photo img {
   height: 200px; }

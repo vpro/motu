@@ -18,10 +18,6 @@
 	<!-- FIRST ROW -->
 	<div class="row top-buffer">
 
-		<img src="/static/images/motu-header.jpg"
-			 alt="VPRO"
-			 title="VPRO">
-
 		<!-- WELCOME HEADER -->
 		<div class="col-md-12">
 			<h1>Welcome to The Mind of the Universe</h1>
@@ -48,53 +44,46 @@
 	</div>
 
 	<!-- THIRD ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-7">
-			<form action="/search" method="GET">
-
-				<div class="form-group row">
-
-					<div class="col-sm-12">
-						<input type="text" class="col-form-control col-sm-8" id="st" name="st" placeholder="Search"/>
-						<input type="submit" value="Search" class="col-sm-4 col-form-control">
-					</div>
-
-				</div>
-			</form>
-		</div>
-	</div>
-
+	<div class="row top-buffer"></div>
 
 	<!-- FOURTH ROW -->
 	<div class="row top-buffer">
 
 		<!-- LIST OF SCIENTISTS -->
-		<div class="col-md-7">
-			{% for s in scientists%}
+		<div class="col-md-9">
 
-			<div class="row media scientist">
+			{% for s in scientists | batch(4, '&nbsp;') %}
 
-				<div class="col-md-3">
-					<a href="/scientist?id={{s.id}}">
-						<img src="{{s.poster}}" alt="{{s.name}}">
-					</a>
-				</div>
+			<div class="row">
 
-				<div class="col-md-9">
-					<a href="/scientist?id={{s.id}}">
+			{% for scientists in s %}
+
+				{% if scientists.id %}
+
+				<div class="col-md-3 scientist">
+
+					<a href="/scientist?id={{scientists.id}}">
+						<img src="{{scientists.poster}}" alt="{{scientists.name}}">
 						<h4 class="media-heading">
-							{{s.name}}
+							{{scientists.name}}
 						</h4>
-						{{s.shortBio|safe}}
+						<p>{{scientists.shortBio|safe}}</p>
 					</a>
+
 				</div>
+
+				{% endif %}
+
+			{% endfor %}
 
 			</div>
+
 			{% endfor %}
+
 		</div>
 
 		<!-- TAG CLOUD -->
-		<div class="col-md-5">
+		<div class="col-md-3">
 			<div class="tag-cloud">
 				<h4>Keywords added by us</h4>
 				{% for tag in tagCloud%}

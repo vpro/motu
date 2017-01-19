@@ -16,21 +16,7 @@
 <div class="container">
 
 	<!-- FIRST ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-12">
-
-			<form action="/search" method="GET">
-				<div class="form-group row">
-
-					<div class="col-sm-12">
-						<input type="text" class="col-form-control col-sm-8" id="st" name="st" placeholder="Search"/>
-						<input type="submit" value="Search" class="col-form-control col-sm-4">
-						<input type="hidden" name="sf" value="{{'name|' + scientist.name}}"/>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+	<div class="row top-buffer"></div>
 
 	<!-- SECOND ROW -->
 	<div class="row">
@@ -49,7 +35,6 @@
 						<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
 					</div>
 					<div class="media-body">
-						<h4 class="media-heading">Bio</h4>
 						{{scientist.bio}}
 
 						{% if scientist.annotations.links | length > 0 %}
