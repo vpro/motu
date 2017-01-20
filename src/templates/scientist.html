@@ -71,9 +71,9 @@
 
 	<!-- FOURTH ROW -->
 	<div class="row top-buffer">
-		<div class="col-md-6">
+		<div class="col-md-6 top-buffer">
 			<div class="video-embed">
-				<h3>Available interviews</h3>
+				<h4>Available interviews</h4>
 				{% for i in scientist.interviews %}
 				<div class="media">
 					<div class="media-left">
@@ -98,9 +98,9 @@
 		</div>
 
 		{% if scientist.termCloud %}
-		<div class="col-md-offset-1 col-md-5">
+		<div class="col-md-offset-1 col-md-5 top-buffer">
 			<div class="tag-cloud">
-				<h3>This is what {{scientist.name}} talks about:</h3>
+				<h4>This is what {{scientist.name}} talks about:</h4>
 				{% for t in scientist.termCloud.terms %}
 				<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
 					<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
@@ -109,13 +109,6 @@
 			</div>
 		</div>
 		{% endif %}
-	</div>
-
-	<!-- FIFTH ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-12">
-			<button class="btn btn-danger">Share your knowledge</button>
-		</div>
 	</div>
 
 </div>
