@@ -16,25 +16,16 @@
 <div class="container">
 
 	<!-- FIRST ROW -->
-	<div class="row top-buffer">
-
-		<!-- WELCOME HEADER -->
-		<div class="col-md-12">
-			<h1>Welcome to The Mind of the Universe</h1>
-
-		</div>
-	</div>
-
-	<!-- SECOND ROW -->
-	<div class="row top-buffer">
+	<div class="row">
 
 		<!-- INTRO TEXT -->
-		<div class="col-md-6 home-text">
+		<div class="col-md-7 home-text">
+			<h1>Welcome to The Mind of the Universe</h1>
 			{{introText|safe}}
 		</div>
 
 		<!-- RANDOM VIDEO -->
-		<div class="col-md-offset-1 col-md-5 video-embed">
+		<div class="col-md-5 video-embed">
 			<video width="100%" height="320" controls>
 				<source src="{{randomVideo}}" type="video/mp4">
 				Your browser does not support the video tag
@@ -43,16 +34,16 @@
 
 	</div>
 
-	<!-- THIRD ROW -->
+	<!-- SECOND ROW -->
 	<div class="row top-buffer"></div>
 
-	<!-- FOURTH ROW -->
-	<div class="row top-buffer">
+	<!-- THIRD ROW -->
+	<div class="row scientist-overview">
 
 		<!-- LIST OF SCIENTISTS -->
 		<div class="col-md-9">
 
-			{% for s in scientists | batch(4, '&nbsp;') %}
+			{% for s in scientists | batch(3, '&nbsp;') %}
 
 			<div class="row">
 
@@ -60,14 +51,18 @@
 
 				{% if scientists.id %}
 
-				<div class="col-md-3 scientist">
+				<div class="col-md-4 scientist">
 
 					<a href="/scientist?id={{scientists.id}}">
-						<img src="{{scientists.poster}}" alt="{{scientists.name}}">
-						<h4 class="media-heading">
-							{{scientists.name}}
-						</h4>
-						<p>{{scientists.shortBio|safe}}</p>
+
+						<div class="scientist-image-container" style="background-image: url({{scientists.poster}})">
+							<h4 class="media-heading">
+								{{scientists.name}}
+							</h4>
+						</div>
+
+						{{scientists.shortBio|safe}}
+
 					</a>
 
 				</div>
