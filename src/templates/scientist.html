@@ -39,20 +39,25 @@
 		<div class="col-md-12">
 			<div class="scientist-bio">
 
-				<div class="media">
-					<div class="media-left">
-						<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
+				<div class="row">
+
+					<div class="col-md-4">
+						<img class="scientist-bio-image" src="{{scientist.poster}}" alt="{{scientist.name}}">
 					</div>
-					<div class="media-body">
-						{{scientist.bio}}
+
+					<div class="col-md-8">
+
+						<div class="scientist-bio-text">
+							{{scientist.bio}}
+						</div>
 
 						{% if scientist.annotations.links | length > 0 %}
-						<h4>Additional links</h4>
-						{% for link in scientist.annotations.links %}
-						<i class="fa fa-link"></i>
-						<a href="{{link.url}}" target="_new">{{link.label}}</a>
-						<br/>
-						{% endfor %}
+							<h4>Additional links</h4>
+							{% for link in scientist.annotations.links %}
+								<i class="fa fa-link"></i>
+								<a href="{{link.url}}" target="_new">{{link.label}}</a>
+								<br/>
+							{% endfor %}
 						{% endif %}
 
 						{% if scientist.wikiURL %}
@@ -62,6 +67,8 @@
 						</p>
 						{% endif %}
 					</div>
+
+
 				</div>
 
 			</div>

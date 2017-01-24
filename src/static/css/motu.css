@@ -5937,6 +5937,16 @@ h4 {
   .scientist-bio strong {
     font-weight: bold; }
 
+.scientist-bio-image {
+  width: 100%; }
+
+.scientist-bio-text {
+  max-height: 11em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical; }
+
 /* ------------ play.html ------------ */
 #transcript-controls {
   height: 300px;
