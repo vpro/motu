@@ -68,7 +68,7 @@ export default class MediaFragmentSearch extends React.Component {
 		e.preventDefault();
 		this.setState(
 			{selectedFacets : {}},
-			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, [], true)
+			this.search(this.refs.searchTerm.value, 0, this.state.pageSize, {}, true)
 		)
 	}
 

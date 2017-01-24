@@ -53,6 +53,7 @@ class DataLoader():
 		return ''
 
 	#shown on the home page
+	#TODO not all videos exist, make sure they do (e.g. Segenet_Kelemu.mp4 does not exist)
 	def loadRandomVideo(self):
 		r = random.choice(self.WIKI_MAPPING.keys())
 		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/%s/mp4/%s.mp4' % (r, r)

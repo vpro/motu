@@ -57,7 +57,7 @@ AUTHENTICATION
 ------------------------------------------------------------------------------"""
 
 def check_auth(username, password):
-	return username == 'admin' and password == '1234__it-will-spin'
+	return username == 'admin' and password == _config['PW']
 
 def authenticate():
 	return Response(
