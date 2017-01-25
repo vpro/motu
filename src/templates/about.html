@@ -13,10 +13,19 @@
     {% include 'nav.html' %}
     {% endwith %}
 
+	<ol class="breadcrumb container">
+		<li class="breadcrumb-item active">
+			<a href="/">Home</a>
+		</li>
+		<li class="breadcrumb-item">
+			About
+		</li>
+	</ol>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>About Mind of the Universe</h1>
+				<h1>About The Mind of the Universe</h1>
 				{{about|safe}}
 
 				<h3>FAQ</h3>

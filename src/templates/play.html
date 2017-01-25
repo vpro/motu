@@ -7,9 +7,17 @@
 	{% include 'head.html' %}
 
 	<script>
-        var _scientist = {{ scientist|tojson }};
+
+		var _scientist = {{ scientist|tojson }};
         var _start = {{start}};
         var _end = {{end}};
+
+        $( document ).ready(function() {
+            $( '.download-link' ).on( 'mousedown', function ( e ) {
+
+            });
+        });
+
 	</script>
 </head>
 
@@ -19,27 +27,27 @@
 {% include 'nav.html' %}
 {% endwith %}
 
+<ol class="breadcrumb container">
+	<li class="breadcrumb-item active">
+		<a href="/">Home</a>
+	</li>
+	<li class="breadcrumb-item active">
+		<a href="/scientist?id={{scientist.id}}">
+			{{scientist.name}}
+		</a>
+	</li>
+	<li class="breadcrumb-item">
+		{{scientist.title}}
+	</li>
+</ol>
+
 <div class="container">
 
 	<!-- FIRST ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-12">
-			<form action="/search" method="GET">
-				<div class="form-group row">
-					<div class="col-sm-12">
-						<input type="text" class="col-form-control col-sm-8" id="st" name="st" placeholder="Search"/>
-						<input type="submit" value="Search" class="col-form-control col-sm-4">
-					</div>
-				</div>
-				<input type="hidden" name="sf" value="{{'name|' + scientist.name}}"/>
-				<input type="hidden" name="fr" value="0"/>
-				<input type="hidden" name="sz" value="10"/>
-			</form>
-		</div>
-	</div>
+	<!--<div class="row top-buffer"></div>-->
 
 	<!-- SECOND ROW -->
-	<div class="row top-buffer">
+	<div class="row">
 		<div class="col-md-12">
 			<h3>{{scientist.title}} {{'(' + scientist.date + ')' if scientist.date != None}}</h3>
 			<p>{{scientist.description}}</p>
@@ -48,7 +56,7 @@
 
 	<!-- THIRD ROW -->
 	<div class="row top-buffer">
-		<div class="col-md-7">
+		<div class="col-md-5">
 			<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
 			<div id="video_player"></div>
 		</div>
@@ -70,36 +78,46 @@
 	<div class="row top-buffer">
 		<div class="col-md-12">
 			<div class="btn-group" role="group" aria-label="...">
-				<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'share')">Share</button>
+				<!--<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'share')">Share</button>-->
 				<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'download')">Download</button>
 				<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'license')">License</button>
 			</div>
-			<br/>
-			<br/>
-			<div id="panel_share" class="well share-panel">
-				<h4>Share</h4>
-				<i class="fa fa-twitter" aria-hidden="true"></i>
-				<i class="fa fa-facebook" aria-hidden="true"></i>
-				<i class="fa fa-reddit" aria-hidden="true"></i>
-				<input class="form-control" type="text" value="page URL"/>
-				<br/>
-				<textarea class="form-control">Some embed code</textarea>
-			</div>
+
+			<!--<div id="panel_share" class="well share-panel">-->
+				<!--<h4>Share</h4>-->
+				<!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
+				<!--<i class="fa fa-facebook" aria-hidden="true"></i>-->
+				<!--<i class="fa fa-reddit" aria-hidden="true"></i>-->
+				<!--<input class="form-control" type="text" value="page URL"/>-->
+				<!--<br/>-->
+				<!--<textarea class="form-control">Some embed code</textarea>-->
+			<!--</div>-->
+
 			<div id="panel_download" class="well share-panel">
 				<h4>Download</h4>
-				MP4 (4Mb CBR) <a href="{{scientist.video.url}}">{{scientist.name}}</a>
+				<p>
+					Right click and choose "Save Link As..."
+					<br/>
+					<br/>
+					<a class="download-link" href="{{scientist.video.url}}">{{scientist.name}} - MP4 (4Mb CBR) </a>
+				</p>
 			</div>
+
 			<div id="panel_license" class="well share-panel">
 				<h4>Public domain mark</h4>
 				<img src="http://i.creativecommons.org/p/mark/1.0/88x31.png" alt="Creative Commons License">
-				You're allowed to copy, change, disseminate and exhibit this work without permission of the authors, even for commercial purposes
+				<p>
+					You're allowed to copy, change, disseminate and exhibit this work without permission of the authors, even for commercial purposes.
+					<br/>
+					<a href="https://creativecommons.org/licenses/by-sa/4.0/">More info</a>
+				</p>
 			</div>
 		</div>
 	</div>
 
 	<!-- FIFTH ROW -->
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12 top-buffer">
 			<div id="transcript-controls">
 				{% for line in scientist.transcript %}
 				<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">

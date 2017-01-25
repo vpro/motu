@@ -5881,9 +5881,15 @@ h4 {
   font-family: "vpro_vesta_big", Verdana, Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
   font-size: 15px; }
 
+.container {
+  background: #f1f1f1; }
+
+.breadcrumb {
+  margin-bottom: 0; }
+
 /* ------------ nav.html ------------ */
-.navbar-brand img {
-  height: 22px; }
+.navbar .container {
+  background: #222; }
 
 /* ------------ index.html ------------ */
 .home-text {
@@ -5891,9 +5897,37 @@ h4 {
   .home-text strong {
     font-weight: bold; }
 
+.scientist-overview {
+  padding-top: 15px; }
+  .scientist-overview .scientist a {
+    display: block;
+    border-radius: 8px; }
+    .scientist-overview .scientist a:hover {
+      background: #fff; }
+  .scientist-overview .scientist p {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 4px 8px 8px; }
+
+.scientist-image-container {
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  border-radius: 8px; }
+  .scientist-image-container .media-heading {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    text-shadow: 1px 1px 4px #333;
+    padding: 0 8px 2px;
+    margin-bottom: 0; }
+
 /* ------------ scientist.html ------------ */
 .scientist img {
-  height: 85px; }
+  width: 100%; }
 
 .scientist-photo img {
   height: 200px; }
@@ -5902,6 +5936,16 @@ h4 {
   margin-top: 20px; }
   .scientist-bio strong {
     font-weight: bold; }
+
+.scientist-bio-image {
+  width: 100%; }
+
+.scientist-bio-text {
+  max-height: 11em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical; }
 
 /* ------------ play.html ------------ */
 #transcript-controls {
@@ -5946,6 +5990,8 @@ h4 {
   #footer img {
     height: 50px;
     padding: 10px 10px 10px 0; }
+  #footer .container {
+    background-color: #222; }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 /* search results */

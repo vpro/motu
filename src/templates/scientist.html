@@ -13,24 +13,19 @@
 {% include 'nav.html' %}
 {% endwith %}
 
+<ol class="breadcrumb container">
+	<li class="breadcrumb-item active">
+		<a href="/">Home</a>
+	</li>
+	<li class="breadcrumb-item">
+		{{scientist.name}}
+	</li>
+</ol>
+
 <div class="container">
 
 	<!-- FIRST ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-12">
-
-			<form action="/search" method="GET">
-				<div class="form-group row">
-
-					<div class="col-sm-12">
-						<input type="text" class="col-form-control col-sm-8" id="st" name="st" placeholder="Search"/>
-						<input type="submit" value="Search" class="col-form-control col-sm-4">
-						<input type="hidden" name="sf" value="{{'name|' + scientist.name}}"/>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+	<div class="row top-buffer"></div>
 
 	<!-- SECOND ROW -->
 	<div class="row">
@@ -44,21 +39,25 @@
 		<div class="col-md-12">
 			<div class="scientist-bio">
 
-				<div class="media">
-					<div class="media-left">
-						<img class="media-object" src="{{scientist.poster}}" alt="{{scientist.name}}" style="height:200px;">
+				<div class="row">
+
+					<div class="col-md-4">
+						<img class="scientist-bio-image" src="{{scientist.poster}}" alt="{{scientist.name}}">
 					</div>
-					<div class="media-body">
-						<h4 class="media-heading">Bio</h4>
-						{{scientist.bio}}
+
+					<div class="col-md-8">
+
+						<div class="scientist-bio-text">
+							{{scientist.bio}}
+						</div>
 
 						{% if scientist.annotations.links | length > 0 %}
-						<h4>Additional links</h4>
-						{% for link in scientist.annotations.links %}
-						<i class="fa fa-link"></i>
-						<a href="{{link.url}}" target="_new">{{link.label}}</a>
-						<br/>
-						{% endfor %}
+							<h4>Additional links</h4>
+							{% for link in scientist.annotations.links %}
+								<i class="fa fa-link"></i>
+								<a href="{{link.url}}" target="_new">{{link.label}}</a>
+								<br/>
+							{% endfor %}
 						{% endif %}
 
 						{% if scientist.wikiURL %}
@@ -68,6 +67,8 @@
 						</p>
 						{% endif %}
 					</div>
+
+
 				</div>
 
 			</div>
@@ -77,9 +78,9 @@
 
 	<!-- FOURTH ROW -->
 	<div class="row top-buffer">
-		<div class="col-md-6">
+		<div class="col-md-6 top-buffer">
 			<div class="video-embed">
-				<h3>Available interviews</h3>
+				<h4>Available interviews</h4>
 				{% for i in scientist.interviews %}
 				<div class="media">
 					<div class="media-left">
@@ -104,9 +105,9 @@
 		</div>
 
 		{% if scientist.termCloud %}
-		<div class="col-md-offset-1 col-md-5">
+		<div class="col-md-offset-1 col-md-5 top-buffer">
 			<div class="tag-cloud">
-				<h3>This is what {{scientist.name}} talks about:</h3>
+				<h4>This is what {{scientist.name}} talks about:</h4>
 				{% for t in scientist.termCloud.terms %}
 				<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
 					<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
@@ -115,13 +116,6 @@
 			</div>
 		</div>
 		{% endif %}
-	</div>
-
-	<!-- FIFTH ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-12">
-			<button class="btn btn-danger">Share your knowledge</button>
-		</div>
 	</div>
 
 </div>

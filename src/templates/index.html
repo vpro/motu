@@ -16,29 +16,16 @@
 <div class="container">
 
 	<!-- FIRST ROW -->
-	<div class="row top-buffer">
-
-		<img src="/static/images/motu-header.jpg"
-			 alt="VPRO"
-			 title="VPRO">
-
-		<!-- WELCOME HEADER -->
-		<div class="col-md-12">
-			<h1>Welcome to The Mind of the Universe</h1>
-
-		</div>
-	</div>
-
-	<!-- SECOND ROW -->
-	<div class="row top-buffer">
+	<div class="row">
 
 		<!-- INTRO TEXT -->
-		<div class="col-md-6 home-text">
+		<div class="col-md-7 home-text">
+			<h1>Welcome to The Mind of the Universe</h1>
 			{{introText|safe}}
 		</div>
 
 		<!-- RANDOM VIDEO -->
-		<div class="col-md-offset-1 col-md-5 video-embed">
+		<div class="col-md-5 video-embed">
 			<video width="100%" height="320" controls>
 				<source src="{{randomVideo}}" type="video/mp4">
 				Your browser does not support the video tag
@@ -47,54 +34,51 @@
 
 	</div>
 
+	<!-- SECOND ROW -->
+	<div class="row top-buffer"></div>
+
 	<!-- THIRD ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-7">
-			<form action="/search" method="GET">
-
-				<div class="form-group row">
-
-					<div class="col-sm-12">
-						<input type="text" class="col-form-control col-sm-8" id="st" name="st" placeholder="Search"/>
-						<input type="submit" value="Search" class="col-sm-4 col-form-control">
-					</div>
-
-				</div>
-			</form>
-		</div>
-	</div>
-
-
-	<!-- FOURTH ROW -->
-	<div class="row top-buffer">
+	<div class="row scientist-overview">
 
 		<!-- LIST OF SCIENTISTS -->
-		<div class="col-md-7">
-			{% for s in scientists%}
+		<div class="col-md-9">
 
-			<div class="row media scientist">
+			{% for s in scientists | batch(3, '&nbsp;') %}
 
-				<div class="col-md-3">
-					<a href="/scientist?id={{s.id}}">
-						<img src="{{s.poster}}" alt="{{s.name}}">
+			<div class="row">
+
+			{% for scientists in s %}
+
+				{% if scientists.id %}
+
+				<div class="col-md-4 scientist">
+
+					<a href="/scientist?id={{scientists.id}}">
+
+						<div class="scientist-image-container" style="background-image: url({{scientists.poster}})">
+							<h4 class="media-heading">
+								{{scientists.name}}
+							</h4>
+						</div>
+
+						{{scientists.shortBio|safe}}
+
 					</a>
+
 				</div>
 
-				<div class="col-md-9">
-					<a href="/scientist?id={{s.id}}">
-						<h4 class="media-heading">
-							{{s.name}}
-						</h4>
-						{{s.shortBio|safe}}
-					</a>
-				</div>
+				{% endif %}
+
+			{% endfor %}
 
 			</div>
+
 			{% endfor %}
+
 		</div>
 
 		<!-- TAG CLOUD -->
-		<div class="col-md-5">
+		<div class="col-md-3">
 			<div class="tag-cloud">
 				<h4>Keywords added by us</h4>
 				{% for tag in tagCloud%}
