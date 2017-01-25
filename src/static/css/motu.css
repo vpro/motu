@@ -5885,12 +5885,37 @@ h4 {
   background: #f1f1f1; }
 
 .breadcrumb {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  position: relative; }
 
 /* ------------ nav.html ------------ */
 .navbar .container {
   background: #222; }
 
+@media (max-width: 61.9em) {
+  .navbar > .container,
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0; } }
+.share-buttons .share-button {
+  float: right;
+  padding: 8px 0 0 20px;
+  height: 20px;
+  line-height: 20px; }
+
+.breadcrumb .share-buttons {
+  position: absolute;
+  top: 0;
+  right: 12px; }
+
+@media (max-width: 33.9em) {
+  .breadcrumb .share-buttons {
+    display: none; } }
+@media (max-width: 61.9em) {
+  li.breadcrumb-item {
+    display: none; }
+    li.breadcrumb-item.active {
+      display: inline-block; } }
 /* ------------ index.html ------------ */
 .home-text {
   margin-top: 20px; }
@@ -5924,6 +5949,19 @@ h4 {
     text-shadow: 1px 1px 4px #333;
     padding: 0 8px 2px;
     margin-bottom: 0; }
+
+.tag-cloud a {
+  margin: 2px;
+  background: #ddd;
+  padding: 2px 6px;
+  white-space: nowrap;
+  color: #000;
+  border-radius: 4px;
+  display: inline-block;
+  text-transform: lowercase; }
+  .tag-cloud a:hover {
+    background: #333;
+    color: #fff; }
 
 /* ------------ scientist.html ------------ */
 .scientist img {
@@ -5987,11 +6025,15 @@ h4 {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 20px; }
-  #footer img {
+  #footer .footer-logo {
     height: 50px;
-    padding: 10px 10px 10px 0; }
+    padding: 10px 30px 10px 0; }
   #footer .container {
     background-color: #222; }
+
+.footer-text {
+  font-size: 13px;
+  line-height: 20px; }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 /* search results */

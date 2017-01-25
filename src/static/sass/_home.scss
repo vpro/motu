@@ -64,6 +64,7 @@ h4 {
 
 .breadcrumb {
 	margin-bottom: 0;
+	position: relative;
 }
 
 /* ------------ nav.html ------------ */
@@ -71,6 +72,61 @@ h4 {
 .navbar {
 	.container {
 		background: $nearBlack;
+	}
+}
+
+
+@media (max-width: 61.9em) {
+	.navbar > .container,
+	.navbar-collapse {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.share-buttons {
+
+	.share-button {
+		float: right;
+		padding: 8px 0 0 20px;
+		height: 20px;
+		line-height: 20px;
+	}
+}
+
+.breadcrumb {
+
+	.share-buttons {
+		position: absolute;
+		top: 0;
+		right: 12px;
+	}
+
+}
+
+.breadcrumb-item {
+
+
+}
+
+@media (max-width: 33.9em) {
+	.breadcrumb {
+
+		.share-buttons {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 61.9em) {
+
+	li.breadcrumb-item {
+
+		display: none;
+
+		&.active {
+			display: inline-block;
+		}
 	}
 }
 
@@ -122,6 +178,28 @@ h4 {
 		margin-bottom: 0;
 	}
 
+}
+
+.tag-cloud {
+	a {
+
+		margin: 2px;
+		background: #ddd;
+		padding: 2px 6px;
+		white-space: nowrap;
+		color: #000;
+		border-radius: 4px;
+		display: inline-block;
+		text-transform: lowercase;
+
+		&:hover {
+			background: #333;
+			color: #fff;
+		}
+		span {
+
+		}
+	}
 }
 
 /* ------------ scientist.html ------------ */
@@ -207,13 +285,18 @@ h4 {
 	padding-bottom: 2 * $defaultMargin;
 	margin-top: 2 * $defaultMargin;
 
-	img {
+	.footer-logo {
 		height: 50px;
-		padding: 10px 10px 10px 0;
+		padding: 10px 30px 10px 0;
 	}
 
 	.container {
 		background-color: $nearBlack;
 	}
 
+}
+
+.footer-text {
+	font-size: 13px;
+	line-height: 20px;
 }
