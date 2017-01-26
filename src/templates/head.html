@@ -27,12 +27,25 @@
 <link rel="stylesheet" href="/static/css/motu.css">
 
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
+<script src="../static/node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
 <script>
-    window.addEventListener( 'load', function(){
+    $( document ).ready( function(){
+
+        var options = {};
+
+//        $('#exampleModalLong').modal(options);
+//        https://v4-alpha.getbootstrap.com/components/modal/#via-javascript
+
+//        https://jira.vpro.nl/browse/CCA-54
+//        https://wiki.vpro.nl/pages/viewpage.action?pageId=56819757
+//        https://wiki.vpro.nl/display/PRL/Online+formulieren+maken?focusedCommentId=67338300#comment-67338300
+
 
         window.cookieconsent.initialise({
 
@@ -54,9 +67,7 @@
 
                 if ( this.options.type == 'opt-out' && this.hasConsented() ) {
                     addAnalytics();
-                    addFbShare();
-                    loadTwitterShare();
-                    addLinkedInShare();
+                    addShareButtons();
                 }
             },
 
@@ -64,9 +75,7 @@
 
                 if ( this.options.type == 'opt-out' && this.hasConsented() ) {
                     addAnalytics();
-                    addFbShare();
-                    loadTwitterShare();
-                    addLinkedInShare();
+                    addShareButtons();
                 }
             },
 
@@ -74,21 +83,20 @@
 
                 if ( this.options.type == 'opt-out' ) {
                     addAnalytics();
-                    addFbShare();
-                    loadTwitterShare();
-                    addLinkedInShare();
+                    addShareButtons();
                 }
             },
-        })
-    });
+        });
 
+        // toggle mobile navigation
+        $( '.navbar-toggle' ).on( 'click', function ( e ) {
 
-    // toggle mobile navigation
-    $( '.navbar-toggle' ).on( 'click', function ( e ) {
-        var $button = $( e.currentTarget );
-        var targetId = $button.data( 'target' );
+            var $button = $( e.currentTarget );
+            var targetId = $button.data( 'target' );
 
-        $( targetId ).toggleClass( 'collapse' );
+            $( targetId ).toggleClass( 'collapse' );
+
+        });
 
     });
 
@@ -105,7 +113,11 @@
     }
 
 
-    function addFbShare () {
+    function addShareButtons () {
+
+        /**
+         * Facebook
+         */
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
@@ -113,9 +125,10 @@
             js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    }
 
-    function loadTwitterShare () {
+        /**
+         * Twitter
+         */
         window.twttr = (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
                 t = window.twttr || {};
@@ -132,10 +145,10 @@
 
             return t;
         }(document, "script", "twitter-wjs"));
-    }
 
-    function addLinkedInShare () {
-
+        /**
+         * LinkedIn
+         */
         (function(d, s, id){
             var js;
             var fjs = d.getElementsByTagName(s)[0];
