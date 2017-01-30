@@ -21,14 +21,6 @@
 .label {
   border-radius: 0px !important; }
 
-/* Modals */
-.modal-header {
-  padding: 10px !important;
-  background-color: #222; }
-
-.modal-footer {
-  padding: 10px !important; }
-
 /* Custom additions to Bootstrap classes */
 .interactive.glyphicon {
   cursor: pointer; }
@@ -5885,12 +5877,56 @@ h4 {
   background: #f1f1f1; }
 
 .breadcrumb {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  position: relative; }
+
+.modal-body {
+  height: 66vh;
+  overflow-y: hidden; }
+  .modal-body #video-name {
+    font-style: italic; }
+  .modal-body .formAssemblyFrame {
+    border: none; }
+
+.modal-download-info {
+  font-size: 15px;
+  line-height: 24px;
+  padding: 0 0 20px; }
+
+.download-link {
+  text-decoration: underline; }
+
+.download-link-info {
+  font-size: 13px; }
 
 /* ------------ nav.html ------------ */
 .navbar .container {
   background: #222; }
 
+@media (max-width: 61.9em) {
+  .navbar > .container,
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0; } }
+.share-buttons .share-button {
+  float: right;
+  padding: 8px 0 0 20px;
+  height: 20px;
+  line-height: 20px; }
+
+.breadcrumb .share-buttons {
+  position: absolute;
+  top: 0;
+  right: 12px; }
+
+@media (max-width: 33.9em) {
+  .breadcrumb .share-buttons {
+    display: none; } }
+@media (max-width: 61.9em) {
+  li.breadcrumb-item {
+    display: none; }
+    li.breadcrumb-item.active {
+      display: inline-block; } }
 /* ------------ index.html ------------ */
 .home-text {
   margin-top: 20px; }
@@ -5925,6 +5961,21 @@ h4 {
     padding: 0 8px 2px;
     margin-bottom: 0; }
 
+.tag-cloud {
+  overflow: hidden; }
+  .tag-cloud a {
+    margin: 2px;
+    background: #ddd;
+    padding: 2px 6px;
+    white-space: nowrap;
+    color: #000;
+    border-radius: 4px;
+    display: inline-block;
+    text-transform: lowercase; }
+    .tag-cloud a:hover {
+      background: #333;
+      color: #fff; }
+
 /* ------------ scientist.html ------------ */
 .scientist img {
   width: 100%; }
@@ -5956,8 +6007,26 @@ h4 {
   border: 1px solid #ccc; }
 
 .segment-nav {
-  height: 240px;
-  overflow-y: auto; }
+  height: 270px;
+  width: 100%; }
+
+.segment-list {
+  height: 100%;
+  overflow-y: auto;
+  border: 1px solid #ccc; }
+  .segment-list .data {
+    color: #666;
+    font-size: 12px; }
+
+.segment-poster {
+  width: 100%; }
+
+.segment-list-item {
+  padding: 4px 0;
+  display: block;
+  cursor: pointer; }
+  .segment-list-item:hover {
+    background: #aaa; }
 
 .sub,
 .segment {
@@ -5977,8 +6046,7 @@ h4 {
     font-weight: bold; }
 
 .segment-list {
-  list-style: none;
-  padding: 0px; }
+  list-style: none; }
 
 /* ------------ footer.html ------------ */
 #footer {
@@ -5987,11 +6055,15 @@ h4 {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 20px; }
-  #footer img {
+  #footer .footer-logo {
     height: 50px;
-    padding: 10px 10px 10px 0; }
+    padding: 10px 30px 10px 0; }
   #footer .container {
     background-color: #222; }
+
+.footer-text {
+  font-size: 13px;
+  line-height: 20px; }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 /* search results */

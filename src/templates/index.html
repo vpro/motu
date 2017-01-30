@@ -11,6 +11,9 @@
 
 {% with page='home' %}
 {% include 'nav.html' %}
+<div class="container">
+	{% include 'share.html' %}
+</div>
 {% endwith %}
 
 <div class="container">
@@ -41,7 +44,7 @@
 	<div class="row scientist-overview">
 
 		<!-- LIST OF SCIENTISTS -->
-		<div class="col-md-9">
+		<div class="col-md-8">
 
 			{% for s in scientists | batch(3, '&nbsp;') %}
 
@@ -78,13 +81,13 @@
 		</div>
 
 		<!-- TAG CLOUD -->
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="tag-cloud">
 				<h4>Keywords added by us</h4>
 				{% for tag in tagCloud%}
-				<a href="/search?st={{tag}}">
-					<span style="font-size:{{score_to_fontsize(tagCloud[tag])}}pt;">{{tag}}</span>
-				</a>
+					<a href="/search?st={{tag}}">
+						<span class="data" style="font-size:{{score_to_fontsize(tagCloud[tag])}}pt;">{{tag}}</span>
+					</a>
 				{% endfor %}
 			</div>
 		</div>
@@ -94,6 +97,8 @@
 </div>
 
 {% include 'footer.html' %}
+
+
 
 </body>
 
