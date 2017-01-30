@@ -21,14 +21,6 @@
 .label {
   border-radius: 0px !important; }
 
-/* Modals */
-.modal-header {
-  padding: 10px !important;
-  background-color: #222; }
-
-.modal-footer {
-  padding: 10px !important; }
-
 /* Custom additions to Bootstrap classes */
 .interactive.glyphicon {
   cursor: pointer; }
@@ -5887,6 +5879,25 @@ h4 {
 .breadcrumb {
   margin-bottom: 0;
   position: relative; }
+
+.modal-body {
+  height: 66vh;
+  overflow-y: hidden; }
+  .modal-body #video-name {
+    font-style: italic; }
+  .modal-body .formAssemblyFrame {
+    border: none; }
+
+.modal-download-info {
+  font-size: 15px;
+  line-height: 24px;
+  padding: 0 0 20px; }
+
+.download-link {
+  text-decoration: underline; }
+
+.download-link-info {
+  font-size: 13px; }
 
 /* ------------ nav.html ------------ */
 .navbar .container {

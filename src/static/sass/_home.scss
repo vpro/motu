@@ -9,8 +9,6 @@
 
 body {
 	margin: auto;
-	//background-color: $brightFont;
-	//font-family: "Roboto" !important;
 	font-family: $default-font;
 	line-height: 24px;
 	font-size: 15px;
@@ -65,6 +63,32 @@ h4 {
 .breadcrumb {
 	margin-bottom: 0;
 	position: relative;
+}
+
+.modal-body {
+	height: 66vh;
+	overflow-y: hidden;
+
+	#video-name {
+		font-style: italic;
+	}
+
+	.formAssemblyFrame {
+		border: none;
+	}
+}
+
+.modal-download-info {
+	font-size: 15px;
+	line-height: 24px;
+	padding: 0 0 20px;
+}
+.download-link {
+	text-decoration: underline;
+}
+
+.download-link-info {
+	font-size: 13px;
 }
 
 /* ------------ nav.html ------------ */

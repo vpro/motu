@@ -3,12 +3,12 @@ $( document ).ready( function(){
     runCookies();
 
     // toggle mobile navigation
-    $('.navbar-toggle').on('click', function (e) {
+    $( '.navbar-toggle' ).on( 'click', function (e) {
 
-        var $button = $(e.currentTarget);
-        var targetId = $button.data('target');
+        var $button = $( e.currentTarget );
+        var targetId = $button.data( 'target' );
 
-        $(targetId).toggleClass('collapse');
+        $( targetId ).toggleClass( 'collapse' );
 
     });
 
@@ -22,6 +22,9 @@ $( document ).ready( function(){
 
             var href = $link.attr( 'href' );
             var videoId = $link.data( 'video-id' );
+            var videoName = $link.data( 'video-name' );
+
+            openModal( videoName, href );
 
             ga('send', {
                 hitType: 'event',
@@ -34,17 +37,21 @@ $( document ).ready( function(){
 
     });
 
-    // var options = {};
-
-    // $('#exampleModalLong').modal(options);
-    // https://v4-alpha.getbootstrap.com/components/modal/#via-javascript
-
-    // https://jira.vpro.nl/browse/CCA-54
-    // https://wiki.vpro.nl/pages/viewpage.action?pageId=56819757
-    // https://wiki.vpro.nl/display/PRL/Online+formulieren+maken?focusedCommentId=67338300#comment-67338300
-
-
 });
+
+
+function openModal ( videoName, videoURL ) {
+
+    var $modal = $( '#formModal' );
+    var $link = $modal.find( '.download-link' );
+
+    $link.attr( 'href', videoURL );
+
+    $modal.find( '#video-name' ).html( videoName );
+
+    // https://v4-alpha.getbootstrap.com/components/modal/#via-javascript
+    $modal.modal( {} );
+}
 
 function  isAnalyticsLoaded () {
     return window.GoogleAnalyticsObject !== undefined;
