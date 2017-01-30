@@ -66,7 +66,7 @@
 			<ul class="segment-list">
 				{% for s in scientist.annotations.segments %}
 				<li id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
-					[{{s.prettyStart}}] {{s.title}} {{'(' + s.keyMoment + ')' if s.keyMoment != None}}
+					[{{s.prettyStart}}] {{s.title}}
 				</li>
 				{% endfor %}
 			</ul>
