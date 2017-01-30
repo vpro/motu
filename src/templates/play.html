@@ -27,13 +27,15 @@
 {% include 'nav.html' %}
 {% endwith %}
 
+{% set scientistName = scientist.id.split('__') %}
+
 <ol class="breadcrumb container">
 
 	<li class="breadcrumb-item active">
 		<a href="/">Home</a>
 	</li>
 	<li class="breadcrumb-item active">
-		<a href="/scientist?id={{scientist.id}}">
+		<a href="/scientist?id={{scientistName[0]}}">
 			{{scientist.name}}
 		</a>
 	</li>
@@ -59,22 +61,37 @@
 	</div>
 
 	<!-- THIRD ROW -->
-	<div class="row top-buffer">
+	<div class="row">
 		<div class="col-md-5">
+			<h3>&nbsp;</h3>
 			<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
 			<div id="video_player"></div>
 		</div>
-		<div class="col-md-5 segment-nav">
-			{% if scientist.annotations.segments | length > 0 %}
-			<h3>Segments</h3>
-			<ul class="segment-list">
-				{% for s in scientist.annotations.segments %}
-				<li id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
-					[{{s.prettyStart}}] {{s.title}} {{'(' + s.keyMoment + ')' if s.keyMoment != None}}
-				</li>
-				{% endfor %}
-			</ul>
-			{% endif %}
+		<div class="col-md-7">
+			<div class="segment-nav">
+				{% if scientist.annotations.segments | length > 0 %}
+				<h3>Segments</h3>
+				<div class="segment-list">
+					{% for s in scientist.annotations.segments %}
+						<a class="segment-list-item" id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-3">
+								{% if s.poster != None %}
+									<img class="segment-poster" src="{{s.poster}}" alt="s.name">
+								{% endif %}
+									</div>
+									<div class="col-md-9">
+										{{s.title}} {{'(' + s.keyMoment + ')' if s.keyMoment != None}}<br/>
+										<span class="data">({{s.prettyStart}})</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					{% endfor %}
+				</div>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 
@@ -82,20 +99,9 @@
 	<div class="row top-buffer">
 		<div class="col-md-12">
 			<div class="btn-group" role="group" aria-label="...">
-				<!--<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'share')">Share</button>-->
 				<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'download')">Download</button>
 				<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'license')">License</button>
 			</div>
-
-			<!--<div id="panel_share" class="well share-panel">-->
-				<!--<h4>Share</h4>-->
-				<!--<i class="fa fa-twitter" aria-hidden="true"></i>-->
-				<!--<i class="fa fa-facebook" aria-hidden="true"></i>-->
-				<!--<i class="fa fa-reddit" aria-hidden="true"></i>-->
-				<!--<input class="form-control" type="text" value="page URL"/>-->
-				<!--<br/>-->
-				<!--<textarea class="form-control">Some embed code</textarea>-->
-			<!--</div>-->
 
 			<div id="panel_download" class="well share-panel">
 				<h4>Download</h4>
@@ -103,7 +109,7 @@
 					Right click and choose "Save Link As..."
 					<br/>
 					<br/>
-					<a class="download-link" href="{{scientist.video.url}}">{{scientist.name}} - MP4 (4Mb CBR) </a>
+					<a class="download-link" href="{{scientist.video.url}}" data-video-id="{{scientist.id}}">{{scientist.name}} - MP4 (4Mb CBR) </a>
 				</p>
 			</div>
 

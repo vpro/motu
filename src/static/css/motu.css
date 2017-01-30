@@ -5996,8 +5996,26 @@ h4 {
   border: 1px solid #ccc; }
 
 .segment-nav {
-  height: 240px;
-  overflow-y: auto; }
+  height: 270px;
+  width: 100%; }
+
+.segment-list {
+  height: 100%;
+  overflow-y: auto;
+  border: 1px solid #ccc; }
+  .segment-list .data {
+    color: #666;
+    font-size: 12px; }
+
+.segment-poster {
+  width: 100%; }
+
+.segment-list-item {
+  padding: 4px 0;
+  display: block;
+  cursor: pointer; }
+  .segment-list-item:hover {
+    background: #aaa; }
 
 .sub,
 .segment {
@@ -6017,8 +6035,7 @@ h4 {
     font-weight: bold; }
 
 .segment-list {
-  list-style: none;
-  padding: 0px; }
+  list-style: none; }
 
 /* ------------ footer.html ------------ */
 #footer {

@@ -249,8 +249,33 @@ h4 {
 }
 
 .segment-nav {
-	height:240px;
-	overflow-y:auto;
+	height: 270px;
+	width: 100%;
+}
+
+.segment-list {
+	height: 100%;
+	overflow-y: auto;
+	border: 1px solid #ccc;
+
+	.data {
+		color: #666;
+		font-size: 12px;
+	}
+}
+
+.segment-poster {
+	width: 100%;
+}
+
+.segment-list-item {
+	padding: 4px 0;
+	display: block;
+	cursor: pointer;
+
+	&:hover {
+		background: #aaa;
+	}
 }
 
 .sub,
@@ -273,7 +298,6 @@ h4 {
 
 .segment-list {
 	list-style: none;
-	padding:0px;
 	li {
 
 	}
