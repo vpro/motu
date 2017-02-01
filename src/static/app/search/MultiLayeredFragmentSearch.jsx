@@ -45,13 +45,14 @@ class MultiLayeredFragmentSearch extends React.Component {
 	/*---------------------------------- SEARCH --------------------------------------*/
 
 	//TODO make sure to read the current URL path instead of constructing a URL for recipes only!
+	//MADE MODIFICATIONS FOR MOTU
 	updateAddressBar(term, offset, size, facets, layers) {
 		if(this.props.searchParams) {
 			var sl = Object.keys(layers).filter((l) => {
 				return layers[l];
 			}).join(',');
 
-			var url = "/recipe/" + this.props.searchParams.recipeId + "?st=" + term + '&sf=' + Object.keys(facets).join(',');
+			var url = "/search" + "?st=" + term + '&sf=' + Object.keys(facets).join(',');
 			url += '&fr=' + offset + '&sz=' + size;
 			if(sl != '') {
 				url += '&sl=' + sl;
@@ -190,7 +191,6 @@ class MultiLayeredFragmentSearch extends React.Component {
 
 
 	onOutput(componentClass, data, pageNumber) {
-		console.debug(data);
 		//passes along the output to the owner (if specified in the props)
 		if(this.props.onOutput) {
 			let dateField = this.state.collectionConfig.getDateFields();

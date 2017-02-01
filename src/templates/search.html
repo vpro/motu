@@ -37,18 +37,18 @@
 </body>
 
 <!-- Babel is needed to parse the motu-search.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
 
 
 <!-- The search library -->
-<script src="/static/dist/motu-app.js"></script>
-<script>
+<script type="text/javascript" src="/static/dist/motu-app.js"></script>
+<script type="text/javascript">
 	var searchParams = {{searchParams|tojson}};
 </script>
-<!-- The script simply rendering the React code from the library -->
+<!-- The script simply rendering the React code from the library TODO precompile this! -->
 <script type="text/babel" src="/static/js/motu-search.js"></script>
 
 </html>
