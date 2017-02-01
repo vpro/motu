@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import requests
 import random
 import json
@@ -8,6 +9,9 @@ from collections import namedtuple
 from markdown import markdown
 import wikipedia
 from TimeUtil import TimeUtil
+from requests.exceptions import ConnectionError
+
+#NOTE: the term extraction service is not up and running!
 
 class DataLoader():
 
@@ -22,6 +26,7 @@ class DataLoader():
 
 		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
 		self.WIKI_MAPPING = {
+			'Carolina_Cruz' : (None, None),
 			'Donald_Hoffman' : (None, None),
 			'Erik_Demaine' : ('Erik_Demaine', 'Erik_Demaine'),
 			'George_Church' : ('George_M_Church', 'George_M._Church'),
@@ -30,13 +35,17 @@ class DataLoader():
 			'Hans_Clevers' : ('Hans_Clevers', 'Hans_Clevers'),
 			'Jian-Wei_Pan' : ('Pan_Jianwei', 'Pan_Jianwei'),
 			'Joanna_Aizenberg' : ('Joanna_Aizenberg', 'Joanna_Aizenberg'),
+			'Juan_Maldacena' : ('Juan_Mart%C3%ADn_Maldacena', 'Juan_Mart%C3%ADn_Maldacena'),
 			'Lee_Cronin' : ('Leroy_Cronin', 'Leroy_Cronin'),
 			'Michel_Poulin' : (None, None),
 			'Miguel_Nicolelis' : ('Miguel_Nicolelis', 'Miguel_Nicolelis'),
+			'Nicky_Clayton' : ('Nicola_Clayton', 'Nicola_Clayton'),
 			'Sara_Seager' : ('Sara_Seager', 'Sara_Seager'),
 			'Segenet_Kelemu' : ('Segenet_Kelemu', 'Segenet_Kelemu'),
 			'Susant_Patnaik' : (None, None),
-			'Trond_Helge_Torsvik' : ('Trond_Helge_Torsvik', 'Trond_Helge_Torsvik')
+			'Trond_Helge_Torsvik' : ('Trond_Helge_Torsvik', 'Trond_Helge_Torsvik'),
+			'Yoshua_Bengio' : ('Yoshua_Bengio', 'Yoshua_Bengio'),
+			'Yuri_Oganessian' : ('Yuri_Oganessian', 'Yuri_Oganessian')
 		}
 
 	def loadMarkdownFile(self, fn):
@@ -256,8 +265,14 @@ class DataLoader():
 				'text_or_url': transcript,
 				'output' : 'json'
 			}
-			resp = requests.post(url, data=params)
-			if resp.status_code == 200:
+			resp = None
+			"""
+			try:
+				resp = requests.post(url, data=params)
+			except ConnectionError, e:
+				print e
+			"""
+			if resp and resp.status_code == 200:
 				tc = self.__filterStopWords(json.loads('{ "terms" : %s}' % resp.text))
 				self.__writeToCache(scientistId, 'termcloud-cache', json.dumps(tc))
 				return tc

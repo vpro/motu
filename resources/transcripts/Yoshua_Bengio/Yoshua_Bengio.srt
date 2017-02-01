@@ -1,0 +1,2776 @@
+1
+00:00:00,04 --> 00:00:04,95
+Yes My name is Yahshua Benji two and I'm a professor here at the university Montreal.
+
+2
+00:00:05,61 --> 00:00:13,19
+I also lead an institute called the Montreal in situ programming on things that is specializing in my area of science
+
+3
+00:00:13,19 --> 00:00:34,3
+which is machine learning how computers learn from examples. Yes. Right. Yes so deep.
+
+4
+00:00:34,35 --> 00:00:39,23
+Learning is inside the machine learning is one of the approaches to to machine learning.
+
+5
+00:00:40,55 --> 00:00:45,14
+Machine earning is very general it's about learning from examples
+
+6
+00:00:45,14 --> 00:00:52,53
+and scientist over the last few decades after pose many approaches for allowing computers to learn from examples deep
+
+7
+00:00:52,53 --> 00:00:54,16
+learning is.
+
+8
+00:00:55,94 --> 00:01:02,88
+Introducing a particular notion that the computer learns to represent information
+
+9
+00:01:02,88 --> 00:01:10,08
+and to do so at multiple levels of distraction. What I'm saying is a bit abstract but to make it easier.
+
+10
+00:01:10,26 --> 00:01:17,13
+I could say that the planning is also heavily inspired by what we know of the brain of Hondurans compute.
+
+11
+00:01:17,45 --> 00:01:27,23
+And it's a follow up on they Cade's of earlier work on what's called neural networks or artificial neural networks so.
+
+12
+00:01:27,9 --> 00:01:35,2
+What. I got interested in networks.
+
+13
+00:01:35,96 --> 00:01:40,73
+And machine learning right at the beginning of migrated study so
+
+14
+00:01:40,73 --> 00:01:43,82
+when I was doing my master's I was looking for a subject
+
+15
+00:01:43,82 --> 00:01:46,55
+and I started reading some of these papers on neural networks and these
+
+16
+00:01:46,55 --> 00:01:52,94
+and this was the early days of the sickle connectionist movement and I got really really excited
+
+17
+00:01:52,94 --> 00:01:59,91
+and I started learning more and I told the professor who was going to supervise me that this is what I want.
+
+18
+00:02:00,01 --> 00:02:21,41
+Do and and that's what I did and I continue doing it and I'm still doing it. With. Someone.
+
+19
+00:02:22,15 --> 00:02:25,2
+So say it's funny that you ask this question because it depends.
+
+20
+00:02:25,23 --> 00:02:30,11
+It's like some days I feel very clearly that I know where I'm going.
+
+21
+00:02:30,7 --> 00:02:37,03
+And I can see very far I have the impression that I'm seeing far in the future
+
+22
+00:02:38,11 --> 00:02:46,57
+and I see also where I've been it's there's there's a very clear path and sometimes may you get more discouraged
+
+23
+00:02:46,61 --> 00:02:55,45
+and I feel. Where am I going. It's only exploration I don't know where the future or what the future holds. Of course.
+
+24
+00:02:55,98 --> 00:03:09,64
+So I go between these two states which I don't. I mean right now I'm pretty positive about a particular direction.
+
+25
+00:03:11,12 --> 00:03:19,56
+I moved to some fundamental questions that I find really exciting and that's kind of driving a lot of my thinking.
+
+26
+00:03:20,51 --> 00:03:45,01
+And looking forward. So. Right. So.
+
+27
+00:03:46,74 --> 00:03:53,09
+My main quest is to understand the principles that underlie intelligence
+
+28
+00:03:53,12 --> 00:03:59,99
+and I believe this happens through learning that intelligent behavior arises in nature and in.
+
+29
+00:04:00,01 --> 00:04:09,04
+The computers that we're building through learning the machine the animal the human becomes intelligent because it
+
+30
+00:04:09,04 --> 00:04:09,67
+learns.
+
+31
+00:04:10,55 --> 00:04:20,77
+And understanding the underlying principles is like and are standing the laws of aerodynamics for building airplanes
+
+32
+00:04:21,13 --> 00:04:29,7
+and so I and others in my field or trying to figure out where is the equivalent of the laws of I read aerodynamics
+
+33
+00:04:29,7 --> 00:04:38,65
+but for intelligence. So that's that's the quests and we're taking inspiration from brains.
+
+34
+00:04:38,68 --> 00:04:46,09
+We're taking inspiration from a lot of our experiments that we're doing with computers trying to learn from data.
+
+35
+00:04:46,83 --> 00:04:59,9
+We're taking inspiration from. Other disciplines from physics from. Psychology and neuroscience and other fields.
+
+36
+00:05:00,09 --> 00:05:13,7
+Even you know. And it trickle engineering and of course it does the I mean it's very multi-disciplinary area. Yes I do.
+
+37
+00:05:16,55 --> 00:05:18,13
+So one of the.
+
+38
+00:05:18,82 --> 00:05:21,03
+Well may not be so easy to explain
+
+39
+00:05:21,03 --> 00:05:28,08
+but one of the big mysteries about how brains manage to do what they do is what scientists have called for many decades
+
+40
+00:05:28,08 --> 00:05:37,6
+the question of credit assignment that is hollow do neurons in the middle of your brain hidden somewhere get to know
+
+41
+00:05:37,76 --> 00:05:44,2
+how they should change what they should be doing that would be useful for the whole collective but that is the brain
+
+42
+00:05:44,96 --> 00:05:52,3
+and. We don't know how brains do it. We now have algorithms that do a pretty good job at it.
+
+43
+00:05:53,44 --> 00:05:54,74
+They have their limitations.
+
+44
+00:05:55,39 --> 00:05:59,99
+But one of the things I'm trying to do is to better understand this this credit assignment.
+
+45
+00:06:00,1 --> 00:06:08,72
+QUESTION And it's crucial for the planning because the planning is about having many levels of neurons talking to each
+
+46
+00:06:08,72 --> 00:06:08,72
+other.
+
+47
+00:06:08,83 --> 00:06:14,6
+So that's what we call them deep there are many layers of neurons and that's what gives them their power
+
+48
+00:06:14,6 --> 00:06:20,64
+but the challenge is how do we train them how do they learn and it gets harder.
+
+49
+00:06:20,73 --> 00:06:29,08
+The more layers you have so in the eighty's people found how to train networks with a single hidden layer.
+
+50
+00:06:29,21 --> 00:06:32,19
+So just not very deep.
+
+51
+00:06:32,52 --> 00:06:34,76
+But they were already able to do interesting things
+
+52
+00:06:34,76 --> 00:06:40,58
+and about ten years ago we started discovering ways to train much deeper networks
+
+53
+00:06:40,58 --> 00:06:50,71
+and that's what led to this current revolution called deep learning. And. So forth.
+
+54
+00:06:50,77 --> 00:07:03,07
+Yes So in the world of artificial intelligence. There's been a big shift. Brought by the planning.
+
+55
+00:07:03,6 --> 00:07:06,75
+So there's been some scientific advances
+
+56
+00:07:06,75 --> 00:07:16,06
+but then it turned into advances in applications so very quickly these techniques turned out to be very useful for
+
+57
+00:07:16,06 --> 00:07:20,49
+improving how computers understand speech for example that speech recognition
+
+58
+00:07:20,49 --> 00:07:27,36
+and then later much bigger would say in terms of impact effect happened
+
+59
+00:07:27,36 --> 00:07:33,83
+when we discovered that these algorithms could be very good for object recognition from images
+
+60
+00:07:33,83 --> 00:07:41,88
+and now many other tasks in computer vision are being done using these kinds of networks these deep networks earn.
+
+61
+00:07:42,69 --> 00:07:48,88
+Some specialized version of the networks called convolution networks that work we do well for images and and then it.
+
+62
+00:07:49,05 --> 00:07:49,76
+It moves on.
+
+63
+00:07:49,78 --> 00:07:58,33
+So now people who are doing a lot of work on natural language trying to have the computer understand English sentences.
+
+64
+00:07:58,69 --> 00:08:03,92
+What you need. In being able to answer some questions and so on.
+
+65
+00:08:04,05 --> 00:08:09,99
+So these are applications but they have a huge economy impact
+
+66
+00:08:09,99 --> 00:08:20,38
+and even more in the future so that has attracted a lot of attention from from other scientists from the media
+
+67
+00:08:20,74 --> 00:08:25,4
+and from of course businesspeople who are investing billions of dollars in this right now.
+
+68
+00:08:32,15 --> 00:08:40,2
+It is it is very exciting and it's not something I really expected because ten years ago
+
+69
+00:08:40,2 --> 00:08:43,43
+when we started working on this. There were very few people in the world.
+
+70
+00:08:43,46 --> 00:08:45,98
+Maybe a handful of people interested in these questions.
+
+71
+00:08:46,64 --> 00:08:53,46
+And initially it started very slowly we was difficult to to to get money for these kinds of things.
+
+72
+00:08:53,71 --> 00:09:07,46
+It was difficult to convince students to work on these kinds of things. Yes. Right that's right that's right.
+
+73
+00:09:07,63 --> 00:09:08,72
+Yes that's right.
+
+74
+00:09:09,02 --> 00:09:18,8
+So there has been a decade before the last day Cade where these kind of research Senshi went out of fashion people
+
+75
+00:09:18,8 --> 00:09:28,51
+moved on to other interests the last mission to actually get AI to get machines to be as intelligent as us
+
+76
+00:09:28,51 --> 00:09:33,8
+and also the connection between neuroscience and machine earning.
+
+77
+00:09:34,44 --> 00:09:40,26
+It got a big divorce but a few people including myself and Geoff Henton and yellow care.
+
+78
+00:09:40,5 --> 00:09:44,34
+Continue doing this and we started to have the results.
+
+79
+00:09:45,46 --> 00:09:52,4
+And other people can you know in the world who are also doing this and more people joined us
+
+80
+00:09:52,4 --> 00:10:00,61
+and in a matter of odd five years. It started to be a more accepted area and then and. In the.
+
+81
+00:10:01,33 --> 00:10:06,22
+Applications the success and application is starting to happen. And now it's crazy. I mean.
+
+82
+00:10:07,09 --> 00:10:15,88
+We get hundreds of applicants for example for doing studies here and. Companies are hiring like crazy and and.
+
+83
+00:10:16,21 --> 00:10:29,81
+And buying scientists for their research labs. Yeah yeah yeah. Yes yes. So I could be much richer.
+
+84
+00:10:30,88 --> 00:10:49,19
+But I chose to stay in academia. So you make. Yes yes very valuable. Yes.
+
+85
+00:10:50,83 --> 00:11:03,3
+Basically it's at the heart of what companies like Google Microsoft I.B.M. Facebook sun so on.
+
+86
+00:11:03,31 --> 00:11:14,00
+Azzam on Twitter all of these companies they these see this as the key a key technology for their future products
+
+87
+00:11:14,00 --> 00:11:29,65
+and some of the existing products already already. Right now. They are of course I don't have a crystal ball.
+
+88
+00:11:29,96 --> 00:11:33,17
+So there are a lot of research questions which remain.
+
+89
+00:11:33,6 --> 00:11:39,97
+And some of that might take just a couple of years or decades to solve and we don't know
+
+90
+00:11:39,97 --> 00:11:44,19
+but even if say scientific research on topic stop right now.
+
+91
+00:11:44,52 --> 00:11:52,64
+And you took the current state of the art in terms of the science and you just applied it right.
+
+92
+00:11:52,84 --> 00:11:58,78
+Collecting the lots of data sets and two to two because these albums need a lot of data.
+
+93
+00:12:00,01 --> 00:12:05,76
+Applying the current science would already have a huge impact on society. So so they're not.
+
+94
+00:12:06,33 --> 00:12:08,9
+I don't think they're making a very risky bet.
+
+95
+00:12:10,49 --> 00:12:14,57
+But it could be even better because we could we could actually approach human level intelligence.
+
+96
+00:12:17,96 --> 00:12:22,27
+We could I think that will we'll have other.
+
+97
+00:12:25,44 --> 00:12:28,5
+Other challenges to deal with that
+
+98
+00:12:28,57 --> 00:12:40,45
+and some of them we currently know are in front of us others we probably will discover when we get there so exciting.
+
+99
+00:12:41,28 --> 00:13:06,74
+Yeah. Oh yeah oh yes yes it's true it's true son. So initially it's exhilarating to have all this attention.
+
+100
+00:13:07,45 --> 00:13:11,14
+And it's grad to great to have all this recognition and
+
+101
+00:13:11,79 --> 00:13:20,54
+and also it's great to track need you know best minds that are coming here for doing Ph D.'s
+
+102
+00:13:20,54 --> 00:13:22,87
+and things like that it's it's it's absolutely great.
+
+103
+00:13:24,16 --> 00:13:29,78
+But sometimes I feel that it's been too much and that I don't deserve that much attention
+
+104
+00:13:30,32 --> 00:13:41,21
+and all this all these interactions with the media and so on are taking time away from my research.
+
+105
+00:13:42,49 --> 00:13:47,02
+And so it's you know I have to find the right balance here.
+
+106
+00:13:47,36 --> 00:13:55,17
+I think it is really important to continue to explain what we're doing so that more people can learn about it
+
+107
+00:13:55,2 --> 00:13:59,03
+and take advantage of it or become researchers themselves in this area.
+
+108
+00:14:00,07 --> 00:14:09,62
+But I need to also focus on my main strength which is not speaking to Jonas my main strength is to come up with new
+
+109
+00:14:09,62 --> 00:14:20,24
+ideas crazy schemes and you know interacting with students to to build new things. Real.
+
+110
+00:14:24,3 --> 00:14:33,89
+Well of course science is an exploration. And I'm I'm often wrong.
+
+111
+00:14:34,01 --> 00:14:42,62
+I proposed ten things one of which end up not working. But but we make progress so.
+
+112
+00:14:44,00 --> 00:14:51,68
+I get frequent positive feedback that they'll need we're moving in the right direction.
+
+113
+00:14:53,12 --> 00:15:03,21
+Yes Yes Yes And these days because the number of people working on this is grown really fast the rate at which advances
+
+114
+00:15:03,24 --> 00:15:05,83
+come. Is incredible.
+
+115
+00:15:06,01 --> 00:15:14,68
+The speed of progress in this field as drapery accelerated and mostly because there are more people doing it.
+
+116
+00:15:18,39 --> 00:15:24,82
+Yes So companies are investing a lot in basic research in this field which is an unusual way.
+
+117
+00:15:25,8 --> 00:15:31,28
+Typically companies would invest in Applied Research where you take existing algorithms
+
+118
+00:15:31,28 --> 00:15:38,28
+and try to make them use them for products but right now there's a big war between these big I.T.
+
+119
+00:15:38,28 --> 00:15:44,07
+Companies to attract talent and also the understand that there is the.
+
+120
+00:15:45,64 --> 00:15:53,00
+Potential impact the potential benefit of future research is probably even greater than what we over really achieved.
+
+121
+00:15:53,47 --> 00:15:59,95
+So for these two reasons they have invested a lot in basic research and they are as you can be making offers to.
+
+122
+00:16:00,51 --> 00:16:03,5
+Professors and students in the field to come work with them.
+
+123
+00:16:04,31 --> 00:16:09,54
+In an environment that looks a little bit like what you have in universities where they have a lot of freedom they can
+
+124
+00:16:09,54 --> 00:16:13,00
+publish they can go to conferences and talk with their peers.
+
+125
+00:16:13,69 --> 00:16:20,32
+So so it's a it's a good time for the progress of science because companies are working in the same direction as
+
+126
+00:16:20,32 --> 00:16:23,09
+universities towards really fundamental questions.
+
+127
+00:16:26,22 --> 00:16:30,92
+So that's something that's one of the reasons why they
+
+128
+00:16:30,92 --> 00:16:34,09
+and I can e-mail want to make sure that what I do is going to be.
+
+129
+00:16:36,01 --> 00:16:52,72
+Not owned by a particular person but the vailable for anyone. Well.
+
+130
+00:16:55,28 --> 00:16:58,23
+I don't I don't think it's I don't think it's a big deal right now.
+
+131
+00:16:59,55 --> 00:17:08,28
+So the major research industrial research centers they publish a lot of what they do. And they have.
+
+132
+00:17:08,95 --> 00:17:15,1
+They do half patents but they say that these patents are protective so in case somebody would sue them
+
+133
+00:17:15,1 --> 00:17:19,81
+but they won't prevent other people other companies who you're seeing there technology that's what they say.
+
+134
+00:17:21,31 --> 00:17:30,39
+And so right now. There is a lot of openness in and in the business environment for for this field.
+
+135
+00:17:30,61 --> 00:17:34,7
+We'll see how things are in the future and there's always a danger of companies.
+
+136
+00:17:35,84 --> 00:17:39,25
+Coming to a point where the become protective and
+
+137
+00:17:39,53 --> 00:17:45,65
+but then what I think is that companies who pull themselves out of the community and not participate.
+
+138
+00:17:45,76 --> 00:17:50,09
+To the scientific progress and exchange with the others they will not progress as fast
+
+139
+00:17:50,12 --> 00:17:57,7
+and I think that's the reason why do they understand that if they want to receive the most benefits from this progress.
+
+140
+00:17:58,04 --> 00:18:04,39
+They have to be part of the public. Again. You know exchanging information and not keeping information secret.
+
+141
+00:18:07,03 --> 00:18:08,81
+Yes exactly.
+
+142
+00:18:09,1 --> 00:18:15,44
+Part of the collective that we are building of all our ideas and our understanding of the world
+
+143
+00:18:15,99 --> 00:18:20,14
+and there is something about doing it.
+
+144
+00:18:20,17 --> 00:18:27,24
+Part speaking to it that enables us to be more powerful in understanding if we're just trying to be consumers of ideas
+
+145
+00:18:27,24 --> 00:18:32,67
+we're not mastering those ideas as well as if we're actually trying to improvement improve them.
+
+146
+00:18:32,68 --> 00:18:34,31
+So when we do research.
+
+147
+00:18:34,61 --> 00:18:42,86
+We we get on top of things much more than if we're simply trying to understand some existing paper
+
+148
+00:18:42,86 --> 00:18:45,05
+and trying to use it for its own product.
+
+149
+00:18:45,24 --> 00:18:53,76
+So there is something that is strongly he and the billing for companies to do that kind of the. But that's new. It's.
+
+150
+00:18:54,26 --> 00:18:56,05
+One decay to go for example.
+
+151
+00:18:56,96 --> 00:19:03,17
+Many companies were shutting down their research labs and so on so that was it was a different spirit.
+
+152
+00:19:03,35 --> 00:19:10,63
+But right now the spirit is openness sharing and participating in the sort of common.
+
+153
+00:19:11,45 --> 00:19:29,86
+Development of ideas through science and. And publication and so on. Yes yes yes. Oh boy. Well I think it.
+
+154
+00:19:29,93 --> 00:19:32,32
+First of all it's appealing. I mean as a person.
+
+155
+00:19:32,85 --> 00:19:38,39
+If I'm a researcher as a Ph D.'s candidate or a professor or something.
+
+156
+00:19:38,42 --> 00:19:45,88
+It's much more appealing to me to know that what I do will be a contribution to humanity right rather than something
+
+157
+00:19:45,88 --> 00:19:51,25
+secret only I and a few people know about and maybe some people make a lot of money out of it that.
+
+158
+00:19:52,61 --> 00:19:59,42
+I don't think it's as satisfying. And as I said I think there are circumstances right now and that.
+
+159
+00:20:00,01 --> 00:20:04,03
+Even from purely an economy point of view it's more interesting for companies to share right now.
+
+160
+00:20:04,68 --> 00:20:40,41
+And be part of the of the research. So. You know. Yes. What. Yes is. Right.
+
+161
+00:20:40,86 --> 00:20:46,85
+Well obviously we don't know because the brain is still we don't know how to brain works.
+
+162
+00:20:46,94 --> 00:20:52,01
+You have a lot of information about it. Too much. Maybe.
+
+163
+00:20:52,48 --> 00:20:58,27
+But not enough of the kind that allows us to figure out the basic principles of how.
+
+164
+00:20:58,84 --> 00:21:05,46
+How we think and what does it mean at a very abstract level but of course I have my own understanding.
+
+165
+00:21:06,06 --> 00:21:15,4
+So I can share that. And with the kinds of questions I draw on the board there. In other people in my field.
+
+166
+00:21:15,47 --> 00:21:28,47
+There is the notion that what thinking is about is adjusting your mental configuration.
+
+167
+00:21:28,81 --> 00:21:40,1
+To be more coherent more consistent with everything you've observed right and more typically.
+
+168
+00:21:40,68 --> 00:21:44,02
+The things you are thinking about or what you are currently observing.
+
+169
+00:21:44,3 --> 00:21:52,42
+So if I observe a picture mine your own as change their state to be in agreement with the picture and in agreement.
+
+170
+00:21:52,7 --> 00:21:59,93
+Given everything that the brain already knows means that they are looking for an interpretation for that image. Would.
+
+171
+00:22:00,09 --> 00:22:04,32
+Maybe related to things they could do that are related. Like maybe oh I see this.
+
+172
+00:22:04,36 --> 00:22:08,03
+I need to go there because it tells me a message that's matters to me.
+
+173
+00:22:08,07 --> 00:22:15,34
+So everything we know is somehow built in this internal model of the world that our brain hands and.
+
+174
+00:22:16,49 --> 00:22:21,23
+And we get all these pieces of evidence each time we hear something something we listen something
+
+175
+00:22:21,23 --> 00:22:24,96
+and our brain is actually moving all that stuff
+
+176
+00:22:24,96 --> 00:22:32,31
+and then what it does is try to make sense of it all the piece like a piece of a puzzle.
+
+177
+00:22:33,91 --> 00:22:38,45
+And so sometimes you know it happens to you eat something clicks right.
+
+178
+00:22:38,68 --> 00:22:42,9
+Suddenly you see a connection that explains different things.
+
+179
+00:22:43,19 --> 00:22:47,21
+Your brain does that all the time not always that you get it.
+
+180
+00:22:47,25 --> 00:22:57,84
+This conscious impression and and thinking is is this according to me it's. It's it's. Finding.
+
+181
+00:22:58,56 --> 00:23:04,98
+Structure and meaning and the things that we are observing and that we've seen
+
+182
+00:23:04,98 --> 00:23:12,27
+and that's also what science does right science is about finding explanations for what is around us.
+
+183
+00:23:12,42 --> 00:23:21,4
+But thinking is happening in our head where science is a is a is a social thing. It's.
+
+184
+00:23:22,43 --> 00:23:29,47
+Science the science has a part inside science as a part inside of course because we are thinking when we do science
+
+185
+00:23:29,47 --> 00:23:40,04
+but science has a social aspect science is a community of minds working together in the history of minds having you
+
+186
+00:23:40,04 --> 00:23:47,38
+know discovered. Concepts that explain the world around us and sharing that in ways that are efficient.
+
+187
+00:23:47,96 --> 00:24:00,37
+But one thing I could talk about too is learning or I need money of us. Thank you.
+
+188
+00:24:00,47 --> 00:24:03,62
+But I think a very modern concept in my area is learning.
+
+189
+00:24:03,66 --> 00:24:31,35
+I think I can explain what that how that can happen in in those models or brains. We hear today. I think you know.
+
+190
+00:24:37,59 --> 00:25:01,45
+You would like to know what. That's good question. I don't think that there's a consensus on that either.
+
+191
+00:25:01,72 --> 00:25:05,47
+But on what is intelligence. My question.
+
+192
+00:25:05,83 --> 00:25:12,45
+OK OK OK So what is intelligence that's that's a good question and I don't think that there's a consensus
+
+193
+00:25:12,45 --> 00:25:20,36
+but in my area of research. People generally understand intelligence is the ability to take good decisions.
+
+194
+00:25:21,37 --> 00:25:26,78
+And what good decisions like good for me right.
+
+195
+00:25:27,66 --> 00:25:38,16
+Good in the sense that they allow me to achieve my goals too if I was an animal to survive my predator is to find food
+
+196
+00:25:38,16 --> 00:25:44,44
+to find mates and for humans good might be achieving social status or being happy
+
+197
+00:25:44,44 --> 00:25:47,21
+or whatever you know it's in your mind what is your.
+
+198
+00:25:47,64 --> 00:25:54,64
+What is it that's good for you but but somehow we are striving to take decisions that are good for us.
+
+199
+00:25:54,91 --> 00:26:05,57
+And in order to do that. It's very clear. Or that we need some form of knowledge so. Even a mouse.
+
+200
+00:26:05,64 --> 00:26:11,01
+That's choosing to go left or right in a maze is using knowledge and.
+
+201
+00:26:12,24 --> 00:26:16,43
+That kind of knowledge is not necessarily the kind of knowledge you find in a book right.
+
+202
+00:26:16,76 --> 00:26:24,82
+The mouse cannot read a book couldn't write a book but in the mouse's brain. There is knowledge about how to.
+
+203
+00:26:25,44 --> 00:26:29,57
+How to control the mouse body in order to survive to find food and so on.
+
+204
+00:26:30,31 --> 00:26:35,55
+So the mouse is actually very intelligent in the context of the life of a mouse.
+
+205
+00:26:35,7 --> 00:26:42,4
+If you were soley for the border going there in the mouse you would probably find it difficult to do the right things.
+
+206
+00:26:44,53 --> 00:26:48,02
+So intelligence about taking right decision and it requires knowledge
+
+207
+00:26:48,31 --> 00:26:53,51
+and now the question is to build intelligent machines or to understand how humans and animals are intelligent.
+
+208
+00:26:54,51 --> 00:26:57,15
+Where are we getting the knowledge.
+
+209
+00:26:57,73 --> 00:27:03,68
+Where can we get the knowledge and some of it is hard wired in your brain from you from birth.
+
+210
+00:27:04,65 --> 00:27:10,71
+And some of it is going to be learned through experience and that's the thing that we're studying in my field.
+
+211
+00:27:10,74 --> 00:27:11,74
+How do we learn.
+
+212
+00:27:12,54 --> 00:27:18,26
+Or rather what are they mathematical principles for learning that could be applied to computers
+
+213
+00:27:18,45 --> 00:27:27,24
+and not just trying to figure out what animals how animals learn. Right.
+
+214
+00:27:47,12 --> 00:27:57,18
+So yes my definition of learning is not the kind of learning that people think about when they are in school
+
+215
+00:27:57,18 --> 00:28:01,09
+and listening to a teacher. Learning some. And we do all the time.
+
+216
+00:28:01,62 --> 00:28:08,46
+Our brain is changing all the time in response to what we are seeing experiencing and it's an adaptation
+
+217
+00:28:08,76 --> 00:28:18,35
+and we're not just. Storing in our brain our experiences. It's not learning by heart. That's easy.
+
+218
+00:28:18,91 --> 00:28:22,86
+A file in a computer is lower is like learning by heart. You can store facts.
+
+219
+00:28:23,33 --> 00:28:31,52
+But that's trivial That's not what learning really is about learning is about integrating the information we're getting
+
+220
+00:28:31,61 --> 00:28:42,18
+through experience into some more abstract form that allows us to take good decisions that allow us to predict what
+
+221
+00:28:42,18 --> 00:28:49,56
+will happen next. Allow us to understand the connections between things we've seen.
+
+222
+00:28:50,03 --> 00:28:58,13
+So that's what learning is really about in my field we talk about the notion of generalization so that the machine can
+
+223
+00:28:58,13 --> 00:29:05,15
+generalize from things it has seen and learned from to new situations.
+
+224
+00:29:06,08 --> 00:29:13,05
+That's the kind of learning we talk about in my field and the way we typically do it in machines
+
+225
+00:29:13,05 --> 00:29:22,04
+and how we think it's happening in the brain is that it's it's a slow dreidel process each time you live an experience
+
+226
+00:29:22,04 --> 00:29:27,67
+one second of your life. There's going to be some changes in your brain small changes.
+
+227
+00:29:28,19 --> 00:29:37,49
+So it's like you or your whole system is drudgery shifting towards. What would make it take better decisions.
+
+228
+00:29:38,00 --> 00:29:45,52
+So that's how you get to be intelligent right because you learn. Meaning you change the way you perceive and act.
+
+229
+00:29:46,39 --> 00:29:54,19
+So that next time you would see something you would have some experience similar to what happened before you would act
+
+230
+00:29:54,19 --> 00:30:01,02
+better or you would predict better what would have happened. Yes.
+
+231
+00:30:01,44 --> 00:30:09,34
+Learning is completely experience based of course in school we think of learning as teaching knowledge from a book
+
+232
+00:30:09,34 --> 00:30:16,89
+or some. Blackboard. But that's not really the main kind of learning.
+
+233
+00:30:18,39 --> 00:30:22,29
+There is some learning happening when we when the student integrates all that information
+
+234
+00:30:22,29 --> 00:30:28,11
+and tries to make sense of it but just storing those facts is kind of useless.
+
+235
+00:30:31,98 --> 00:30:36,17
+Well motivation for humans is very important because we're wired like this
+
+236
+00:30:36,17 --> 00:30:40,94
+and the reason we're wired like this is there are so many things happening around us.
+
+237
+00:30:41,83 --> 00:30:48,00
+That emotions help us to filter and focus on some aspects more than others.
+
+238
+00:30:48,08 --> 00:30:55,43
+Those that matter to us right and some motivation might be fear as well and times are bad for computers.
+
+239
+00:30:55,6 --> 00:30:58,95
+Basically they will learn what we ask them to learn.
+
+240
+00:30:59,19 --> 00:31:11,49
+We don't need to introduce vision or emotions these up to now we haven't needed to do that. When you say yes yes.
+
+241
+00:31:11,78 --> 00:31:36,15
+There's. Where you can you can. Emotions are something we're born with we were bone with born with.
+
+242
+00:31:36,25 --> 00:31:49,27
+Circuits that make us experience emotions because. Some situations matter more to us. So in the case of the computer.
+
+243
+00:31:49,29 --> 00:31:53,93
+We we also in a sense hardwired these things by telling the computer.
+
+244
+00:31:53,96 --> 00:32:00,69
+Well this matters more than that and you have to learn to predict. Well here and here and. Is less.
+
+245
+00:32:01,19 --> 00:32:13,08
+So we don't call that emotions but it could play a similar role. Right. Absolutely. So AI is completely programmed.
+
+246
+00:32:26,42 --> 00:32:28,96
+OK so there's an interesting connection between learning
+
+247
+00:32:28,96 --> 00:32:35,59
+and programming so the traditional way of putting knowledge into computers is to write a program that essentially
+
+248
+00:32:35,59 --> 00:32:39,28
+contains all our our knowledge in step by step.
+
+249
+00:32:39,56 --> 00:32:43,18
+We tell the computer if this happens you do this and then you do that and then you do that
+
+250
+00:32:43,18 --> 00:32:45,15
+and then this happens you know that. And so on and so on.
+
+251
+00:32:45,16 --> 00:32:51,13
+That's what a program is but when we allow the computer to learn.
+
+252
+00:32:51,87 --> 00:32:55,31
+We also program it but the program that is there is different.
+
+253
+00:32:55,66 --> 00:33:02,04
+It's not a program that contains the knowledge we want to computer to have we don't program the computer with the
+
+254
+00:33:02,04 --> 00:33:07,38
+knowledge of doors and cars and images and sounds you program the computer with the ability to learn
+
+255
+00:33:07,38 --> 00:33:10,23
+and then the computer experiences.
+
+256
+00:33:10,7 --> 00:33:20,21
+You know images or videos or sounds or texts and learns the knowledge from those experiences.
+
+257
+00:33:20,81 --> 00:33:26,6
+So you can think of the learning program as a made up program and we have something like that in our brain.
+
+258
+00:33:26,64 --> 00:33:30,6
+So if one part of the cortex dies you have an accident.
+
+259
+00:33:31,37 --> 00:33:39,81
+That part used to be doing some job like may be dealing interpreting music your some some types of songs or something.
+
+260
+00:33:39,95 --> 00:33:46,02
+Well if you continue listening to music then some other part will take over.
+
+261
+00:33:46,33 --> 00:33:51,97
+And that function may have been sort of and impaired for some time
+
+262
+00:33:51,97 --> 00:33:59,31
+but then it will be taken by some other part of your cortex. What does that mean it means that the same.
+
+263
+00:34:00,3 --> 00:34:06,11
+The does the learning was there in those two regions of the cortex the one that used to be the doing the job
+
+264
+00:34:06,11 --> 00:34:15,39
+and the one does it now. And that means that your brain has the same general purpose learning. Recipient.
+
+265
+00:34:16,72 --> 00:34:18,98
+That it can apply to different problems
+
+266
+00:34:19,04 --> 00:34:27,76
+and that the different parts of your brain will be specialized on different tasks depending on what you do in which how
+
+267
+00:34:27,76 --> 00:34:28,75
+the brain is connected.
+
+268
+00:34:29,19 --> 00:34:37,01
+If if if we remove that part of your brain then some other parts will start doing the job if the job is needed because
+
+269
+00:34:37,01 --> 00:34:38,91
+you expose you to those experiences right.
+
+270
+00:34:39,2 --> 00:34:46,76
+So if I had a part of my brain that was essentially dealing with playing tennis and you know that part dies.
+
+271
+00:34:48,27 --> 00:34:51,15
+I'm not going to be able to play tennis anymore.
+
+272
+00:34:51,38 --> 00:34:56,11
+But if I continue practicing it's going to come back
+
+273
+00:34:56,17 --> 00:35:03,37
+and that means that the same learning general purpose learning recipient is used everywhere at least in cortex
+
+274
+00:35:04,41 --> 00:35:07,11
+and this is important not just for for understanding brains
+
+275
+00:35:07,11 --> 00:35:11,22
+but for companies building products because we have this general purpose receive the.
+
+276
+00:35:13,15 --> 00:35:16,82
+Or family of recipients that can be applied for many tasks.
+
+277
+00:35:17,02 --> 00:35:23,59
+The only thing that really differs between those different task is the data the examples of the computer sees so that's
+
+278
+00:35:23,59 --> 00:35:28,59
+why companies are so excited about this because they can use this for many problems that they want to solve so long as
+
+279
+00:35:28,59 --> 00:35:30,63
+they can teach the machine by showing it. Examples.
+
+280
+00:35:30,88 --> 00:35:52,24
+Learning is positive by construction in the sense that it's moving the learner towards a state of understanding of its
+
+281
+00:35:52,24 --> 00:35:59,78
+experiences. So in general yes because. Learning is about improving something.
+
+282
+00:36:00,01 --> 00:36:04,96
+Now if the something you're improving is not the thing you should be improving. Then you could be in trouble.
+
+283
+00:36:05,2 --> 00:36:06,43
+You could learn.
+
+284
+00:36:07,43 --> 00:36:13,36
+People could be trained into wrong understanding of the world and then they start doing bad things right.
+
+285
+00:36:14,66 --> 00:36:17,76
+So that's why education is so important for humans
+
+286
+00:36:18,9 --> 00:36:24,34
+and for machines right now the things we're asking the machines to do is are very simple like
+
+287
+00:36:24,37 --> 00:36:34,15
+and are standing the content of images and text and videos and things like that. Why.
+
+288
+00:36:34,21 --> 00:36:36,38
+But if you're just observing things around you.
+
+289
+00:36:36,44 --> 00:36:46,23
+They can run a million then it's just what the world is right there right now.
+
+290
+00:36:46,26 --> 00:36:54,74
+Yeah the learning that computers do is very primitive it's it's mostly about perception and the case of language.
+
+291
+00:36:55,49 --> 00:37:07,51
+Some kind of semantic understanding but it's still a pretty low level understanding. Was.
+
+292
+00:37:08,81 --> 00:37:22,17
+So the way that the computer is learning is by small. Interactive changes right so.
+
+293
+00:37:22,22 --> 00:37:28,93
+So let's go back to my artificial neural network which is a bunch of neurons connected to each other
+
+294
+00:37:28,93 --> 00:37:32,05
+and they are connected through these these synaptic connections
+
+295
+00:37:32,05 --> 00:37:39,61
+and I each of these connections there is the strength of the connection which controls how your own influences Nabhan
+
+296
+00:37:39,61 --> 00:37:47,72
+your own. So you can think of that strength as a knob. And what happens during learning is those knobs change.
+
+297
+00:37:48,17 --> 00:37:52,03
+We don't know how they change in the brain but in our algorithms we know how they change
+
+298
+00:37:52,03 --> 00:37:54,86
+and we understand mathematically why it makes sense to do that
+
+299
+00:37:54,86 --> 00:37:59,87
+and they change a little bit each time you see an example. So I show the image.
+
+300
+00:38:00,38 --> 00:38:03,24
+The cat but the computer says it's a dog.
+
+301
+00:38:03,89 --> 00:38:10,26
+So I'm going to change those knobs so that it's going to be more likely that the computer is going to say cat.
+
+302
+00:38:10,58 --> 00:38:15,34
+Maybe the computer outputs a score for a dog and a score for a cat
+
+303
+00:38:15,66 --> 00:38:24,15
+and so what we want to do is decrease the score for for dog and increase the score for cat so that the computer.
+
+304
+00:38:24,47 --> 00:38:29,73
+Eventually after seeing many millions of images starts.
+
+305
+00:38:30,56 --> 00:38:48,06
+Seeing the right class more often and eventually gets it as well as humans. Do something. How do you know. You know.
+
+306
+00:38:48,54 --> 00:38:53,55
+Well you can test it on new images right so if the computer was only learning by heart.
+
+307
+00:38:53,77 --> 00:38:55,47
+Copying the examples that it has seen.
+
+308
+00:38:56,46 --> 00:39:05,27
+It wouldn't be able to recognize a new image of say new breed of dog or a new angle new lighting
+
+309
+00:39:06,6 --> 00:39:14,78
+and level of pixels those images could be very very different. But if the computer really figured.
+
+310
+00:39:16,28 --> 00:39:18,95
+Katniss at least from the point of view of images.
+
+311
+00:39:19,93 --> 00:39:25,59
+It will be able to recognize new images of new cats taken a new postures and so on
+
+312
+00:39:26,18 --> 00:39:28,62
+and that's what we call July zation So we do it.
+
+313
+00:39:28,62 --> 00:39:36,62
+Al the time we test the computer to see if it can generalize to new examples new images new sentences.
+
+314
+00:39:37,58 --> 00:39:59,52
+Oh yeah yeah yeah I'll try to show you some some examples of that. So. Right now. Yes OK let me.
+
+315
+00:40:00,09 --> 00:40:08,58
+Oh I thought this was a a statement not a question. Well but yes of course there are many things that you're missing.
+
+316
+00:40:10,65 --> 00:40:16,29
+So there are many many interesting questions in the planning but one of the.
+
+317
+00:40:19,35 --> 00:40:24,68
+Interesting challenges has to do with the question of supervised learning versus unsupervised learning.
+
+318
+00:40:25,94 --> 00:40:30,35
+Right now the way we teach the machine to do things
+
+319
+00:40:30,35 --> 00:40:36,95
+or to recognize things is we use what's called supervised learning where we tell the computer exactly what it should do.
+
+320
+00:40:37,5 --> 00:40:41,07
+Or what output it should have. For a given input.
+
+321
+00:40:41,22 --> 00:40:51,13
+So that's a I showing of the image of a cat again I tell the computer. This is a cat and I have to show it.
+
+322
+00:40:51,16 --> 00:40:52,63
+Millions of such images.
+
+323
+00:40:55,11 --> 00:41:02,84
+That's not the way humans learn to see and understand the world or even understand language for the most part we just.
+
+324
+00:41:04,69 --> 00:41:13,86
+Make sense of what we observe without having a teacher that is sitting. By us and telling us every second of our life.
+
+325
+00:41:14,42 --> 00:41:20,91
+This is a cow. This is the dog that's right there is no supervisor and we do get some feedback but it's pretty rare.
+
+326
+00:41:21,28 --> 00:41:25,52
+And sometimes it's only implicit so.
+
+327
+00:41:26,69 --> 00:41:32,92
+You you do something and you get you get a reward
+
+328
+00:41:32,92 --> 00:41:37,6
+but you don't know exactly what it was you did that you knew that we weren't
+
+329
+00:41:37,6 --> 00:41:41,47
+or you get a you know we talked to somebody.
+
+330
+00:41:41,61 --> 00:41:46,05
+The person is unhappy and you're not sure exactly what you did that was wrong and the person is not going tell you.
+
+331
+00:41:46,18 --> 00:41:47,87
+General what you should have done.
+
+332
+00:41:48,35 --> 00:41:53,73
+So this is called reinforcement learning where you get some feedback but it's a very weak.
+
+333
+00:41:53,91 --> 00:42:02,57
+You know you did well or you didn't do well. Like you have an exam and you you. You know sixty five percent.
+
+334
+00:42:03,47 --> 00:42:05,8
+Well you don't know if you don't know what the errors were
+
+335
+00:42:05,8 --> 00:42:08,68
+and what the right answers are it's very difficult to learn from that
+
+336
+00:42:09,13 --> 00:42:15,55
+but we we are able to learn from that from very weak signals or know you know when Foresman of all known
+
+337
+00:42:15,55 --> 00:42:21,49
+or feedback just by observation and trying to make sense of all of these pieces of information that's called
+
+338
+00:42:21,49 --> 00:42:27,49
+and spoke lies money. And we we're not yet.
+
+339
+00:42:29,4 --> 00:42:34,29
+We're much more advanced with supervised learning than with unsurprising So all of the products that these companies
+
+340
+00:42:34,29 --> 00:42:43,92
+are building right now is mostly based on supervised learning. So yes yes.
+
+341
+00:42:51,38 --> 00:42:59,49
+That means the computer will be more autonomy in some sense that we don't need more autonomy it's right.
+
+342
+00:43:00,47 --> 00:43:03,26
+Well more autonomous in its learning.
+
+343
+00:43:03,29 --> 00:43:05,04
+Yes We're not talking about robots here
+
+344
+00:43:05,04 --> 00:43:13,72
+and we're just talking about computers gradually making sense of the world around us by observation and.
+
+345
+00:43:15,24 --> 00:43:18,18
+We probably will still need to give them some guidance
+
+346
+00:43:18,5 --> 00:43:24,72
+but the question is how much guidance right now we have to give them a lot of guidance if you have to tell everything.
+
+347
+00:43:25,97 --> 00:43:27,53
+Very precisely for then.
+
+348
+00:43:27,9 --> 00:43:34,59
+So we're trying to move away from that so that they can essentially become more intelligent because they can take
+
+349
+00:43:34,59 --> 00:43:43,54
+advantage of all of the information out there which isn't doesn't come with a human that explains every bit in bits
+
+350
+00:43:43,54 --> 00:43:59,99
+and pieces but yes. Sure. It's often it's just a program running.
+
+351
+00:44:02,02 --> 00:44:08,55
+And stored in files there is nothing like there's no robot. There's no I mean at least in the work we do.
+
+352
+00:44:09,47 --> 00:44:18,24
+It's just a program that contains files that are like the contains the in those synaptic weights for example.
+
+353
+00:44:18,98 --> 00:44:26,74
+And as we see more examples we change those files so that they will correspond to taking the right decisions
+
+354
+00:44:27,09 --> 00:44:41,21
+but there's no. Those computers don't have a consciousness. There's no such thing right now at least. For a while.
+
+355
+00:44:46,75 --> 00:44:55,42
+So so yeah. Autonomy is in its learning right. Yes.
+
+356
+00:44:57,94 --> 00:45:04,48
+Well I gain is probably going to be a gradual thing where the computer requires less and less of our guidance
+
+357
+00:45:04,51 --> 00:45:12,1
+but we probably so if you think about humans we still need guidance. If you take a human. And.
+
+358
+00:45:12,67 --> 00:45:19,52
+A baby a few nobody wants and that experiment you can imagine a baby being isolated from society.
+
+359
+00:45:20,7 --> 00:45:28,57
+That child probably would not grow to be very intelligent would not understand the world around us as well as we do.
+
+360
+00:45:29,34 --> 00:45:37,04
+That's because we've had parents teachers and so on guided us. And we been immersed in culture.
+
+361
+00:45:37,47 --> 00:45:39,21
+So all that matters and it.
+
+362
+00:45:39,35 --> 00:45:46,09
+It's possible that it will also be required for computers to reach our level of intelligence the same kind of attention
+
+363
+00:45:46,09 --> 00:45:48,49
+we're giving to humans we might need to give to computers
+
+364
+00:45:48,9 --> 00:45:54,61
+but right now the amount of attention we have to give to computers for them to learn about very simple things is much
+
+365
+00:45:54,61 --> 00:45:59,37
+larger than what we need to give to humans. Humans are much more autonomy and they're learning.
+
+366
+00:46:00,16 --> 00:46:03,97
+Then machines are right now. So we have a lot of progress to do in that direction.
+
+367
+00:46:10,94 --> 00:46:16,06
+Well biology is not magical biology is can be understood.
+
+368
+00:46:17,43 --> 00:46:20,13
+It's what biologists are trying to do and we understand a lot
+
+369
+00:46:20,16 --> 00:46:24,88
+but they're as far as the brain is concerned there's the big holes in the arm standing.
+
+370
+00:46:25,78 --> 00:46:35,66
+So yes sure it can I mean we can we can give it more memory and so on.
+
+371
+00:46:35,69 --> 00:46:42,29
+Right so that you can you can grow the size of the model. That's not a big obstacle.
+
+372
+00:46:42,32 --> 00:46:48,94
+I mean computing power is an obstacle but I'm pretty confident that over the next few years we're going to see.
+
+373
+00:46:50,58 --> 00:46:54,28
+More and more computing power available as it has been in the past.
+
+374
+00:46:55,27 --> 00:47:14,49
+That will make it more possible to train models to do more complex tasks. So how do you do. Right right. Now.
+
+375
+00:47:17,45 --> 00:47:32,34
+So I think that's right. I do I do. So first of all I think there is being a bit of excessive expression of fear.
+
+376
+00:47:33,49 --> 00:47:40,44
+About EON maybe because the progress has been so fast and it has made us some people worried
+
+377
+00:47:41,75 --> 00:47:45,76
+but if you ask people like me who are into it every day.
+
+378
+00:47:46,62 --> 00:47:50,91
+They're not worried because they can see how stupid the machines are right now.
+
+379
+00:47:51,65 --> 00:47:59,99
+And how much guidance they need to do to move forward. So it was it looks like we're very far from.
+
+380
+00:48:00,01 --> 00:48:06,75
+I'm human level intelligence and even you know I have no idea whether one day computers will be smarter than us.
+
+381
+00:48:08,18 --> 00:48:15,11
+Now that may be a short term view what will happen in the future is hard to say.
+
+382
+00:48:16,3 --> 00:48:23,09
+But we can we can think about it and I think it's good that some people are thinking about the potential dangers.
+
+383
+00:48:25,55 --> 00:48:31,09
+I think it's difficult right now to have a grasp on how what could go wrong
+
+384
+00:48:31,26 --> 00:48:37,66
+but with the kind of intelligence that we're building in machines right now I'm not very worried the there it's not the
+
+385
+00:48:37,66 --> 00:48:45,35
+kind of intelligence that I could for see. Exploding becoming more and more intelligent by itself.
+
+386
+00:48:46,00 --> 00:48:51,43
+I don't think that's plausible for the kinds of like people earning methods and so on.
+
+387
+00:48:51,9 --> 00:48:57,78
+Even if they were much more powerful and it's not something I can envision. That being said.
+
+388
+00:48:59,26 --> 00:49:04,91
+It's good that there are people who are thinking about these long term issues one thing I'm more worried about is the
+
+389
+00:49:04,91 --> 00:49:06,63
+use of technology.
+
+390
+00:49:07,73 --> 00:49:15,31
+Now or in the next couple of years or five or ten years where the technology could be developed
+
+391
+00:49:15,31 --> 00:49:20,63
+and used in a way that could either be very good for many people or not so good for many people.
+
+392
+00:49:21,17 --> 00:49:23,67
+So for example military use and.
+
+393
+00:49:24,4 --> 00:49:34,83
+Other uses which I think I would consider not a proper iot are things we need to worry about. Yeah.
+
+394
+00:49:35,28 --> 00:49:37,99
+So so so there's been a fuss
+
+395
+00:49:37,99 --> 00:49:44,97
+and a letter signed by a number of scientists who try to tell the world we should have a ban on.
+
+396
+00:49:46,97 --> 00:49:52,65
+The use of AI for autonomy as weapons that could essentially take the decision to kill by themselves.
+
+397
+00:49:53,65 --> 00:49:59,99
+So that's something that's not very far fetched in terms of technology in the given science. Basically the.
+
+398
+00:50:00,05 --> 00:50:02,3
+The science is there is a matter of building these things.
+
+399
+00:50:03,7 --> 00:50:07,11
+But it's not something we would like to see in
+
+400
+00:50:07,14 --> 00:50:13,14
+and there could be an arms race of these things so we need to prevent it. The same way that collectively.
+
+401
+00:50:13,83 --> 00:50:19,46
+The nations decided to have bans on biological weapons and chemical weapons
+
+402
+00:50:19,46 --> 00:50:24,83
+and to some extent on nuclear weapons the same thing should be done for that.
+
+403
+00:50:25,00 --> 00:50:32,06
+And then there are other uses of the technology as especially as it matures which I think are questionable from an
+
+404
+00:50:32,06 --> 00:50:32,76
+ethical point of view.
+
+405
+00:50:32,77 --> 00:50:44,23
+So I think that the use of these technologies to convince you to do things like with publicity and trying to influence.
+
+406
+00:50:44,43 --> 00:50:48,07
+Maybe think about influencing your vote right.
+
+407
+00:50:48,73 --> 00:50:51,13
+As the knowledge
+
+408
+00:50:51,13 --> 00:50:59,38
+and becomes really stronger you could imagine people essentially using this technology to money probably you in ways
+
+409
+00:50:59,38 --> 00:51:04,38
+you don't realize is good for them but it's not good for you.
+
+410
+00:51:04,46 --> 00:51:14,02
+And I think we have to start be aware of that and all these issues of privacy are connected as well but
+
+411
+00:51:14,02 --> 00:51:21,72
+but in general because we're training currently companies are using these systems for advertisements where they trying
+
+412
+00:51:21,72 --> 00:51:29,24
+to predict are what they should show you. So that you will be more likely to buy some product right.
+
+413
+00:51:29,29 --> 00:51:36,45
+So it seems you know not saw bad but if you push it.
+
+414
+00:51:36,74 --> 00:51:43,35
+You know he they might bring you into doing things that are not so good for you. I don't know the smoking or whatever.
+
+415
+00:51:43,46 --> 00:52:34,9
+Right. Stop. OK. What. That. What I will elaborate now. So you're asking me about diversity.
+
+416
+00:52:37,2 --> 00:52:46,38
+And I can say several things first of all people who are not aware of the kinds of things we bring in any eye with
+
+417
+00:52:46,38 --> 00:52:54,48
+machine learning the planning and so on may not realize the the algorithms the methods we're using already.
+
+418
+00:52:55,21 --> 00:53:00,99
+Include a lot of what may look like diversity creativity.
+
+419
+00:53:01,28 --> 00:53:05,33
+So for the same input the computer could produce different answers
+
+420
+00:53:05,51 --> 00:53:10,00
+and so there's a bit of randomness just like for us place twice in the same situation.
+
+421
+00:53:10,00 --> 00:53:15,11
+We don't always take the same decision and there are good reasons for that both for us and for computers.
+
+422
+00:53:15,17 --> 00:53:16,69
+So that's the first part of it
+
+423
+00:53:16,69 --> 00:53:26,68
+but there is another aspect of the versity which I have studied in the paper a few years ago which is may be even more
+
+424
+00:53:26,68 --> 00:53:34,5
+interesting. Diversity is very important for example for evolution to succeed.
+
+425
+00:53:34,96 --> 00:53:46,22
+Because evolution performs a kind of search in the space of genomes of the blueprint of each individuals.
+
+426
+00:53:46,47 --> 00:53:59,81
+And machine running is considered what happens in a single individual we learn. How our machine can learn but has not.
+
+427
+00:54:00,01 --> 00:54:08,44
+Really investigated much the role of having a group of individuals learning together. So a kind of society.
+
+428
+00:54:09,86 --> 00:54:19,45
+And in this paper a few years ago I postulated that. Learning in an individual could get stuck that.
+
+429
+00:54:20,53 --> 00:54:25,62
+If we were alone learning by observing the world around us we might get stuck with poor model of the world.
+
+430
+00:54:26,55 --> 00:54:33,08
+And we get unstuck by talking to other people and by learning from other people in the sense of.
+
+431
+00:54:34,04 --> 00:54:41,56
+They can communicate some of the ideas the have how the interpret the world. And that's what culture is about.
+
+432
+00:54:42,5 --> 00:54:49,59
+Culture has many meanings but that's the meaning that I have that it's the not just the actual nation of knowledge
+
+433
+00:54:49,62 --> 00:54:53,7
+but but how knowledge gets created through communication and sharing
+
+434
+00:54:55,6 --> 00:55:03,73
+and what I postulated in that paper is that there is a it's good enough to make zation problem that can get the
+
+435
+00:55:03,73 --> 00:55:05,54
+learning of an individual.
+
+436
+00:55:07,34 --> 00:55:12,86
+To not progress any more in a sense that as I said before learning is a lot of small changes
+
+437
+00:55:13,34 --> 00:55:18,52
+but sometimes there is no small change that we makes you progress.
+
+438
+00:55:19,67 --> 00:55:24,71
+So you need some kind of external kick that brings a new light to things.
+
+439
+00:55:26,93 --> 00:55:35,59
+And another connection to evolution of the connection to evolution actually is that this this market we get from others
+
+440
+00:55:36,03 --> 00:55:43,03
+is like you're building on top of existing solutions that others have come up with
+
+441
+00:55:43,51 --> 00:55:47,81
+and of course the process of science is very much like this rebuilding of other scientists ideas
+
+442
+00:55:47,9 --> 00:55:49,62
+but it's true for culture in general
+
+443
+00:55:50,61 --> 00:55:59,99
+and this actually makes the whole process of building more intelligent beings much more efficient in.
+
+444
+00:56:00,01 --> 00:56:06,99
+Fact we know that since humans have made progress.
+
+445
+00:56:07,55 --> 00:56:12,04
+Thanks to evolution and not just thanks to culture and not just to evolution.
+
+446
+00:56:13,43 --> 00:56:21,17
+We've been making our intelligence has been increasing much faster. So it will Lucian. Is slow.
+
+447
+00:56:21,64 --> 00:56:24,14
+Whereas you can think of culture.
+
+448
+00:56:24,58 --> 00:56:31,21
+The evolution of culture as a process that's much more efficient because we are many believing the right objects.
+
+449
+00:56:31,64 --> 00:56:34,1
+So what does this mean in practice it means that.
+
+450
+00:56:35,36 --> 00:56:40,45
+Just like evolution needs the versity to succeed because there are many different.
+
+451
+00:56:43,26 --> 00:56:46,17
+Variants of the same type of genes that are.
+
+452
+00:56:47,18 --> 00:56:49,29
+Randomly chosen and tried
+
+453
+00:56:49,29 --> 00:56:57,41
+and the best ones combined together to create new solutions just like this in cultural evolution which is really a
+
+454
+00:56:57,5 --> 00:56:58,13
+portent.
+
+455
+00:56:59,06 --> 00:57:06,56
+Important for intelligence that was saying we need diversity we need not just one school of thought we need to allow
+
+456
+00:57:06,56 --> 00:57:09,51
+all kinds of exploration. Most of which may fail.
+
+457
+00:57:10,3 --> 00:57:15,95
+So in science we need to be open to new ideas even it's very likely it's not going to work.
+
+458
+00:57:15,98 --> 00:57:21,61
+It's good that people explore. Otherwise we're going to get stuck in some.
+
+459
+00:57:22,84 --> 00:57:34,01
+In the space of possible interpretations of the world may take forever before we escape. Yes that's right.
+
+460
+00:57:34,06 --> 00:57:38,53
+So basic research is exploratory it's not trying to build a product.
+
+461
+00:57:38,98 --> 00:57:42,9
+It's just trying to understand and it's going in all possible directions.
+
+462
+00:57:43,22 --> 00:57:48,46
+According to our intuitions of you know what may be more interesting but but without a strong constraint.
+
+463
+00:57:49,2 --> 00:57:52,67
+So yeah basic research is like this but
+
+464
+00:57:52,7 --> 00:57:59,99
+but there is a danger because humans are the the life you know fashionable things.
+
+465
+00:58:00,01 --> 00:58:03,16
+And trends and compare each other and so on that.
+
+466
+00:58:06,15 --> 00:58:12,91
+That we are we're not giving enough freedom for exploration and it's not just science in general
+
+467
+00:58:12,91 --> 00:58:21,8
+and society we should allow a lot more freedom we should allow marginal ways of being and doing things to to co-exist.
+
+468
+00:58:45,26 --> 00:58:47,12
+Which is.
+
+469
+00:58:47,75 --> 00:58:49,21
+Well it's a gamble
+
+470
+00:58:49,88 --> 00:58:59,11
+and eye on the positive side I think that the rewards we can get by having more intelligence machines is immense
+
+471
+00:58:59,11 --> 00:59:03,85
+and the way I think about it is it's not a competition between machines and humans.
+
+472
+00:59:04,97 --> 00:59:09,39
+Technology is is expanding what we are.
+
+473
+00:59:09,74 --> 00:59:19,26
+Thanks to technology we are now already much stronger and more intelligent than we were the same way that.
+
+474
+00:59:21,35 --> 00:59:24,16
+Dusty revolution as kind of increased our strength
+
+475
+00:59:24,19 --> 00:59:29,1
+and our ability to do things physically the sort of computer revolution
+
+476
+00:59:29,1 --> 00:59:43,94
+and now the IANA evolution is going to increase continue to increase are coming to abilities. Right.
+
+477
+00:59:43,99 --> 00:59:53,51
+But I think we should be conscious that a lot of that fear is due to a projection into things we are familiar with.
+
+478
+00:59:53,67 --> 00:59:59,77
+So we're thinking of a I like We think like we see them in movies where think of AI like we see.
+
+479
+01:00:00,01 --> 01:00:03,03
+Some kind of alien from another planet like we see animals
+
+480
+01:00:03,63 --> 01:00:10,23
+when we think of about another being we think that other being is like us. And so we are a greedy.
+
+481
+01:00:10,8 --> 01:00:17,11
+We want to dominate the rests. If our survival is at stake. We're ready to kill right.
+
+482
+01:00:17,22 --> 01:00:20,61
+So we project that some machine is going to be just like us.
+
+483
+01:00:20,88 --> 01:00:26,08
+And if that machine is more powerful than we are then we are deep trouble right.
+
+484
+01:00:26,27 --> 01:00:35,76
+So it's just because we are making that projection but actually the machines are not some being it's house and ego
+
+485
+01:00:35,76 --> 01:00:41,67
+and the survival instinct. It's actually something we decide to put together as a program.
+
+486
+01:00:42,22 --> 01:00:50,21
+And so we should be smart enough and wise enough to program these machines. To be useful to us rather than.
+
+487
+01:00:51,04 --> 01:01:20,00
+Go towards their own needs. They will cater to our needs because we will design them that way. So. Yes.
+
+488
+01:01:20,99 --> 01:01:32,58
+Maybe maybe not. I don't that's not the way I say it.
+
+489
+01:01:32,76 --> 01:01:41,33
+What you're saying is appealing if I was read a science fiction book but it doesn't correspond to how I see a I
+
+490
+01:01:41,33 --> 01:01:43,69
+and the kinds of AI we're doing.
+
+491
+01:01:43,89 --> 01:01:53,47
+I don't see such acceleration fact what I see is the opposite of what I foresee is more like barriers than acceleration
+
+492
+01:01:53,47 --> 01:01:59,94
+so. Yes So our experience in research.
+
+493
+01:02:00,18 --> 01:02:01,65
+Is that we make progress
+
+494
+01:02:02,12 --> 01:02:07,1
+and then we encounter a barrier a difficult challenge a difficulty that the algorithm goes so far
+
+495
+01:02:07,1 --> 01:02:11,62
+and then you can't make progress. Even if you have more compute power.
+
+496
+01:02:12,11 --> 01:02:20,54
+That's not really the issue the issue are more are basically computer science issues that things get harder as you try
+
+497
+01:02:20,54 --> 01:02:26,86
+to solve exponentially harder really much much harder as you try to solve more complex problems.
+
+498
+01:02:28,52 --> 01:02:29,33
+So it's actually the opposite.
+
+499
+01:02:29,67 --> 01:02:30,61
+I think that happens that
+
+500
+01:02:30,61 --> 01:02:37,66
+and I think that would also explain maybe to some extent why we're not super intelligent ourselves I mean the sense
+
+501
+01:02:37,66 --> 01:02:43,01
+that our intelligence is kind of limited there are many things for which we do their own.
+
+502
+01:02:43,5 --> 01:02:44,39
+Their own decision
+
+503
+01:02:44,39 --> 01:02:50,61
+and it's true also of animals like why is it that animals some animals have much larger brains than we do
+
+504
+01:02:50,61 --> 01:02:52,12
+and they're not that smart.
+
+505
+01:02:52,47 --> 01:02:59,13
+And you know you could come up with a bunch of reasons but it's not the you have a bigger brain right so
+
+506
+01:02:59,13 --> 01:03:08,22
+and their brain like mammals brain is very very close to ours. So there's it's hard to say now.
+
+507
+01:03:08,84 --> 01:03:13,95
+I think it's fair to consider the worse scenarios and to study it
+
+508
+01:03:13,95 --> 01:03:18,23
+and have you know people really seriously considering what could happen
+
+509
+01:03:18,23 --> 01:03:23,91
+and how we could prevent any dangerous thing I think it's actually important that some people do that
+
+510
+01:03:23,91 --> 01:03:27,34
+but right now I see this is a very long term potential
+
+511
+01:03:27,34 --> 01:03:48,77
+and the most plausible scenario is not that according to my vision. Notes.
+
+512
+01:03:48,93 --> 01:03:53,89
+You're right that I think we are more afraid of things we don't understand.
+
+513
+01:03:54,4 --> 01:03:59,96
+And scientists who are working with the planning every day. Don't feel.
+
+514
+01:04:00,12 --> 01:04:05,86
+That they have anything to fear because they can think they understand what's going on in the can see clearly that
+
+515
+01:04:05,86 --> 01:04:11,07
+there is no danger and that's foreseeable. So you're right that's part of it.
+
+516
+01:04:11,11 --> 01:04:17,58
+There's the psychology of seeing the machine as some other being there's the lack of knowledge there is the influence
+
+517
+01:04:17,58 --> 01:04:19,6
+of science fiction so all of these factors come together
+
+518
+01:04:19,6 --> 01:04:24,3
+and also the fact that the technology has been making a lot of privacy recently. So all of that I think.
+
+519
+01:04:24,72 --> 01:04:30,77
+Creates a kind of exaggerated fear. I'm not saying we should have any fear. I'm just saying it's exaggerated right now.
+
+520
+01:04:30,89 --> 01:04:56,64
+Well. It may part of life or you are you. You are. You do. I'm thinking all the time.
+
+521
+01:04:56,68 --> 01:05:02,07
+Yes and whether I'm thinking on the things that matter to me the most maybe not enough.
+
+522
+01:05:03,18 --> 01:05:11,54
+Managing a being in situ to have a lot of students and so on means my time is this person but when I can you know.
+
+523
+01:05:12,35 --> 01:05:18,29
+Focus or when I am. You know in a scientific discussion with people and so on.
+
+524
+01:05:18,5 --> 01:05:23,73
+Of course there's a lot of thinking and it's really important. That's how we move forward.
+
+525
+01:05:23,97 --> 01:05:37,89
+Now you know with me first which you know I was. He was yes you know we were yeah so. So our fingers so. So what.
+
+526
+01:05:38,03 --> 01:05:41,99
+What happens. OK yes.
+
+527
+01:05:42,11 --> 01:05:51,1
+So when I listen to somebody explaining something maybe one of my students talking about an experiment
+
+528
+01:05:51,1 --> 01:05:59,47
+or another researcher talking about their idea. Something builds up in my mind trying to understand what is going on.
+
+529
+01:06:00,83 --> 01:06:05,23
+And that's already thinking but then.
+
+530
+01:06:06,15 --> 01:06:14,95
+Things happen so other pieces of information and or standing connect to this and I see some flaw
+
+531
+01:06:14,95 --> 01:06:24,77
+or some some some connection. And and that's that's where the creativity of creativity comes in and.
+
+532
+01:06:26,17 --> 01:06:33,15
+I have the impulse of talking about it and that's just one turn in a discussion.
+
+533
+01:06:34,23 --> 01:06:52,01
+And we go like this and new ideas spring like this and it's very very rewarding. Well I yes.
+
+534
+01:06:53,36 --> 01:07:00,29
+Yes it is possible not to think it's hard. But if you really you know.
+
+535
+01:07:01,6 --> 01:07:02,6
+If you really relax
+
+536
+01:07:02,6 --> 01:07:13,69
+or you are experiencing something very intensely then you're you're not you're not into your thoughts here you're into
+
+537
+01:07:13,72 --> 01:07:23,41
+just the some. Present time experience. Yes Like for example. Yes.
+
+538
+01:07:23,85 --> 01:07:30,86
+But thinking isn't just rational a lot of it is I don't mean it's irrational
+
+539
+01:07:30,86 --> 01:07:34,05
+but it's a lot of the thinking is something that happens.
+
+540
+01:07:34,81 --> 01:07:39,09
+Somehow behind the scenes that has to do with intuition that has to do with.
+
+541
+01:07:40,09 --> 01:07:48,32
+Ideologies and it's not necessarily A causes B. Causes C.
+
+542
+01:07:48,32 --> 01:07:53,07
+It's not the kind of logical thinking that's going on in my mind.
+
+543
+01:07:53,09 --> 01:08:03,12
+Most of the time it's much softer and that's why we need the Matthew noted. To filter and fine tune the ideas.
+
+544
+01:08:03,64 --> 01:08:05,51
+But the raw thinking is very.
+
+545
+01:08:08,05 --> 01:08:18,56
+The fuzzy and but it's very rich because it's connecting a lot of things together and it's discovering the.
+
+546
+01:08:21,11 --> 01:08:28,89
+Consistencies that allow us to move to the next stage and solve problems. Are you.
+
+547
+01:08:30,81 --> 01:08:41,86
+You're in THE SITUATION when you think it happens to me. I used to spend some time meditating.
+
+548
+01:08:42,86 --> 01:08:46,22
+And there you learn to pay attention to your own thoughts.
+
+549
+01:08:48,37 --> 01:08:55,94
+So it does happen to me it happens to me also that I get so immersed in my thoughts in ordinary daily activities that
+
+550
+01:08:55,97 --> 01:09:01,48
+people thought I think that I'm very distracted and not present and they can be offended.
+
+551
+01:09:05,11 --> 01:09:08,4
+But it's not always like that sometimes I'm actually very very present.
+
+552
+01:09:08,43 --> 01:09:11,39
+I can be very very present to some somebody talking to me.
+
+553
+01:09:13,48 --> 01:09:20,65
+And that's really important for what I have my job right because. If I listen to somebody.
+
+554
+01:09:21,8 --> 01:09:24,32
+In a way that's not complete.
+
+555
+01:09:24,76 --> 01:09:37,6
+I can't really understand fully and participate in in a rich exchange focused on you know you are this problem
+
+556
+01:09:37,6 --> 01:09:46,72
+and you think. Yeah. Your situation with people emotionally of you ride like yes you were yes yes.
+
+557
+01:09:47,91 --> 01:10:02,92
+There's something you decide. People focus or how do you write. That's right. So. I write I have some notebooks.
+
+558
+01:10:03,22 --> 01:10:04,34
+I write my ideas.
+
+559
+01:10:05,88 --> 01:10:11,05
+Often when I wake up or sometimes an idea comes and I want to write it down like if I was afraid of losing it.
+
+560
+01:10:11,12 --> 01:10:13,64
+But actually the good ideas they don't they don't go away.
+
+561
+01:10:13,77 --> 01:10:17,28
+Turns out very often I write them but I don't even go back to read in them.
+
+562
+01:10:17,3 --> 01:10:24,9
+It's just that it makes me feel better and it anchors also the fact of writing an idea kind of makes it.
+
+563
+01:10:25,59 --> 01:10:34,85
+Take more room in my mind. And there's also something to be said about concentration. So.
+
+564
+01:10:35,58 --> 01:10:42,25
+So my work because I'm immersed with so many people can be very destructive.
+
+565
+01:10:42,99 --> 01:10:55,7
+But to really make big progress in science. It also needs times when I can be very focused and. And where the.
+
+566
+01:10:56,31 --> 01:10:58,94
+The ideas about a problem in a different point of view
+
+567
+01:10:58,94 --> 01:11:07,33
+and all the elements sort of fill my mind I'm completely filled with this. That's where you can be really productive.
+
+568
+01:11:08,49 --> 01:11:11,01
+And it might take a long time before you reach that state.
+
+569
+01:11:11,07 --> 01:11:19,43
+Sometimes it can take years for a student to really go deep into a subject so that he can be fully immersed in it
+
+570
+01:11:19,43 --> 01:11:19,97
+and it.
+
+571
+01:11:20,01 --> 01:11:28,92
+That's when you can really start seeing through things and getting things to stand together and solidly
+
+572
+01:11:28,92 --> 01:11:35,16
+and now you can you can extend science right now when things are solid in your mind you can move forward.
+
+573
+01:11:35,53 --> 01:11:39,49
+Yeah other this when that
+
+574
+01:11:39,49 --> 01:11:47,17
+when you need enough concentration on something to really truly get these these moves then there's the other mode of
+
+575
+01:11:47,17 --> 01:11:53,71
+thinking which is the brainstorming mode where out of the blue I started this question five minutes later something
+
+576
+01:11:53,71 --> 01:11:59,9
+comes up. So that's more like random and it's also very you can be very.
+
+577
+01:12:00,04 --> 01:12:06,14
+Productive as well it depends on the stimulation from someone else so someone introduces a problem.
+
+578
+01:12:07,61 --> 01:12:12,00
+And immediately I gather something comes up and we have maybe an exchange.
+
+579
+01:12:13,31 --> 01:12:18,19
+So that's more superficial but a lot of good things come out of that exchange because of that
+
+580
+01:12:18,74 --> 01:12:26,45
+and the brainstorming whereas the other there is the other mode of thinking which is I'm alone. Nobody bothers me.
+
+581
+01:12:26,55 --> 01:12:28,92
+Nobody is asking for my attention I'm walking.
+
+582
+01:12:30,00 --> 01:12:35,95
+I'm How office leap and there I can fully concentrate eyes closed
+
+583
+01:12:35,95 --> 01:12:43,44
+or not really paying attention to what's going on in front of me because I'm completely in my thoughts. When.
+
+584
+01:12:47,09 --> 01:12:56,13
+So the time when the two times when I spend more. On this consider it.
+
+585
+01:12:56,16 --> 01:13:10,99
+Thinking is usually when I wake up and when I'm walking back and forth between home and university. What happens. Well.
+
+586
+01:13:11,07 --> 01:13:21,51
+So I emerge to consciousness like everybody does every morning and eyes close and so on and.
+
+587
+01:13:22,59 --> 01:13:30,22
+Some some thought related to a research question or maybe not a research question comes up and
+
+588
+01:13:30,22 --> 01:13:40,35
+and if I'm interested in it. I started like going deeper into it. And still my eyes closed and.
+
+589
+01:13:41,52 --> 01:13:54,86
+And then it's like if you. You see. A thread dangling and you pull on it then more stuff comes down.
+
+590
+01:13:55,21 --> 01:14:01,55
+And you see more things and you pull more and likes. It's an avalanche of things coming right.
+
+591
+01:14:01,82 --> 01:14:10,99
+So the more you you you you pull on those strings and the more new things go on or information comes together
+
+592
+01:14:12,03 --> 01:14:27,49
+and sometimes it goes nowhere and sometimes as hard new ideas come about. You. I can stay like this for an hour. Yeah.
+
+593
+01:14:28,9 --> 01:14:30,17
+Yeah yeah.
+
+594
+01:14:31,58 --> 01:14:37,96
+Often what happens is I see something I haven't seen before and I get too excited so that Weeks me up
+
+595
+01:14:37,96 --> 01:14:41,83
+and I want to write it down so I have my notebook that far and I write it down
+
+596
+01:14:44,04 --> 01:14:48,99
+or I want to send an email to somebody saying oh I thought about this and it's like six in the morning in there
+
+597
+01:14:50,33 --> 01:15:00,36
+and they wonder if I'm working all the time. So you work. Oh yeah oh you're right.
+
+598
+01:15:00,6 --> 01:15:10,97
+Yeah well so once I have I'm writing it down my eyes are open and. And it's like I'm I feel relieved. Right.
+
+599
+01:15:11,00 --> 01:15:18,21
+It's like OK now. Now I can go and maybe have breakfast or take a shower or something. So having written it down.
+
+600
+01:15:20,48 --> 01:15:22,47
+And it might take some time to write it down.
+
+601
+01:15:25,29 --> 01:15:33,15
+Also sometimes I write an email and it's longer and now that the act of writing it is a different thing.
+
+602
+01:15:33,22 --> 01:15:41,76
+So there's initial sort of spark of vision which is still very fuzzy but then
+
+603
+01:15:41,76 --> 01:15:44,13
+when you have to communicate the idea to someone else.
+
+604
+01:15:44,2 --> 01:15:51,03
+So you can email you have to really make a different kind of effort you realize some flaws in your initial ideas
+
+605
+01:15:51,03 --> 01:15:59,94
+and you have to clean it up in make sure it's and or stand and it now takes a different form. And and.
+
+606
+01:16:00,01 --> 01:16:10,64
+Sometimes you realize when you do it that it was. Nothing really. Yeah I was just have to remember you know. What.
+
+607
+01:16:16,14 --> 01:16:25,9
+I dinners and of course the. Something she's fine with.
+
+608
+01:16:28,19 --> 01:16:34,8
+I think she she's glad to see this these kind of thing happened she is.
+
+609
+01:16:34,84 --> 01:16:48,11
+She's happy for me that I live these very rewarding moments. But what happens you know. I mean I tell her.
+
+610
+01:16:48,14 --> 01:16:55,72
+Often though I just had an idea. I want to say. Just one. What I mean the science.
+
+611
+01:16:55,77 --> 01:17:05,96
+Yes or no but Chander stance that is really important for me and this is how I move forward and my work
+
+612
+01:17:05,96 --> 01:17:24,05
+and also how emotionally. Fulfilling it is. OK. Yes let's talk about what you. Yes yes.
+
+613
+01:17:24,18 --> 01:17:36,52
+So so that walk is you can really think of it as a kind of meditation. So you know what you want you know.
+
+614
+01:17:36,96 --> 01:17:44,62
+So every day I walk up the hail from my home to the university and it's about half an hour
+
+615
+01:17:44,62 --> 01:17:47,74
+and that's always the same path.
+
+616
+01:17:48,16 --> 01:17:54,99
+And because I know this path so well I don't have to really pay much attention to what's going on
+
+617
+01:17:54,99 --> 01:18:06,19
+and I can just relax and let thoughts. Go by and eventually focus on something. Or not sometimes just.
+
+618
+01:18:10,95 --> 01:18:20,78
+Many more in the evening where I'm tired. Maybe you just the way to relax and. Let's go let's go. Yes absolutely.
+
+619
+01:18:21,47 --> 01:18:43,06
+Because I'm not bombarded by. The outside world. I can just sense. Yeah but. I kind of ignore that. You work.
+
+620
+01:18:46,51 --> 01:19:04,27
+So when I was young I used to. Hit my head on. Yeah yeah or reading while walking.
+
+621
+01:19:09,36 --> 01:19:17,86
+No Well actually it does now because I sometimes I check my my phone see lots of people do that not being paying
+
+622
+01:19:17,86 --> 01:19:34,63
+attention to what's going on. But yeah yeah. That's nice metaphor.
+
+623
+01:19:42,78 --> 01:20:02,04
+Oh this route situation where you have some really good ideas. I would have some memories of. CITIC moments going up.
+
+624
+01:20:04,08 --> 01:20:08,03
+Thinking about some of the ideas and that have been.
+
+625
+01:20:11,39 --> 01:20:23,64
+Going through my mind over the last year in particular because these are more recent memories. So right right.
+
+626
+01:20:24,15 --> 01:20:32,73
+So as I said earlier it's like if the rest of the world is in a haze. Right.
+
+627
+01:20:32,74 --> 01:20:39,78
+It's like there is automatic control of the walking and. Watching for other people in cars potentially.
+
+628
+01:20:41,22 --> 01:20:45,96
+But but I like is that you had a three D.
+
+629
+01:20:45,96 --> 01:20:51,46
+Projection of my thoughts in front of me that are taking most of the room and
+
+630
+01:20:51,46 --> 01:20:58,91
+and I I might thinking works a lot by visualization and I think a lot of people like that.
+
+631
+01:20:58,93 --> 01:21:05,75
+It's a very nice tool that we have using or kind of visual analogies to.
+
+632
+01:21:07,09 --> 01:21:07,65
+And
+
+633
+01:21:07,65 --> 01:21:17,33
+or stand things even if it's not a faithful portrait of what's going on the visual analogies are really helping me at
+
+634
+01:21:17,33 --> 01:21:19,21
+least to make sense of things.
+
+635
+01:21:19,6 --> 01:21:28,08
+So it's like if I had pictures in my mind to illustrate what's going on and it's like I see little. You know.
+
+636
+01:21:32,07 --> 01:21:39,84
+What I see I see information flow in neural networks.
+
+637
+01:21:40,03 --> 01:21:54,89
+It's like if I was running a simulation in my mind of what would happen if some rule of conduct was followed by by a
+
+638
+01:21:54,89 --> 01:22:01,93
+you know in this algorithm in this process when you. Yeah yeah.
+
+639
+01:22:01,96 --> 01:22:08,4
+So so it's like if I was running a computer simulation in my mind to try to figure out.
+
+640
+01:22:10,9 --> 01:22:14,56
+What would happen if some if I made such choices
+
+641
+01:22:14,56 --> 01:22:23,7
+or if we consider such equation in what would it entail what would happen. Imagine different situations and.
+
+642
+01:22:25,59 --> 01:22:30,15
+Of course it's not as detailed if we as if we do the a real computer simulation.
+
+643
+01:22:30,71 --> 01:22:53,65
+But it provides a lot of insight for what's going on. Yet. Well so I remember a particular moment.
+
+644
+01:22:55,42 --> 01:23:00,35
+I was walking on the north sidewalk of Queen Mary Street
+
+645
+01:23:01,4 --> 01:23:13,16
+and I was seeing the big church we have there which is called the or at it's beautiful and.
+
+646
+01:23:15,4 --> 01:23:21,53
+And then I got this inside the boat perch of Asians. Propagating in chains.
+
+647
+01:23:27,59 --> 01:23:33,68
+From the beginning or just the last sentence. And so then I got this insight.
+
+648
+01:23:34,56 --> 01:23:43,22
+As visually of these approaches happening on neurons that propagate to other neurons and provided to other neurons
+
+649
+01:23:44,01 --> 01:23:51,77
+and it was like something like I'm doing with my hands but it was like something visual. And then suddenly I had.
+
+650
+01:23:53,14 --> 01:24:01,64
+The thought that this this could this could work that this could explain things that I was trying to understand. I did.
+
+651
+01:24:02,57 --> 01:24:13,18
+Great. I think of all the good feelings that we can have in life. Though the feeling we get when.
+
+652
+01:24:14,29 --> 01:24:16,61
+Something clicks the year Rica.
+
+653
+01:24:17,34 --> 01:24:24,43
+Is probably maybe the strongest and most powerful than one that we can seek again and again
+
+654
+01:24:24,72 --> 01:24:26,64
+and only brings positive things.
+
+655
+01:24:27,83 --> 01:24:36,94
+Maybe you know stronger than food and sex and its usual good things we get from from our experience.
+
+656
+01:24:40,9 --> 01:24:49,49
+This kind of what these kinds of moments. Provide pleasure. It's a different kind of pleasure.
+
+657
+01:24:49,89 --> 01:24:53,57
+Just like you know different pleasures a different sensory pleasure.
+
+658
+01:24:53,6 --> 01:25:00,58
+And so on but it's really like I think you know when your brain realizes something understand something.
+
+659
+01:25:00,61 --> 01:25:09,79
+It's like you are send yourself some some molecules to me Ward you say oh great do it again if you can't write it again.
+
+660
+01:25:10,17 --> 01:25:17,94
+Yeah yeah that's that's my job. So this is one moment at the church was it was a huge now.
+
+661
+01:25:18,82 --> 01:25:31,92
+Nothing to do with I don't believe in God. But. Yeah if I don't leave. I do but if you think of gold as.
+
+662
+01:25:33,67 --> 01:25:45,41
+Someone who created us and is our example. Yes. Trying to understand what's happening in your head will us.
+
+663
+01:25:47,11 --> 01:26:18,26
+Isn't that what other people call God. I'm not sure I understand your question. When you understand how brain works.
+
+664
+01:26:18,29 --> 01:26:28,55
+Yes you understand. When we understand how brains work we understand who we are. To some extent.
+
+665
+01:26:28,58 --> 01:26:31,85
+I mean every person part of us. That's one of my motivations.
+
+666
+01:26:33,99 --> 01:26:46,76
+And the process of doing it is something that defines us individually but also as a collective as a group and society.
+
+667
+01:26:47,61 --> 01:27:03,66
+So there may be some connections to religion which are about connecting us to some extent. You know. Really you know.
+
+668
+01:27:09,48 --> 01:27:23,04
+So sometimes I think it's too short but then you know have things to do so you know or yeah yeah.
+
+669
+01:27:26,27 --> 01:27:34,1
+I feel so I'm going uphill my body is working hard. I mean I'm not running but I'm walking and I can feel the muscles.
+
+670
+01:27:35,59 --> 01:27:36,99
+Warming up and.
+
+671
+01:27:38,56 --> 01:27:51,64
+My whole body becoming more forward energy and I think that helps the brain as well as how it feels in the way. Most.
+
+672
+01:27:54,23 --> 01:28:06,86
+Right yes. When I go up hill I see the university but.
+
+673
+01:28:07,4 --> 01:28:14,29
+But there is something that's related to your question which is you know each time I have these insights these eureka
+
+674
+01:28:14,29 --> 01:28:18,59
+moments. It's like seeing the promised land. It's very much like that.
+
+675
+01:28:19,33 --> 01:28:26,11
+It's like you have a glimpse of something you had never seen before and it looks great
+
+676
+01:28:27,36 --> 01:28:30,67
+and you feel like you now see a path to go there.
+
+677
+01:28:31,57 --> 01:28:37,54
+So I think it's very very close to this idea of seeing the promised land.
+
+678
+01:28:38,06 --> 01:28:40,00
+But of course it's not just one promised land.
+
+679
+01:28:40,01 --> 01:28:50,71
+It's one step to you know the next valley in the next valley and that's how we climb really you know big mountains so.
+
+680
+01:28:52,42 --> 01:29:12,23
+We don't really know. You know by. Maybe just a few. So what you're going to do. What are you ready.
+
+681
+01:29:12,36 --> 01:29:21,82
+So Friday I'm going to make a presentation to the rest of the researchers in the lab in the institute.
+
+682
+01:29:22,98 --> 01:29:28,33
+About one of the topics most excited about these days.
+
+683
+01:29:28,77 --> 01:29:38,48
+Which is trying to bridge the gap between what we do in machine learning what has to which has to do with AI
+
+684
+01:29:38,48 --> 01:29:42,75
+and building intelligent machines and in the brain.
+
+685
+01:29:42,97 --> 01:29:49,18
+I'm not really a brain expert I'm more a machine learning person but I talk to your scientists and so on and I try
+
+686
+01:29:49,18 --> 01:29:56,93
+and really care about. The big question of how is the brain doing the really complex things that it does.
+
+687
+01:29:57,18 --> 01:29:59,21
+And so the work I'm going to tell you.
+
+688
+01:30:00,49 --> 01:30:13,8
+About Friday is one of small step in that direction that we've achieved in the last few months. Yes exactly.
+
+689
+01:30:14,02 --> 01:30:21,1
+That's right. And I being making those small steps you know on this particular topic for for about a year and a half.
+
+690
+01:30:21,14 --> 01:30:30,53
+So it's not like just something happens and you are there right. It's a lot of in insides that need human and.
+
+691
+01:30:32,13 --> 01:30:43,47
+Get understanding and. Science makes progress steps. Most of those steps are small some are slightly bigger.
+
+692
+01:30:44,44 --> 01:30:47,14
+Seen from the outside. Sometimes people have the impression.
+
+693
+01:30:47,46 --> 01:30:51,65
+Oh there's this big breakthrough breakthrough enjoy is like to talk about breakthrough breakthrough break Richter
+
+694
+01:30:51,65 --> 01:30:57,57
+but actually science is very very progressive because we gradually understand better the world.
+
