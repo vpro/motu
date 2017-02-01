@@ -1,15 +1,17 @@
 const SearchAPI = {
 
-	fragmentSearch :function(term, searchLayers, selectedFacets, offset, size, callback) {
+	fragmentSearch :function(collectionId, term, searchLayers, selectedFacets, desiredFacets, callback,
+		offset=0 , size=10, innerHitsSize=3, innerHitsOffset=0) {
+		var url = '/s';
 		var params = {
 			term : term,
 			searchLayers : searchLayers,
 			selectedFacets : selectedFacets,
 			offset : offset,
-			size : size
+			size : size,
+			desiredFacets : desiredFacets
 		}
-		var url = '/s'
-		var xhr = new XMLHttpRequest();   // new HttpRequest instance
+		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == XMLHttpRequest.DONE) {
 				if(xhr.status == 200) {
@@ -17,7 +19,6 @@ const SearchAPI = {
 				} else {
 					callback(null);
 				}
-
 			}
 		}
 		xhr.open("POST", url);

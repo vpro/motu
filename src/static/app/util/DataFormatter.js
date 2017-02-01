@@ -6,11 +6,6 @@ const DataFormatter = {
 		formattedResult._score = result._score;
 		formattedResult._type = result._type;
 		formattedResult._index = result._index;
-
-		//if the result is aggregated with fragments add those too
-		if(result.fragments) {
-			formattedResult.fragments = result.fragments;
-		}
 		return formattedResult;
 	},
 
@@ -20,38 +15,13 @@ const DataFormatter = {
 			title: result.title || result._id,
 			date: result.date,
 			description : result.description,
-			posterURL : result.posterURL
+			posterURL : result.posterURL,
+			tags : result.tags ? result.tags : null
 		}
-		if(result._type == 'annotation' || result._type == 'media_fragment') {
+		if(result._type == 'media_fragment') {
 			snippet.docCount = result.docCount;
-			if(result.fragments) {
-				snippet.fragments = DataFormatter.addFragmentThumbs(result);
-			}
 		}
 		return snippet;
-	},
-
-	addFragmentThumbs : function(result) {
-		let imgBase = 'http://rdbg.tuxic.nl/mindoftheuniverse/'//TODO move this to a config
-		let fragments = result.fragments.map((frag) => {
-			let imgUrl = imgBase;
-			imgUrl += result._id + '/thumbnails/' + result.target.assetId;
-			imgUrl += '/' + result.target.assetId;
-			imgUrl += '_' + DataFormatter.zeroFill(Math.floor(frag.start / 1000), 4) + '.jpg';
-			frag.posterURL = imgUrl;
-			return frag;
-		});
-		return fragments;
-	},
-
-	zeroFill : function(secs, stringLength) {
-		let result = secs + ''
-		let s = result.length;
-		while(s < stringLength) {
-			result = '0' + result;
-			s++;
-		}
-		return result;
 	},
 
 	//this highlights the searchTerm in the snippet (TODO this should be replace by using ES highlighting)
@@ -83,6 +53,32 @@ const DataFormatter = {
 			words = words.join(' ');
 		}
 		return words;
+	},
+
+	getFacets() {
+		return [
+			{
+				field : 'name',
+				title : 'Researchers'
+			},
+			{
+				field : 'body.value.tags_raw',
+				title : 'Segment tags',
+				type : 'nested'
+			},
+			{
+				field : 'tags_raw',
+				title : 'Interview tags'
+			},
+			{
+				field : 'placeOfResidence',
+				title : 'Place of residence'
+			},
+			{
+				field : 'nationality',
+				title : 'Nationality'
+			}
+		]
 	}
 }
 

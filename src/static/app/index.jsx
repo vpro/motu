@@ -1,1 +1,1 @@
-export {default as MediaFragmentSearch} from './search/MediaFragmentSearch';
+export {default as MultiLayeredFragmentSearch} from './search/MultiLayeredFragmentSearch';

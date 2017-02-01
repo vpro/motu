@@ -1,16 +1,10 @@
-import TimeUtil from '../util/TimeUtil';
-import DataFormatter from '../util/DataFormatter';
-/*
-The search snippet can contain a list of media fragments:
-- these are stored under the 'fragments' key
-- the 'docCount' key stores how many fragments were found
+//Check the collection config getResultSnippetData() function to inspect this.props.data
 
-*/
-
-export default class SearchSnippet extends React.Component {
+class SearchSnippet extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.MAX_WORDS = 35;
 	}
 
 	showMore(e) {
@@ -20,27 +14,44 @@ export default class SearchSnippet extends React.Component {
 		}
 	}
 
-	gotoItemDetails(fragment, e) {
-		e.stopPropagation();
-		if(this.props.gotoItemDetails) {
-			this.props.gotoItemDetails(this.props.data, fragment);
+	//this highlights the searchTerm in the snippet (TODO this should be replace by using ES highlighting)
+	highlightSearchTermInDescription(words) {
+		if(words) {
+			var tmp = ('' + words).split(' ');
+			let i = 0;
+			let found = false;
+			for(let w of tmp) {
+				if(w.indexOf(this.props.searchTerm) != -1 || w.indexOf(this.props.searchTerm.toLowerCase()) != -1) {
+					words = tmp.slice(
+						i-6 >= 0 ? i-6 : 0,
+						i + this.MAX_WORDS < tmp.length ? i + this.MAX_WORDS : tmp.length
+					)
+					words.splice(0, 0, '(...)');
+					if(i != tmp.length -1) {
+						words.splice(words.length, 0, '(...)');
+					}
+					words = words.join(' ');
+					found = true;
+					break;
+				}
+				i++;
+			}
+			if(!found && tmp.length > this.MAX_WORDS) {
+				words = tmp.slice(0, this.MAX_WORDS);
+				words.splice(words.length, 0, '(...)');
+				words = words.join(' ');
+			}
+			return words;
 		}
+		return null;
 	}
 
-	formatTranscriptTags(tags, index) {
-		if(tags) {
-			return tags.map((t, i) => {
-				return (<span key={'tag__' + index + '__' + i} className="label label-primary tag">{t}</span>);
-			});
-		}
-		return null
-	}
-
+	//possible default fields: posterURL, title, description, tags
 	render() {
-		let poster = null; //poster of the media object
-		let fragments = null; //the fragments found within each media object
+		let poster = null;
+		let tags = [];
 
-		//the poster of the media object
+		//get the poster of the media object
 		if(this.props.data.posterURL) {
 			poster = (
 				<img className="media-object" src={this.props.data.posterURL}
@@ -49,54 +60,13 @@ export default class SearchSnippet extends React.Component {
 			)
 		}
 
-		//the fragments that are contained within this media object
-		if(this.props.data.fragments) {
-			let showMore = null;
-			let innerHits = this.props.data.fragments.map((frag, index) => {
-				let fragPoster = null;
-				let fragSnippet = DataFormatter.formatTranscriptSnippet(frag.words, this.props.searchTerm);
-				let fragTags = this.formatTranscriptTags(frag.tags, index);
-				if(frag.posterURL) {
-					fragPoster = (
-						<img className="media-object" src={frag.posterURL}
-							style={{height:'100px'}}
-							alt="Could not find image"/>
-					)
-				}
-				return (
-					<div key={'frag__' + index} className="media fragment-hit" onClick={this.gotoItemDetails.bind(this, frag)}>
-						<div className="media-left media-middle">
-							<a href="#">
-								{fragPoster}
-							</a>
-  						</div>
-  						<div className="media-body">
-							<h4 className="media-heading">
-								{frag.title ? frag.title + ' ' : ''}{TimeUtil.formatMillisToTime(frag.start)}
-							</h4>
-							{fragSnippet}
-							&nbsp;
-							{fragTags}
-						</div>
-					</div>
-				)
-			});
-			// if(this.props.data.fragments.length < this.props.data.docCount) {
-			// 	showMore = (
-			// 		<button className="btn btn-primary" onClick={this.showMore.bind(this)}>Show more</button>
-			// 	)
-			// }
-
-			fragments = (
-				<div style={{paddingTop : '85px'}}>
-					<strong>Number of fragments found: {this.props.data.docCount}</strong>
-					{innerHits}
-
-				</div>
-			)
+		//see if there are any tags added to this search result
+		if(this.props.data.tags) {
+			tags = this.props.data.tags.map((t, index) => {
+				return (<span key={'tag__' + index} className="label label-primary tag">{t}</span>);
+			})
 		}
 
-		//draw the whole thing
 		return (
 			<div className="media">
 				<div className="media-left">
@@ -105,14 +75,16 @@ export default class SearchSnippet extends React.Component {
 					</a>
 					</div>
 					<div className="media-body">
-					<h4 className="media-heading">
+					<h4 className="media-heading" title={this.props.data.id}>
 						{this.props.data.title ? this.props.data.title + ' ' : ''}
-						({this.props.data.date ? this.props.data.date : ''})
+						{this.props.data.date ? '(' + this.props.data.date + ')' : ''}
 					</h4>
-					{this.props.data.description ? this.props.data.description + ' ' : ''}
-					{fragments}
+					{this.highlightSearchTermInDescription(this.props.data.description)}
+					{tags}
 				</div>
 			</div>
 		)
 	}
 }
+
+export default SearchSnippet;

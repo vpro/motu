@@ -1,8 +1,8 @@
 function init() {
-	var MediaFragmentSearch = motu.MediaFragmentSearch;
+	var MultiLayeredFragmentSearch = motu.MultiLayeredFragmentSearch;
 
 	var component =	(
-		<MediaFragmentSearch
+		<MultiLayeredFragmentSearch
 			itemDetailsPath="play"
 			collection="motu"
 			searchParams={searchParams}
