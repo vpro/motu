@@ -6,6 +6,7 @@ import os
 import codecs
 from itertools import groupby
 from collections import namedtuple
+import operator
 from markdown import markdown
 import wikipedia
 from TimeUtil import TimeUtil
@@ -25,6 +26,7 @@ class DataLoader():
 			self.stopWords.append(line.replace('\n', ''))
 
 		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
+		self.TERM_CLOUD_LIMIT = 50
 		self.WIKI_MAPPING = {
 			'Carolina_Cruz' : (None, None),
 			'Charles_Spence' : ('Charles_Spence', 'Charles_Spence'),
@@ -231,6 +233,7 @@ class DataLoader():
 		return bio
 
 	#load the terms from the annotation tags (for the home page)
+	#TODO when the annotations are all done, simply cache it
 	def loadKeywordTagCloud(self):
 		tagCloud = {}
 		url = '%s/annotations/filter?user=motu' % (self.config['ANNOTATION_API'])
@@ -246,7 +249,10 @@ class DataLoader():
 									tagCloud[annotation['label']] += 1
 								else:
 									tagCloud[annotation['label']] = 1
-		return tagCloud
+		sortedTags = sorted(tagCloud.iteritems(), key=operator.itemgetter(1), reverse=True)
+		if len(sortedTags) > self.TERM_CLOUD_LIMIT:
+			sortedTags = sortedTags[0:self.TERM_CLOUD_LIMIT]
+		return sortedTags
 
 	#load the term cloud from the transcript related to the main interview (for the person page)
 	def __loadTermCloud(self, scientistId):
