@@ -125,13 +125,15 @@
 	<!-- FIFTH ROW -->
 	<div class="row">
 		<div class="col-md-12 top-buffer">
-			<div id="transcript-controls">
-				{% for line in scientist.transcript %}
-				<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">
-							[{{line.prettystart}}]&nbsp;{{line.content}}
-						</span><br>
-				{% endfor %}
-			</div>
+			{% if scientist.transcript %}
+				<div id="transcript-controls">
+					{% for line in scientist.transcript %}
+					<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">
+								[{{line.prettystart}}]&nbsp;{{line.content}}
+							</span><br>
+					{% endfor %}
+				</div>
+			{% endif %}
 		</div>
 	</div>
 
