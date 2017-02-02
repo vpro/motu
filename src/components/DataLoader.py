@@ -27,12 +27,13 @@ class DataLoader():
 		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
 		self.WIKI_MAPPING = {
 			'Carolina_Cruz' : (None, None),
+			'Charles_Spence' : ('Charles_Spence', 'Charles_Spence'),
 			'Donald_Hoffman' : (None, None),
 			'Erik_Demaine' : ('Erik_Demaine', 'Erik_Demaine'),
 			'George_Church' : ('George_M_Church', 'George_M._Church'),
 			'Guy_Consolmagno' : ('Guy_Consolmagno', 'Guy_Consolmagno'),
-			'Jean-Jacques_Hublin' : ('Jean_Jacques_Hublin', 'Jean_Jacques_Hublin'),
 			'Hans_Clevers' : ('Hans_Clevers', 'Hans_Clevers'),
+			'Jean-Jacques_Hublin' : ('Jean_Jacques_Hublin', 'Jean_Jacques_Hublin'),
 			'Jian-Wei_Pan' : ('Pan_Jianwei', 'Pan_Jianwei'),
 			'Joanna_Aizenberg' : ('Joanna_Aizenberg', 'Joanna_Aizenberg'),
 			'Juan_Maldacena' : ('Juan_Mart%C3%ADn_Maldacena', 'Juan_Mart%C3%ADn_Maldacena'),
@@ -40,6 +41,7 @@ class DataLoader():
 			'Michel_Poulin' : (None, None),
 			'Miguel_Nicolelis' : ('Miguel_Nicolelis', 'Miguel_Nicolelis'),
 			'Nicky_Clayton' : ('Nicola_Clayton', 'Nicola_Clayton'),
+			'Ron_Fouchier' : (None, None),
 			'Sara_Seager' : ('Sara_Seager', 'Sara_Seager'),
 			'Segenet_Kelemu' : ('Segenet_Kelemu', 'Segenet_Kelemu'),
 			'Susant_Patnaik' : (None, None),

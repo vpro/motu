@@ -1,1 +1,1 @@
-Susant Patnaik (India?) - TODO
+Susant Pattnaik (inventor, India) - Serial inventor whose innovations are inspired by local challenges and have an impact on the local community.
