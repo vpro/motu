@@ -54,20 +54,21 @@
 							{{scientist.bio}}
 						</div>
 
-						{% if scientist.annotations.links | length > 0 %}
-							<h4>Additional links</h4>
-							{% for link in scientist.annotations.links %}
-								<i class="fa fa-link"></i>
-								<a href="{{link.url}}" target="_new">{{link.label}}</a>
-								<br/>
-							{% endfor %}
-						{% endif %}
-
 						{% if scientist.wikiURL %}
 						<p>
 							<br/>
 							<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>
 						</p>
+						{% endif %}
+
+						{% if scientist.links | length > 0 %}
+							<p>
+								{% for link in scientist.links %}
+									<i class="fa fa-link"></i>
+									<a href="{{link.url}}" target="_new">{{link.label}}</a>
+									<br/>
+								{% endfor %}
+							</p>
 						{% endif %}
 					</div>
 
@@ -94,11 +95,7 @@
 					<div class="media-body">
 						<a href="/play?id={{i.id}}">
 							<h4 class="media-heading">{{i.title}}</h4>
-							{% if i.annotations.keyMoments | length > 0 %}
-							{% for km in i.annotations.keyMoments %}
-							{{km.title}}&nbsp;({{km.category}})<br/>
-							{% endfor %}
-							{% endif %}
+							{{i.description}}
 						</a>
 					</div>
 				</div>

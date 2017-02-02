@@ -94,12 +94,17 @@ class DataLoader():
 			'name' : scientistId.replace('_', ' ')
 		}
 		interviews = self.__getInterviewsOfScientist(scientistId)
+		links = []
+		for i in interviews:
+			for l in i['annotations']['links']:
+				links.append(l)
+
 		scientist['bio'] = self.__loadWikipediaBio(scientistId)
 		scientist['wikiURL'] = self.__getWikipediaUrl(scientistId)
 		scientist['poster'] = self.__getPosterURL(scientistId)
 		scientist['interviews'] = interviews
 		scientist['termCloud'] = self.__loadTermCloud(scientistId)
-		scientist['annotations'] = { 'links' : [], 'classifications' : [], 'segments' : []}
+		scientist['links'] = links
 		return scientist
 
 	#called from the play-out page
