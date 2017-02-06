@@ -182,7 +182,18 @@ def play():
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')
 def static_from_root():
-	return send_from_directory(app.static_folder, request.path[1:])
+	if request.path[1:] == 'sitemap.xml':
+		print 'generating a site map'
+		print request.url_root
+		return Response(
+			_dataLoader.generateSiteMap(
+				request.url_root,
+				'%s/static/sitemap.xml' % _config['APP_ROOT']
+			),
+			mimetype='text/xml'
+		)
+	else:
+		return send_from_directory(app.static_folder, request.path[1:])
 
 @app.route('/s', methods=['post'])
 def s():

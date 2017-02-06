@@ -52,6 +52,41 @@ class DataLoader():
 			'Yuri_Oganessian' : ('Yuri_Oganessian', 'Yuri_Oganessian')
 		}
 
+	def generateSiteMap(self, rootUrl, sitemapFile):
+		xml = None
+		if os.path.exists(sitemapFile):
+			#just read the generated file from disk
+			f = open(sitemapFile, 'r')
+			xml = f.read()
+			f.close()
+		else:
+			#generate the sitemap.xml based on the person and interview pages
+			f = open(sitemapFile, 'w+')
+			l = ['<?xml version="1.0" encoding="UTF-8"?>']
+			l.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+			l.extend(self.__addSiteMapURL('%sabout' % rootUrl))
+			for root, dirs, files in os.walk('%s/bios' % self.config['TEXTUAL_CONTENT_DIR']):
+				for fn in files:
+					scientistId = fn[0:fn.rfind('.md')]
+					#add URL to scientist page
+					l.extend(self.__addSiteMapURL('%sscientist?id=%s' % (rootUrl, scientistId)))
+
+					#then add URLs for each interview of this scientist
+					scientist = self.loadScientist(scientistId)
+					for i in scientist['interviews']:
+						l.extend(self.__addSiteMapURL('%splay?id=%s' % (rootUrl, i['id'])))
+			l.append('</urlset>')
+			xml = ''.join(l)
+
+			#write the xml to file
+			f.write(xml)
+			f.close()
+		return xml
+
+	def __addSiteMapURL(self, url):
+		return ['<url><loc>%s</loc></url>' % url]
+
+
 	def loadMarkdownFile(self, fn):
 		mdFile = '%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], fn)
 		if os.path.exists(mdFile):
