@@ -38,6 +38,11 @@ class SearchEngine():
 				'type' : 'nested'
 			},
 			{
+				'field' : 'body.value.keyMoments',
+				'title' : 'Key moments',
+				'type' : 'nested'
+			},
+			{
 				'field' : 'placeOfResidence',
 				'title' : 'Place of residence'
 			},

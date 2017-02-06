@@ -67,6 +67,11 @@ const DataFormatter = {
 				type : 'nested'
 			},
 			{
+				field : 'body.value.keyMoments',
+				title : 'Key moments',
+				type : 'nested'
+			},
+			{
 				field : 'tags_raw',
 				title : 'Interview tags'
 			},
