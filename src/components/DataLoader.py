@@ -4,6 +4,7 @@ import random
 import json
 import os
 import codecs
+from random import shuffle
 from itertools import groupby
 from collections import namedtuple
 import operator
@@ -292,6 +293,7 @@ class DataLoader():
 		sortedTags = sorted(tagCloud.iteritems(), key=operator.itemgetter(1), reverse=True)
 		if len(sortedTags) > self.TERM_CLOUD_LIMIT:
 			sortedTags = sortedTags[0:self.TERM_CLOUD_LIMIT]
+		shuffle(sortedTags)
 		return sortedTags
 
 	#load the term cloud from the transcript related to the main interview (for the person page)

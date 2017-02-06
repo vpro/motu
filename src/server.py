@@ -14,15 +14,13 @@ import os
 
 
 def score_to_fontsize(size):
-	if size > 40:
-		size = 40 + ((size - 40) / 3)
+	print size
+	if size > 15:
+		size = 38 + ((size - 15) / 3)
 		if size > 50:
 			return 50
 		return size
-	elif size < 12 and size > 6:
-		return 12 + (size / 2)
-	elif size <= 6:
-		return 12 + size
+	return 12 + size
 	return size
 
 app = Flask(__name__)
