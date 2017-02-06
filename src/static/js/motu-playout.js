@@ -2,7 +2,7 @@ var _clickedLine = null;
 var _clickedSegment = null;
 
 var jw = jwplayer('video_player').setup({
-	file: _scientist.video.url,
+	file: _interview.video.url,
 	width:'100%',
 	type : 'mp4',
 	controls : true,
@@ -68,9 +68,9 @@ function onSeeked() {
 }
 
 function getCurrentAnnotation(sec) {
-	if(_scientist.transcript) {
+	if(_interview.transcript) {
 		var pos = parseInt(sec) * 1000
-		var currentAnnotation = _scientist.transcript.filter((a, index)=> {
+		var currentAnnotation = _interview.transcript.filter((a, index)=> {
 			if(a.start <= pos && a.end >= pos) {
 				return true;
 			} else if(pos < a.start && pos >= a.start - 500) {//first try to fetch the closest one AHEAD
@@ -88,9 +88,9 @@ function getCurrentAnnotation(sec) {
 }
 
 function getCurrentSegment(sec) {
-	if(_scientist.annotations.segments) {
+	if(_interview.annotations.segments) {
 		var pos = parseInt(sec) * 1000
-		var currentSegment = _scientist.annotations.segments.filter((a, index)=> {
+		var currentSegment = _interview.annotations.segments.filter((a, index)=> {
 			if(a.start <= pos && a.end >= pos) {
 				return true;
 			} else if(pos < a.start && pos >= a.start - 500) {//first try to fetch the closest one AHEAD
@@ -127,14 +127,14 @@ function highlight(line, type) {
 }
 
 function gotoLine(index) {
-	_clickedLine = _scientist.transcript[index];
+	_clickedLine = _interview.transcript[index];
 	if(_clickedLine) {
 		jw.seek(_clickedLine.start / 1000);
 	}
 }
 
 function gotoSegment(index) {
-	_clickedSegment = _scientist.annotations.segments[index];
+	_clickedSegment = _interview.annotations.segments[index];
 	if(_clickedSegment) {
 		jw.seek(_clickedSegment.start / 1000);
 	}

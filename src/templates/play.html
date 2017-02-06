@@ -3,12 +3,12 @@
 <html>
 
 <head>
-	<title>Mind of the Universe | Watch {{scientist.name}}</title>
+	<title>Mind of the Universe | Watch {{interview.name}}</title>
 	{% include 'head.html' %}
 
 	<script>
 
-		var _scientist = {{ scientist|tojson }};
+		var _interview = {{ interview|tojson }};
         var _start = {{start}};
         var _end = {{end}};
 
@@ -27,7 +27,7 @@
 {% include 'nav.html' %}
 {% endwith %}
 
-{% set scientistName = scientist.id.split('__') %}
+{% set scientistName = interview.id.split('__') %}
 
 <ol class="breadcrumb container">
 
@@ -36,11 +36,11 @@
 	</li>
 	<li class="breadcrumb-item active">
 		<a href="/scientist?id={{scientistName[0]}}">
-			{{scientist.name}}
+			{{interview.name}}
 		</a>
 	</li>
 	<li class="breadcrumb-item">
-		{{scientist.title}}
+		{{interview.title}}
 	</li>
 
 	{% include 'share.html' %}
@@ -55,8 +55,8 @@
 	<!-- SECOND ROW -->
 	<div class="row">
 		<div class="col-md-12">
-			<h3>{{scientist.title}} {{'(' + scientist.date + ')' if scientist.date != None}}</h3>
-			<p>{{scientist.description}}</p>
+			<h3>{{interview.title}} {{'(' + interview.date + ')' if interview.date != None}}</h3>
+			<p>{{interview.description}}</p>
 		</div>
 	</div>
 
@@ -69,10 +69,10 @@
 		</div>
 		<div class="col-md-7">
 			<div class="segment-nav">
-				{% if scientist.annotations.segments | length > 0 %}
+				{% if interview.annotations.segments | length > 0 %}
 				<h3>Segments</h3>
 				<div class="segment-list">
-					{% for s in scientist.annotations.segments %}
+					{% for s in interview.annotations.segments %}
 						<a class="segment-list-item" id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
 							<div class="container-fluid">
 								<div class="row">
@@ -106,15 +106,15 @@
 			<div id="panel_download" class="well share-panel">
 				<h4>Download</h4>
 				<p>
-					<a class="download-link" href="{{scientist.video.url}}" data-video-id="{{scientist.id}}" data-video-name="{{scientist.name}}">{{scientist.name}} - MP4 (4Mb CBR) </a>
+					<a class="download-link" href="{{interview.video.url}}" data-video-id="{{interview.id}}" data-video-name="{{interview.name}}">{{interview.name}} - MP4 (4Mb CBR) </a>
 				</p>
 			</div>
 
 			<div id="panel_license" class="well share-panel">
-				<h4>Public domain mark</h4>
-				<img src="http://i.creativecommons.org/p/mark/1.0/88x31.png" alt="Creative Commons License">
+				<h4>Creative Commons - Attribution &amp; Share alike</h4>
+				<img src="/static/images/cc-sa.png" alt="Creative Commons License">
 				<p>
-					You're allowed to copy, change, disseminate and exhibit this work without permission of the authors, even for commercial purposes.
+					As long as you attribute us and use the same (CC-BY-SA) license, you're allowed to copy, change, disseminate and exhibit this work without permission of the authors, even for commercial purposes.
 					<br/>
 					<a href="https://creativecommons.org/licenses/by-sa/4.0/">More info</a>
 				</p>
@@ -125,9 +125,9 @@
 	<!-- FIFTH ROW -->
 	<div class="row">
 		<div class="col-md-12 top-buffer">
-			{% if scientist.transcript %}
+			{% if interview.transcript %}
 				<div id="transcript-controls">
-					{% for line in scientist.transcript %}
+					{% for line in interview.transcript %}
 					<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">
 								[{{line.prettystart}}]&nbsp;{{line.content}}
 							</span><br>

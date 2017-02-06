@@ -14,7 +14,6 @@ import os
 
 
 def score_to_fontsize(size):
-	print size
 	if size > 15:
 		size = 38 + ((size - 15) / 3)
 		if size > 50:
@@ -109,15 +108,12 @@ STATIC PAGES THAT DO NOT USE THE COMPONENT LIBRARY
 @app.route('/')
 @nocache
 def home():
-	randomVideo = _dataLoader.loadRandomVideo()
-	introText = _dataLoader.loadMarkdownFile('introtext.md')
-	scientists = _dataLoader.loadScientists()
-	tagCloud = _dataLoader.loadKeywordTagCloud()
 	return render_template('index.html',
-		randomVideo=randomVideo,
-		introText=introText,
-		scientists=scientists,
-		tagCloud=tagCloud
+		randomVideo=_dataLoader.loadRandomVideo(),
+		introText=_dataLoader.loadMarkdownFile('introtext.md'),
+		scientists=_dataLoader.loadScientists(),
+		tagCloud=_dataLoader.loadKeywordTagCloud(),
+		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)
 
 @app.route('/about')
@@ -126,7 +122,8 @@ def about():
 	return render_template('about.html',
 		about=_dataLoader.loadMarkdownFile('about.md'),
 		faq=_dataLoader.loadMarkdownFile('faq.md'),
-		colofon=_dataLoader.loadMarkdownFile('colofon.md')
+		colofon=_dataLoader.loadMarkdownFile('colofon.md'),
+		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)
 
 @app.route('/scientist')
@@ -135,8 +132,12 @@ def scientist():
 	sid = request.args.get('id', None)
 	if sid:
 		scientist = _dataLoader.loadScientist(sid)
+		socialTags = _dataLoader.getSocialMetaTags(request.base_url, request.url_root, scientist, 'scientist')
 		if scientist:
-			return render_template('scientist.html', scientist=scientist)
+			return render_template('scientist.html',
+				scientist=scientist,
+				meta=socialTags
+			)
 	return render_template('404.html'), 404
 
 @app.route('/search')
@@ -158,7 +159,8 @@ def search():
 		'size' : size
 	}
 	return render_template('search.html',
-		searchParams=params
+		searchParams=params,
+		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)
 
 @app.route('/play')
@@ -170,11 +172,13 @@ def play():
 	s = request.args.get('s', -1)
 	e = request.args.get('e', -1)
 	if iid:
-		scientist = _dataLoader.loadInterview(iid)
+		interview = _dataLoader.loadInterview(iid)
+		socialTags = _dataLoader.getSocialMetaTags(request.base_url, request.url_root, interview, 'interview')
 	return render_template('play.html',
-		scientist=scientist,
+		interview=interview,
 		start=s,
-		end=e
+		end=e,
+		meta=socialTags
 	)
 
 @app.route('/robots.txt')

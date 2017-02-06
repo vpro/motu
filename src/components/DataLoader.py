@@ -88,15 +88,17 @@ class DataLoader():
 		return ['<url><loc>%s</loc></url>' % url]
 
 
-	def loadMarkdownFile(self, fn):
+	def loadMarkdownFile(self, fn, formatHTML = True):
 		mdFile = '%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], fn)
 		if os.path.exists(mdFile):
 			f = open(mdFile, 'r')
 			text = f.read()
 			f.close()
 			try:
-				bio = markdown(text)
-				return bio
+				if formatHTML:
+					return markdown(text)
+				else:
+					return text
 			except UnicodeDecodeError, e:
 				print e
 		return ''
@@ -130,10 +132,17 @@ class DataLoader():
 			'name' : scientistId.replace('_', ' ')
 		}
 		interviews = self.__getInterviewsOfScientist(scientistId)
+
+		#add up all of the links and tags (on the video level) for quick access
 		links = []
+		interviewTags = []
 		for i in interviews:
 			for l in i['annotations']['links']:
 				links.append(l)
+			for cl in i['annotations']['classifications']:
+				interviewTags.append(cl['label'])
+		if len(interviewTags) > 10:
+			interviewTags = interviewTags[0:9]
 
 		scientist['bio'] = self.__loadWikipediaBio(scientistId)
 		scientist['wikiURL'] = self.__getWikipediaUrl(scientistId)
@@ -141,6 +150,7 @@ class DataLoader():
 		scientist['interviews'] = interviews
 		scientist['termCloud'] = self.__loadTermCloud(scientistId)
 		scientist['links'] = links
+		scientist['interviewTags'] = interviewTags
 		return scientist
 
 	#called from the play-out page
@@ -188,12 +198,21 @@ class DataLoader():
 			'transcript' : self.__loadTranscript(scientistId, interviewId),
 			'annotations' : self.__loadInterviewAnnotations(scientistId, interviewId)
 		}
+
+		#add the basic metadata
 		if 'title_raw' in data['_source']:
 			interview['title'] = data['_source']['title_raw']
 		if 'description' in data['_source']:
 			interview['description'] = data['_source']['description']
 		if 'date' in data['_source']:
 			interview['date'] = data['_source']['date']
+
+		#add the interview tags
+		interviewTags = []
+		for cl in interview['annotations']['classifications']:
+			interviewTags.append(cl['label'])
+		interview['interviewTags'] = interviewTags
+
 		return interview
 
 	def __getPosterURL(self, scientistId):
@@ -360,7 +379,7 @@ class DataLoader():
 		classifications = []
 		segments = []
 		keyMoments = []
-		targetUrl = '%s/%s/mp4/%s.mp4' % (self.config['BASE_MEDIA_URL'], scientistId, scientistId)
+		targetUrl = '%s/%s/mp4/%s.mp4' % (self.config['BASE_MEDIA_URL'], scientistId, interviewId)
 		url = '%s/annotations/filter?target.source=%s&user=motu' % (
 			self.config['ANNOTATION_API'],
 			targetUrl
@@ -391,20 +410,23 @@ class DataLoader():
 										elif prop['key'] == 'title':
 											segmentTitle = prop['value']
 									if segmentTitle:
-										start = a['target']['selector']['start'] * 1000
+										posterStart = int(a['target']['selector']['start']) #in secs
+										videoStart = posterStart * 1000 #in ms
+										if posterStart == 0:
+											posterStart = 1
 										segments.append({
 											'title' : segmentTitle,
 											'number' : number,
 											'keyMoment' : keyMoment,
-											'start' : start,
+											'start' : videoStart,
 											'end' : a['target']['selector']['end'] * 1000,
-											'prettyStart' : TimeUtil.millisToPrettyTime(start),
+											'prettyStart' : TimeUtil.millisToPrettyTime(videoStart),
 											'poster' : '%s/%s/thumbnails/%s/%s_%04d.jpg' % (
 												self.config['BASE_MEDIA_URL'],
 												scientistId,
 												scientistId,
 												scientistId,
-												int(a['target']['selector']['start'])
+												posterStart
 											)
 										})
 										#add the keymoment to the list of keymoments
@@ -420,3 +442,39 @@ class DataLoader():
 			'segments' : segments,
 			'keyMoments' : keyMoments
 		}
+
+	#returs an object containing tags for Open Graph and Twitter Cards
+	def getSocialMetaTags(self, url, rootUrl, data, dataType):
+		tags = {}
+		tags['keywords'] = 'interviews, scientists, science, open source content'
+		tags['ogtype'] = 'website'
+		tags['twittertype'] = 'summary'
+		tags['pageUrl'] = url
+
+		#defaults in case there is no config or data
+		tags['title'] = 'Mind of the Universe'
+		tags['description'] = 'Mind of the Universe'
+		tags['image'] = 'http://motu.rdlabs.beeldengeluid.nl/static/images/og-image.png'
+		if dataType:
+			if dataType == 'interview':
+				tags['keywords'] = ','.join(data['interviewTags'])
+				tags['title'] = data['title']
+				tags['description'] = data['description']
+				tags['image'] = data['poster']
+				tags['pageUrl'] = '%splay?id=%s' % (rootUrl, data['id'])
+				tags['videoUrl'] = data['video']['url']
+			elif dataType == 'scientist':
+				tags['keywords'] = ','.join(data['interviewTags'])
+				tags['title'] = data['name']
+				tags['image'] = data['poster']
+				tags['description'] = self.loadMarkdownFile('bios/%s.md' % data['id'], False)
+				tags['pageUrl'] = '%sscientist?id=%s' % (rootUrl, data['id'])
+		else:
+			if 'SOCIAL_MEDIA_DATA' in self.config:
+				if 'TITLE' in self.config['SOCIAL_MEDIA_DATA']:
+					tags['title'] = self.config['SOCIAL_MEDIA_DATA']['TITLE']
+				if 'IMAGE' in self.config['SOCIAL_MEDIA_DATA']:
+					tags['image'] = self.config['SOCIAL_MEDIA_DATA']['IMAGE']
+				if 'DESCRIPTION' in self.config['SOCIAL_MEDIA_DATA']:
+					tags['description'] = self.config['SOCIAL_MEDIA_DATA']['DESCRIPTION']
+		return tags
