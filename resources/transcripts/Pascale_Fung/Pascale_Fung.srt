@@ -1,0 +1,1536 @@
+1
+00:00:01,23 --> 00:00:14,92
+You think for the first. Because we're going to have robots in our lives. And they're going to work with us.
+
+2
+00:00:14,95 --> 00:00:21,36
+They will take care of us. So for us to be able to trust them. We need to build a relationship with a robot.
+
+3
+00:00:22,00 --> 00:00:26,76
+And studies have shown that for us to work with robots.
+
+4
+00:00:26,91 --> 00:00:32,8
+We do need robots to understand our intention and emotion and not just what we say it's not just a command
+
+5
+00:00:32,8 --> 00:00:35,9
+and control kind of machine but our current.
+
+6
+00:00:38,43 --> 00:00:42,1
+No because they take your comments Literally right now
+
+7
+00:00:42,69 --> 00:00:48,93
+and they don't understand where you really mean you can say the same thing and in different tones
+
+8
+00:00:48,93 --> 00:00:51,34
+and with different gesture it will mean something totally different.
+
+9
+00:00:51,73 --> 00:00:57,81
+So I suppose you have a robot as taking care of the elderly and the robot says her are you doing today.
+
+10
+00:00:57,81 --> 00:01:07,49
+And you say you know I'm not sure the robot was if if the robot understand you literally just means you're not sure.
+
+11
+00:01:07,71 --> 00:01:09,7
+And the robot would just take off and walk away.
+
+12
+00:01:09,89 --> 00:01:17,8
+But what it really means what the ring turn really is that the patient or the other person is not feeling that great.
+
+13
+00:01:17,95 --> 00:01:24,76
+So the robot has to deduce that intention and the emotion from where you are saying how you are saying it.
+
+14
+00:01:24,82 --> 00:01:30,26
+And in order to be you better take you want to take care of us better control
+
+15
+00:01:30,26 --> 00:01:32,48
+but aren't you know they're not able to do that yet.
+
+16
+00:01:32,67 --> 00:01:45,41
+We're working on making them to do that which you actually want to introduce because I believe that in the future we're
+
+17
+00:01:45,41 --> 00:01:54,19
+going to need robots to take care of people to dig of the young to educate us to help us with a lot of work since we're
+
+18
+00:01:54,19 --> 00:02:03,21
+going to have them around us. I think it is important that they pay their more Hugh. Like in there empathy.
+
+19
+00:02:04,58 --> 00:02:20,08
+Why are we one robot to be intelligent great and intelligent robots need to have both the conative intelligence
+
+20
+00:02:20,08 --> 00:02:24,03
+and also emotional intelligence as well what we humans have
+
+21
+00:02:24,31 --> 00:02:29,15
+when we communicate with each other we use our emotional intelligence all the time
+
+22
+00:02:29,57 --> 00:02:34,52
+and that is indispensable for understanding each other and for robots to understand us.
+
+23
+00:02:34,69 --> 00:02:42,24
+They need to have that kind of emotional intelligence which is empathy because current groups are OK now.
+
+24
+00:02:42,29 --> 00:02:50,75
+Not yet not yet coral bots most of the time is still controlled by explicit commands for example you can tell
+
+25
+00:02:50,75 --> 00:02:57,17
+or about to a vacuum your room in some restaurants there are some robot waiters that will bring your food
+
+26
+00:02:57,45 --> 00:03:00,17
+and they are focus very narrowly on one task.
+
+27
+00:03:00,76 --> 00:03:04,98
+There are not that much more advanced than your vacuum cleaner now
+
+28
+00:03:04,98 --> 00:03:09,83
+or the rice cooker so Colonel those don't have that kind of emotional intelligence
+
+29
+00:03:09,83 --> 00:03:19,98
+but there are some robots who are putting this in some robots and there we start to see them. But why would it.
+
+30
+00:03:21,46 --> 00:03:27,86
+Because so that they can work with us better they can help us better if they need to take care of us they go about our
+
+31
+00:03:27,86 --> 00:03:35,09
+children our elderly they really need to understand I would truly intend emotion in order to take care of us saying if
+
+32
+00:03:35,09 --> 00:03:41,43
+you go to a hospital or there's a nurse and what a nurse that is is not just to take your temperature
+
+33
+00:03:41,68 --> 00:03:46,4
+and look at your vital signs but also talk to you and see how you're doing
+
+34
+00:03:46,57 --> 00:03:53,74
+and whether you need comforting whether you need water whether you need medicine at this point in time so that requires
+
+35
+00:03:53,74 --> 00:03:58,49
+emotional intelligence than they require empathy which.
+
+36
+00:04:03,69 --> 00:04:10,87
+Yes The robots are coming more into our lives into our daily lives and there will be more and more robots around us
+
+37
+00:04:11,12 --> 00:04:16,54
+and if they don't have the emotional intelligence they're more likely to make mistakes and you've heard us.
+
+38
+00:04:17,64 --> 00:04:23,58
+There are different guide to what kind of motion which expression. Should Just yes.
+
+39
+00:04:24,2 --> 00:04:33,46
+So for example the very first thing we're working on to for robots recognize includes whether the human is happy angry
+
+40
+00:04:34,43 --> 00:04:40,34
+sad or frustrated or hesitating or even this sense of humor.
+
+41
+00:04:40,35 --> 00:04:50,54
+One of my students is working on recognizing sense of humor stuck by. Because they're forcing. Yes yes. Just what.
+
+42
+00:04:51,37 --> 00:05:00,19
+The primary emotions are happiness a sad sadness anger or a neutral.
+
+43
+00:05:00,25 --> 00:05:07,03
+So you have to be able to tell whether the person is happy happy means that is fine are satisfied.
+
+44
+00:05:07,63 --> 00:05:14,85
+Not happy sad and needs help. Maybe frustrated angry.
+
+45
+00:05:15,1 --> 00:05:26,14
+So if the person angry at the robot the robot you have to do something in response. Which people rides. Right.
+
+46
+00:05:26,29 --> 00:05:32,12
+We're also working on for robots understand understand what sense of humor and sarcasm.
+
+47
+00:05:32,95 --> 00:05:36,11
+Are working on that because we use humor
+
+48
+00:05:36,11 --> 00:05:43,2
+and sarcasm in our daily communications to you know deflect the situation challenge
+
+49
+00:05:43,2 --> 00:05:53,06
+or to make a conversation we're friendly to make things go more smoothly so robots also need to learn to recognize that.
+
+50
+00:05:53,87 --> 00:06:00,68
+People's lives difficult indeed. India is a robot. Indeed so what.
+
+51
+00:06:00,82 --> 00:06:09,3
+Did you robots to watch a lot of comedy shows to learn sense of humor. You know so it's machine learning.
+
+52
+00:06:09,54 --> 00:06:17,57
+So we thing that we let the robot watch a lot of comedy shows and observe how people communicate with each other.
+
+53
+00:06:17,78 --> 00:06:22,82
+This is the so-called Big Data analytics and we use machine learning then they would be able to learn.
+
+54
+00:06:25,83 --> 00:06:31,63
+Actually we feel comedy shows and movies and yes
+
+55
+00:06:32,22 --> 00:06:39,88
+and people's are you know daily communications a lot of You Tube you Dio's you know we feed this to the robot.
+
+56
+00:06:42,59 --> 00:06:51,18
+Should also yes this is very it is important that is have shown that humans a few more related to a machine that has
+
+57
+00:06:51,18 --> 00:06:58,25
+some facial expressions way so that's why you know we don't really feel a connection to our refrigerator
+
+58
+00:06:58,37 --> 00:07:04,51
+or to our rice cooker because they're just machines but when you see a robot with acute phase and people start going.
+
+59
+00:07:05,93 --> 00:07:11,86
+They start talking to the robot in a more human way they go. So how are you doing and stuff like that.
+
+60
+00:07:11,96 --> 00:07:17,73
+So indeed the embodiment of a machine in the robotic body with facial expressions is important
+
+61
+00:07:17,73 --> 00:07:22,27
+and that is also important area and different researchers are working on that.
+
+62
+00:07:22,49 --> 00:07:30,64
+To allow a robot to generate a few appropriate facial expressions appropriate gesture for example to say hi
+
+63
+00:07:30,64 --> 00:07:43,37
+or to shake your hand and all that because of the tone of voice also from the rubble is very important to understand.
+
+64
+00:07:44,13 --> 00:07:57,07
+Should also be heard. OK. So if I say something like I'm really happy I'm going to work today.
+
+65
+00:07:57,48 --> 00:08:02,72
+That is you probably think I'm truly. Happy that I'm going to work today. Bye bye say.
+
+66
+00:08:03,3 --> 00:08:08,83
+I'm really happy I'm going to work today even though the words I speak are the same
+
+67
+00:08:08,83 --> 00:08:13,34
+but the emotions told different in the second case you know I'm being sarcastic
+
+68
+00:08:13,34 --> 00:08:18,39
+and I'm not really feeling like going to work so that tone of voice is important
+
+69
+00:08:18,39 --> 00:08:23,22
+and we used to own a voice in our way of expressing our meaning a lot.
+
+70
+00:08:25,61 --> 00:08:32,4
+So again the difference is we teach the robot to listen again to different kind of tone of voice.
+
+71
+00:08:33,00 --> 00:08:35,73
+So we show a robot examples of.
+
+72
+00:08:37,00 --> 00:08:43,1
+The same sentences in angry voice happy voice and nervous for days and frustrated voice
+
+73
+00:08:43,1 --> 00:08:49,23
+and we tell the rover look this is the kind of voice that expresses. Anger.
+
+74
+00:08:49,33 --> 00:08:55,89
+This is the kind of voice that expresses frustration and the robot runs how fast you.
+
+75
+00:08:55,91 --> 00:09:05,35
+Yes we do we do learn as children. So children robots. So children have Montalvo. Like a sensory input right.
+
+76
+00:09:05,56 --> 00:09:11,47
+Children perceive the world not just by what people are saying how they're saying but they also look at things.
+
+77
+00:09:11,66 --> 00:09:18,32
+So right now we're working towards enabling robot to have multiple sensory input as well.
+
+78
+00:09:18,36 --> 00:09:22,59
+So the robot now learns from the speech.
+
+79
+00:09:22,72 --> 00:09:27,21
+You're saying this is what you're saying but also learns from how you're seeing it.
+
+80
+00:09:27,3 --> 00:09:30,88
+We also a neighbor the robot to look at your facial expression
+
+81
+00:09:30,88 --> 00:09:46,12
+when you see it so that will of nobody robot robot to learn better. Yes indeed. Yes traumatized.
+
+82
+00:09:51,17 --> 00:10:00,44
+Yes I think robot trama I will say can be misled. If you you feed robot some information.
+
+83
+00:10:00,91 --> 00:10:02,31
+Like how would teach our children.
+
+84
+00:10:03,43 --> 00:10:09,87
+Robots can be traumatized to because they're machines so machine can have machine errors either from the embedded
+
+85
+00:10:09,87 --> 00:10:16,98
+coding the program. There were wrote or from the experience meaning the data they learn from it's different from.
+
+86
+00:10:17,88 --> 00:10:24,93
+They they were they. They can be led astray and they can have error us.
+
+87
+00:10:26,39 --> 00:10:30,99
+Is a different from human and it's different machine trauma.
+
+88
+00:10:31,02 --> 00:10:40,51
+I would say but but I mean children can be shushed because very well what about robots.
+
+89
+00:10:41,05 --> 00:10:47,00
+So robots can be dysfunctional because they are functioning properly if they have had a machine era
+
+90
+00:10:47,33 --> 00:10:52,6
+and if their errors caused by their experience then you can call that trauma
+
+91
+00:10:52,93 --> 00:10:58,74
+and they can be traumatized into this misbehaving indeed. It's going to be.
+
+92
+00:11:01,32 --> 00:11:08,61
+Grumpy In the mean they work slowly or they don't respond friendly in the friendly manner
+
+93
+00:11:08,87 --> 00:11:15,29
+and they may not even answered. And so you can perceive that as bumpiness the machines can be grumpy. Yes.
+
+94
+00:11:16,76 --> 00:11:22,65
+You also say just so of course one.
+
+95
+00:11:25,5 --> 00:11:31,27
+So the robot make errors like humans do these things machines when there is a machine error.
+
+96
+00:11:31,43 --> 00:11:37,23
+You might see a blue screen and just says machine error for four and that is not very friendly.
+
+97
+00:11:37,4 --> 00:11:42,37
+We cannot have robots do that because machines are bound to make heiress.
+
+98
+00:11:42,45 --> 00:11:45,07
+There's not going to be a perfect machine the never makes errors.
+
+99
+00:11:45,43 --> 00:11:49,08
+Just like humans is no he pretty human will never makes any mistakes.
+
+100
+00:11:49,78 --> 00:11:57,49
+It is important for empathetic machine to apologise like humans do because that will keep the communication Smoove
+
+101
+00:11:57,81 --> 00:12:06,89
+there will keep the conversation continue with. Human user because I think it's kind of Indeed.
+
+102
+00:12:06,96 --> 00:12:13,28
+Yes it is most important to keep the conversation smooth and the. Human robot communication skills.
+
+103
+00:12:14,26 --> 00:12:21,37
+So it's just that she's feeling happy that Cory Booker.
+
+104
+00:12:21,72 --> 00:12:23,55
+I think humans issue feel happy
+
+105
+00:12:23,55 --> 00:12:30,47
+when they are communicating with the robot at least they can few related to the robot friendly in a friendly sort of
+
+106
+00:12:30,47 --> 00:12:36,93
+way it is important for humans to feel that you understand in order for us to trust the robot to work with the robot
+
+107
+00:12:38,22 --> 00:12:50,55
+will be Philip we have a sort of character but develop character because if you're going around the characters
+
+108
+00:12:51,09 --> 00:12:52,58
+or your mom.
+
+109
+00:12:52,96 --> 00:12:53,56
+So
+
+110
+00:12:53,59 --> 00:13:02,1
+when we built a third to robots were very careful in also designing the robot personality because what we call our robot
+
+111
+00:13:02,1 --> 00:13:02,9
+personality.
+
+112
+00:13:03,19 --> 00:13:10,83
+So the beginning we would be designing a personality so this is similar to a human predisposed you know personality
+
+113
+00:13:10,83 --> 00:13:17,76
+we're born with. But as we go along. We also let the robot learn personality from data.
+
+114
+00:13:18,06 --> 00:13:25,44
+So from a particular personality type for example a robot can imitate a particular person's personality type over time
+
+115
+00:13:25,44 --> 00:13:29,21
+by observing how that person communicates with other people.
+
+116
+00:13:29,28 --> 00:13:39,53
+So a robot can also be nurtured into developing its a personality. So you have this question for each word. Yes.
+
+117
+00:13:39,98 --> 00:13:45,54
+What about rogue robot also there is a nature and nurture so nature
+
+118
+00:13:45,54 --> 00:13:53,45
+or robot nature comes from our laboratories A comes from the design of robot by humans by engineers.
+
+119
+00:13:53,75 --> 00:14:00,28
+That's the nature that's where robot comes out of the lab and that robot has that personality but then.
+
+120
+00:14:01,71 --> 00:14:09,18
+Since robots have machine learning algorithms in them they were also learned from you know a particular kind of you
+
+121
+00:14:09,18 --> 00:14:14,29
+know they will learn from their environment and then they will continue to develop their personality.
+
+122
+00:14:14,64 --> 00:14:19,17
+For example if at the beginning we ensure that the robot is not racist
+
+123
+00:14:19,56 --> 00:14:24,93
+and that is a pretty s'posed you know what we designed in the beginning and over time
+
+124
+00:14:24,93 --> 00:14:28,81
+when the robots see is whatever's out in the world.
+
+125
+00:14:29,1 --> 00:14:32,55
+There can be racist comments and all that but the robot will reject that.
+
+126
+00:14:32,85 --> 00:14:39,07
+And then we'll know absorb that into the robots personality the robot will make a judgment to say that oh that is
+
+127
+00:14:39,07 --> 00:14:42,00
+racist and I should now learn that much.
+
+128
+00:14:42,2 --> 00:14:48,71
+Just because at the beginning you know at the beginning we need to teach you about values
+
+129
+00:14:48,71 --> 00:15:01,17
+and personality doesn't work because. Yes so so so the people who work on robots.
+
+130
+00:15:01,43 --> 00:15:04,85
+We all have this responsibility we're like parents to robots.
+
+131
+00:15:05,1 --> 00:15:11,87
+You know parents or children we indeed do at the beginning we do teach our robots in certain ways with certain code
+
+132
+00:15:11,87 --> 00:15:18,15
+and then we let them run very much like how we how we nurture our children when they reach adulthood.
+
+133
+00:15:18,68 --> 00:15:22,21
+We just let them go. You fat. When they're younger we send them to school.
+
+134
+00:15:22,54 --> 00:15:26,82
+So we don't always teach them everything ourselves we send them to school with
+
+135
+00:15:26,82 --> 00:15:36,08
+and our in the world they learn from the environment. So that's what we do with robots. Could you talk a little bit.
+
+136
+00:15:36,14 --> 00:15:40,18
+It's becoming. So. Rover is.
+
+137
+00:15:42,72 --> 00:15:49,88
+So we're building robots to be a little bit more like us more like a person indeed because humans can communicate with
+
+138
+00:15:49,88 --> 00:15:57,97
+other another human being better. We cannot ask humans to speak the robot language. So we need a robot to speak.
+
+139
+00:15:57,97 --> 00:16:05,25
+I want to guage understand us. So and why. That the personality thing the robot values.
+
+140
+00:16:05,28 --> 00:16:13,35
+You know that is all necessary in order for us to communicate with a robot better. Self.
+
+141
+00:16:14,75 --> 00:16:18,59
+If I can think about myself to think about it so.
+
+142
+00:16:20,19 --> 00:16:27,79
+The robot can certainly be taught to think about itself yes or has shows the behavior of thinking about itself.
+
+143
+00:16:29,05 --> 00:16:36,06
+Meaning that robot can simulate the behavior of somebody with who is thinking about itself whether there's
+
+144
+00:16:36,06 --> 00:16:40,32
+consciousness within the robot we don't know because we don't understand consciousness.
+
+145
+00:16:41,37 --> 00:16:48,54
+That's what we're saying you can program it. Group. It's not always preprogrammed there are certain things.
+
+146
+00:16:48,92 --> 00:16:53,69
+So this is what I was trying to say with preprogramed machine learning way.
+
+147
+00:16:53,72 --> 00:17:00,04
+So would probably preprogramed robots to learn. Right. Just like humans also preprogrammed to learn.
+
+148
+00:17:00,52 --> 00:17:05,27
+So that part of it's preprogramed as the what what we call nature.
+
+149
+00:17:05,71 --> 00:17:12,38
+And then the preprograming also allows the robot to learn to pick up from the physical world from interacting with
+
+150
+00:17:12,38 --> 00:17:23,1
+human beings furder knowledge and further personality could be one of them. Can we monitor them.
+
+151
+00:17:25,94 --> 00:17:39,16
+You know I mean we monitor people to help people not behave like that I am sure that if so deferral boss different
+
+152
+00:17:39,16 --> 00:17:42,93
+depending on the purposes so if they are supposed to take care of patients
+
+153
+00:17:43,11 --> 00:17:48,06
+and they make mistakes then withing there's going to be there is must be a machine era.
+
+154
+00:17:48,35 --> 00:17:52,67
+Then we would check the machine would check the code and try to spot that era.
+
+155
+00:17:53,5 --> 00:18:00,8
+We don't really punish robot per se at this point but it can be imagined in some learning algorithms working corporate.
+
+156
+00:18:00,82 --> 00:18:05,18
+It. What is a reward and what is punishment so that they learn proper things.
+
+157
+00:18:06,49 --> 00:18:19,68
+But for example there's a question about which cars responsible to come close the second question because they are so
+
+158
+00:18:21,31 --> 00:18:26,01
+if they accidentally harm somebody your you said you know robot you shouldn't do that
+
+159
+00:18:26,22 --> 00:18:29,18
+and they should learn from that punishment.
+
+160
+00:18:29,49 --> 00:18:35,99
+Perhaps not like human punishment I don't think you know we're going to head there all by the robot would feel you know
+
+161
+00:18:35,99 --> 00:18:40,7
+it's not not that kind of punishment but it's in the algorithm that there's a cost function.
+
+162
+00:18:41,05 --> 00:18:45,99
+Whether it's doing the right thing or not there will be a cost function of positive and negative values
+
+163
+00:18:46,96 --> 00:18:56,02
+or strange terms. Well how other strains is to have. My memory.
+
+164
+00:18:56,3 --> 00:18:57,05
+My sense
+
+165
+00:18:57,05 --> 00:19:07,81
+or sensory abilities my intelligence my emotional intelligence whatever it is all be downloaded to a robot of with
+
+166
+00:19:07,98 --> 00:19:12,58
+enjoy a body and then the robot will continue functioning as me
+
+167
+00:19:12,97 --> 00:19:21,47
+when I'm no longer in this world you want to make up your first I want to make a copy of myself very interesting.
+
+168
+00:19:24,52 --> 00:19:31,52
+I think that to some extent we're already doing that but given I'm not sure it's feasible within my lifetime
+
+169
+00:19:31,75 --> 00:19:39,24
+but I think it is feasible the robot will have you know will be equipped with our work perception abilities
+
+170
+00:19:39,24 --> 00:19:43,65
+and our intelligence our emotional intelligence and our ability to learn.
+
+171
+00:19:44,25 --> 00:19:49,74
+And the robot you know there are people who are building a robot. With really human like form.
+
+172
+00:19:49,99 --> 00:19:53,45
+With you know very lifelike skin
+
+173
+00:19:53,45 --> 00:20:01,87
+and I know that we put this together the robot will have the body would be a body in the. Human like body.
+
+174
+00:20:02,09 --> 00:20:05,06
+So they will pick up signals from the world as we do so.
+
+175
+00:20:05,09 --> 00:20:09,99
+That is I think that is feasible and I'm not saying that there will be me.
+
+176
+00:20:10,00 --> 00:20:14,73
+There will be just a copy of me and there would not necessarily have the conscience of me.
+
+177
+00:20:14,85 --> 00:20:23,3
+I'm not talking about me living forever. I'm talking about a copy what would be well would it be very good question.
+
+178
+00:20:23,6 --> 00:20:34,33
+A copy just an enjoy the copy of of a human what book you want to.
+
+179
+00:20:34,4 --> 00:20:40,58
+So it would do what I would do under given circumstances.
+
+180
+00:20:40,8 --> 00:20:44,94
+For example maybe you can go on lecture in the university teach students.
+
+181
+00:20:45,33 --> 00:20:57,6
+It can learn from from the world and maybe it can perform research. It can be other robots but it won't be me.
+
+182
+00:20:57,62 --> 00:21:07,97
+It will be a copy of me but it just so it's quite hard.
+
+183
+00:21:08,25 --> 00:21:17,89
+I know I know we don't know what consciousness is it's almost a philosophical question Is question consciousness does
+
+184
+00:21:17,89 --> 00:21:23,82
+exist. Once we have all of this kind of sensory input intelligence and learning in place.
+
+185
+00:21:23,84 --> 00:21:27,58
+Would there be a point where and there is indeed a consciousness.
+
+186
+00:21:27,86 --> 00:21:35,99
+I don't know I don't know we don't know what consciousness is and work comes from philosophers that say that.
+
+187
+00:21:36,14 --> 00:21:42,28
+Finally I think so yes indeed I think so.
+
+188
+00:21:42,32 --> 00:21:46,32
+I am indeed indeed a robot can conclude that and
+
+189
+00:21:46,32 --> 00:21:50,17
+but even then the robot can have the behavior of someone with consciousness
+
+190
+00:21:50,17 --> 00:21:59,65
+and we still don't know whether that robot really has this Minas you know this self-consciousness. If you look into it.
+
+191
+00:21:59,69 --> 00:22:07,03
+Five years. What. If you could really fight here it would look like.
+
+192
+00:22:08,22 --> 00:22:11,11
+So in terms of eight years I believe there will be robots.
+
+193
+00:22:11,39 --> 00:22:16,93
+Not all robots some robots will look just like us they would talk just like us and behave just like us.
+
+194
+00:22:17,00 --> 00:22:22,51
+It's possible in twenty five years they can move and gesture is actually like humans and.
+
+195
+00:22:23,24 --> 00:22:27,78
+Some of these robots these are core enjoys will be very very.
+
+196
+00:22:28,56 --> 00:22:30,6
+You cannot tell the difference between them and humans
+
+197
+00:22:30,6 --> 00:22:37,73
+and then there are the robots we still need other robots to help us other robotic machines like the vacuum cleaner the
+
+198
+00:22:37,73 --> 00:22:41,06
+vacuum cleaner now going to have a human head there will be kind of creepy.
+
+199
+00:22:41,13 --> 00:22:47,45
+So we still have other robots there don't look like humans. So there will be a variety of robots around among us.
+
+200
+00:22:47,66 --> 00:23:01,06
+Your work to make it work. Some people feel frightened.
+
+201
+00:23:02,00 --> 00:23:07,99
+Some people question why robots need to be more human like they think.
+
+202
+00:23:08,38 --> 00:23:15,38
+Then they will be challenging us or taking over us. Others like especially children think it's just really cool.
+
+203
+00:23:15,55 --> 00:23:17,71
+They want to they can no way for that to happen.
+
+204
+00:23:18,05 --> 00:23:23,68
+So I think depending on the culture of people come from them what they expect of machines.
+
+205
+00:23:24,54 --> 00:23:29,7
+They have different reactions but for the most part for example I talk to doctors medical doctors
+
+206
+00:23:29,7 --> 00:23:36,9
+and they love the idea they're robots who have empathy to put towards patients so they can better take care of patients
+
+207
+00:23:36,9 --> 00:23:47,01
+you measure people. Some how much. Some people already scared. Some people already sick scared of robots.
+
+208
+00:23:47,15 --> 00:23:52,13
+I think when people see robots become more human like they magine all sorts of things
+
+209
+00:23:52,13 --> 00:23:58,53
+and I think one reason is there has been too many science fiction movies there patrol robots as threatening and.
+
+210
+00:23:59,05 --> 00:24:09,17
+Menacing butt. That's just science fiction and people should be people should not be. Swayed by by fiction.
+
+211
+00:24:09,2 --> 00:24:12,55
+You know drinking on a reality. We're building robots to help people.
+
+212
+00:24:12,93 --> 00:24:24,93
+Nobody's building robots to purposely destroy human kindness that kind of thing because I think part worked that Palin.
+
+213
+00:24:26,72 --> 00:24:32,72
+In we were trying to build robots that would be friendly indeed to have robots have empathy.
+
+214
+00:24:32,97 --> 00:24:37,79
+Then they would never harm people right. So that's why I'm perceived as important.
+
+215
+00:24:37,84 --> 00:24:49,36
+And if they do have empathy they were never heard us. By the three one question the Three Laws of Robotics.
+
+216
+00:24:49,94 --> 00:24:58,47
+I don't remember all of them but actually one of them asked help to help people not to harm. You're in the.
+
+217
+00:24:59,17 --> 00:25:03,17
+So one of the Three Laws of Robotics is to for robots help people
+
+218
+00:25:03,17 --> 00:25:13,51
+and I think all the robotics is working on robots today are trying to do that people start to see if you're friendly.
+
+219
+00:25:13,61 --> 00:25:19,33
+I hope so. I hope people will see robots as friends because they're friendly.
+
+220
+00:25:19,44 --> 00:25:31,44
+If we can see robots as friends then we can trust them to help us. And the French for companionship how.
+
+221
+00:25:32,54 --> 00:25:43,27
+We hope robots we're building robots to be people's companion to be companions to children to be companion to to the
+
+222
+00:25:43,27 --> 00:25:52,21
+elderly when they're lonely and all that but like all machines the hardware deteriorates right so your i Phone
+
+223
+00:25:52,21 --> 00:25:53,68
+or your smartphone
+
+224
+00:25:53,68 --> 00:25:59,22
+or you might buy the next generation smartphone so robots are we going to have a robot there last for ever.
+
+225
+00:25:59,33 --> 00:26:05,21
+I don't thing. Right now that's the purpose. So you might have the next generation of the same robot.
+
+226
+00:26:06,2 --> 00:26:10,73
+But they're about will have the same personality as the first robot and will have the memory. So yeah.
+
+227
+00:26:10,96 --> 00:26:17,74
+In that sense you can have a robot companion forever but the body my my have to be changed from time to time.
+
+228
+00:26:18,25 --> 00:26:27,48
+If you want coverage. So the intelligence of robot is completely software based.
+
+229
+00:26:27,89 --> 00:26:30,82
+So we can make multiple copies of the same software.
+
+230
+00:26:30,85 --> 00:26:35,83
+We can't have the same robot same personality same memory in different. Bodies.
+
+231
+00:26:35,94 --> 00:26:41,31
+So we kept multiple robots that sound the same behave the same and do the same thing.
+
+232
+00:26:42,48 --> 00:26:53,83
+Copyright and copy copy experience because the software there is. So how people love their genes like they love cars.
+
+233
+00:26:57,62 --> 00:27:03,75
+I think people will love their robots if the robots are friendly and pathetic. Have a sense of humor.
+
+234
+00:27:03,85 --> 00:27:04,76
+Who would love them.
+
+235
+00:27:04,88 --> 00:27:09,51
+People who love them like they love their motorcycles in their car see and indeed
+
+236
+00:27:09,64 --> 00:27:15,28
+but they also my want to have multiple robots you know a different version with a different personality just like some
+
+237
+00:27:15,28 --> 00:27:24,28
+people like multiple cars of different styles think they're your record. So I think people are prepared.
+
+238
+00:27:24,4 --> 00:27:31,51
+We've already seen men on the moon forty fifty years ago and this is high time we see robots allows us
+
+239
+00:27:31,51 --> 00:27:36,7
+and I think people are ready for a bus as long as they're friendly. If you don't budget.
+
+240
+00:27:37,44 --> 00:27:43,5
+You're actually OK which part and intentional language actually is a little bit.
+
+241
+00:27:44,85 --> 00:27:53,6
+So what we're doing is for example use the example of humor as I explained before humor comes from not just the words
+
+242
+00:27:53,6 --> 00:28:00,62
+you use but the tone of voice and even your your your your facial expressions. So the same words express in.
+
+243
+00:28:00,82 --> 00:28:09,36
+And contacts can be humorous and humorous. So what we do is we programmed machines to have learning algorithms.
+
+244
+00:28:09,68 --> 00:28:14,58
+So they learn from watching a lot of comedy shows for example and You Tube videos
+
+245
+00:28:14,58 --> 00:28:20,49
+and figure out what what humorous So next time somebody says something humorous the machine will know
+
+246
+00:28:20,6 --> 00:28:22,79
+and to be able to laugh voice.
+
+247
+00:28:25,77 --> 00:28:30,66
+How do they know it's funny from learning from so in the learning algorithms
+
+248
+00:28:30,84 --> 00:28:36,2
+and they bought the machines to see examples many many examples millions of sentences.
+
+249
+00:28:36,66 --> 00:28:41,39
+You know a lot of thousands and tens of thousands of T.V. Shows where people laugh.
+
+250
+00:28:42,28 --> 00:28:48,86
+So for example humor consists of you know how do you tell a joke. Usually there's a trigger.
+
+251
+00:28:48,99 --> 00:28:51,36
+There's a set up there's a trigger and the punchline.
+
+252
+00:28:51,92 --> 00:28:57,37
+So machines were in the machine was see that in all these comedy shows like humans do.
+
+253
+00:28:57,87 --> 00:29:03,03
+And then they will pick up you know when there will be a punch line and they know that is humor
+
+254
+00:29:03,38 --> 00:29:10,04
+and the over the machine algorithm learning our more use currently is what was coming in know was deep learning
+
+255
+00:29:10,04 --> 00:29:15,78
+algorithm. So how do you.
+
+256
+00:29:16,52 --> 00:29:23,84
+So we use a machine learning to teach robot to learn about our emotions sentiments including humor machine learning
+
+257
+00:29:23,84 --> 00:29:30,83
+there are two kinds of machine learning approaches one is what we call supervised learning the other is unsupervised
+
+258
+00:29:31,13 --> 00:29:35,55
+supervised learning we actually give machines examples and we have them.
+
+259
+00:29:36,24 --> 00:29:41,04
+We have the data and notated by humans humans says look this is a sentence that humorous.
+
+260
+00:29:41,3 --> 00:29:45,08
+This isn't is there's a punchline for a joke and this is where people laugh.
+
+261
+00:29:45,25 --> 00:29:52,39
+So that's cos a proviso learning machine learn from that to have a sense of humor as supervised learning is more like
+
+262
+00:29:52,39 --> 00:29:53,46
+how humans learn.
+
+263
+00:29:53,69 --> 00:30:00,67
+We don't tell the machine explicitly this is a human it is not humorous and we just give a lot of data.
+
+264
+00:30:00,88 --> 00:30:05,7
+For the machine to learn from context. So the unsupervised learning is really were.
+
+265
+00:30:05,73 --> 00:30:10,13
+We hope to achieve in the future because if machine can't have unsupervised learning.
+
+266
+00:30:10,31 --> 00:30:14,66
+Then we don't need human explicitly teaching machines all the time. This is humor.
+
+267
+00:30:14,81 --> 00:30:20,32
+This is happiness and other so that was save a lot of effort from from the humanities
+
+268
+00:30:20,78 --> 00:30:27,32
+and supervised learning is harder though because it will require a lot of general learning abilities
+
+269
+00:30:27,32 --> 00:30:37,73
+and general deduction abilities induction and I believe it will require machines to have sensory input to know how.
+
+270
+00:30:40,8 --> 00:30:44,82
+So conscious of scientists I've been studying how humans learn.
+
+271
+00:30:45,15 --> 00:30:51,34
+So they believe that humans have of course we have we're born with some kind of learning abilities innate
+
+272
+00:30:52,1 --> 00:30:58,8
+when babies are born they already know how to they already know how to recognise their mothers for faces
+
+273
+00:30:58,8 --> 00:31:07,66
+and voices they already picking up from ten months in their mother's tummy just. Do we know people.
+
+274
+00:31:10,07 --> 00:31:15,23
+We don't know exactly how we are and supervise we're trying to model that.
+
+275
+00:31:15,5 --> 00:31:18,72
+So another side of working on robots is that
+
+276
+00:31:19,00 --> 00:31:24,02
+when we want to build robots to be more human like we have Bill models of human thinking.
+
+277
+00:31:24,34 --> 00:31:32,13
+So as we research on how to make robots to have a sense of humor. We understand human sense of humor better.
+
+278
+00:31:32,38 --> 00:31:37,63
+So as we learn. As the machine we learn we also learn how we function.
+
+279
+00:31:37,89 --> 00:31:41,94
+So we don't know exactly how we how we how we learn
+
+280
+00:31:41,94 --> 00:31:47,56
+and surprise words fashion for which trying to to to to research on that. That's a.
+
+281
+00:31:48,38 --> 00:31:50,00
+That's a very important research direction.
+
+282
+00:31:51,12 --> 00:31:59,97
+So I mean there's a lot of talk about artificial and what condition of artificial.
+
+283
+00:32:02,79 --> 00:32:09,77
+So the condition of artificial intelligence we are trying to work in towards the what some people call strongly I would
+
+284
+00:32:09,77 --> 00:32:14,16
+say is a general purpose system or general purpose robot.
+
+285
+00:32:14,52 --> 00:32:22,04
+Today we're only working we're still only working on a single purpose or multipurpose robots that can do one task.
+
+286
+00:32:22,33 --> 00:32:27,98
+You know heard of you know of our goal beating the World Champion go
+
+287
+00:32:28,38 --> 00:32:36,08
+and their systems there can you know lift heavy weights and assemble cars. These are single purpose robotic systems.
+
+288
+00:32:36,31 --> 00:32:42,74
+So we're working towards a general purpose robotic system they can really be your companion take care of people in that
+
+289
+00:32:42,74 --> 00:32:49,71
+case then they're Obama's have intelligence to be more human like and for humane colleges
+
+290
+00:32:49,9 --> 00:32:56,16
+and pathy is indispensable in must recognize not just in what people are saying
+
+291
+00:32:56,27 --> 00:32:58,56
+but how people are saying what you truly mean.
+
+292
+00:32:58,99 --> 00:33:07,64
+So empathy is important you motion the intelligence is a huge part of human intelligence. You should just mention.
+
+293
+00:33:07,67 --> 00:33:10,97
+Without I think it would cannot call a system
+
+294
+00:33:10,97 --> 00:33:22,05
+or robot human like intelligent without without empathy is that what it's like because it's has been lacking in our
+
+295
+00:33:22,05 --> 00:33:28,99
+discussion of building AI systems for the last thirty years but it's coming now and.
+
+296
+00:33:29,63 --> 00:33:32,47
+I'm happy to say that I've been talking about her
+
+297
+00:33:32,47 --> 00:33:40,06
+and some other researchers also working on this because you're working. Years and working on this.
+
+298
+00:33:41,22 --> 00:33:46,15
+That is a new direction and people in general agree with with this direction.
+
+299
+00:33:46,18 --> 00:33:57,75
+So yeah there are researchers working towards this goal as well there's agreement in terms of that free. Work.
+
+300
+00:34:00,18 --> 00:34:04,75
+Something. I think people are afraid of the unknown people always afraid of the UNO.
+
+301
+00:34:05,21 --> 00:34:09,33
+I think if you if we go back in time in one nine hundred fifty S.
+
+302
+00:34:09,33 --> 00:34:14,14
+and Describe today's internet and smart smartphones and how we use them
+
+303
+00:34:14,59 --> 00:34:20,01
+and how we can get access to good material as well as bad material at your fingertips.
+
+304
+00:34:20,33 --> 00:34:25,38
+We told people in the fifty's about this today they will also be very very afraid.
+
+305
+00:34:26,04 --> 00:34:31,52
+What happens is that we adapt to technology just like a technology adaptors I dabs to ask.
+
+306
+00:34:31,88 --> 00:34:34,31
+So it doesn't happen overnight
+
+307
+00:34:34,74 --> 00:34:40,79
+and we've been living without a vision Teligent for a long time already starting with all those are dramatic
+
+308
+00:34:41,45 --> 00:34:45,4
+calculators and then you know we are all we would take an airplane with
+
+309
+00:34:45,61 --> 00:34:52,3
+or without you know being afraid that it's being flown by a computer actually so we've been living with artificial
+
+310
+00:34:52,3 --> 00:34:53,58
+intelligence for a long time.
+
+311
+00:34:53,89 --> 00:35:00,47
+It's just you know gradually we're going to get used to pollution of such intelligent machines they will gradually be
+
+312
+00:35:00,47 --> 00:35:05,58
+able to talk to us and they will gradually be able to empathise with our feelings
+
+313
+00:35:05,87 --> 00:35:12,31
+and they will gradually will be able to do more to help us all get used to step by step. It doesn't happen overnight.
+
+314
+00:35:12,85 --> 00:35:31,67
+But what we ought to show. That's what fish. Robert. I mean we are called you talk about robots with heart.
+
+315
+00:35:31,91 --> 00:35:34,11
+Can you talk a little bit more about.
+
+316
+00:35:36,55 --> 00:35:45,26
+Yes So with empathy in the robot a robot would never behave and learn and and understand like a human being.
+
+317
+00:35:45,57 --> 00:35:47,24
+So without empathy.
+
+318
+00:35:47,27 --> 00:35:50,5
+I would say that the robot will not be human like
+
+319
+00:35:50,99 --> 00:36:00,29
+and I'm told will be limited thing is most important to our discussion about the artificial.
+
+320
+00:36:02,67 --> 00:36:11,14
+The entire discussion about of intelligence does include that today and I'm one of the people who would champion it
+
+321
+00:36:11,17 --> 00:36:15,14
+and and in general there's a general agreement that it is needed
+
+322
+00:36:15,28 --> 00:36:20,88
+but a vision to fight a vision TELEGIN that people work on different components of artificial intelligence
+
+323
+00:36:21,43 --> 00:36:26,13
+and those of us working on the emotional recognition.
+
+324
+00:36:26,33 --> 00:36:32,29
+Certainly see this as our our job to make that happen to make robots have empathy.
+
+325
+00:36:33,81 --> 00:36:47,54
+If you look further for future reference communication is not a good start.
+
+326
+00:36:47,84 --> 00:37:02,56
+Or whatsoever larger than your old mind for me to do so much. So yes. What's interesting today.
+
+327
+00:37:02,61 --> 00:37:10,6
+What's happening already. Is that my mind and your mind are no longer limited from by our own life experience. If you.
+
+328
+00:37:10,61 --> 00:37:16,43
+You know twenty years ago I wouldn't know how to respond to a lot of questions way that I'm not an expert in
+
+329
+00:37:16,43 --> 00:37:23,67
+but today anybody with access to the Internet and we computer can tell you a lot of things about a specific topic.
+
+330
+00:37:24,42 --> 00:37:32,91
+So our human mind and how human knowledge has evolved. We're already connected to this vast network of minds.
+
+331
+00:37:33,56 --> 00:37:42,74
+So you can pull up You Tube video to learn how to cook any any kind of food you can pull up a computer page to learn
+
+332
+00:37:42,74 --> 00:37:47,86
+about any particular technical topic or political topic of some history
+
+333
+00:37:47,86 --> 00:37:54,17
+and that happens isn't Taney Asli So is that part of my mind already. Or is part of the world.
+
+334
+00:37:54,19 --> 00:38:00,37
+We already are connected. So in the future when robots and hence our physical abilities.
+
+335
+00:38:01,14 --> 00:38:07,51
+They were also and hence our mental abilities. When that happens there would be basically on top of the Internet.
+
+336
+00:38:07,53 --> 00:38:13,82
+We have access to will also have this robot and has our ability to understand the knowledge.
+
+337
+00:38:14,59 --> 00:38:21,49
+And so there was that would be another layer of intelligence the hands of human intelligence. Just like today.
+
+338
+00:38:21,53 --> 00:38:27,9
+There's a robotic system thing help people who cannot walk walk. Those S.
+
+339
+00:38:27,9 --> 00:38:34,69
+or Skeleton robots they can help people become stronger physically robots can also
+
+340
+00:38:34,69 --> 00:38:44,24
+and our intelligence to to enable us to know more to be able to do more and think better with the help of the robots.
+
+341
+00:38:45,29 --> 00:38:53,21
+You can explain more. What you mean.
+
+342
+00:38:53,36 --> 00:39:04,7
+So to Bill robots with all the components of humane Teligent human learning abilities human perception human memory
+
+343
+00:39:04,7 --> 00:39:09,46
+and human judgment. Human values.
+
+344
+00:39:09,97 --> 00:39:17,45
+So a long list of this things my wildest dream will be able to do that and teach that to a robot
+
+345
+00:39:17,45 --> 00:39:20,8
+and for example for a robot to copy all of that from me
+
+346
+00:39:20,8 --> 00:39:27,81
+and my personal experience my memory my judgment my values which evolve as well so.
+
+347
+00:39:28,66 --> 00:39:37,92
+It's a it's it's like a copy of of a person of me and I when I'm not around that copy will continue.
+
+348
+00:39:37,94 --> 00:39:39,58
+Maybe we'll continue to talk to my children.
+
+349
+00:39:40,39 --> 00:39:45,24
+Talk to my children's children but they know it's not me you know the normal me but it's a copy
+
+350
+00:39:45,24 --> 00:39:57,33
+but there will be interesting to replicate. Before I die so and I see where it's really not. A replica a replicant.
+
+351
+00:39:58,39 --> 00:40:02,94
+You know you think a run. I'm a huge fan of player and.
+
+352
+00:40:05,05 --> 00:40:11,06
+Yeah my wildest dream will have replicants But rebel guns also know there are click
+
+353
+00:40:11,06 --> 00:40:20,84
+and they don't they don't fool people into thinking they're human beings. I mean what if it doesn't have to be me.
+
+354
+00:40:20,86 --> 00:40:28,67
+It can be anybody but if you calculate your. Yes.
+
+355
+00:40:28,68 --> 00:40:39,06
+What would you think I mean I don't know I'm curious to know I don't know that happened without being me
+
+356
+00:40:39,06 --> 00:40:43,38
+or that be just a copy of me I considered today weak.
+
+357
+00:40:43,52 --> 00:40:49,34
+We have people who can build a robot that physically looks like me writing exactly a copy of me
+
+358
+00:40:49,34 --> 00:40:52,4
+but intelligence wise and memory
+
+359
+00:40:52,4 --> 00:41:00,98
+and all that it's not because it's new it's still very very far from being a complete copy of it after a real human
+
+360
+00:41:00,98 --> 00:41:09,71
+being. So if we have a more almost perfect copy. Would there still be just the copy I think is just a copy.
+
+361
+00:41:09,73 --> 00:41:17,95
+It's not me. It's not so much or no. It would be my avatar. I was there would be my avatar.
+
+362
+00:41:18,41 --> 00:41:27,96
+There would be Avatar and physical and mental level best to an avatar not to the real me. Maybe you can do the task.
+
+363
+00:41:27,99 --> 00:41:28,72
+I can do.
+
+364
+00:41:28,74 --> 00:41:37,4
+I don't know maybe you can continue to teach it will be an avatar would be something like three
+
+365
+00:41:37,4 --> 00:41:48,13
+or forty photographs for you at your current I'm actually thinking it's going to be a physical body with very human
+
+366
+00:41:48,13 --> 00:41:54,6
+like skin them very human like everything. There are people working on building that.
+
+367
+00:41:54,74 --> 00:42:00,74
+So I think that's entirely possible in twenty years the body is possible but the mind.
+
+368
+00:42:01,5 --> 00:42:03,98
+You know because we don't understand the mind completely.
+
+369
+00:42:04,01 --> 00:42:11,59
+So how you know component by component module by Miller module we're building the mind into the robot
+
+370
+00:42:12,29 --> 00:42:17,32
+and today we're still talking about service robots at home robots that do particular tasks.
+
+371
+00:42:18,41 --> 00:42:24,35
+And we're still not building a general purpose human like robot like a replicant we're not doing that yet
+
+372
+00:42:24,76 --> 00:42:32,98
+and we don't have an interest a specific interest in doing that it would be more like a scientific pursue because we
+
+373
+00:42:32,98 --> 00:42:38,55
+don't know what we need why do we need a general purpose robot that's exactly like me was the fun in the application of
+
+374
+00:42:38,55 --> 00:42:40,37
+that there's no applications at that
+
+375
+00:42:40,61 --> 00:42:46,41
+but that would be that will serve us like a scientific quest rather than engineering.
+
+376
+00:42:46,7 --> 00:42:53,95
+You know application rather than a commercial purpose scientific quest as I mentioned earlier when we study a robot
+
+377
+00:42:54,21 --> 00:42:58,9
+when we model intelligence for robot we're also modeling human intelligence.
+
+378
+00:42:59,05 --> 00:43:02,73
+We're studying humans at the same time and that is interesting to me.
+
+379
+00:43:03,76 --> 00:43:08,71
+So people want to watch you know if somebody were with.
+
+380
+00:43:09,42 --> 00:43:13,79
+But you know many people who work our division encourages our huge science fiction fan.
+
+381
+00:43:15,29 --> 00:43:18,49
+We're just naturally attracted with science fiction's if we were young
+
+382
+00:43:18,49 --> 00:43:26,04
+and then we got into this area because of that any of us are many. You had to make into reality.
+
+383
+00:43:26,57 --> 00:43:33,21
+And I think it's fair to say that a lot of our imagination are shaped by a science fiction. We grew up with.
+
+384
+00:43:33,78 --> 00:43:40,19
+And so you will see things that look science fiction like and there's not a coincidence just were shaped by that.
+
