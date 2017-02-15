@@ -1,1 +1,1 @@
-Erik Demaine (mathematician, USA) - Understanding complex problems and designs solutions through play and gaming
+Understanding complex problems and design solutions through play and gaming

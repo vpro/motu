@@ -1,1 +1,1 @@
-Charles Spence (psychologist, UK) - on reprogramming and enhancing your senses.
+Reprogramming and enhancing our senses through better understanding of smell, taste, vision, touch, sound

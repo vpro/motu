@@ -1,1 +1,1 @@
-Michel Poulain (social scientist, B) - Research on communities where people get significantly older than other parts of the world (centennials)
+Unraveling the secret of a long and healthy life by studying blue zones, communities with high percentage of super old people

@@ -1,1 +1,1 @@
-Ron Fouchier (microbiologist, NL) - on the interaction between the world of viruses and our own world
+Understanding the virus world, protecting ourself against viruses and using them as medicine for untreatable sickness

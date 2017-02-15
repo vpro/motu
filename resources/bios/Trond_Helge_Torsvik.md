@@ -1,1 +1,1 @@
-Trond Helge Torsvik (geophysicist, Iceland) - Looking for the origins of continental plate tectonics
+Towards a unified theory of the evolution of the earth and what makes our planet unique

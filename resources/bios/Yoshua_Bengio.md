@@ -1,1 +1,1 @@
-Yoshua Bengio (computer scientist, Canada) - On deep learning, how we can create thinking and learning through algorithms.
+Creating self learning, intelligent machines through algorithms

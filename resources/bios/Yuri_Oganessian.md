@@ -1,1 +1,1 @@
-Yuri Oganessian (physician, Russia) - creator of extremely heavy elements (element nr 118 refers to him personally)
+The worldwide hunt for new chemical, super heavy elements in search for the 'island of stability'

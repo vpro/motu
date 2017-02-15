@@ -1,1 +1,1 @@
-Carolina Cruz (computer scientist, USA) - What if real and virtual reality intersect?
+Impacting the world through virtual reality

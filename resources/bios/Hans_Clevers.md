@@ -1,1 +1,1 @@
-Hans Clevers (chemist, NL) - makes organoids (living organs outside the body) out of stem cells
+Replacing worn down body parts through living organs created outside the body

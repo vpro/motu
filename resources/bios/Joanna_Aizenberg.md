@@ -1,1 +1,1 @@
-Joanna Aizenberg (chemist, USA) - Playing with matter gives insights to new and clever materials
+Playing with matter creating new, clever and highly adaptable materials

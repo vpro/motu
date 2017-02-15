@@ -1,1 +1,1 @@
-Nicky Clayton (psychologist, England) - on the Theory of Mind, how people think, what is thinking?
+On the ‘theory of mind’ and how people and animals think

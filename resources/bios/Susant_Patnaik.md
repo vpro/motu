@@ -1,1 +1,1 @@
-Susant Pattnaik (inventor, India) - Serial inventor whose innovations are inspired by local challenges and have an impact on the local community.
+Making the future through innovations inspired by local challenges impacting the local community

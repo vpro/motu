@@ -1,1 +1,1 @@
-Juan Maldacena (theoretical physicist, USA) - working on a new Quantum-Reality theory, he is also known as the 'new Einstein'.
+Called 'the new Einstein', he is working on a new quantum-reality theory

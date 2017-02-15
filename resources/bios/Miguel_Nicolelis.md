@@ -1,1 +1,1 @@
-Miguel Nicolelis (neuro physician, Brazil) - is it possible to create an organic computer and a brain net by connecting human brains?
+Creating an organic computer and a brain net by connecting human brains

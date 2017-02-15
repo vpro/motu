@@ -1,1 +1,1 @@
-Sara Seager (astronomer, USA) - The search for new earths in the Universe
+Searching for new earths and possible alien life in the universe

@@ -29,21 +29,29 @@ class DataLoader():
 		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
 		self.TERM_CLOUD_LIMIT = 50
 		self.WIKI_MAPPING = {
+			'Artur_Avila' : (None, None),#TODO
 			'Carolina_Cruz' : (None, None),
 			'Charles_Spence' : ('Charles_Spence', 'Charles_Spence'),
 			'Donald_Hoffman' : (None, None),
 			'Erik_Demaine' : ('Erik_Demaine', 'Erik_Demaine'),
 			'George_Church' : ('George_M_Church', 'George_M._Church'),
+			'George_Whitesides' : (None, None),#TODO
 			'Guy_Consolmagno' : ('Guy_Consolmagno', 'Guy_Consolmagno'),
+			'Hani_Hayajneh' : (None, None),#TODO
 			'Hans_Clevers' : ('Hans_Clevers', 'Hans_Clevers'),
 			'Jean-Jacques_Hublin' : ('Jean_Jacques_Hublin', 'Jean_Jacques_Hublin'),
+			'Jennifer_Chayes' : (None, None),#TODO
 			'Jian-Wei_Pan' : ('Pan_Jianwei', 'Pan_Jianwei'),
 			'Joanna_Aizenberg' : ('Joanna_Aizenberg', 'Joanna_Aizenberg'),
+			'John_List' : (None, None),#TODO
 			'Juan_Maldacena' : ('Juan_Mart%C3%ADn_Maldacena', 'Juan_Mart%C3%ADn_Maldacena'),
 			'Lee_Cronin' : ('Leroy_Cronin', 'Leroy_Cronin'),
+			'Martin_Rees' : (None, None),#TODO
 			'Michel_Poulin' : (None, None),
 			'Miguel_Nicolelis' : ('Miguel_Nicolelis', 'Miguel_Nicolelis'),
 			'Nicky_Clayton' : ('Nicola_Clayton', 'Nicola_Clayton'),
+			'Pascale_Fung' : (None, None),#TODO
+			'Rick_Tumlinson' : (None, None),#TODO
 			'Ron_Fouchier' : (None, None),
 			'Sara_Seager' : ('Sara_Seager', 'Sara_Seager'),
 			'Segenet_Kelemu' : ('Segenet_Kelemu', 'Segenet_Kelemu'),
@@ -457,6 +465,7 @@ class DataLoader():
 		tags['image'] = 'http://motu.rdlabs.beeldengeluid.nl/static/images/og-image.png'
 		if dataType:
 			if dataType == 'interview':
+				tags['ogtype'] = 'video.movie'
 				tags['keywords'] = ','.join(data['interviewTags'])
 				tags['title'] = data['title']
 				tags['description'] = data['description']

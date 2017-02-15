@@ -1,1 +1,1 @@
-George Church (chemist, USA) - On Crispr Cas, a revolutionary way to edit DNA material
+Transforming the world through the latest gene editing technologies, e.g. Crispr

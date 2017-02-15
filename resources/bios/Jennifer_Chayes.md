@@ -1,0 +1,1 @@
+An influential computer scientist reflecting on how networks  and the world of technology will impact our future lives
