@@ -1,1 +1,1 @@
-On the ‘theory of mind’ and how people and animals think
+On the 'theory of mind' and how people and animals think

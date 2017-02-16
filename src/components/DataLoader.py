@@ -343,12 +343,12 @@ class DataLoader():
 				'output' : 'json'
 			}
 			resp = None
-			"""
+
 			try:
 				resp = requests.post(url, data=params)
 			except ConnectionError, e:
 				print e
-			"""
+
 			if resp and resp.status_code == 200:
 				tc = self.__filterStopWords(json.loads('{ "terms" : %s}' % resp.text))
 				self.__writeToCache(scientistId, 'termcloud-cache', json.dumps(tc))
