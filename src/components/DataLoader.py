@@ -131,6 +131,7 @@ class DataLoader():
 					'shortBio' : self.loadMarkdownFile('bios/%s.md' % scientistId),
 					'poster' : self.__getPosterURL(scientistId)
 				})
+		scientists.sort(key = lambda x: x['name'])
 		return scientists
 
 	#called from the person page
