@@ -132,6 +132,55 @@ class DataLoader():
 		return ['<url><loc>%s</loc></url>' % url]
 
 	"""-----------------------------------------------------------------------------------
+	----------------------------------- EXPLORE PAGE -------------------------------------
+	-----------------------------------------------------------------------------------"""
+
+		#used on the explore page
+	def loadExplorePage(self):
+		tagCloud = {}
+		scientists = []
+
+		cachedData = self.__readFromCache('explore-page', 'termcloud-cache')
+		if cachedData:
+			cache = json.loads(cachedData)
+			tagCloud = cache['tagCloud']
+			scientists = cache['scientists']
+		else:
+			scientists = self.loadScientists()
+			#generate the overall tag cloud
+			for s in scientists:
+				s.pop('bio')
+				s.pop('shortBio')
+				interviewTags = {}
+				interviews = self.__getInterviewsOfScientist(s['id'])
+				for i in interviews:
+					for cl in i['annotations']['classifications']:
+						#first add to the overall tag cloud
+						if cl['label'] in tagCloud:
+							tagCloud[cl['label']] += 1
+						else:
+							tagCloud[cl['label']] = 1
+
+						#then to the scientist tag cloud
+						if cl['label'] in interviewTags:
+							interviewTags[cl['label']] += 1
+						else:
+							interviewTags[cl['label']] = 1
+
+				s['interviewTags'] = interviewTags
+			self.__writeToCache('explore-page', 'termcloud-cache', json.dumps({
+				'tagCloud' : tagCloud,
+				'scientists' : scientists
+			}))
+
+		#sorting and pruning of the tag cloud
+		sortedTags = sorted(tagCloud.iteritems(), key=operator.itemgetter(1), reverse=True)
+		if len(sortedTags) > self.TERM_CLOUD_LIMIT:
+			sortedTags = sortedTags[0:self.TERM_CLOUD_LIMIT]
+		shuffle(sortedTags)
+		return scientists, sortedTags
+
+	"""-----------------------------------------------------------------------------------
 	----------------------------------- SCIENTISTS ---------------------------------------
 	-----------------------------------------------------------------------------------"""
 
@@ -148,7 +197,8 @@ class DataLoader():
 					'shortBio' : self.loadMarkdownFile('bios/%s.md' % scientistId),
 					'poster' : self.__getPosterURL(scientistId)
 				})
-		scientists.sort(key = lambda x: x['name'])
+		#sort by last name
+		scientists.sort(key = lambda x: x['name'][x['name'].rfind(' ')+1:])
 		return scientists
 
 	#called from the person page
@@ -182,35 +232,6 @@ class DataLoader():
 	"""-----------------------------------------------------------------------------------
 	----------------------------------- INTERVIEWS ---------------------------------------
 	-----------------------------------------------------------------------------------"""
-
-	#used on the explore page
-	def loadExplorePage(self):
-		print 'Loading all interviews'
-		interviews = []
-		tagCloud = {}
-		query = {"query":{"bool":{"must":[{"match_all":{}}],"must_not":[],"should":[]}},"from":0,"size":50,"sort":[],"aggs":{}}
-		url = '%s/search/motu' % self.config['SEARCH_API']
-		resp = requests.post(url, data=json.dumps(query))
-		if resp and resp.status_code == 200:
-			result = json.loads(resp.text)
-			for hit in result['hits']['hits']:
-				interview = self.__formatInterview(hit, False, False)
-				interview.pop('annotations', None)
-				if 'interviewTags' in interview:
-					for tag in interview['interviewTags']:
-						if tag in tagCloud:
-							tagCloud[tag] += 1
-						else:
-							tagCloud[tag] = 1
-				if interview:
-					interviews.append(interview)
-
-		#sorting and pruning of the tag cloud
-		sortedTags = sorted(tagCloud.iteritems(), key=operator.itemgetter(1), reverse=True)
-		if len(sortedTags) > self.TERM_CLOUD_LIMIT:
-			sortedTags = sortedTags[0:self.TERM_CLOUD_LIMIT]
-		shuffle(sortedTags)
-		return interviews, sortedTags
 
 	#used for the play-out page
 	def loadInterview(self, interviewId):
@@ -453,8 +474,8 @@ class DataLoader():
 	-----------------------------------------------------------------------------------"""
 
 	#cacheType = wikipedia-cache OR termcloud-cache
-	def __writeToCache(self, scientistId, cacheType, data):
-		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
+	def __writeToCache(self, cacheId, cacheType, data):
+		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, cacheId)
 		f = codecs.open(cacheFile, 'w+', 'utf-8')
 		try:
 			f.write(data)
@@ -462,9 +483,9 @@ class DataLoader():
 			print e
 		f.close()
 
-	def __readFromCache(self, scientistId, cacheType):
+	def __readFromCache(self, cacheId, cacheType):
 		data = None
-		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
+		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, cacheId)
 		if os.path.exists(cacheFile):
 			f = codecs.open(cacheFile, 'r', 'utf-8')
 			data = f.read()

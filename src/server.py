@@ -22,8 +22,23 @@ def score_to_fontsize(size):
 	return 12 + size
 	return size
 
+def score_to_fontcolor(size):
+	if size == 1:
+		return 'lightgray'
+	elif size == 2:
+		return 'silver'
+	elif size == 3:
+		return 'darkgray'
+	elif size == 4:
+		return 'gray'
+	elif size == 5:
+		return 'dimgray'
+	else:
+		return 'black'
+
 app = Flask(__name__)
 app.jinja_env.globals.update(score_to_fontsize=score_to_fontsize)
+app.jinja_env.globals.update(score_to_fontcolor=score_to_fontcolor)
 app.debug = True
 
 import settings
@@ -143,9 +158,9 @@ def scientist():
 @app.route('/explore')
 @nocache
 def explore():
-	interviews, tagCloud = _dataLoader.loadExplorePage()
+	scientists, tagCloud = _dataLoader.loadExplorePage()
 	return render_template('explore.html',
-		interviews=interviews,
+		scientists=scientists,
 		tagCloud=tagCloud,
 		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)

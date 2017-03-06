@@ -28,33 +28,48 @@
 	</ol>
 
 	<div class="container">
+		<h1>See who's talking about what</h1>
+
+		<!-- TAG CLOUD -->
 		<div class="row">
-			<!-- TAG CLOUD -->
 			<div class="col-md-12">
-				<div class="tag-cloud">
+				<div class="explore-options">
 					{% for tag in tagCloud %}
-						<a href="javascript:void(0);" onclick="alert('test');">
-							<span class="data">{{tag[0]}}</span>
+						<a id="{{tag[0]}}" class="explore-tag" href="javascript:void(0);" onclick="highlight('{{tag[0]}}')">
+							<span class="data" style="color:{{score_to_fontcolor(tag[1])}};">{{tag[0]}}</span>
 						</a>
 					{% endfor %}
 				</div>
 			</div>
 		</div>
+
+		<br/>
+
+		<!-- THE SCIENTISTS -->
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Explore the available interviews</h1>
-				{% for i in interviews %}
-				<div class="col-md-4 scientist">
-					<a href="/play?id={{i.id}}">
-						<div class="scientist-image-container" style="background-image: url({{i.poster}})">
-							<h4 class="media-heading">
-								{{i.name}}
-							</h4>
-						</div>
-						{{i.title}}
-					</a>
+
+				{% for scientist in scientists | batch(6, '&nbsp;') %}
+
+				<div class="row">
+
+
+					{% for s in scientist %}
+					<div id="{{s.id}}" class="col-md-2 scientist">
+						<a href="/scientist?id={{s.id}}">
+							<div class="scientist-image-container" style="background-image: url({{s.poster}})">
+								<h4 class="media-heading">
+									{{s.name}}
+								</h4>
+							</div>
+							&nbsp;
+						</a>
+					</div>
+					{% endfor %}
 				</div>
+
 				{% endfor %}
+
 			</div>
 		</div>
 	</div>
@@ -62,5 +77,10 @@
 	{% include 'footer.html' %}
 
 </body>
+<script>
+	var temp = '{{scientists|tojson|safe}}';
+	var _scientists = JSON.parse(temp)
+</script>
+<script src="/static/js/motu-explore.js"></script>
 
 </html>
