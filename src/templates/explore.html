@@ -1,0 +1,43 @@
+<!doctype HTML>
+
+<html>
+
+<head>
+	<title>Mind of the Universe | Expore</title>
+	 {% include 'head.html' %}
+</head>
+
+<body>
+
+	{% with page='explore' %}
+    {% include 'nav.html' %}
+    {% endwith %}
+
+	<ol class="breadcrumb container">
+
+		<li class="breadcrumb-item active">
+			<a href="/">Home</a>
+		</li>
+
+		<li class="breadcrumb-item">
+			Explore
+		</li>
+
+		{% include 'share.html' %}
+
+	</ol>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Explore the available interviews</h1>
+
+			</div>
+		</div>
+	</div>
+
+	{% include 'footer.html' %}
+
+</body>
+
+</html>

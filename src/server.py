@@ -140,6 +140,13 @@ def scientist():
 			)
 	return render_template('404.html'), 404
 
+@app.route('/explore')
+@nocache
+def explore():
+	return render_template('explore.html',
+		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
+	)
+
 @app.route('/search')
 @nocache
 def search():
