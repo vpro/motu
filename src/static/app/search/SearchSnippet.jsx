@@ -63,13 +63,13 @@ class SearchSnippet extends React.Component {
 		//see if there are any tags added to this search result
 		if(this.props.data.tags) {
 			tags = this.props.data.tags.map((t, index) => {
-				return (<span key={'tag__' + index} className="label label-primary tag">{t}</span>);
+				return (<span key={'tag__' + index} className="tag">{t}</span>);
 			})
 		}
 
 		return (
 			<div className="media">
-				<div className="media-left">
+				<div className="media-left media-middle">
 					<a href="#">
 						{poster}
 					</a>
@@ -80,6 +80,7 @@ class SearchSnippet extends React.Component {
 						{this.props.data.date ? '(' + this.props.data.date + ')' : ''}
 					</h4>
 					{this.highlightSearchTermInDescription(this.props.data.description)}
+					&nbsp;
 					{tags}
 				</div>
 			</div>

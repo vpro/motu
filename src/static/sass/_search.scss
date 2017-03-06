@@ -4,19 +4,14 @@
 
 .search-result {
 	@include block;
-	margin: 0 0 40px 0;
 	padding: 10px;
 	cursor: pointer;
-
+	border-radius:8px;
+	background-color: #fff;
+	border: 1px solid #fff;
 	&:hover {
-		background-color: #e3e3e3;
-	}
-	.fragment-hit {
-
-		&:hover {
-			background-color: #aaa;
-		}
-
+		border: 1px solid #666;
+		box-shadow: 2px 2px 2px #aaa;
 	}
 }
 
@@ -28,12 +23,12 @@
 }
 
 .tag {
-	font-size: 100% !important;
+	font-size: 80% !important;
 	display: inline-block !important;
 	margin: 0 5px 5px 0;
 	font-weight: normal;
-	background: $vproDarkGold;
-	color: #fff;
+	color: #666;
+	text-transform:uppercase;
 }
 
 /* facets on the left side */
@@ -43,7 +38,7 @@
 	margin: 0;
 	padding: 0;
 	.facet-item {
-		color: $vproBlue;
+		color: #333;
 		&:hover {
 			color:#ccc;
 		}
@@ -51,7 +46,7 @@
 }
 
 .facet-item :hover {
-	color: $vproBlue;
+	color: #aaa;
 }
 
 .media-body-intro {

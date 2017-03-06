@@ -21,65 +21,67 @@ class FlexPaging extends React.Component {
 		let showFirst = false;
 		let showNext = false;
 		let showLast = false;
-		if(this.props.numPages > this.state.MAX_BUTTONS) {
-			if(this.props.currentPage > 5) {
-				start = this.props.currentPage - 3;
-				showFirst = true;
-				if(start > this.state.MAX_BUTTONS) {
-					showPrevious = true;
+		if(this.props.numPages > 1) {
+			if(this.props.numPages > this.state.MAX_BUTTONS) {
+				if(this.props.currentPage > 5) {
+					start = this.props.currentPage - 3;
+					showFirst = true;
+					if(start > this.state.MAX_BUTTONS) {
+						showPrevious = true;
+					}
+				}
+				if(start + this.state.MAX_BUTTONS > this.props.numPages) {
+					end = this.props.numPages;
+				} else {
+					end = start + this.state.MAX_BUTTONS;
+				}
+				if(end < this.props.numPages) {
+					showLast = true;
+				}
+				if(end + this.state.MAX_BUTTONS < this.props.numPages) {
+					showNext = true;
 				}
 			}
-			if(start + this.state.MAX_BUTTONS > this.props.numPages) {
-				end = this.props.numPages;
-			} else {
-				end = start + this.state.MAX_BUTTONS;
+			if(showFirst) {
+				pagingButtons.push(
+					<button key="__first_page" type="button" className="btn btn-default"
+						onClick={this.gotoPage.bind(this, 1)}>
+						First
+					</button>);
 			}
-			if(end < this.props.numPages) {
-				showLast = true;
+			if(showPrevious) {
+				pagingButtons.push(
+					<button key="__previous_pages" type="button" className="btn btn-default"
+						onClick={this.gotoPage.bind(this, start - this.state.MAX_BUTTONS)}>
+						Previous
+					</button>);
 			}
-			if(end + this.state.MAX_BUTTONS < this.props.numPages) {
-				showNext = true;
+			for(let i=start;i<=end;i++) {
+				let className = 'btn btn-default';
+				if(this.props.currentPage == i) {
+					className += ' active';
+				}
+				pagingButtons.push(
+					<button key={i} type="button" className={className}
+						onClick={this.gotoPage.bind(this, i)}>
+						{i}
+					</button>
+				);
 			}
-		}
-		if(showFirst) {
-			pagingButtons.push(
-				<button key="__first_page" type="button" className="btn btn-default"
-					onClick={this.gotoPage.bind(this, 1)}>
-					First
-				</button>);
-		}
-		if(showPrevious) {
-			pagingButtons.push(
-				<button key="__previous_pages" type="button" className="btn btn-default"
-					onClick={this.gotoPage.bind(this, start - this.state.MAX_BUTTONS)}>
-					Previous
-				</button>);
-		}
-		for(let i=start;i<=end;i++) {
-			let className = 'btn btn-default';
-			if(this.props.currentPage == i) {
-				className += ' active';
+			if(showNext) {
+				pagingButtons.push(
+					<button key="__next_pages" type="button" className="btn btn-default"
+						onClick={this.gotoPage.bind(this, end + 1)}>
+						Next
+					</button>);
 			}
-			pagingButtons.push(
-				<button key={i} type="button" className={className}
-					onClick={this.gotoPage.bind(this, i)}>
-					{i}
-				</button>
-			);
-		}
-		if(showNext) {
-			pagingButtons.push(
-				<button key="__next_pages" type="button" className="btn btn-default"
-					onClick={this.gotoPage.bind(this, end + 1)}>
-					Next
-				</button>);
-		}
-		if(showLast) {
-			pagingButtons.push(
-				<button key="__last_page" type="button" className="btn btn-default"
-					onClick={this.gotoPage.bind(this, this.props.numPages)}>
-					Last
-				</button>);
+			if(showLast) {
+				pagingButtons.push(
+					<button key="__last_page" type="button" className="btn btn-default"
+						onClick={this.gotoPage.bind(this, this.props.numPages)}>
+						Last
+					</button>);
+			}
 		}
 		return (
 			<div className="btn-group" role="group" aria-label="...">

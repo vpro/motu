@@ -16,22 +16,34 @@ class SearchEngine():
 	def fragmentSearch(self, params):
 		url = '%s/layered_search/motu' % self.config['SEARCH_API']
 		params['desiredFacets'] = self.getDesiredFacets()
+		params['innerHitsSize'] = 10
 		resp = requests.post(url, data=json.dumps(params))
 		if resp.status_code == 200:
 			return json.loads(resp.text)
 		return None
 
 
+	"""
+	,
+	{
+		'field' : 'name',
+		'title' : 'Researchers'
+	},
+	{
+		'field' : 'tags_raw',
+		'title' : 'Interview tags'
+	},
+	{
+		'field' : 'placeOfResidence',
+		'title' : 'Place of residence'
+	},
+	{
+		'field' : 'nationality',
+		'title' : 'Nationality'
+	}
+	"""
 	def getDesiredFacets(self):
 		return [
-			{
-				'field' : 'name',
-				'title' : 'Researchers'
-			},
-			{
-				'field' : 'tags_raw',
-				'title' : 'Interview tags'
-			},
 			{
 				'field' : 'body.value.tags_raw',
 				'title' : 'Segment tags',
@@ -39,15 +51,7 @@ class SearchEngine():
 			},
 			{
 				'field' : 'body.value.keyMoments',
-				'title' : 'Key moments',
+				'title' : 'Interview topics',
 				'type' : 'nested'
-			},
-			{
-				'field' : 'placeOfResidence',
-				'title' : 'Place of residence'
-			},
-			{
-				'field' : 'nationality',
-				'title' : 'Nationality'
 			}
 		]
