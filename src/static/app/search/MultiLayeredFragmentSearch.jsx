@@ -10,7 +10,7 @@ class MultiLayeredFragmentSearch extends React.Component {
 		super(props);
 		this.state = {
 			pageSize : 25,
-			searchLayers : {'motu' : true, 'motu__srt' : false, 'motu__topics' : true},
+			searchLayers : {'motu' : false, 'motu__srt' : false, 'motu__topics' : true},
 			displayFacets : true,
 			aggregations : {},
 			selectedFacets : this.props.searchParams ? this.props.searchParams.facets : {},
@@ -293,7 +293,7 @@ class MultiLayeredFragmentSearch extends React.Component {
 			}
 
 			//draw the result stats
-			resultStats = (<h6>Found media objects: {this.state.totalUniqueHits}/{numResults}</h6>);
+			//resultStats = (<h6>Found media objects: {this.state.totalUniqueHits}/{numResults}</h6>);
 
 			//draw the paging buttons
 			if(this.state.currentPage > 0) {
@@ -312,13 +312,11 @@ class MultiLayeredFragmentSearch extends React.Component {
 					<div className="col-md-12">
 						<form className="form-inline">
 							<div className="form-group">
-								<label htmlFor="search_term">Search</label>
-								&nbsp;
 								<input type="text" className="form-control" style={{width: '500px'}} id="search_term"
 									ref="searchTerm" placeholder="Search"/>
 							</div>
 							&nbsp;
-							<button className="btn btn-default" onClick={this.newSearch.bind(this)}>Submit</button>
+							<button className="btn btn-default" onClick={this.newSearch.bind(this)}>Search</button>
 						</form>
 					</div>
 				</div>

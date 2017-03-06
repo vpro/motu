@@ -58,18 +58,18 @@ const DataFormatter = {
 	getFacets() {
 		return [
 			{
-				field : 'name',
-				title : 'Researchers'
-			},
-			{
 				field : 'body.value.tags_raw',
 				title : 'Segment tags',
 				type : 'nested'
 			},
 			{
 				field : 'body.value.keyMoments',
-				title : 'Key moments',
+				title : 'Interview topics',
 				type : 'nested'
+			}/*,
+			{
+				field : 'name',
+				title : 'Researchers'
 			},
 			{
 				field : 'tags_raw',
@@ -82,7 +82,7 @@ const DataFormatter = {
 			{
 				field : 'nationality',
 				title : 'Nationality'
-			}
+			}*/
 		]
 	}
 }

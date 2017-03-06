@@ -18,10 +18,10 @@ function highlight(tag) {
 	//reset all the tags
 	var ets = document.getElementsByClassName('explore-tag');
 	for(var i=0;i<ets.length;i++) {
-		document.getElementById(ets[i].id).className = 'explore-tag';
+		document.getElementById(ets[i].id).className = 'data explore-tag';
 	}
 
 	//highlight the selected tag
-	document.getElementById(tag).className = 'explore-tag active';
+	document.getElementById(tag).className = 'data explore-tag active';
 
 }

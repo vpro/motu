@@ -9046,42 +9046,46 @@ h4 {
 }
 /* line 237, ../sass/_home.scss */
 .explore-options a {
+  text-decoration: none;
   margin: 2px;
   padding: 2px 6px;
   white-space: nowrap;
-  color: #000;
   border-radius: 4px;
   display: inline-block;
   text-transform: lowercase;
 }
-/* line 247, ../sass/_home.scss */
+/* line 246, ../sass/_home.scss */
 .explore-options a:hover {
   background: #333;
   color: #fff;
 }
 
-/* line 257, ../sass/_home.scss */
+/* line 253, ../sass/_home.scss */
 .active.explore-tag {
-  color: red;
+  border-bottom: 2px solid #0af;
 }
 
-/* line 265, ../sass/_home.scss */
+/* line 259, ../sass/_home.scss */
+.active.scientist .scientist-image-container {
+  box-shadow: 2px 2px 2px #0af;
+}
+/* line 261, ../sass/_home.scss */
 .active.scientist .scientist-image-container .media-heading {
-  color: red;
+  color: #0af;
 }
 
 /* ------------ scientist.html ------------ */
-/* line 274, ../sass/_home.scss */
+/* line 271, ../sass/_home.scss */
 .scientist img {
   width: 100%;
 }
 
-/* line 280, ../sass/_home.scss */
+/* line 277, ../sass/_home.scss */
 .scientist-photo img {
   height: 200px;
 }
 
-/* line 285, ../sass/_home.scss */
+/* line 282, ../sass/_home.scss */
 .scientist-bio {
   margin-top: 20px;
 }
@@ -9090,12 +9094,12 @@ h4 {
   font-weight: bold;
 }
 
-/* line 290, ../sass/_home.scss */
+/* line 287, ../sass/_home.scss */
 .scientist-bio-image {
   width: 100%;
 }
 
-/* line 294, ../sass/_home.scss */
+/* line 291, ../sass/_home.scss */
 .scientist-bio-text {
   max-height: 11em;
   overflow: hidden;
@@ -9105,7 +9109,7 @@ h4 {
 }
 
 /* ------------ play.html ------------ */
-/* line 306, ../sass/_home.scss */
+/* line 303, ../sass/_home.scss */
 #transcript-controls {
   height: 300px;
   width: 100%;
@@ -9114,58 +9118,58 @@ h4 {
   border: 1px solid #ccc;
 }
 
-/* line 314, ../sass/_home.scss */
+/* line 311, ../sass/_home.scss */
 .segment-nav {
   height: 270px;
   width: 100%;
 }
 
-/* line 319, ../sass/_home.scss */
+/* line 316, ../sass/_home.scss */
 .segment-list {
   height: 100%;
   overflow-y: auto;
   border: 1px solid #ccc;
 }
-/* line 324, ../sass/_home.scss */
+/* line 321, ../sass/_home.scss */
 .segment-list .data {
   color: #666;
   font-size: 12px;
 }
 
-/* line 330, ../sass/_home.scss */
+/* line 327, ../sass/_home.scss */
 .segment-poster {
   width: 100%;
 }
 
-/* line 334, ../sass/_home.scss */
+/* line 331, ../sass/_home.scss */
 .segment-list-item {
   padding: 4px 0;
   display: block;
   cursor: pointer;
 }
-/* line 339, ../sass/_home.scss */
+/* line 336, ../sass/_home.scss */
 .segment-list-item:hover {
   background: #aaa;
 }
 
-/* line 344, ../sass/_home.scss */
+/* line 341, ../sass/_home.scss */
 .sub,
 .segment {
   cursor: pointer;
 }
-/* line 347, ../sass/_home.scss */
+/* line 344, ../sass/_home.scss */
 .sub:hover,
 .segment:hover {
   color: crimson;
 }
 
-/* line 352, ../sass/_home.scss */
+/* line 349, ../sass/_home.scss */
 .active {
   font-weight: bold;
   color: crimson;
 }
 
-/* line 357, ../sass/_home.scss */
+/* line 354, ../sass/_home.scss */
 .share-panel {
   display: none;
   margin-top: 20px;
@@ -9175,13 +9179,13 @@ h4 {
   font-weight: bold;
 }
 
-/* line 362, ../sass/_home.scss */
+/* line 359, ../sass/_home.scss */
 .segment-list {
   list-style: none;
 }
 
 /* ------------ footer.html ------------ */
-/* line 371, ../sass/_home.scss */
+/* line 368, ../sass/_home.scss */
 #footer {
   color: #efefef;
   background-color: #222;
@@ -9189,17 +9193,17 @@ h4 {
   padding-bottom: 20px;
   margin-top: 20px;
 }
-/* line 378, ../sass/_home.scss */
+/* line 375, ../sass/_home.scss */
 #footer .footer-logo {
   height: 50px;
   padding: 10px 30px 10px 0;
 }
-/* line 383, ../sass/_home.scss */
+/* line 380, ../sass/_home.scss */
 #footer .container {
   background-color: #222;
 }
 
-/* line 389, ../sass/_home.scss */
+/* line 386, ../sass/_home.scss */
 .footer-text {
   font-size: 13px;
   line-height: 20px;
@@ -9210,66 +9214,65 @@ h4 {
 /* line 5, ../sass/_search.scss */
 .search-result {
   margin-top: 20px;
-  margin: 0 0 40px 0;
   padding: 10px;
   cursor: pointer;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #fff;
 }
 /* line 7, ../sass/_mixins.scss */
 .search-result strong {
   font-weight: bold;
 }
-/* line 11, ../sass/_search.scss */
+/* line 12, ../sass/_search.scss */
 .search-result:hover {
-  background-color: #e3e3e3;
-}
-/* line 16, ../sass/_search.scss */
-.search-result .fragment-hit:hover {
-  background-color: #aaa;
+  border: 1px solid #666;
+  box-shadow: 2px 2px 2px #aaa;
 }
 
-/* line 24, ../sass/_search.scss */
+/* line 19, ../sass/_search.scss */
 .media-fragments .fragment-hit.media {
   margin: 10px;
   padding: 10px;
 }
 
-/* line 30, ../sass/_search.scss */
+/* line 25, ../sass/_search.scss */
 .tag {
-  font-size: 100% !important;
+  font-size: 80% !important;
   display: inline-block !important;
   margin: 0 5px 5px 0;
   font-weight: normal;
-  background: #c90;
-  color: #fff;
+  color: #666;
+  text-transform: uppercase;
 }
 
 /* facets on the left side */
-/* line 41, ../sass/_search.scss */
+/* line 36, ../sass/_search.scss */
 .facet-group {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 45, ../sass/_search.scss */
+/* line 40, ../sass/_search.scss */
 .facet-group .facet-item {
-  color: #0af;
+  color: #333;
 }
-/* line 47, ../sass/_search.scss */
+/* line 42, ../sass/_search.scss */
 .facet-group .facet-item:hover {
   color: #ccc;
 }
 
-/* line 53, ../sass/_search.scss */
+/* line 48, ../sass/_search.scss */
 .facet-item :hover {
-  color: #0af;
+  color: #aaa;
 }
 
-/* line 57, ../sass/_search.scss */
+/* line 52, ../sass/_search.scss */
 .media-body-intro {
   min-height: 120px;
 }
 
-/* line 61, ../sass/_search.scss */
+/* line 56, ../sass/_search.scss */
 .media-fragment-tags {
   padding: 10px 0 0;
 }

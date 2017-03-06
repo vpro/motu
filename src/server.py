@@ -15,9 +15,9 @@ import os
 
 def score_to_fontsize(size):
 	if size > 15:
-		size = 38 + ((size - 15) / 3)
-		if size > 50:
-			return 50
+		size = 32 + ((size - 15) / 3)
+		if size > 40:
+			return 40
 		return size
 	return 12 + size
 	return size
