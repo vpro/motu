@@ -1,0 +1,84 @@
+<!doctype HTML>
+
+<html>
+
+<head>
+	<title>Mind of the Universe | Expore</title>
+	 {% include 'head.html' %}
+</head>
+
+<body>
+
+	{% with page='explore' %}
+    {% include 'nav.html' %}
+    {% endwith %}
+
+	<ol class="breadcrumb container">
+
+		<li class="breadcrumb-item active">
+			<a href="/">Home</a>
+		</li>
+
+		<li class="breadcrumb-item">
+			Explore
+		</li>
+
+		{% include 'share.html' %}
+
+	</ol>
+
+	<div class="container">
+		<!-- TAG CLOUD -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="explore-options">
+					{% for tag in tagCloud %}
+						<a id="{{tag[0]}}" class="explore-tag" href="javascript:void(0);" onclick="highlight('{{tag[0]}}')">
+							<span class="data" style="color:{{score_to_fontcolor(tag[1])}};">{{tag[0]}}</span>
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<br/>
+
+		<!-- THE SCIENTISTS -->
+		<div class="row">
+			<div class="col-md-12">
+
+				{% for scientist in scientists | batch(6, '&nbsp;') %}
+
+				<div class="row">
+
+
+					{% for s in scientist %}
+					<div id="{{s.id}}" class="col-md-2 scientist">
+						<a href="/scientist?id={{s.id}}">
+							<div class="scientist-image-container" style="background-image: url({{s.poster}})">
+								<h4 class="media-heading">
+									{{s.name}}
+								</h4>
+							</div>
+							&nbsp;
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+
+	{% include 'footer.html' %}
+
+</body>
+<script>
+	var temp = '{{scientists|tojson|safe}}';
+	var _scientists = JSON.parse(temp)
+</script>
+<script src="/static/js/motu-explore.js"></script>
+
+</html>

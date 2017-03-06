@@ -50,21 +50,21 @@
 
 			<div class="row">
 
-			{% for scientists in s %}
+			{% for scientist in s %}
 
-				{% if scientists.id %}
+				{% if scientist.id %}
 
 				<div class="col-md-4 scientist">
 
-					<a href="/scientist?id={{scientists.id}}">
+					<a href="/scientist?id={{scientist.id}}">
 
-						<div class="scientist-image-container" style="background-image: url({{scientists.poster}})">
+						<div class="scientist-image-container" style="background-image: url({{scientist.poster}})">
 							<h4 class="media-heading">
-								{{scientists.name}}
+								{{scientist.name}}
 							</h4>
 						</div>
 
-						{{scientists.shortBio|safe}}
+						{{scientist.shortBio|safe}}
 
 					</a>
 

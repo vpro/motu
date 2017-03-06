@@ -61,6 +61,42 @@ class DataLoader():
 			'Yuri_Oganessian' : ('Yuri_Oganessian', 'Yuri_Oganessian')
 		}
 
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- BASIC / HELPERS ----------------------------------
+	-----------------------------------------------------------------------------------"""
+
+	def __getPosterURL(self, scientistId):
+		fn = '%s/static/images/scientists/%s.jpg' % (self.config['APP_ROOT'], scientistId)
+		if os.path.exists(fn):
+			return '/static/images/scientists/%s.jpg' % scientistId
+		return '/static/images/scientist.gif'
+
+	def loadMarkdownFile(self, fn, formatHTML = True):
+		mdFile = '%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], fn)
+		if os.path.exists(mdFile):
+			f = open(mdFile, 'r')
+			text = f.read()
+			f.close()
+			try:
+				if formatHTML:
+					return markdown(text)
+				else:
+					return text
+			except UnicodeDecodeError, e:
+				print e
+		return ''
+
+	#shown on the home page
+	#TODO not all videos exist, make sure they do (e.g. Segenet_Kelemu.mp4 does not exist)
+	def loadRandomVideo(self):
+		r = random.choice(self.WIKI_MAPPING.keys())
+		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/%s/mp4/%s.mp4' % (r, r)
+		return randomVideo
+
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- SITEMAP ------------------------------------------
+	-----------------------------------------------------------------------------------"""
+
 	def generateSiteMap(self, rootUrl, sitemapFile):
 		xml = None
 		if os.path.exists(sitemapFile):
@@ -95,28 +131,58 @@ class DataLoader():
 	def __addSiteMapURL(self, url):
 		return ['<url><loc>%s</loc></url>' % url]
 
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- EXPLORE PAGE -------------------------------------
+	-----------------------------------------------------------------------------------"""
 
-	def loadMarkdownFile(self, fn, formatHTML = True):
-		mdFile = '%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], fn)
-		if os.path.exists(mdFile):
-			f = open(mdFile, 'r')
-			text = f.read()
-			f.close()
-			try:
-				if formatHTML:
-					return markdown(text)
-				else:
-					return text
-			except UnicodeDecodeError, e:
-				print e
-		return ''
+		#used on the explore page
+	def loadExplorePage(self):
+		tagCloud = {}
+		scientists = []
 
-	#shown on the home page
-	#TODO not all videos exist, make sure they do (e.g. Segenet_Kelemu.mp4 does not exist)
-	def loadRandomVideo(self):
-		r = random.choice(self.WIKI_MAPPING.keys())
-		randomVideo = 'http://rdbg.tuxic.nl/mindoftheuniverse/%s/mp4/%s.mp4' % (r, r)
-		return randomVideo
+		cachedData = self.__readFromCache('explore-page', 'termcloud-cache')
+		if cachedData:
+			cache = json.loads(cachedData)
+			tagCloud = cache['tagCloud']
+			scientists = cache['scientists']
+		else:
+			scientists = self.loadScientists()
+			#generate the overall tag cloud
+			for s in scientists:
+				s.pop('bio')
+				s.pop('shortBio')
+				interviewTags = {}
+				interviews = self.__getInterviewsOfScientist(s['id'])
+				for i in interviews:
+					for cl in i['annotations']['classifications']:
+						#first add to the overall tag cloud
+						if cl['label'] in tagCloud:
+							tagCloud[cl['label']] += 1
+						else:
+							tagCloud[cl['label']] = 1
+
+						#then to the scientist tag cloud
+						if cl['label'] in interviewTags:
+							interviewTags[cl['label']] += 1
+						else:
+							interviewTags[cl['label']] = 1
+
+				s['interviewTags'] = interviewTags
+			self.__writeToCache('explore-page', 'termcloud-cache', json.dumps({
+				'tagCloud' : tagCloud,
+				'scientists' : scientists
+			}))
+
+		#sorting and pruning of the tag cloud
+		sortedTags = sorted(tagCloud.iteritems(), key=operator.itemgetter(1), reverse=True)
+		if len(sortedTags) > self.TERM_CLOUD_LIMIT:
+			sortedTags = sortedTags[0:self.TERM_CLOUD_LIMIT]
+		shuffle(sortedTags)
+		return scientists, sortedTags
+
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- SCIENTISTS ---------------------------------------
+	-----------------------------------------------------------------------------------"""
 
 	#shown on the home page: loads the list of scientists by scanning the markdown files available in /bios
 	def loadScientists(self):
@@ -131,7 +197,8 @@ class DataLoader():
 					'shortBio' : self.loadMarkdownFile('bios/%s.md' % scientistId),
 					'poster' : self.__getPosterURL(scientistId)
 				})
-		scientists.sort(key = lambda x: x['name'])
+		#sort by last name
+		scientists.sort(key = lambda x: x['name'][x['name'].rfind(' ')+1:])
 		return scientists
 
 	#called from the person page
@@ -162,7 +229,11 @@ class DataLoader():
 		scientist['interviewTags'] = interviewTags
 		return scientist
 
-	#called from the play-out page
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- INTERVIEWS ---------------------------------------
+	-----------------------------------------------------------------------------------"""
+
+	#used for the play-out page
 	def loadInterview(self, interviewId):
 		print 'loading the %s for play-out' % interviewId
 		url = '%s/document/get_doc/motu/%s' % (self.config['SEARCH_API'], interviewId)
@@ -171,6 +242,7 @@ class DataLoader():
 			return self.__formatInterview(json.loads(resp.text))
 		return None
 
+	#used on the scientist page
 	def __getInterviewsOfScientist(self, scientistId):
 		print 'getting the interviews of %s' % scientistId
 		interviews = []
@@ -187,15 +259,18 @@ class DataLoader():
 		if resp and resp.status_code == 200:
 			result = json.loads(resp.text)
 			for hit in result['hits']['hits']:
-				interview = self.__formatInterview(hit)
+				interview = self.__formatInterview(hit, False, False)
 				if interview:
 					interviews.append(interview)
 		return interviews
 
-	def __formatInterview(self, data):
+	def __formatInterview(self, data, includeTranscript=True, includeSegmentAnnotations=True):
 		interviewId = scientistId = data['_id']
+		transcript = None
 		if interviewId.find('__') != -1:
 			scientistId = interviewId[0:interviewId.rfind('__')]
+		if includeTranscript:
+			transcript = self.__loadTranscript(scientistId, interviewId)
 		interview = {
 			'id' : interviewId,
 			'name' : data['_source']['name'],
@@ -204,8 +279,8 @@ class DataLoader():
 			'date' : None,
 			'poster' : data['_source']['posterURL'],
 			'video' : data['_source']['playableContent'][0], #there is always one
-			'transcript' : self.__loadTranscript(scientistId, interviewId),
-			'annotations' : self.__loadInterviewAnnotations(scientistId, interviewId)
+			'transcript' : transcript,
+			'annotations' : self.__loadInterviewAnnotations(scientistId, interviewId, includeSegmentAnnotations)
 		}
 
 		#add the basic metadata
@@ -224,11 +299,78 @@ class DataLoader():
 
 		return interview
 
-	def __getPosterURL(self, scientistId):
-		fn = '%s/static/images/scientists/%s.jpg' % (self.config['APP_ROOT'], scientistId)
-		if os.path.exists(fn):
-			return '/static/images/scientists/%s.jpg' % scientistId
-		return '/static/images/scientist.gif'
+	def __loadInterviewAnnotations(self, scientistId, interviewId, includeSegmentAnnotations):
+		links = []
+		classifications = []
+		segments = []
+		keyMoments = []
+		targetUrl = '%s/%s/mp4/%s.mp4' % (self.config['BASE_MEDIA_URL'], scientistId, interviewId)
+		url = '%s/annotations/filter?target.source=%s&user=motu' % (
+			self.config['ANNOTATION_API'],
+			targetUrl
+		)
+		resp = requests.get(url)
+		if resp.status_code == 200:
+			data = json.loads(resp.text)
+			if data and 'annotations' in data:
+				number = 1
+				for a in data['annotations']:
+					if 'body' in a and a['body']:
+						#these are the media object annotations
+						if not ('selector' in a['target'] and a['target']['selector']):
+							for annotation in a['body']:
+								if annotation['annotationType'] == 'link':
+									links.append(annotation)
+								elif annotation['annotationType'] == 'classification':
+									classifications.append(annotation)
+						elif includeSegmentAnnotations:#these are the segment annotations
+							for annotation in a['body']:
+								segmentTitle = None
+								keyMoment = None
+								start = -1
+								if annotation['annotationType'] == 'metadata' and 'properties' in annotation:
+									for prop in annotation['properties']:
+										if prop['key'] == 'key moments' and prop['value'] and prop['value'] != '':
+											keyMoment = prop['value']
+										elif prop['key'] == 'title':
+											segmentTitle = prop['value']
+									if segmentTitle:
+										posterStart = int(a['target']['selector']['start']) #in secs
+										videoStart = posterStart * 1000 #in ms
+										if posterStart == 0:
+											posterStart = 1
+										segments.append({
+											'title' : segmentTitle,
+											'number' : number,
+											'keyMoment' : keyMoment,
+											'start' : videoStart,
+											'end' : a['target']['selector']['end'] * 1000,
+											'prettyStart' : TimeUtil.millisToPrettyTime(videoStart),
+											'poster' : '%s/%s/thumbnails/%s/%s_%04d.jpg' % (
+												self.config['BASE_MEDIA_URL'],
+												scientistId,
+												scientistId,
+												scientistId,
+												posterStart
+											)
+										})
+										#add the keymoment to the list of keymoments
+										if keyMoment:
+											keyMoments.append({
+												'title' : segmentTitle,
+												'category' : keyMoment
+											})
+										number += 1
+		return {
+			'links' : links,
+			'classifications' : classifications,
+			'segments' : segments,
+			'keyMoments' : keyMoments
+		}
+
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- TRANSCRIPTS --------------------------------------
+	-----------------------------------------------------------------------------------"""
 
 	def __loadTranscript(self, scientistId, interviewId):
 		srtFile = '%s/transcripts/%s/%s.srt' % (
@@ -260,46 +402,9 @@ class DataLoader():
 					))
 		return subs
 
-	def __getWikipediaUrl(self, scientistId):
-		if scientistId in self.WIKI_MAPPING:
-			if self.WIKI_MAPPING[scientistId][1]:
-				return 'http://wikipedia.org/wiki/%s' % self.WIKI_MAPPING[scientistId][1]
-		return 'javascript:void(0)'
-
-	def __loadWikipediaBio(self, scientistId):
-		bio = 'No Wikipedia article available'
-		wikiId = None
-		#fetch the wikipedia ID from the mapping
-		try:
-			wikiId = self.WIKI_MAPPING[scientistId][0]
-		except KeyError, e:
-			print 'incorrect wiki mapping'
-			return bio
-
-		#if there is no proper wikipedia ID return nothing
-		if wikiId == None:
-			return bio
-
-		#try to fetch it from the cache
-		cachedData = self.__readFromCache(scientistId, 'wikipedia-cache')
-		if cachedData:
-			return cachedData
-
-		#try to fetch it from wikipedia (and subsequently cache it)
-		print 'trying to fetch %s from wikipedia' % wikiId
-		try:
-			bio = wikipedia.summary(wikiId)
-			if bio:
-				self.__writeToCache(scientistId, 'wikipedia-cache', bio)
-		except wikipedia.PageError, e:
-			pass
-		except wikipedia.exceptions.DisambiguationError, e:
-			bio = 'Ambiguous article'
-			pass
-		except KeyError, e:
-			bio = 'Incorrect id %s' % wikiId
-			pass
-		return bio
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- TAG/KEYWORD CLOUDS -------------------------------
+	-----------------------------------------------------------------------------------"""
 
 	#load the terms from the annotation tags (for the home page)
 	#TODO when the annotations are all done, simply cache it
@@ -364,9 +469,13 @@ class DataLoader():
 			filteredTerms.append(t)
 		return {'terms' : filteredTerms}
 
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- CACHING ------------------------------------------
+	-----------------------------------------------------------------------------------"""
+
 	#cacheType = wikipedia-cache OR termcloud-cache
-	def __writeToCache(self, scientistId, cacheType, data):
-		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
+	def __writeToCache(self, cacheId, cacheType, data):
+		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, cacheId)
 		f = codecs.open(cacheFile, 'w+', 'utf-8')
 		try:
 			f.write(data)
@@ -374,83 +483,63 @@ class DataLoader():
 			print e
 		f.close()
 
-	def __readFromCache(self, scientistId, cacheType):
+	def __readFromCache(self, cacheId, cacheType):
 		data = None
-		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, scientistId)
+		cacheFile = '%s/%s/%s' % (self.config['TEXTUAL_CONTENT_DIR'], cacheType, cacheId)
 		if os.path.exists(cacheFile):
 			f = codecs.open(cacheFile, 'r', 'utf-8')
 			data = f.read()
 			f.close()
 		return data
 
-	def __loadInterviewAnnotations(self, scientistId, interviewId):
-		links = []
-		classifications = []
-		segments = []
-		keyMoments = []
-		targetUrl = '%s/%s/mp4/%s.mp4' % (self.config['BASE_MEDIA_URL'], scientistId, interviewId)
-		url = '%s/annotations/filter?target.source=%s&user=motu' % (
-			self.config['ANNOTATION_API'],
-			targetUrl
-		)
-		resp = requests.get(url)
-		if resp.status_code == 200:
-			data = json.loads(resp.text)
-			if data and 'annotations' in data:
-				number = 1
-				for a in data['annotations']:
-					if 'body' in a and a['body']:
-						#these are the media object annotations
-						if not ('selector' in a['target'] and a['target']['selector']):
-							for annotation in a['body']:
-								if annotation['annotationType'] == 'link':
-									links.append(annotation)
-								elif annotation['annotationType'] == 'classification':
-									classifications.append(annotation)
-						else:#these are the segment annotations
-							for annotation in a['body']:
-								segmentTitle = None
-								keyMoment = None
-								start = -1
-								if annotation['annotationType'] == 'metadata' and 'properties' in annotation:
-									for prop in annotation['properties']:
-										if prop['key'] == 'key moments' and prop['value'] and prop['value'] != '':
-											keyMoment = prop['value']
-										elif prop['key'] == 'title':
-											segmentTitle = prop['value']
-									if segmentTitle:
-										posterStart = int(a['target']['selector']['start']) #in secs
-										videoStart = posterStart * 1000 #in ms
-										if posterStart == 0:
-											posterStart = 1
-										segments.append({
-											'title' : segmentTitle,
-											'number' : number,
-											'keyMoment' : keyMoment,
-											'start' : videoStart,
-											'end' : a['target']['selector']['end'] * 1000,
-											'prettyStart' : TimeUtil.millisToPrettyTime(videoStart),
-											'poster' : '%s/%s/thumbnails/%s/%s_%04d.jpg' % (
-												self.config['BASE_MEDIA_URL'],
-												scientistId,
-												scientistId,
-												scientistId,
-												posterStart
-											)
-										})
-										#add the keymoment to the list of keymoments
-										if keyMoment:
-											keyMoments.append({
-												'title' : segmentTitle,
-												'category' : keyMoment
-											})
-										number += 1
-		return {
-			'links' : links,
-			'classifications' : classifications,
-			'segments' : segments,
-			'keyMoments' : keyMoments
-		}
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- WIKIPEDIA ----------------------------------------
+	-----------------------------------------------------------------------------------"""
+
+	def __getWikipediaUrl(self, scientistId):
+		if scientistId in self.WIKI_MAPPING:
+			if self.WIKI_MAPPING[scientistId][1]:
+				return 'http://wikipedia.org/wiki/%s' % self.WIKI_MAPPING[scientistId][1]
+		return 'javascript:void(0)'
+
+	def __loadWikipediaBio(self, scientistId):
+		bio = 'No Wikipedia article available'
+		wikiId = None
+		#fetch the wikipedia ID from the mapping
+		try:
+			wikiId = self.WIKI_MAPPING[scientistId][0]
+		except KeyError, e:
+			print 'incorrect wiki mapping'
+			return bio
+
+		#if there is no proper wikipedia ID return nothing
+		if wikiId == None:
+			return bio
+
+		#try to fetch it from the cache
+		cachedData = self.__readFromCache(scientistId, 'wikipedia-cache')
+		if cachedData:
+			return cachedData
+
+		#try to fetch it from wikipedia (and subsequently cache it)
+		print 'trying to fetch %s from wikipedia' % wikiId
+		try:
+			bio = wikipedia.summary(wikiId)
+			if bio:
+				self.__writeToCache(scientistId, 'wikipedia-cache', bio)
+		except wikipedia.PageError, e:
+			pass
+		except wikipedia.exceptions.DisambiguationError, e:
+			bio = 'Ambiguous article'
+			pass
+		except KeyError, e:
+			bio = 'Incorrect id %s' % wikiId
+			pass
+		return bio
+
+	"""-----------------------------------------------------------------------------------
+	----------------------------------- SOCIAL MEDIA / SEO METADATA ----------------------
+	-----------------------------------------------------------------------------------"""
 
 	#returs an object containing tags for Open Graph and Twitter Cards
 	def getSocialMetaTags(self, url, rootUrl, data, dataType):
