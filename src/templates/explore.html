@@ -29,9 +29,32 @@
 
 	<div class="container">
 		<div class="row">
+			<!-- TAG CLOUD -->
+			<div class="col-md-12">
+				<div class="tag-cloud">
+					{% for tag in tagCloud %}
+						<a href="javascript:void(0);" onclick="alert('test');">
+							<span class="data">{{tag[0]}}</span>
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-12">
 				<h1>Explore the available interviews</h1>
-
+				{% for i in interviews %}
+				<div class="col-md-4 scientist">
+					<a href="/play?id={{i.id}}">
+						<div class="scientist-image-container" style="background-image: url({{i.poster}})">
+							<h4 class="media-heading">
+								{{i.name}}
+							</h4>
+						</div>
+						{{i.title}}
+					</a>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>

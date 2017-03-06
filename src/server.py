@@ -143,7 +143,10 @@ def scientist():
 @app.route('/explore')
 @nocache
 def explore():
+	interviews, tagCloud = _dataLoader.loadExplorePage()
 	return render_template('explore.html',
+		interviews=interviews,
+		tagCloud=tagCloud,
 		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)
 
