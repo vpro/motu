@@ -1,1 +1,1 @@
-Replacing worn down body parts through living organs created outside the body
+Replaces worn-down body parts with organs created outside the body

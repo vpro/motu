@@ -43,27 +43,36 @@
 
 		<br/>
 
+		<!-- SELECTED SCIENTISTS -->
+		<div class="row">
+			<div class="col-md-12">
+				<div id="selected_scientists" class="row">
+				</div>
+			</div>
+		</div>
+
 		<!-- THE SCIENTISTS -->
 		<div class="row">
 			<div class="col-md-12">
 
-				{% for scientist in scientists | batch(6, '&nbsp;') %}
+				{% for scientist in scientists | batch(4, '&nbsp;') %}
 
 				<div class="row">
 
-
 					{% for s in scientist %}
-					<div id="{{s.id}}" class="col-md-2 scientist">
-						<a href="/scientist?id={{s.id}}">
-							<div class="scientist-image-container" style="background-image: url({{s.poster}})">
-								<h4 class="media-heading">
-									{{s.name}}
-								</h4>
+						{% if s.id %}
+							<div id="{{s.id}}" class="col-md-3 scientist" title="{{s.shortBio|safe}}">
+								<a href="/scientist?id={{s.id}}">
+									<div class="scientist-image-container" style="background-image: url({{s.poster}})">
+										<h4 class="media-heading">
+											{{s.name}}
+										</h4>
+									</div>
+									&nbsp;
+									{{s.shortBio|safe}}
+								</a>
 							</div>
-							&nbsp;
-							{{s.shortBio|safe}}
-						</a>
-					</div>
+						{% endif %}
 					{% endfor %}
 				</div>
 

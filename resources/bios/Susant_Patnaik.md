@@ -1,1 +1,1 @@
-Making the future through innovations inspired by local challenges impacting the local community
+Makes inventions and innovations inspired by local challenges

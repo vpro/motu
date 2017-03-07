@@ -1,1 +1,1 @@
-Taming the chaos of complex dynamical systems through mathematics
+Tames the chaos of complex dynamical systems with mathematics

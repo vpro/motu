@@ -1,1 +1,1 @@
-Reprogramming and enhancing our senses through better understanding of smell, taste, vision, touch, sound
+Let's us experience the world in a different way by reprogramming our senses

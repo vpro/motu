@@ -150,7 +150,7 @@ class DataLoader():
 			#generate the overall tag cloud
 			for s in scientists:
 				s.pop('bio')
-				s.pop('shortBio')
+				#s.pop('shortBio')
 				interviewTags = {}
 				interviews = self.__getInterviewsOfScientist(s['id'])
 				for i in interviews:

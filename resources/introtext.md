@@ -1,5 +1,3 @@
-**Welcome to The Mind of the Universe**
-
 Browse through extensive video interviews with world renowned scientists.
 All videos are free to download under Creative Commons licence.
 

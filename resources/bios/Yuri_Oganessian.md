@@ -1,1 +1,1 @@
-The worldwide hunt for new chemical, super heavy elements in search for the 'island of stability'
+An element hunter searching for new, super heavy chemical elements

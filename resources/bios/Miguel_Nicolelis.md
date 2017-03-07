@@ -1,1 +1,1 @@
-Creating an organic computer and a brain net by connecting human brains
+Connects human brains making an organic computer and a brain net

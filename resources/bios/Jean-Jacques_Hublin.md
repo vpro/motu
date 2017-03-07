@@ -1,1 +1,1 @@
-Studying our shared history with other hominins, understanding what made the human species succesfull in survival
+Why is the human species more succesful than extinct human like species?

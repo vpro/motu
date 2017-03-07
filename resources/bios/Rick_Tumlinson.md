@@ -1,1 +1,1 @@
-On colonizing space and our future work and life on other planets
+A space pioneer dreaming of colonizing other planets and space
