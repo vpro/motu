@@ -109,7 +109,7 @@
 			<div class="tag-cloud">
 				<h4>This is what {{scientist.name}} talks about:</h4>
 				{% for t in scientist.termCloud.terms %}
-				<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
+				<a href="/search?st={{t[0]}}">
 					<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
 				</a>
 				{% endfor %}
