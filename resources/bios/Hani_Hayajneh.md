@@ -1,1 +1,1 @@
-Building peace in the Middle East through a better understanding of pre islamic languages and cultures
+Can we reach peace in the Middle East through better understanding pre-islamic cultures?

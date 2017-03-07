@@ -1,1 +1,1 @@
-What is reality? Evolution and quantum physics let us experience other realities than we think
+Challenges our idea of what reality is

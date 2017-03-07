@@ -1,1 +1,1 @@
-Creating self learning, intelligent machines through algorithms
+Creates self learning, intelligent machines with algorithms

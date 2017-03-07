@@ -1,1 +1,1 @@
-Transforming the world through the latest gene editing technologies, e.g. Crispr
+How do you transform the world with gene editing technologies like CRISPR?

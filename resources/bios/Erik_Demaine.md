@@ -1,1 +1,1 @@
-Understanding complex problems and design solutions through play and gaming
+Finds solutions to complex problems through play and gaming

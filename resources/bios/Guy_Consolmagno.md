@@ -1,1 +1,1 @@
-Combining a belief in God with science, as director of the Vatican Observatory and a meteorite expert
+The Pope's astronomer explains how to combine a belief in both God and science

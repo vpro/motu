@@ -1,1 +1,1 @@
-How Africa can conquer the world through its knowledge of the world of insects
+Wants Africa to conquer the world through its knowledge of insects

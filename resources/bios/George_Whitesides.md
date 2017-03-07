@@ -1,1 +1,1 @@
-The most cited chemist alive on the scale of things and the impact on our future lives
+Reflects on the scale of things and how chemistry will impact our future

@@ -1,1 +1,1 @@
-Searching for new earths and possible alien life in the universe
+Searches for new earths and alien life in the universe

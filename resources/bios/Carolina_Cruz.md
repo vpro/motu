@@ -1,1 +1,1 @@
-Impacting the world through virtual reality
+Makes an impact on the world through virtual reality

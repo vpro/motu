@@ -1,1 +1,1 @@
-Building empathetic robots and machines with emotions and humor creating long lasting human-machine relationships
+Makes empathetic robots with a heart that can be your future life buddy

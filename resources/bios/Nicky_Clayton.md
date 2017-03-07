@@ -1,1 +1,1 @@
-On the 'theory of mind' and how people and animals think
+Studies birds and humans solving the question what thinking is

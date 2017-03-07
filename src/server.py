@@ -123,11 +123,12 @@ STATIC PAGES THAT DO NOT USE THE COMPONENT LIBRARY
 @app.route('/')
 @nocache
 def home():
+	scientists, tagCloud = _dataLoader.loadExplorePage()
 	return render_template('index.html',
 		randomVideo=_dataLoader.loadRandomVideo(),
 		introText=_dataLoader.loadMarkdownFile('introtext.md'),
-		scientists=_dataLoader.loadScientists(),
-		tagCloud=_dataLoader.loadKeywordTagCloud(),
+		#scientists=_dataLoader.loadScientists(),
+		tagCloud=tagCloud,
 		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)
 

@@ -1,1 +1,1 @@
-How China is exploring the quantum world and the launch of the first quantum satellite
+Launched the first quantum satellite, now China is taking a lead role in quantum science

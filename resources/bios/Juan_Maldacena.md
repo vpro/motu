@@ -1,1 +1,1 @@
-Called 'the new Einstein', he is working on a new quantum-reality theory
+Called 'the new Einstein' he works on a new quantum-reality theory

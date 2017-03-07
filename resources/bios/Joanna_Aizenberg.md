@@ -1,1 +1,1 @@
-Playing with matter creating new, clever and highly adaptable materials
+Plays with matter creates new, clever and highly adaptable materials inspired by nature

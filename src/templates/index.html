@@ -22,76 +22,47 @@
 	<div class="row">
 
 		<!-- INTRO TEXT -->
-		<div class="col-md-7 home-text">
-			<h1>Welcome to The Mind of the Universe</h1>
+		<div class="col-md-12 home-text">
 			{{introText|safe}}
 		</div>
 
-		<!-- RANDOM VIDEO -->
-		<div class="col-md-5 video-embed">
-			<video width="100%" height="320" controls>
-				<source src="{{randomVideo}}" type="video/mp4">
-				Your browser does not support the video tag
-			</video>
-		</div>
 
+	</div>
+
+	<!-- RANDOM VIDEO -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="video-embed text-center">
+				<video height="320" controls>
+					<source src="{{randomVideo}}" type="video/mp4">
+					Your browser does not support the video tag
+				</video>
+			</div>
+		</div>
 	</div>
 
 	<!-- SECOND ROW -->
 	<div class="row top-buffer"></div>
 
 	<!-- THIRD ROW -->
-	<div class="row scientist-overview">
-
-		<!-- LIST OF SCIENTISTS -->
-		<div class="col-md-8">
-
-			{% for s in scientists | batch(3, '&nbsp;') %}
-
-			<div class="row">
-
-			{% for scientist in s %}
-
-				{% if scientist.id %}
-
-				<div class="col-md-4 scientist">
-
-					<a href="/scientist?id={{scientist.id}}">
-
-						<div class="scientist-image-container" style="background-image: url({{scientist.poster}})">
-							<h4 class="media-heading">
-								{{scientist.name}}
-							</h4>
-						</div>
-
-						{{scientist.shortBio|safe}}
-
-					</a>
-
-				</div>
-
-				{% endif %}
-
-			{% endfor %}
-
-			</div>
-
-			{% endfor %}
-
+	<div class="row">
+		<div class="text-center">
+			<button class="btn btn-lg btn-primary">
+				<a href="/explore">
+					START EXPLORING!
+				</a>
+			</button>
 		</div>
-
-		<!-- TAG CLOUD -->
-		<div class="col-md-4">
-			<div class="tag-cloud">
-				<h4>Keywords added by us</h4>
-				{% for tag in tagCloud%}
-					<a href="/search?st={{tag[0]}}">
-						<span class="data" style="font-size:{{score_to_fontsize(tag[1])}}pt;">{{tag[0]}}</span>
+		<br/>
+		<div class="col-md-12">
+			<div class="explore-options">
+				{% for tag in tagCloud %}
+					<a href="/explore?tag={{tag[0]}}">
+						<span id="{{tag[0]}}" class="data explore-tag" style="color:{{score_to_fontcolor(tag[1])}};">{{tag[0]}}</span>
 					</a>
 				{% endfor %}
 			</div>
 		</div>
-
 	</div>
 
 </div>
