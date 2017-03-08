@@ -135,7 +135,7 @@ class DataLoader():
 	----------------------------------- EXPLORE PAGE -------------------------------------
 	-----------------------------------------------------------------------------------"""
 
-		#used on the explore page
+	#used on the explore page (FIXME without cache, does not work yet on the server)
 	def loadExplorePage(self):
 		tagCloud = {}
 		scientists = []
@@ -225,6 +225,7 @@ class DataLoader():
 		scientist['poster'] = self.__getPosterURL(scientistId)
 		scientist['interviews'] = interviews
 		scientist['termCloud'] = self.__loadTermCloud(scientistId)
+		scientist['keywordCloud'] = self.__loadScientistKeywordCloud(scientistId)
 		scientist['links'] = links
 		scientist['interviewTags'] = interviewTags
 		return scientist
@@ -460,6 +461,27 @@ class DataLoader():
 				self.__writeToCache(scientistId, 'termcloud-cache', json.dumps(tc))
 				return tc
 		return None
+
+	def __loadScientistKeywordCloud(self, scientistId):
+		cachedData = self.__readFromCache('%s-keywords' % scientistId, 'termcloud-cache')
+		if cachedData:
+			return json.loads(cachedData)
+		tc = {}
+		interviews = self.__getInterviewsOfScientist(scientistId)
+		for i in interviews:
+			for cl in i['annotations']['classifications']:
+				#then to the scientist tag cloud
+				if cl['label'] in tc:
+					tc[cl['label']] += 1
+				else:
+					tc[cl['label']] = 1
+		sortedTags = sorted(tc.iteritems(), key=operator.itemgetter(1), reverse=True)
+		if len(sortedTags) > self.TERM_CLOUD_LIMIT:
+			sortedTags = sortedTags[0:self.TERM_CLOUD_LIMIT]
+		shuffle(sortedTags)
+
+		self.__writeToCache('%s-keywords' % scientistId, 'termcloud-cache', json.dumps(sortedTags))
+		return sortedTags
 
 	def __filterStopWords(self, terms):
 		filteredTerms = []

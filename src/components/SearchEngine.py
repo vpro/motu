@@ -26,10 +26,6 @@ class SearchEngine():
 	"""
 	,
 	{
-		'field' : 'name',
-		'title' : 'Researchers'
-	},
-	{
 		'field' : 'tags_raw',
 		'title' : 'Interview tags'
 	},
@@ -53,5 +49,9 @@ class SearchEngine():
 				'field' : 'body.value.keyMoments',
 				'title' : 'Interview topics',
 				'type' : 'nested'
+			},
+			{
+				'field' : 'name',
+				'title' : 'Researchers'
 			}
 		]

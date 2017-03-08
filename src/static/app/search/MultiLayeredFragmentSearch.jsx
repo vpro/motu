@@ -9,7 +9,7 @@ class MultiLayeredFragmentSearch extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageSize : 25,
+			pageSize : 15,
 			searchLayers : {'motu' : false, 'motu__srt' : false, 'motu__topics' : true},
 			displayFacets : true,
 			aggregations : {},
@@ -140,11 +140,6 @@ class MultiLayeredFragmentSearch extends React.Component {
 		)
 	}
 
-	showMore(result) {
-		console.debug('I want to see more of: ');
-		console.debug(result);
-	}
-
 	//format the simple quick access dict (key=facet|value, value=true/false) into an proper object for the SearchAPI
 	formatSelectedFacets(selectedFacets) {
 		let facets = {}
@@ -241,7 +236,6 @@ class MultiLayeredFragmentSearch extends React.Component {
 						searchTerm={this.refs.searchTerm.value}
 						collectionConfig={this.state.collectionConfig}
 						itemDetailsPath={this.props.itemDetailsPath}
-						showMore={this.showMore.bind(this)}
 						searchTerm={this.refs.searchTerm.value}/>
 				)
 			}, this);
@@ -321,6 +315,7 @@ class MultiLayeredFragmentSearch extends React.Component {
 					</div>
 				</div>
 				{resultStats}
+				<br/>
 				{paging}
 				<br/>
 				{resultList}

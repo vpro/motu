@@ -104,18 +104,35 @@
 			</div>
 		</div>
 
-		{% if scientist.termCloud %}
+
 		<div class="col-md-offset-1 col-md-5 top-buffer">
-			<div class="tag-cloud">
+			{% if scientist.keywordCloud %}
+			<div class="explore-options">
 				<h4>This is what {{scientist.name}} talks about:</h4>
+				{% for tag in scientist.keywordCloud %}
+					<a href="/search?st={{tag[0]}}">
+						<span id="{{tag[0]}}" class="data explore-tag" style="color:{{score_to_fontcolor(5)}};">{{tag[0]}}</span>
+					</a>
+				{% endfor %}
+			</div>
+			{% endif %}
+
+			<br/>
+
+			{% if scientist.termCloud %}
+			<div class="tag-cloud">
 				{% for t in scientist.termCloud.terms %}
 				<a href="/search?st={{t[0]}}">
 					<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
 				</a>
 				{% endfor %}
 			</div>
+			{% endif %}
 		</div>
-		{% endif %}
+
+
+		<br/>
+
 	</div>
 
 </div>
