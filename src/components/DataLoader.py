@@ -481,7 +481,7 @@ class DataLoader():
 		shuffle(sortedTags)
 
 		self.__writeToCache('%s-keywords' % scientistId, 'termcloud-cache', json.dumps(sortedTags))
-		return tc
+		return sortedTags
 
 	def __filterStopWords(self, terms):
 		filteredTerms = []

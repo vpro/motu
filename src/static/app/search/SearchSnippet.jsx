@@ -7,13 +7,6 @@ class SearchSnippet extends React.Component {
 		this.MAX_WORDS = 35;
 	}
 
-	showMore(e) {
-		e.stopPropagation();
-		if(this.props.showMore) {
-			this.props.showMore(this.props.data);
-		}
-	}
-
 	//this highlights the searchTerm in the snippet (TODO this should be replace by using ES highlighting)
 	highlightSearchTermInDescription(words) {
 		if(words) {

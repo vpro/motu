@@ -1,3 +1,5 @@
+import TimeUtil from './TimeUtil';
+
 const DataFormatter = {
 
 	formatSearchResult : function(result) {
@@ -9,18 +11,22 @@ const DataFormatter = {
 		return formattedResult;
 	},
 
+	//http://rdbg.tuxic.nl/mindoftheuniverse/Yoshua_Bengio/thumbnails/Yoshua_Bengio/Yoshua_Bengio_0030.jpg
 	getResultSnippetData : function (result) {
+		let poster = result.posterURL;
+		if(result.start) {
+			let i = poster.indexOf('.jpg') -4;
+			let secs = TimeUtil.formatMillisToPosterSecs(result.start);
+			poster = poster.substring(0, i) + secs + '.jpg';
+		}
 		let snippet = {
 			_id : result._id,
 			title: result.title || result._id,
 			date: result.date,
 			description : result.description,
-			posterURL : result.posterURL,
+			posterURL : poster,
 			posterTitle : result.name,
 			tags : result.tags ? result.tags : null
-		}
-		if(result._type == 'media_fragment') {
-			snippet.docCount = result.docCount;
 		}
 		return snippet;
 	},
