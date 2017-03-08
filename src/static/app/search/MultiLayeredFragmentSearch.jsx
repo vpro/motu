@@ -9,7 +9,7 @@ class MultiLayeredFragmentSearch extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageSize : 25,
+			pageSize : 15,
 			searchLayers : {'motu' : false, 'motu__srt' : false, 'motu__topics' : true},
 			displayFacets : true,
 			aggregations : {},
@@ -321,6 +321,7 @@ class MultiLayeredFragmentSearch extends React.Component {
 					</div>
 				</div>
 				{resultStats}
+				<br/>
 				{paging}
 				<br/>
 				{resultList}

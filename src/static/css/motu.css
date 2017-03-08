@@ -9268,11 +9268,18 @@ h4 {
 }
 
 /* line 52, ../sass/_search.scss */
+.poster-title {
+  text-transform: uppercase;
+  font-size: 70%;
+  text-align: center;
+}
+
+/* line 58, ../sass/_search.scss */
 .media-body-intro {
   min-height: 120px;
 }
 
-/* line 56, ../sass/_search.scss */
+/* line 62, ../sass/_search.scss */
 .media-fragment-tags {
   padding: 10px 0 0;
 }

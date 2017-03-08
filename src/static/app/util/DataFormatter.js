@@ -16,6 +16,7 @@ const DataFormatter = {
 			date: result.date,
 			description : result.description,
 			posterURL : result.posterURL,
+			posterTitle : result.name,
 			tags : result.tags ? result.tags : null
 		}
 		if(result._type == 'media_fragment') {
@@ -28,7 +29,6 @@ const DataFormatter = {
 	formatTranscriptSnippet(words, searchTerm) {
 		var MAX_WORDS = 35;
 		var tmp = words.split(' ');
-		//console.debug(tmp);
 		let i = 0;
 		let found = false;
 		for(let w of tmp) {
@@ -66,11 +66,11 @@ const DataFormatter = {
 				field : 'body.value.keyMoments',
 				title : 'Interview topics',
 				type : 'nested'
-			}/*,
+			},
 			{
 				field : 'name',
 				title : 'Researchers'
-			},
+			}/*,
 			{
 				field : 'tags_raw',
 				title : 'Interview tags'

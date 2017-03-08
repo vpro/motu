@@ -72,6 +72,7 @@ class SearchSnippet extends React.Component {
 				<div className="media-left media-middle">
 					<a href="#">
 						{poster}
+						<div className="poster-title">{this.props.data.posterTitle}</div>
 					</a>
 					</div>
 					<div className="media-body">
