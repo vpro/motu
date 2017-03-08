@@ -48,21 +48,17 @@ function onFinish() {
 }
 
 function onSeeked() {
+	console.debug('seeked');
 	var sub = _clickedLine || getCurrentAnnotation(jw.getPosition());
 	var segment = _clickedSegment || getCurrentSegment(jw.getPosition());
 	if(sub) {
-		//jump to the sub so you can read it
-		var url = document.location.href;
-		if(url.indexOf('#') != -1) {
-			url = url.substring(0, url.indexOf('#'));
-		}
-		document.location.href = url + '#' + sub.number;
-
 		highlight(sub, 'sub');
+		document.getElementById(sub.number).scrollIntoView();
 		_clickedLine = null;
 	}
 	if(segment) {
 		highlight(segment, 'segment');
+		document.getElementById(segment.number).scrollIntoView();
 		_clickedSegment = null;
 	}
 }
