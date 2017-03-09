@@ -53,33 +53,25 @@
 
 		<!-- THE SCIENTISTS -->
 		<div class="row">
-			<div class="col-md-12">
-
-				{% for scientist in scientists | batch(4, '&nbsp;') %}
-
-				<div class="row">
-
-					{% for s in scientist %}
-						{% if s.id %}
-							<div id="{{s.id}}" class="col-md-3 scientist" title="{{s.shortBio|safe}}">
-								<a href="/scientist?id={{s.id}}">
-									<div class="scientist-image-container" style="background-image: url({{s.poster}})">
-										<h4 class="media-heading">
-											{{s.name}}
-										</h4>
-									</div>
-									&nbsp;
-									{{s.shortBio|safe}}
-								</a>
-							</div>
-						{% endif %}
-					{% endfor %}
-				</div>
-
+			<div id="scientists" class="col-md-12">
+				{% for s in scientists %}
+					{% if s.id %}
+						<div id="{{s.id}}" class="box" title="{{s.shortBio|safe}}">
+							<a href="/scientist?id={{s.id}}">
+								<div class="scientist-image-container" style="background-image: url({{s.poster}})">
+									<h4 class="media-heading">
+										{{s.name}}
+									</h4>
+								</div>
+								&nbsp;
+								{{s.shortBio|safe}}
+							</a>
+						</div>
+					{% endif %}
 				{% endfor %}
-
 			</div>
 		</div>
+
 	</div>
 
 	{% include 'footer.html' %}

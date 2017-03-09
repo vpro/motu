@@ -15,19 +15,8 @@ function highlight(tag) {
 			return s.interviewTags.hasOwnProperty(tag);
 		});
 
-		//reset all
-		var all = document.getElementsByClassName('scientist');
-		for(var i=0;i<all.length;i++) {
-			if(all[i].hasAttribute('id')) { //the elements in the selected area don't have an idea
-				document.getElementById(all[i].id).className = 'col-md-3 scientist';
-				//document.getElementById(all[i].id).style.display = 'inline-block';
-			}
-		}
-
-		//highlight the hits
-		for(var i=0;i<hits.length;i++) {
-			document.getElementById(hits[i].id).className = 'col-md-3 scientist active';
-		}
+		//highlight and move forward the hits
+		moveForward(hits);
 
 		//reset all the tags
 		var ets = document.getElementsByClassName('explore-tag');
@@ -37,19 +26,40 @@ function highlight(tag) {
 
 		//highlight the selected tag
 
-		tagElm.className = 'data explore-tag active';
+		tagElm.className = 'data explore-tag selected';
 
 
-		setSelected(hits);
 	}
 }
 
-function setSelected(hits) {
-	document.getElementById('selected_scientists').innerHTML = '';
+function moveForward(hits) {
+	//remove all the copied elements (which have the active class)
+	var numActive = parseInt(document.getElementsByClassName('highlighted').length);
+	for(var i=0;i<numActive;i++) {
+		document.getElementById('scientists').removeChild(
+			document.getElementById('scientists').firstChild
+		);
+	}
+
+	//show all elements again
+	var all = document.getElementsByClassName('box');
+	for(var i=0;i<all.length;i++) {
+		if(all[i].hasAttribute('id')) { //the elements in the selected area don't have an idea
+			//document.getElementById(all[i].id).className = 'box';
+			document.getElementById(all[i].id).style.display = 'inline-block';
+		}
+	}
+
+	//then copy, move and highlight the hits and hide the copied elements
 	for(var i=0;i<hits.length;i++) {
 		var tmp = document.getElementById(hits[i].id).cloneNode(true);
-		//document.getElementById(hits[i].id).style.display = 'none';
 		tmp.removeAttribute("id");
-		document.getElementById('selected_scientists').appendChild(tmp);
+		tmp.className += ' highlighted';
+
+		//hide the real element
+		document.getElementById(hits[i].id).style.display = 'none';
+
+		//put the cloned element in front
+		document.getElementById('scientists').prepend(tmp);
 	}
 }

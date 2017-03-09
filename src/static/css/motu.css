@@ -9041,10 +9041,22 @@ h4 {
 
 /* ------------ explore.html ------------ */
 /* line 234, ../sass/_home.scss */
+.box {
+  width: 210px;
+  height: 250px;
+  margin: 5px;
+  float: left;
+}
+/* line 235, ../sass/_home.scss */
+.box img {
+  width: 100%;
+}
+
+/* line 244, ../sass/_home.scss */
 .explore-options {
   overflow: hidden;
 }
-/* line 237, ../sass/_home.scss */
+/* line 247, ../sass/_home.scss */
 .explore-options a {
   text-decoration: none;
   margin: 2px;
@@ -9054,38 +9066,33 @@ h4 {
   display: inline-block;
   text-transform: lowercase;
 }
-/* line 246, ../sass/_home.scss */
+/* line 256, ../sass/_home.scss */
 .explore-options a:hover {
   background: #333;
   color: #fff;
 }
 
-/* line 253, ../sass/_home.scss */
-.active.explore-tag {
+/* line 263, ../sass/_home.scss */
+.selected.explore-tag {
   border-bottom: 2px solid #0af;
 }
 
-/* line 259, ../sass/_home.scss */
-.active.scientist .scientist-image-container {
+/* line 269, ../sass/_home.scss */
+.highlighted.box .scientist-image-container {
   box-shadow: 2px 2px 2px #0af;
 }
-/* line 261, ../sass/_home.scss */
-.active.scientist .scientist-image-container .media-heading {
+/* line 271, ../sass/_home.scss */
+.highlighted.box .scientist-image-container .media-heading {
   color: #0af;
 }
 
 /* ------------ scientist.html ------------ */
-/* line 271, ../sass/_home.scss */
+/* line 281, ../sass/_home.scss */
 .scientist img {
   width: 100%;
 }
 
-/* line 277, ../sass/_home.scss */
-.scientist-photo img {
-  height: 200px;
-}
-
-/* line 282, ../sass/_home.scss */
+/* line 286, ../sass/_home.scss */
 .scientist-bio {
   margin-top: 20px;
 }
@@ -9094,12 +9101,12 @@ h4 {
   font-weight: bold;
 }
 
-/* line 287, ../sass/_home.scss */
+/* line 291, ../sass/_home.scss */
 .scientist-bio-image {
   width: 100%;
 }
 
-/* line 291, ../sass/_home.scss */
+/* line 295, ../sass/_home.scss */
 .scientist-bio-text {
   max-height: 11em;
   overflow: hidden;
@@ -9109,7 +9116,7 @@ h4 {
 }
 
 /* ------------ play.html ------------ */
-/* line 303, ../sass/_home.scss */
+/* line 307, ../sass/_home.scss */
 #transcript-controls {
   height: 300px;
   width: 100%;
@@ -9118,58 +9125,58 @@ h4 {
   border: 1px solid #ccc;
 }
 
-/* line 311, ../sass/_home.scss */
+/* line 315, ../sass/_home.scss */
 .segment-nav {
   height: 270px;
   width: 100%;
 }
 
-/* line 316, ../sass/_home.scss */
+/* line 320, ../sass/_home.scss */
 .segment-list {
   height: 100%;
   overflow-y: auto;
   border: 1px solid #ccc;
 }
-/* line 321, ../sass/_home.scss */
+/* line 325, ../sass/_home.scss */
 .segment-list .data {
   color: #666;
   font-size: 12px;
 }
 
-/* line 327, ../sass/_home.scss */
+/* line 331, ../sass/_home.scss */
 .segment-poster {
   width: 100%;
 }
 
-/* line 331, ../sass/_home.scss */
+/* line 335, ../sass/_home.scss */
 .segment-list-item {
   padding: 4px 0;
   display: block;
   cursor: pointer;
 }
-/* line 336, ../sass/_home.scss */
+/* line 340, ../sass/_home.scss */
 .segment-list-item:hover {
   background: #aaa;
 }
 
-/* line 341, ../sass/_home.scss */
+/* line 345, ../sass/_home.scss */
 .sub,
 .segment {
   cursor: pointer;
 }
-/* line 344, ../sass/_home.scss */
+/* line 348, ../sass/_home.scss */
 .sub:hover,
 .segment:hover {
   color: crimson;
 }
 
-/* line 349, ../sass/_home.scss */
+/* line 353, ../sass/_home.scss */
 .active {
   font-weight: bold;
   color: crimson;
 }
 
-/* line 354, ../sass/_home.scss */
+/* line 358, ../sass/_home.scss */
 .share-panel {
   display: none;
   margin-top: 20px;
@@ -9179,13 +9186,13 @@ h4 {
   font-weight: bold;
 }
 
-/* line 359, ../sass/_home.scss */
+/* line 363, ../sass/_home.scss */
 .segment-list {
   list-style: none;
 }
 
 /* ------------ footer.html ------------ */
-/* line 368, ../sass/_home.scss */
+/* line 372, ../sass/_home.scss */
 #footer {
   color: #efefef;
   background-color: #222;
@@ -9193,17 +9200,17 @@ h4 {
   padding-bottom: 20px;
   margin-top: 20px;
 }
-/* line 375, ../sass/_home.scss */
+/* line 379, ../sass/_home.scss */
 #footer .footer-logo {
   height: 50px;
   padding: 10px 30px 10px 0;
 }
-/* line 380, ../sass/_home.scss */
+/* line 384, ../sass/_home.scss */
 #footer .container {
   background-color: #222;
 }
 
-/* line 386, ../sass/_home.scss */
+/* line 390, ../sass/_home.scss */
 .footer-text {
   font-size: 13px;
   line-height: 20px;

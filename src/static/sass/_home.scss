@@ -231,6 +231,16 @@ h4 {
 
 /* ------------ explore.html ------------ */
 
+.box {
+	img {
+		width: 100%;
+	}
+	width: 210px;
+  	height: 250px;
+  	margin: 5px;
+  	float: left;
+}
+
 .explore-options {
 	overflow: hidden;
 
@@ -250,11 +260,11 @@ h4 {
 	}
 }
 
-.active.explore-tag {
+.selected.explore-tag {
 	border-bottom: 2px solid $vproBlue;
 }
 
-.active.scientist {
+.highlighted.box {
 
 	.scientist-image-container {
 
@@ -270,12 +280,6 @@ h4 {
 .scientist {
 	img {
 		width: 100%;
-	}
-}
-
-.scientist-photo {
-	img {
-		height: 200px;
 	}
 }
 
