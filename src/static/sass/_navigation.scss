@@ -1,0 +1,52 @@
+.navbar {
+
+    font-family: $title-font;
+    font-size: 20px;
+    line-height: 48px;
+    text-transform: lowercase;
+    border: none;
+
+    a {
+        font-family: $title-font;
+        font-size: 20px;
+        text-transform: lowercase;
+    }
+
+    .navbar-collapse {
+        .navbar-nav {
+            li.active {
+                > a {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 61.9em) {
+    .navbar > .container,
+    .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.share-buttons {
+
+    .share-button {
+        float: right;
+        padding: 8px 0 0 20px;
+        height: 20px;
+        line-height: 20px;
+    }
+}
+
+.breadcrumb {
+
+    .share-buttons {
+        position: absolute;
+        top: 0;
+        right: 12px;
+    }
+}

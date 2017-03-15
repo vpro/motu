@@ -1,0 +1,22 @@
+#footer {
+    color: $brightFont;
+    background-color: $nearBlack;
+    padding-top: 2 * $defaultMargin;
+    padding-bottom: 2 * $defaultMargin;
+    margin-top: 2 * $defaultMargin;
+
+    .footer-logo {
+        height: 50px;
+        padding: 10px 30px 10px 0;
+    }
+
+    .container {
+        background-color: $nearBlack;
+    }
+
+}
+
+.footer-text {
+    font-size: 13px;
+    line-height: 20px;
+}

@@ -3,15 +3,20 @@
 /* search results */
 
 .search-result {
-	@include block;
+	//@include block;
+	margin: 0 0 40px 0;
 	padding: 10px;
 	cursor: pointer;
-	border-radius:8px;
-	background-color: #fff;
-	border: 1px solid #fff;
+
 	&:hover {
-		border: 1px solid #666;
-		box-shadow: 2px 2px 2px #aaa;
+		background-color: #e3e3e3;
+	}
+	.fragment-hit {
+
+		&:hover {
+			background-color: #aaa;
+		}
+
 	}
 }
 
@@ -23,12 +28,12 @@
 }
 
 .tag {
-	font-size: 80% !important;
+	font-size: 100% !important;
 	display: inline-block !important;
 	margin: 0 5px 5px 0;
 	font-weight: normal;
-	color: #666;
-	text-transform:uppercase;
+	background: $vproDarkGold;
+	color: #fff;
 }
 
 /* facets on the left side */
@@ -38,7 +43,7 @@
 	margin: 0;
 	padding: 0;
 	.facet-item {
-		color: #333;
+		color: $vproBlue;
 		&:hover {
 			color:#ccc;
 		}
@@ -46,13 +51,7 @@
 }
 
 .facet-item :hover {
-	color: #aaa;
-}
-
-.poster-title {
-	text-transform:uppercase;
-	font-size:70%;
-	text-align:center;
+	color: $vproBlue;
 }
 
 .media-body-intro {
@@ -62,3 +61,68 @@
 .media-fragment-tags {
 	padding: 10px 0 0;
 }
+
+///* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
+//
+///* search results */
+//
+//.search-result {
+//	@include block;
+//	padding: 10px;
+//	cursor: pointer;
+//	border-radius:8px;
+//	background-color: #fff;
+//	border: 1px solid #fff;
+//	&:hover {
+//		border: 1px solid #666;
+//		box-shadow: 2px 2px 2px #aaa;
+//	}
+//}
+//
+//.media-fragments {
+//	.fragment-hit.media {
+//		margin: 10px;
+//		padding: 10px;
+//	}
+//}
+//
+//.tag {
+//	font-size: 80% !important;
+//	display: inline-block !important;
+//	margin: 0 5px 5px 0;
+//	font-weight: normal;
+//	color: #666;
+//	text-transform:uppercase;
+//}
+//
+///* facets on the left side */
+//
+//.facet-group {
+//	list-style:none;
+//	margin: 0;
+//	padding: 0;
+//	.facet-item {
+//		color: #333;
+//		&:hover {
+//			color:#ccc;
+//		}
+//	}
+//}
+//
+//.facet-item :hover {
+//	color: #aaa;
+//}
+//
+//.poster-title {
+//	text-transform:uppercase;
+//	font-size:70%;
+//	text-align:center;
+//}
+//
+//.media-body-intro {
+//	min-height: 120px;
+//}
+//
+//.media-fragment-tags {
+//	padding: 10px 0 0;
+//}

@@ -1,0 +1,88 @@
+#transcript-controls {
+    height: 300px;
+    width: 100%;
+    padding: $defaultMargin;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.segment-nav {
+    height: 270px;
+    width: 100%;
+}
+
+.segment-list {
+    height: 100%;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+
+    .data {
+        color: #666;
+        font-size: 12px;
+    }
+}
+
+.segment-poster {
+    width: 100%;
+}
+
+.segment-list-item {
+    padding: 4px 0;
+    display: block;
+    cursor: pointer;
+
+    &:hover {
+        background: #aaa;
+    }
+}
+
+.sub,
+.segment {
+    cursor:pointer;
+    &:hover {
+        color:crimson;
+    }
+}
+
+.active {
+    font-weight:bold;
+    color:crimson;
+}
+
+.share-panel {
+    display:none;
+}
+
+.segment-list {
+    list-style: none;
+    li {
+
+    }
+}
+
+
+.modal-body {
+    height: 66vh;
+    overflow-y: hidden;
+
+    #video-name {
+        font-style: italic;
+    }
+
+    .formAssemblyFrame {
+        border: none;
+    }
+}
+
+.modal-download-info {
+    font-size: 15px;
+    line-height: 24px;
+    padding: 0 0 20px;
+}
+.download-link {
+    text-decoration: underline;
+}
+
+.download-link-info {
+    font-size: 13px;
+}
