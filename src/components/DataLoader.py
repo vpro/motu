@@ -29,33 +29,33 @@ class DataLoader():
 		self.TERM_EXTRACTION_API = 'http://termextract.fivefilters.org/extract.php'
 		self.TERM_CLOUD_LIMIT = 50
 		self.WIKI_MAPPING = {
-			'Artur_Avila' : (None, None),#TODO
-			'Carolina_Cruz' : (None, None),
+			'Artur_Avila' : ('Artur_Avila', 'Artur_Avila'),
+			'Carolina_Cruz' : ('Carolina_Cruz_Neira', 'Carolina_Cruz-Neira'),
 			'Charles_Spence' : ('Charles_Spence', 'Charles_Spence'),
-			'Donald_Hoffman' : (None, None),
+			'Donald_Hoffman' : (None, None),#only wikidata page
 			'Erik_Demaine' : ('Erik_Demaine', 'Erik_Demaine'),
 			'George_Church' : ('George_M_Church', 'George_M._Church'),
-			'George_Whitesides' : (None, None),#TODO
+			'George_Whitesides' : ('George_M_Whitesides', 'George_M._Whitesides'),
 			'Guy_Consolmagno' : ('Guy_Consolmagno', 'Guy_Consolmagno'),
-			'Hani_Hayajneh' : (None, None),#TODO
+			'Hani_Hayajneh' : ('Hani_Hayajneh', 'Hani_Hayajneh'),
 			'Hans_Clevers' : ('Hans_Clevers', 'Hans_Clevers'),
 			'Jean-Jacques_Hublin' : ('Jean_Jacques_Hublin', 'Jean_Jacques_Hublin'),
-			'Jennifer_Chayes' : (None, None),#TODO
+			'Jennifer_Chayes' : ('Jennifer_Tour_Chayes', 'Jennifer_Tour_Chayes'),#TODO
 			'Jian-Wei_Pan' : ('Pan_Jianwei', 'Pan_Jianwei'),
 			'Joanna_Aizenberg' : ('Joanna_Aizenberg', 'Joanna_Aizenberg'),
-			'John_List' : (None, None),#TODO
+			'John_List' : ('John_A_List', 'John_A._List'),
 			'Juan_Maldacena' : ('Juan_Mart%C3%ADn_Maldacena', 'Juan_Mart%C3%ADn_Maldacena'),
 			'Lee_Cronin' : ('Leroy_Cronin', 'Leroy_Cronin'),
-			'Martin_Rees' : (None, None),#TODO
-			'Michel_Poulin' : (None, None),
+			'Martin_Rees' : ('Martin_Rees', 'Martin_Rees'),
+			'Michel_Poulin' : ('Michel_Poulain', 'Michel_Poulain'),
 			'Miguel_Nicolelis' : ('Miguel_Nicolelis', 'Miguel_Nicolelis'),
 			'Nicky_Clayton' : ('Nicola_Clayton', 'Nicola_Clayton'),
-			'Pascale_Fung' : (None, None),#TODO
-			'Rick_Tumlinson' : (None, None),#TODO
-			'Ron_Fouchier' : (None, None),
+			'Pascale_Fung' : (None, None),#komt eraan
+			'Rick_Tumlinson' : ('Rick_Tumlinson', 'Rick_Tumlinson'),
+			'Ron_Fouchier' : (None, None),#komt er ook niet
 			'Sara_Seager' : ('Sara_Seager', 'Sara_Seager'),
 			'Segenet_Kelemu' : ('Segenet_Kelemu', 'Segenet_Kelemu'),
-			'Susant_Patnaik' : (None, None),
+			'Susant_Patnaik' : (None, None),#weigert, komt er niet
 			'Trond_Helge_Torsvik' : ('Trond_Helge_Torsvik', 'Trond_Helge_Torsvik'),
 			'Yoshua_Bengio' : ('Yoshua_Bengio', 'Yoshua_Bengio'),
 			'Yuri_Oganessian' : ('Yuri_Oganessian', 'Yuri_Oganessian')
