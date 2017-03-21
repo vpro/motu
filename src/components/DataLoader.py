@@ -47,7 +47,7 @@ class DataLoader():
 			'Juan_Maldacena' : ('Juan_Mart%C3%ADn_Maldacena', 'Juan_Mart%C3%ADn_Maldacena'),
 			'Lee_Cronin' : ('Leroy_Cronin', 'Leroy_Cronin'),
 			'Martin_Rees' : ('Martin_Rees', 'Martin_Rees'),
-			'Michel_Poulin' : ('Michel_Poulain', 'Michel_Poulain'),
+			'Michel_Poulain' : ('Michel_Poulain', 'Michel_Poulain'),#TODO naam wijzigen --> Michel Poulain
 			'Miguel_Nicolelis' : ('Miguel_Nicolelis', 'Miguel_Nicolelis'),
 			'Nicky_Clayton' : ('Nicola_Clayton', 'Nicola_Clayton'),
 			'Pascale_Fung' : (None, None),#komt eraan
@@ -55,7 +55,7 @@ class DataLoader():
 			'Ron_Fouchier' : (None, None),#komt er ook niet
 			'Sara_Seager' : ('Sara_Seager', 'Sara_Seager'),
 			'Segenet_Kelemu' : ('Segenet_Kelemu', 'Segenet_Kelemu'),
-			'Susant_Patnaik' : (None, None),#weigert, komt er niet
+			'Susant_Patnaik' : (None, None),#weigert, komt er niet; TODO naam wijzigen --> Susant Pattnaik
 			'Trond_Helge_Torsvik' : ('Trond_Helge_Torsvik', 'Trond_Helge_Torsvik'),
 			'Yoshua_Bengio' : ('Yoshua_Bengio', 'Yoshua_Bengio'),
 			'Yuri_Oganessian' : ('Yuri_Oganessian', 'Yuri_Oganessian')
