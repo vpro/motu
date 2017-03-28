@@ -5847,13 +5847,13 @@ body {
   font-family: "vpro_vesta", Verdana, Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
   line-height: 24px;
   font-size: 15px;
-  background: #222; }
+  background-color: #333; }
 
 a,
 a:hover,
 a:visited {
   text-decoration: none;
-  color: #222; }
+  color: #333; }
 
 p a {
   text-decoration: underline; }
@@ -5960,7 +5960,7 @@ h4 {
 
 #footer {
   color: #efefef;
-  background-color: #222;
+  background-color: #333;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 20px; }
@@ -5968,7 +5968,10 @@ h4 {
     height: 50px;
     padding: 10px 30px 10px 0; }
   #footer .container {
-    background-color: #222; }
+    background-color: #333; }
+
+.footer-share-button {
+  float: right; }
 
 .footer-text {
   font-size: 13px;
@@ -6043,6 +6046,28 @@ h4 {
   top: 0;
   right: 12px; }
 
+.motu-header-background {
+  position: absolute;
+  top: 50px;
+  z-index: -1;
+  width: 100%;
+  height: 180px;
+  background: url("../images/header-background-small.jpg") no-repeat center center #000; }
+
+@media all and (min-width: 768px) {
+  .motu-header-background {
+    height: 432px;
+    background-image: url("../images/header-background-large.jpg"); } }
+@media all and (min-width: 1072px) {
+  .motu-header-background {
+    height: 603px; } }
+.motu-header-logo-container {
+  background-color: transparent;
+  overflow: hidden; }
+
+@media all and (max-width: 768px) {
+  .motu-header-logo {
+    margin-left: 16px; } }
 #transcript-controls {
   height: 300px;
   width: 100%;

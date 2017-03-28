@@ -6,7 +6,11 @@ $defaultItemMargin: 3px;
 
 /* Colors */
 
-$nearBlack: #222;
+$vproBlue: #0af;
+$vproDarkGold: #c90;
+$vproGreyBat: #333;
+
+$nearBlack: $vproGreyBat;
 $brightFont: #efefef;
 
 $clOrange: #f26c50;
@@ -16,9 +20,6 @@ $bordergrey: #eee;
 $lightmustard: #FFEE88;
 $wonderblue: #0279A8;
 $warningRed: #FF6E75;
-
-$vproBlue: #0af;
-$vproDarkGold: #c90;
 
 /* Fonts */
 
