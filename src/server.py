@@ -127,7 +127,6 @@ def home():
 	return render_template('index.html',
 		randomVideo=_dataLoader.loadRandomVideo(),
 		introText=_dataLoader.loadMarkdownFile('introtext.md'),
-		#scientists=_dataLoader.loadScientists(),
 		tagCloud=tagCloud,
 		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)
