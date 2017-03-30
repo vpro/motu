@@ -233,7 +233,6 @@ class MultiLayeredFragmentSearch extends React.Component {
 					<FlexHits
 						key={'__' + index}
 						result={result}
-						searchTerm={this.refs.searchTerm.value}
 						collectionConfig={this.state.collectionConfig}
 						itemDetailsPath={this.props.itemDetailsPath}
 						searchTerm={this.refs.searchTerm.value}/>
@@ -255,7 +254,8 @@ class MultiLayeredFragmentSearch extends React.Component {
 												type="checkbox"
 												checked={this.state.selectedFacets[facetId] ? true : false}
 												onChange={this.toggleFacet.bind(this)}/>
-												{facet.key}&nbsp;({facet.doc_count})
+												{facet.key}&nbsp;
+												<span className="checkbox-label">({facet.doc_count})</span>
 										</label>
 									</div>
 								</li>
@@ -264,7 +264,7 @@ class MultiLayeredFragmentSearch extends React.Component {
 						if(options.length > 0) {
 							facets.push((
 								<div key={'facet__' + index}>
-									<h5>{this.getFacetTitle(key)}</h5>
+									<h5 className="facet-title">{this.getFacetTitle(key)}</h5>
 									<ul className="facet-group">
 										{options}
 									</ul>

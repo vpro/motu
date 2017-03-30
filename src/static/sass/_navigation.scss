@@ -24,6 +24,16 @@
 
 }
 
+.navbar-form {
+    button[type="submit"] {
+        background: $vproDarkGold;
+        border: none;
+        font-family: $title-font;
+        text-transform: lowercase;
+        color: #fff;
+    }
+}
+
 @media (max-width: 61.9em) {
     .navbar > .container,
     .navbar-collapse {

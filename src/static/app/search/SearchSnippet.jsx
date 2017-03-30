@@ -62,7 +62,7 @@ class SearchSnippet extends React.Component {
 
 		return (
 			<div className="media">
-				<div className="media-left media-middle">
+				<div className="media-left media-top">
 					<a href="#">
 						{poster}
 						<div className="poster-title">{this.props.data.posterTitle}</div>
@@ -75,7 +75,9 @@ class SearchSnippet extends React.Component {
 					</h4>
 					{this.highlightSearchTermInDescription(this.props.data.description)}
 					&nbsp;
-					{tags}
+					<div className="tags">
+						{tags}
+					</div>
 				</div>
 			</div>
 		)
