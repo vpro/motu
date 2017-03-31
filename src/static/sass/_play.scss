@@ -4,6 +4,11 @@
     padding: $defaultMargin;
     overflow-y: auto;
     border: 1px solid #ccc;
+
+    .data {
+        color: $greygrizzly;
+        font-size: 12px;
+    }
 }
 
 .segment-nav {
@@ -17,7 +22,7 @@
     border: 1px solid #ccc;
 
     .data {
-        color: #666;
+        color: $greygrizzly;
         font-size: 12px;
     }
 }

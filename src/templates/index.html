@@ -2,75 +2,77 @@
 
 <html>
 
-<head>
-	<title>Mind of the Universe | Home</title>
-	{% include 'head.html' %}
-</head>
+	<head>
+		<title>Mind of the Universe | Home</title>
+		{% include 'head.html' %}
+	</head>
 
-<body>
+	<body>
 
-{% with page='home' %}
-{% include 'nav.html' %}
-<div class="container">
-	{% include 'share.html' %}
-</div>
-{% endwith %}
-
-<div class="container">
-
-	<!-- FIRST ROW -->
-	<div class="row">
-
-		<!-- INTRO TEXT -->
-		<div class="col-md-12 home-text">
-			{{introText|safe}}
+		{% with page='home' %}
+		{% include 'nav.html' %}
+		<div class="container">
+			{% include 'share.html' %}
 		</div>
+		{% endwith %}
 
+		<div class="container">
 
-	</div>
+			<div class="row top-buffer"></div>
 
-	<!-- RANDOM VIDEO -->
-	<div class="row">
-		<div class="col-md-12">
-			<div class="video-embed text-center">
-				<video height="320" controls>
-					<source src="{{randomVideo}}" type="video/mp4">
-					Your browser does not support the video tag
-				</video>
+			<!-- FIRST ROW -->
+			<!-- RANDOM VIDEO -->
+
+			<div class="row top-buffer">
+
+				<div class="col-md-6 home-text">
+
+					{{introText|safe}}
+
+					<div class="text-center">
+						<span class="btn btn-lg btn-primary button-explore">
+							<a href="/explore">
+								start exploring!
+							</a>
+						</span>
+					</div>
+
+				</div>
+
+				<div class="col-md-6">
+					<div class="video-embed text-center">
+						<video width="100%" controls>
+							<source src="{{randomVideo}}" type="video/mp4">
+							Your browser does not support the video tag
+						</video>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
 
-	<!-- SECOND ROW -->
-	<div class="row top-buffer"></div>
+			<!-- SECOND ROW -->
+			<div class="row top-buffer"></div>
 
-	<!-- THIRD ROW -->
-	<div class="row">
-		<div class="text-center">
-			<span class="btn btn-lg btn-primary button-explore">
-				<a href="/explore">
-					START EXPLORING!
-				</a>
-			</span>
-		</div>
-		<br/>
-		<div class="col-md-12">
-			<div class="explore-options">
-				{% for tag in tagCloud %}
-					<a href="/explore?tag={{tag[0]}}">
-						<span id="{{tag[0]}}" class="data explore-tag" style="color:{{score_to_fontcolor(tag[1])}};">{{tag[0]}}</span>
-					</a>
-				{% endfor %}
+			<!-- THIRD ROW -->
+			<div class="row">
+
+				<br/>
+				<div class="col-md-12">
+					<div class="explore-options">
+						{% for tag in tagCloud %}
+							<a href="/explore?tag={{tag[0]}}">
+								<span id="{{tag[0]}}" class="data explore-tag" style="color:{{score_to_fontcolor(tag[1])}};">{{tag[0]}}</span>
+							</a>
+						{% endfor %}
+					</div>
+				</div>
 			</div>
+
+			<div class="row top-buffer"></div>
+
 		</div>
-	</div>
 
-</div>
+		{% include 'footer.html' %}
 
-{% include 'footer.html' %}
-
-
-
-</body>
+	</body>
 
 </html>

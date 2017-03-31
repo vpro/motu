@@ -5985,7 +5985,7 @@ h4 {
   border-left: 8px solid transparent; }
 
 #footer {
-  color: #efefef;
+  color: #eee;
   background-color: #333;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -6036,7 +6036,8 @@ h4 {
   background: #c90;
   border: none;
   font-family: "simplistic_sans", "SimplisticSans", Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
-  text-transform: lowercase; }
+  text-transform: lowercase;
+  margin: 18px 0 0 0; }
   .button-explore:hover {
     background: #c90; }
   .button-explore a {
@@ -6109,6 +6110,9 @@ h4 {
   padding: 10px;
   overflow-y: auto;
   border: 1px solid #ccc; }
+  #transcript-controls .data {
+    color: #666;
+    font-size: 12px; }
 
 .segment-nav {
   height: 270px;
