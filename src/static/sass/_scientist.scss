@@ -1,0 +1,23 @@
+.scientist {
+    img {
+        width: 100%;
+    }
+}
+
+.scientist-photo {
+    img {
+        height: 200px;
+    }
+}
+
+.scientist-bio-image {
+    width: 100%;
+}
+
+.scientist-bio-text {
+    max-height: 11em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}

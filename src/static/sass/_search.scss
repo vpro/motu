@@ -1,17 +1,39 @@
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 
+#fragment_search {
+	.form-inline {
+		button {
+			background: $vproDarkGold;
+			border: 1px solid $vproDarkGold;
+			font-family: $title-font;
+			text-transform: lowercase;
+			color: #fff;
+		}
+	}
+}
+
 /* search results */
 
 .search-result {
-	@include block;
+	margin: 0 0 40px 0;
 	padding: 10px;
 	cursor: pointer;
-	border-radius:8px;
-	background-color: #fff;
-	border: 1px solid #fff;
+
 	&:hover {
-		border: 1px solid #666;
-		box-shadow: 2px 2px 2px #aaa;
+		background-color: #e3e3e3;
+	}
+	.fragment-hit {
+
+		&:hover {
+			background-color: #aaa;
+		}
+
+	}
+
+	.poster-title {
+		padding: 5px 0 0 0;
+		font-size: 12px;
+		text-transform: uppercase;
 	}
 }
 
@@ -22,13 +44,18 @@
 	}
 }
 
+.tags {
+	padding: 12px 0 0 0;
+	line-height: 16px;
+}
+
 .tag {
-	font-size: 80% !important;
-	display: inline-block !important;
-	margin: 0 5px 5px 0;
+	display: inline-block;
+	padding: 0 12px 0 0;
 	font-weight: normal;
-	color: #666;
-	text-transform:uppercase;
+	color: $greyelephant;
+	font-size: 12px;
+	text-transform: uppercase;
 }
 
 /* facets on the left side */
@@ -38,21 +65,25 @@
 	margin: 0;
 	padding: 0;
 	.facet-item {
-		color: #333;
-		&:hover {
-			color:#ccc;
+		color: $vproDarkGold;
+		font-family: $data-font;
+		text-transform: lowercase;
+
+		&:last-child {
+			padding: 0 0 8px 0;
 		}
 	}
 }
 
-.facet-item :hover {
+.checkbox-label {
 	color: #aaa;
+	font-size: 12px;
+	font-family: $data-font;
 }
 
-.poster-title {
-	text-transform:uppercase;
-	font-size:70%;
-	text-align:center;
+.facet-title {
+	font-size: 20px;
+	text-transform: lowercase;
 }
 
 .media-body-intro {

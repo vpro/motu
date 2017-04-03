@@ -1,0 +1,55 @@
+@import url(https://files.vpro.nl/fontface/vpro_vesta/font.css);
+@import url(https://files.vpro.nl/fontface/simplistic_sans/font.css);
+@import url(https://files.vpro.nl/fontface/iconfont/iconfont.css);
+
+* {
+    box-sizing: border-box !important;
+}
+
+body {
+    margin: auto;
+    font-family: $default-font;
+    line-height: 24px;
+    font-size: 15px;
+    background-color: $greybat;
+}
+
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: $greybat;
+}
+
+p {
+    a {
+        text-decoration: underline;
+    }
+}
+
+.top-buffer {
+    margin-top: $defaultMargin * 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $title-font;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 0;
+}
+
+.data {
+    font-family: $data-font;
+    font-size: 15px;
+}
+
+.container {
+    background: #fff;
+}

@@ -1,0 +1,95 @@
+.navbar {
+
+    font-family: $title-font;
+    font-size: 20px;
+    line-height: 48px;
+    text-transform: lowercase;
+    border: none;
+
+    a {
+        font-family: $title-font;
+        font-size: 20px;
+        text-transform: lowercase;
+    }
+
+    .navbar-collapse {
+        .navbar-nav {
+            li.active {
+                > a {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+}
+
+.navbar-form {
+    button[type="submit"] {
+        background: $vproDarkGold;
+        border: none;
+        font-family: $title-font;
+        text-transform: lowercase;
+        color: #fff;
+    }
+}
+
+@media (max-width: 61.9em) {
+    .navbar > .container,
+    .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.share-buttons {
+
+    .share-button {
+        float: right;
+        padding: 8px 0 0 20px;
+        height: 20px;
+        line-height: 20px;
+    }
+}
+
+.breadcrumb {
+
+    .share-buttons {
+        position: absolute;
+        top: 0;
+        right: 12px;
+    }
+}
+
+.motu-header-background {
+    position: absolute;
+    top: 50px;
+    z-index: -1;
+    width: 100%;
+    height: 180px;
+
+    background: url('../images/header-background-small.jpg') no-repeat center center #000;
+}
+
+@media all and ( min-width: 768px ) {
+    .motu-header-background {
+        height: 432px;
+        background-image: url('../images/header-background-large.jpg');
+    }
+}
+@media all and ( min-width: 1072px ) {
+    .motu-header-background {
+        height: 603px;
+    }
+}
+
+.motu-header-logo-container {
+    background-color: transparent;
+    overflow: hidden;
+}
+
+@media all and ( max-width: 768px ) {
+    .motu-header-logo {
+        margin-left: 16px;
+    }
+}

@@ -1,0 +1,26 @@
+#footer {
+    color: $greyjerboa;
+    background-color: $greybat;
+    padding-top: 2 * $defaultMargin;
+    padding-bottom: 2 * $defaultMargin;
+    margin-top: 2 * $defaultMargin;
+
+    .footer-logo {
+        height: 50px;
+        padding: 10px 30px 10px 0;
+    }
+
+    .container {
+        background-color: $greybat;
+    }
+
+}
+
+.footer-share-button {
+    float: right;
+}
+
+.footer-text {
+    font-size: 13px;
+    line-height: 20px;
+}

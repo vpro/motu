@@ -6,6 +6,6 @@ The interviews were produced in 2015, 2016 and 2017 by Dutch public broadcaster 
 
 The open access video platform was built by [The Netherlands Institute for Sound and Vision](http://www.beeldengeluid.nl/en).
 
-![VPRO](/static/images/vpro-blue.png)&nbsp;&nbsp;&nbsp;![Netherlands Institute for Sound & Vision](/static/images/nisv.png)
+![VPRO](/static/images/vpro-black.png)&nbsp;&nbsp;&nbsp;![Netherlands Institute for Sound & Vision](/static/images/nisv.png)
 
 Please [share]() with us your use of the videos and thus contribute to The Mind of the Universe.

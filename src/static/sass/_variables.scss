@@ -6,8 +6,15 @@ $defaultItemMargin: 3px;
 
 /* Colors */
 
-$nearBlack: #222;
-$brightFont: #efefef;
+$vproBlue: #0af;
+$vproDarkGold: #c90;
+
+$greyjerboa: #eee;
+$greywolf: #d6d6d6;
+$greymouse: #ccc;
+$greyelephant: #aaa;
+$greygrizzly: #666;
+$greybat: #333;
 
 $clOrange: #f26c50;
 $clLightOrange: #f8cfa6;
@@ -17,12 +24,10 @@ $lightmustard: #FFEE88;
 $wonderblue: #0279A8;
 $warningRed: #FF6E75;
 
-$vproBlue: #0af;
-$vproDarkGold: #c90;
-
 /* Fonts */
 
 $title-font: 'simplistic_sans', 'SimplisticSans', Arial, Helvetica, Sans, FreeSans, 'Nimbus Sans L', Garuda, sans-serif;
 $data-font: 'vpro_vesta_big', Verdana, Arial, Helvetica, Sans, FreeSans, 'Nimbus Sans L', Garuda, sans-serif;
 $search-font: 'vpro_vesta_big', Verdana, Arial, Helvetica, Sans, FreeSans, 'Nimbus Sans L', Garuda, sans-serif;
 $default-font: 'vpro_vesta', Verdana, Arial, Helvetica, Sans, FreeSans, 'Nimbus Sans L', Garuda, sans-serif;
+$vpro-icon-font: vpro-iconfont;
