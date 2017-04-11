@@ -5880,6 +5880,28 @@ h4 {
 .container {
   background: #fff; }
 
+.glyph-play {
+  font-family: vpro-iconfont;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  text-transform: lowercase;
+  -webkit-font-smoothing: antialiased;
+  background: #c90;
+  text-shadow: 1px 1px 4px #333;
+  right: 0;
+  top: 0;
+  text-align: center;
+  text-indent: 3px; }
+  .glyph-play:after {
+    content: "q"; }
+
 .breadcrumb {
   margin-bottom: 0;
   position: relative;
@@ -5931,7 +5953,7 @@ h4 {
 .box {
   width: 210px;
   height: 250px;
-  margin: 0 9px;
+  margin: 0 9px 20px;
   float: left; }
   .box img {
     width: 100%; }
@@ -5960,7 +5982,8 @@ h4 {
     padding: 2px 6px;
     white-space: nowrap;
     display: inline-block;
-    text-transform: lowercase; }
+    text-transform: lowercase;
+    color: #333; }
     .explore-options a span.selected, .explore-options a span:hover {
       background: #c90;
       color: #fff !important; }
@@ -5973,7 +5996,8 @@ h4 {
   display: block;
   content: '';
   border-top: 8px solid transparent;
-  border-left: 8px solid #c90; }
+  border-left: 8px solid #cc9900;
+  animation: .75s ease-out 0s 1 border-left-transparency; }
 .highlighted.box .scientist-image-container:after {
   position: absolute;
   right: -8px;
@@ -5981,9 +6005,20 @@ h4 {
   bottom: -8px;
   display: block;
   content: '';
-  border-top: 8px solid #c90;
-  border-left: 8px solid transparent; }
+  border-top: 8px solid #cc9900;
+  border-left: 8px solid transparent;
+  animation: .75s ease-out 0s 1 border-top-transparency; }
 
+@keyframes border-left-transparency {
+  0% {
+    border-left-color: rgba(204, 153, 0, 0); }
+  100% {
+    border-left-color: #cc9900; } }
+@keyframes border-top-transparency {
+  0% {
+    border-top-color: rgba(204, 153, 0, 0); }
+  100% {
+    border-top-color: #cc9900; } }
 #footer {
   color: #eee;
   background-color: #333;
@@ -6037,7 +6072,7 @@ h4 {
   border: none;
   font-family: "simplistic_sans", "SimplisticSans", Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
   text-transform: lowercase;
-  margin: 18px 0 0 0; }
+  margin: 18px 0; }
   .button-explore:hover {
     background: #c90; }
   .button-explore a {
@@ -6071,16 +6106,23 @@ h4 {
   .navbar-collapse {
     padding-left: 0;
     padding-right: 0; } }
-.share-buttons .share-button {
-  float: right;
-  padding: 8px 0 0 20px;
-  height: 20px;
-  line-height: 20px; }
+.share-buttons {
+  display: none;
+  margin-top: -40px; }
+  .share-buttons .share-button {
+    float: right;
+    padding: 8px 0 0 20px;
+    height: 20px;
+    line-height: 20px; }
 
+@media all and (min-width: 768px) {
+  .share-buttons {
+    display: block; } }
 .breadcrumb .share-buttons {
   position: absolute;
-  top: 0;
-  right: 12px; }
+  top: -40px;
+  right: 12px;
+  margin-top: 0; }
 
 .motu-header-background {
   position: absolute;
@@ -6210,6 +6252,11 @@ h4 {
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical; }
+
+.video-embed .media .media-left {
+  position: relative; }
+  .video-embed .media .media-left .glyph-play {
+    right: 10px; }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 #fragment_search .form-inline button {

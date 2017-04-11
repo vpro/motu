@@ -34,7 +34,7 @@
 				<div class="explore-options">
 					{% for tag in tagCloud %}
 						<a href="javascript:void(0);" onclick="highlight('{{tag[0]}}')">
-							<span id="{{tag[0]}}" class="data explore-tag" style="color:{{score_to_fontcolor(tag[1])}};">{{tag[0]}}</span>
+							<span id="{{tag[0]}}" class="data explore-tag">{{tag[0]}}</span>
 						</a>
 					{% endfor %}
 				</div>
@@ -57,11 +57,12 @@
 				{% for s in scientists %}
 					{% if s.id %}
 						<div id="{{s.id}}" class="box" title="{{s.shortBio|safe}}">
-							<a href="/scientist?id={{s.id}}">
+							<a href="/play?id={{s.id}}">
 								<div class="scientist-image-container" style="background-image: url({{s.poster}})">
 									<h4 class="media-heading">
 										{{s.name}}
 									</h4>
+									<span class="glyph-play"></span>
 								</div>
 								<div class="scientist-bio-container">
 									{{s.shortBio|safe}}

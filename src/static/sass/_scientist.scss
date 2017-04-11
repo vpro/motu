@@ -21,3 +21,14 @@
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
 }
+
+.video-embed {
+    .media {
+        .media-left {
+            position: relative;
+            .glyph-play {
+                right: 10px;
+            }
+        }
+    }
+}

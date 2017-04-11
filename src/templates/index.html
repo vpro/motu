@@ -49,24 +49,6 @@
 				</div>
 			</div>
 
-			<!-- SECOND ROW -->
-			<div class="row top-buffer"></div>
-
-			<!-- THIRD ROW -->
-			<div class="row">
-
-				<br/>
-				<div class="col-md-12">
-					<div class="explore-options">
-						{% for tag in tagCloud %}
-							<a href="/explore?tag={{tag[0]}}">
-								<span id="{{tag[0]}}" class="data explore-tag" style="color:{{score_to_fontcolor(tag[1])}};">{{tag[0]}}</span>
-							</a>
-						{% endfor %}
-					</div>
-				</div>
-			</div>
-
 			<div class="row top-buffer"></div>
 
 		</div>
