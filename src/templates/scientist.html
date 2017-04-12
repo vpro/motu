@@ -41,47 +41,47 @@
 	</div>
 
 	<!-- THIRD ROW -->
-	<div class="row">
-		<div class="col-md-12">
-			<div class="scientist-bio">
+	<!--<div class="row">-->
+		<!--<div class="col-md-12">-->
+			<!--<div class="scientist-bio">-->
 
-				<div class="row">
+				<!--<div class="row">-->
 
-					<div class="col-md-4">
-						<img class="scientist-bio-image" src="{{scientist.poster}}" alt="{{scientist.name}}">
-					</div>
+					<!--<div class="col-md-4">-->
+						<!--<img class="scientist-bio-image" src="{{scientist.poster}}" alt="{{scientist.name}}">-->
+					<!--</div>-->
 
-					<div class="col-md-8">
+					<!--<div class="col-md-8">-->
 
-						<div class="scientist-bio-text">
-							{{scientist.bio}}
-						</div>
+						<!--<div class="scientist-bio-text">-->
+							<!--{{scientist.bio}}-->
+						<!--</div>-->
 
-						{% if scientist.wikiURL %}
-						<p>
-							<br/>
-							<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>
-						</p>
-						{% endif %}
+						<!--{% if scientist.wikiURL %}-->
+						<!--<p>-->
+							<!--<br/>-->
+							<!--<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>-->
+						<!--</p>-->
+						<!--{% endif %}-->
 
-						{% if scientist.links | length > 0 %}
-							<p>
-								{% for link in scientist.links %}
-									<i class="fa fa-link"></i>
-									<a href="{{link.url}}" target="_new">{{link.label}}</a>
-									<br/>
-								{% endfor %}
-							</p>
-						{% endif %}
-					</div>
+						<!--{% if scientist.links | length > 0 %}-->
+							<!--<p>-->
+								<!--{% for link in scientist.links %}-->
+									<!--<i class="fa fa-link"></i>-->
+									<!--<a href="{{link.url}}" target="_new">{{link.label}}</a>-->
+									<!--<br/>-->
+								<!--{% endfor %}-->
+							<!--</p>-->
+						<!--{% endif %}-->
+					<!--</div>-->
 
 
-				</div>
+				<!--</div>-->
 
-			</div>
-		</div>
+			<!--</div>-->
+		<!--</div>-->
 
-	</div>
+	<!--</div>-->
 
 	<!-- FOURTH ROW -->
 	<div class="row top-buffer">

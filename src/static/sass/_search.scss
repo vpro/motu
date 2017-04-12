@@ -35,6 +35,17 @@
 		font-size: 12px;
 		text-transform: uppercase;
 	}
+
+	.media-left.media-top {
+		position: relative;
+	}
+
+	.glyph-play {
+		position: absolute;
+		right: 11px;
+		bottom: 0;
+	}
+
 }
 
 .media-fragments {
