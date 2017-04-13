@@ -6045,6 +6045,9 @@ h4 {
   font-size: 13px;
   line-height: 20px; }
 
+.project-introduction {
+  background: #d6d6d6; }
+
 .home-text strong {
   font-family: "simplistic_sans", "SimplisticSans", Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
   font-size: 24px; }
