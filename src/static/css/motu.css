@@ -5842,12 +5842,17 @@ button.close {
 * {
   box-sizing: border-box !important; }
 
+html {
+  position: relative;
+  min-height: 100%; }
+
 body {
   margin: auto;
   font-family: "vpro_vesta", Verdana, Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
   line-height: 24px;
   font-size: 15px;
-  background-color: #333; }
+  background-color: #333;
+  margin-bottom: 110px; }
 
 a,
 a:hover,
@@ -6019,6 +6024,9 @@ h4 {
   100% {
     border-top-color: #cc9900; } }
 #footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
   color: #eee;
   background-color: #333;
   padding-top: 20px;
@@ -6051,20 +6059,6 @@ h4 {
     font-size: 13px;
     line-height: 20px;
     padding: 4px 8px 8px; }
-
-.tag-cloud {
-  overflow: hidden; }
-  .tag-cloud a {
-    margin: 2px;
-    background: #ddd;
-    padding: 2px 6px;
-    white-space: nowrap;
-    color: #000;
-    display: inline-block;
-    text-transform: lowercase; }
-    .tag-cloud a:hover {
-      background: #333;
-      color: #fff; }
 
 .button-explore {
   background: #c90;
@@ -6247,20 +6241,26 @@ h4 {
 .scientist-photo img {
   height: 200px; }
 
-.scientist-bio-image {
-  width: 100%; }
-
-.scientist-bio-text {
-  max-height: 11em;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical; }
+.interview {
+  padding: 0 0 40px; }
 
 .video-embed .media .media-left {
   position: relative; }
   .video-embed .media .media-left .glyph-play {
     right: 11px; }
+
+.tag-cloud {
+  overflow: hidden; }
+  .tag-cloud a {
+    margin: 2px;
+    padding: 2px 6px;
+    white-space: nowrap;
+    color: #000;
+    display: inline-block;
+    text-transform: lowercase; }
+    .tag-cloud a:hover {
+      color: #fff;
+      background: #c90; }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 #fragment_search .form-inline button {

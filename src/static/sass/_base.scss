@@ -6,12 +6,19 @@
     box-sizing: border-box !important;
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     margin: auto;
     font-family: $default-font;
     line-height: 24px;
     font-size: 15px;
     background-color: $greybat;
+
+    margin-bottom: 110px;
 }
 
 a,
