@@ -1,53 +1,54 @@
 <!doctype HTML>
 
-<html>
+	<html>
 
-<head>
-	<title>The mind of the universe | Search</title>
-    {% include 'head.html' %}
-</head>
+	<head>
+		<title>The mind of the universe | Search</title>
+		{% include 'head.html' %}
+	</head>
 
-<body>
+	<body>
 
-	{% with page='search' %}
-    {% include 'nav.html' %}
-    {% endwith %}
+		{% with page='search' %}
+		{% include 'nav.html' %}
+		{% endwith %}
 
-	<ol class="breadcrumb container">
+		<ol class="breadcrumb container">
 
-		<li class="breadcrumb-item active">
-			<a href="/">Home</a>
-		</li>
-		<li class="breadcrumb-item">
-			Search
-		</li>
+			<li class="breadcrumb-item active">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item">
+				Search
+			</li>
 
-		{% include 'share.html' %}
+			{% include 'share.html' %}
 
-	</ol>
+		</ol>
 
-	<div class="container">
-		<div id="fragment_search"></div>
-	</div>
-	{% include 'footer.html' %}
+		<div class="container">
+			<div id="fragment_search"></div>
+		</div>
+
+		{% include 'project-info.html' %}
+
+		{% include 'footer.html' %}
+
+	</body>
+
+	<!-- Babel is needed to parse the motu-search.js -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
 
 
-
-</body>
-
-<!-- Babel is needed to parse the motu-search.js -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
-
-
-<!-- The search library -->
-<script type="text/javascript" src="/static/dist/motu-app.js"></script>
-<script type="text/javascript">
-	var searchParams = {{searchParams|tojson}};
-</script>
-<!-- The script simply rendering the React code from the library TODO precompile this! -->
-<script type="text/babel" src="/static/js/motu-search.js"></script>
+	<!-- The search library -->
+	<script type="text/javascript" src="/static/dist/motu-app.js"></script>
+	<script type="text/javascript">
+		var searchParams = {{searchParams|tojson}};
+	</script>
+	<!-- The script simply rendering the React code from the library TODO precompile this! -->
+	<script type="text/babel" src="/static/js/motu-search.js"></script>
 
 </html>

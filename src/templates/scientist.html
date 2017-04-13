@@ -2,99 +2,101 @@
 
 <html>
 
-<head>
-	<title>The mind of the universe | Person x</title>
-	{% include 'head.html' %}
-</head>
+	<head>
+		<title>The mind of the universe | Person x</title>
+		{% include 'head.html' %}
+	</head>
 
-<body>
+	<body>
 
-{% with page='scientist' %}
-{% include 'nav.html' %}
-{% endwith %}
+		{% with page='scientist' %}
+		{% include 'nav.html' %}
+		{% endwith %}
 
-<ol class="breadcrumb container">
-	<li class="breadcrumb-item active">
-		<a href="/">Home</a>
-	</li>
-	<li class="breadcrumb-item active">
-		<a href="/explore">Explore</a>
-	</li>
-	<li class="breadcrumb-item">
-		{{scientist.name}}
-	</li>
+		<ol class="breadcrumb container">
+			<li class="breadcrumb-item active">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active">
+				<a href="/explore">Explore</a>
+			</li>
+			<li class="breadcrumb-item">
+				{{scientist.name}}
+			</li>
 
-	{% include 'share.html' %}
+			{% include 'share.html' %}
 
-</ol>
+		</ol>
 
-<div class="container">
+		<div class="container">
 
-	<!-- FIRST ROW -->
-	<div class="row">
-		<div class="col-md-12">
-			<h1>{{scientist.name}}</h1>
-		</div>
-	</div>
+			<!-- FIRST ROW -->
+			<div class="row">
+				<div class="col-md-12">
+					<h1>{{scientist.name}}</h1>
+				</div>
+			</div>
 
-	<!-- SECOND ROW -->
-	<div class="row">
-		<div class="col-md-4 top-buffer">
+			<!-- SECOND ROW -->
+			<div class="row">
+				<div class="col-md-4 top-buffer">
 
-			<div class="video-embed">
+					<div class="video-embed">
 
-				<h4>Available interviews</h4>
-				{% for i in scientist.interviews %}
+						<h4>Available interviews</h4>
+						{% for i in scientist.interviews %}
 
-					<div class="interview">
-						<a href="/play?id={{i.id}}">
-							<div class="scientist-image-container" style="background-image: url({{i.poster}})">
-								<span class="glyph-play"></span>
+							<div class="interview">
+								<a href="/play?id={{i.id}}">
+									<div class="scientist-image-container" style="background-image: url({{i.poster}})">
+										<span class="glyph-play"></span>
+									</div>
+									<div class="scientist-bio-container">
+										{{i.description}}
+									</div>
+								</a>
 							</div>
-							<div class="scientist-bio-container">
-								{{i.description}}
-							</div>
-						</a>
+
+						{% endfor %}
+
 					</div>
 
-				{% endfor %}
+					{% if scientist.wikiURL %}
+					<p>
+						<br/>
+						<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>
+					</p>
+					{% endif %}
+
+				</div>
+
+
+				<div class="col-md-offset-1 col-md-7 top-buffer">
+
+					<h4>This is what {{scientist.name}} talks about:</h4>
+
+					{% if scientist.termCloud %}
+					<div class="tag-cloud">
+						{% for t in scientist.termCloud.terms %}
+						<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
+							<span class="data" style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
+						</a>
+						{% endfor %}
+					</div>
+
+					{% endif %}
+				</div>
 
 			</div>
 
-			{% if scientist.wikiURL %}
-			<p>
-				<br/>
-				<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>
-			</p>
-			{% endif %}
+			<div class="row top-buffer"></div>
 
 		</div>
 
+		{% include 'project-info.html' %}
 
-		<div class="col-md-offset-1 col-md-7 top-buffer">
+		{% include 'footer.html' %}
 
-			<h4>This is what {{scientist.name}} talks about:</h4>
-
-			{% if scientist.termCloud %}
-			<div class="tag-cloud">
-				{% for t in scientist.termCloud.terms %}
-				<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
-					<span class="data" style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
-				</a>
-				{% endfor %}
-			</div>
-
-			{% endif %}
-		</div>
-
-	</div>
-
-	<div class="row top-buffer"></div>
-
-</div>
-
-{% include 'footer.html' %}
-
-</body>
+	</body>
 
 </html>

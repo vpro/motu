@@ -5852,7 +5852,7 @@ body {
   line-height: 24px;
   font-size: 15px;
   background-color: #333;
-  margin-bottom: 110px; }
+  margin-bottom: 130px; }
 
 a,
 a:hover,
@@ -6197,23 +6197,27 @@ h4 {
   list-style: none; }
 
 .modal-body {
-  height: 66vh;
-  overflow-y: hidden; }
+  height: 60vh;
+  overflow-y: hidden;
+  padding: 0; }
   .modal-body #video-name {
     font-style: italic; }
   .modal-body .formAssemblyFrame {
     border: none; }
 
-.modal-download-info {
+.modal-intro {
   font-size: 15px;
   line-height: 24px;
-  padding: 0 0 20px; }
+  padding: 20px 15px; }
 
 .download-link {
   text-decoration: underline; }
 
 .download-link-info {
   font-size: 13px; }
+
+.modal-header .modal-title {
+  float: left; }
 
 .timebar {
   width: 100%;

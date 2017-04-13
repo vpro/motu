@@ -1,37 +1,10 @@
-
-<div class="container project-introduction">
-
-	<div class="container-fluid">
-
-		<div class="row top-buffer">
-
-			<div class="col-md-4">
-				The mind of the universe is a journey along and beyond the borders of science. It is the first open source science series ever, and it offers an online learning experience.
-			</div>
-
-			<div class="col-md-4">
-				<!--Add content here-->
-			</div>
-
-			<div class="col-md-4">
-				<!--Add content here-->
-			</div>
-
-		</div>
-
-		<div class="row top-buffer"></div>
-
-	</div>
-
-</div>
-
 <footer class="footer">
 
 	<div id="footer" class="navbar fixed-bottom navbar-light bg-faded">
 
 		<div class="container-fluid">
 			<div class="footer-text">
-				Mind of the Universe was made available to you by VPRO and The Netherlands Institute for Sound and Vision
+				The mind of the universe was made available to you by VPRO and The Netherlands Institute for Sound and Vision
 			</div>
 
 			<div class="row">
@@ -64,11 +37,19 @@
 						 src="/static/images/unesco-patronage-logo.png"
 						 alt="Under the patronage of UNESCO"
 						 title="Under the patronage of UNESCO">
+
+					<a href="https://www.npo.nl">
+						<img class="footer-logo"
+							 src="/static/images/npo-logo.png"
+							 alt="NPO"
+							 title="NPO">
+					</a>
+
 				</div>
 
 				<div class="col-md-3">
 
-					<button class="footer-share-button btn btn-danger">Share your knowledge</button>
+					<button class="knowledge-share-link footer-share-button btn btn-danger">Share your knowledge</button>
 
 				</div>
 
@@ -76,6 +57,30 @@
 
 		</div>
 
+	</div>
+
+	<div class="modal fade" id="knowledgeFormModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Share your knowledge</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="modal-intro">
+						Please share your knowledge with us
+					</div>
+
+					<iframe class="formAssemblyFrame" src="https://www.tfaforms.com/4613330" width="100%" height="90%"></iframe>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </footer>

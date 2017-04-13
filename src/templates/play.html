@@ -2,189 +2,191 @@
 
 <html>
 
-<head>
-	<title>The mind of the universe | Watch {{interview.name}}</title>
-	{% include 'head.html' %}
+	<head>
+		<title>The mind of the universe | Watch {{interview.name}}</title>
+		{% include 'head.html' %}
 
-	<script>
+		<script>
 
-		var _interview = {{ interview|tojson }};
-        var _start = {{start}};
-        var _end = {{end}};
+			var _interview = {{ interview|tojson }};
+			var _start = {{start}};
+			var _end = {{end}};
 
-        $( document ).ready(function() {
-            $( '.download-link' ).on( 'mousedown', function ( e ) {
+			$( document ).ready(function() {
+				$( '.download-link' ).on( 'mousedown', function ( e ) {
 
-            });
-        });
+				});
+			});
 
-	</script>
-</head>
+		</script>
+	</head>
 
-<body>
+	<body>
 
-{% with page='play' %}
-{% include 'nav.html' %}
-{% endwith %}
+		{% with page='play' %}
+		{% include 'nav.html' %}
+		{% endwith %}
 
-{% set scientistName = interview.id.split('__') %}
+		{% set scientistName = interview.id.split('__') %}
 
-<ol class="breadcrumb container">
+		<ol class="breadcrumb container">
 
-	<li class="breadcrumb-item active">
-		<a href="/">Home</a>
-	</li>
-	<li class="breadcrumb-item active">
-		<a href="/explore">Explore</a>
-	</li>
-	<li class="breadcrumb-item active">
-		<a href="/scientist?id={{scientistName[0]}}">
-			{{interview.name}}
-		</a>
-	</li>
-	<li class="breadcrumb-item">
-		{{interview.title}}
-	</li>
+			<li class="breadcrumb-item active">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active">
+				<a href="/explore">Explore</a>
+			</li>
+			<li class="breadcrumb-item active">
+				<a href="/scientist?id={{scientistName[0]}}">
+					{{interview.name}}
+				</a>
+			</li>
+			<li class="breadcrumb-item">
+				{{interview.title}}
+			</li>
 
-	{% include 'share.html' %}
+			{% include 'share.html' %}
 
-</ol>
+		</ol>
 
-<div class="container">
+		<div class="container">
 
-	<!-- FIRST ROW -->
-	<!--<div class="row top-buffer"></div>-->
+			<!-- FIRST ROW -->
+			<!--<div class="row top-buffer"></div>-->
 
-	<!-- SECOND ROW -->
-	<div class="row">
-		<div class="col-md-12">
-			<h3>{{interview.title}} {{'(' + interview.date + ')' if interview.date != None}}</h3>
-			<p>{{interview.description}}</p>
-		</div>
-	</div>
+			<!-- SECOND ROW -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3>{{interview.title}} {{'(' + interview.date + ')' if interview.date != None}}</h3>
+					<p>{{interview.description}}</p>
+				</div>
+			</div>
 
-	<!-- THIRD ROW -->
-	<div class="row">
-		<div class="col-md-5">
-			<h3>&nbsp;</h3>
-			<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
-			<div id="video_player"></div>
-		</div>
-		<div class="col-md-7">
-			<div class="segment-nav">
-				{% if interview.annotations.segments | length > 0 %}
-				<h3>Segments</h3>
-				<div class="segment-list">
-					{% for s in interview.annotations.segments %}
-						<a class="segment-list-item" id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-md-3">
-								{% if s.poster != None %}
-									<img class="segment-poster" src="{{s.poster}}" alt="s.name">
-									<span class="glyph-play"></span>
-								{% endif %}
+			<!-- THIRD ROW -->
+			<div class="row">
+				<div class="col-md-5">
+					<h3>&nbsp;</h3>
+					<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
+					<div id="video_player"></div>
+				</div>
+				<div class="col-md-7">
+					<div class="segment-nav">
+						{% if interview.annotations.segments | length > 0 %}
+						<h3>Segments</h3>
+						<div class="segment-list">
+							{% for s in interview.annotations.segments %}
+								<a class="segment-list-item" id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-3">
+										{% if s.poster != None %}
+											<img class="segment-poster" src="{{s.poster}}" alt="s.name">
+											<span class="glyph-play"></span>
+										{% endif %}
+											</div>
+											<div class="col-md-9">
+												{{s.title}}&nbsp;<span class="data">({{s.prettyStart}})</span>
+											</div>
+										</div>
 									</div>
-									<div class="col-md-9">
-										{{s.title}}&nbsp;<span class="data">({{s.prettyStart}})</span>
-									</div>
-								</div>
-							</div>
-						</a>
-					{% endfor %}
+								</a>
+							{% endfor %}
+						</div>
+						{% endif %}
+					</div>
 				</div>
-				{% endif %}
-			</div>
-		</div>
-	</div>
-
-	<!-- FOURTH ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-12">
-			<div class="btn-group" role="group" aria-label="...">
-				<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'download')">Download</button>
-				<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'license')">License</button>
 			</div>
 
-			<div id="panel_download" class="well share-panel">
-				<h4>Download</h4>
-				<p>
-					<a class="download-link" href="{{interview.video.url}}" data-video-id="{{interview.id}}" data-video-name="{{interview.name}}">{{interview.name}} - MP4 (4Mb CBR) </a>
-				</p>
-			</div>
+			<!-- FOURTH ROW -->
+			<div class="row top-buffer">
+				<div class="col-md-12">
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'download')">Download</button>
+						<button type="button" class="btn btn-default share-btn" onclick="togglePanel(this, 'license')">License</button>
+					</div>
 
-			<div id="panel_license" class="well share-panel">
-				<h4>Creative Commons - Attribution &amp; Share alike</h4>
-				<img src="/static/images/cc-sa.png" alt="Creative Commons License">
-				<p>
-					As long as you attribute us and use the same (CC-BY-SA) license, you're allowed to copy, change, disseminate and exhibit this work without permission of the authors, even for commercial purposes.
-					<br/>
-					<a href="https://creativecommons.org/licenses/by-sa/4.0/">More info</a>
-				</p>
-			</div>
-		</div>
-	</div>
+					<div id="panel_download" class="well share-panel">
+						<h4>Download</h4>
+						<p>
+							<a class="download-link" href="{{interview.video.url}}" data-video-id="{{interview.id}}" data-video-name="{{interview.name}}">{{interview.name}} - MP4 (4Mb CBR) </a>
+						</p>
+					</div>
 
-	<!-- FIFTH ROW -->
-	<div class="row">
-		<div class="col-md-12 top-buffer">
-			{% if interview.transcript %}
-				<div id="transcript-controls">
-					{% for line in interview.transcript %}
-					<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">
-						{{line.content}}&nbsp;<span class="data">({{line.prettystart}})</span>
-					</span><br>
-					{% endfor %}
+					<div id="panel_license" class="well share-panel">
+						<h4>Creative Commons - Attribution &amp; Share alike</h4>
+						<img src="/static/images/cc-sa.png" alt="Creative Commons License">
+						<p>
+							As long as you attribute us and use the same (CC-BY-SA) license, you're allowed to copy, change, disseminate and exhibit this work without permission of the authors, even for commercial purposes.
+							<br/>
+							<a href="https://creativecommons.org/licenses/by-sa/4.0/">More info</a>
+						</p>
+					</div>
 				</div>
-			{% endif %}
-		</div>
-	</div>
-
-	<div class="row top-buffer"></div>
-
-</div>
-
-{% include 'footer.html' %}
-
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="modal-title" id="exampleModalLongTitle">Download</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
 			</div>
-			<div class="modal-body">
 
-				<div class="modal-download-info">
-					<a class="download-link">
-						Download <span id="video-name"></span>
-					</a>
-					<span class="download-link-info">(Right click and choose "Save Link As...")</span><br/>
-					And please fill out the form below to provide us with valuable feedback.
+			<!-- FIFTH ROW -->
+			<div class="row">
+				<div class="col-md-12 top-buffer">
+					{% if interview.transcript %}
+						<div id="transcript-controls">
+							{% for line in interview.transcript %}
+							<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">
+								{{line.content}}&nbsp;<span class="data">({{line.prettystart}})</span>
+							</span><br>
+							{% endfor %}
+						</div>
+					{% endif %}
 				</div>
-
-				<!-- tfa_1884 is a formAssembly id for a specific hidden field we want to prefill with the video id -->
-				<iframe class="formAssemblyFrame" src="https://www.tfaforms.com/456349?tfa_1884={{interview.id}}" width="100%" height="100%"></iframe>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+			<div class="row top-buffer"></div>
+
+		</div>
+
+		{% include 'project-info.html' %}
+
+		{% include 'footer.html' %}
+
+		<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title">Download</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<div class="modal-intro">
+							<a class="download-link">
+								Download <span id="video-name"></span>
+							</a>
+							<span class="download-link-info">(Right click and choose "Save Link As...")</span><br/>
+							And please fill out the form below to provide us with valuable feedback.
+						</div>
+
+						<!-- tfa_1884 is a formAssembly id for a specific hidden field we want to prefill with the video id -->
+						<iframe class="formAssemblyFrame" src="https://www.tfaforms.com/456349?tfa_1884={{interview.id}}" width="100%" height="90%"></iframe>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
 
-</body>
+	</body>
 
-<script type="text/javascript" src="/static/vendor/jwplayer-7.5.0/jwplayer.js"></script>
+	<script type="text/javascript" src="/static/vendor/jwplayer-7.5.0/jwplayer.js"></script>
 
-<!-- Babel is needed to parse the motu-playout.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+	<!-- Babel is needed to parse the motu-playout.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
 
-<script src="/static/js/motu-playout.js"></script>
+	<script src="/static/js/motu-playout.js"></script>
 
 </html>
