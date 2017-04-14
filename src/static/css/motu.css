@@ -6046,11 +6046,15 @@ h4 {
   line-height: 20px; }
 
 .project-introduction {
-  background: #d6d6d6; }
+  background: #d6d6d6;
+  font-size: 13px; }
+  .project-introduction a {
+    text-decoration: underline; }
+  .project-introduction img {
+    margin-top: 12px; }
 
-.home-text strong {
-  font-family: "simplistic_sans", "SimplisticSans", Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
-  font-size: 24px; }
+.home-text ul {
+  padding-left: 20px; }
 
 .scientist-overview {
   padding-top: 15px; }

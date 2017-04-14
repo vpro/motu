@@ -32,5 +32,13 @@
 
 .project-introduction {
     background: $greywolf;
+    font-size: 13px;
 
+    a {
+        text-decoration: underline;
+    }
+
+    img {
+        margin-top: 12px;
+    }
 }
