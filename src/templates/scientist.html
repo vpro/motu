@@ -2,145 +2,101 @@
 
 <html>
 
-<head>
-	<title>Mind of the Universe | Person x</title>
-	{% include 'head.html' %}
-</head>
+	<head>
+		<title>The Mind of the Universe | Person x</title>
+		{% include 'head.html' %}
+	</head>
 
-<body>
+	<body>
 
-{% with page='scientist' %}
-{% include 'nav.html' %}
-{% endwith %}
+		{% with page='scientist' %}
+		{% include 'nav.html' %}
+		{% endwith %}
 
-<ol class="breadcrumb container">
-	<li class="breadcrumb-item active">
-		<a href="/">Home</a>
-	</li>
-	<li class="breadcrumb-item">
-		{{scientist.name}}
-	</li>
+		<ol class="breadcrumb container">
+			<li class="breadcrumb-item active">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active">
+				<a href="/explore">Explore</a>
+			</li>
+			<li class="breadcrumb-item">
+				{{scientist.name}}
+			</li>
 
-	{% include 'share.html' %}
+			{% include 'share.html' %}
 
-</ol>
+		</ol>
 
-<div class="container">
+		<div class="container">
 
-	<!-- FIRST ROW -->
-	<div class="row top-buffer"></div>
+			<!-- FIRST ROW -->
+			<div class="row">
+				<div class="col-md-12">
+					<h1>{{scientist.name}}</h1>
+				</div>
+			</div>
 
-	<!-- SECOND ROW -->
-	<div class="row">
-		<div class="col-md-12">
-			<h1>{{scientist.name}}</h1>
-		</div>
-	</div>
+			<!-- SECOND ROW -->
+			<div class="row">
+				<div class="col-md-4 top-buffer">
 
-	<!-- THIRD ROW -->
-	<div class="row">
-		<div class="col-md-12">
-			<div class="scientist-bio">
+					<div class="video-embed">
 
-				<div class="row">
+						<h4>Available interviews</h4>
+						{% for i in scientist.interviews %}
 
-					<div class="col-md-4">
-						<img class="scientist-bio-image" src="{{scientist.poster}}" alt="{{scientist.name}}">
+							<div class="interview">
+								<a href="/play?id={{i.id}}">
+									<div class="scientist-image-container" style="background-image: url({{i.poster}})">
+										<span class="glyph-play"></span>
+									</div>
+									<div class="scientist-bio-container">
+										{{i.description}}
+									</div>
+								</a>
+							</div>
+
+						{% endfor %}
+
 					</div>
 
-					<div class="col-md-8">
-
-						<div class="scientist-bio-text">
-							{{scientist.bio}}
-						</div>
-
-						{% if scientist.wikiURL %}
-						<p>
-							<br/>
-							<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>
-						</p>
-						{% endif %}
-
-						{% if scientist.links | length > 0 %}
-							<p>
-								{% for link in scientist.links %}
-									<i class="fa fa-link"></i>
-									<a href="{{link.url}}" target="_new">{{link.label}}</a>
-									<br/>
-								{% endfor %}
-							</p>
-						{% endif %}
-					</div>
-
+					{% if scientist.wikiURL %}
+					<p>
+						<br/>
+						<a href="{{scientist.wikiURL}}" target="_{{scientist.name}}">More on {{scientist.name}} at Wikipedia</a>
+					</p>
+					{% endif %}
 
 				</div>
 
-			</div>
-		</div>
 
-	</div>
+				<div class="col-md-offset-1 col-md-7 top-buffer">
 
-	<!-- FOURTH ROW -->
-	<div class="row top-buffer">
-		<div class="col-md-6 top-buffer">
-			<div class="video-embed">
-				<h4>Available interviews</h4>
-				{% for i in scientist.interviews %}
-				<div class="media">
-					<div class="media-left">
-						<a href="/play?id={{i.id}}">
-							<img class="media-object" src="{{i.poster}}" alt="{{i.id}}" style="height:100px;">
+					<h4>This is what {{scientist.name}} talks about:</h4>
+
+					{% if scientist.termCloud %}
+					<div class="tag-cloud">
+						{% for t in scientist.termCloud.terms %}
+						<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
+							<span class="data" style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
 						</a>
+						{% endfor %}
 					</div>
-					<div class="media-body">
-						<a href="/play?id={{i.id}}">
-							<h4 class="media-heading">{{i.title}}</h4>
-							{{i.description}}
-						</a>
-					</div>
+
+					{% endif %}
 				</div>
-				{% endfor %}
 
 			</div>
+
+			<div class="row top-buffer"></div>
+
 		</div>
 
+		{% include 'project-info.html' %}
 
-		<div class="col-md-offset-1 col-md-5 top-buffer">
-			{% if scientist.keywordCloud %}
-			<div class="explore-options">
-				<h4>This is what {{scientist.name}} talks about:</h4>
-				{% for tag in scientist.keywordCloud %}
-					<a href="/search?st={{tag[0]}}&sf={{'name|' + scientist.name}}">
-						<span id="{{tag[0]}}" class="data explore-tag" style="color:{{score_to_fontcolor(5)}};">{{tag[0]}}</span>
-					</a>
-				{% endfor %}
-			</div>
-			{% endif %}
+		{% include 'footer.html' %}
 
-			<br/>
-
-			{% if scientist.termCloud %}
-			<div class="tag-cloud">
-				{% for t in scientist.termCloud.terms %}
-				<a href="/search?st={{t[0]}}&sf={{'name|' + scientist.name}}">
-					<span style="font-size:{{score_to_fontsize(t[1])}}pt;">{{t[0]}}&nbsp;</span>
-				</a>
-				{% endfor %}
-			</div>
-			{% endif %}
-		</div>
-
-
-		<br/>
-
-	</div>
-
-	<div class="row top-buffer"></div>
-
-</div>
-
-{% include 'footer.html' %}
-
-</body>
+	</body>
 
 </html>

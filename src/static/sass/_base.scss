@@ -6,12 +6,19 @@
     box-sizing: border-box !important;
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     margin: auto;
     font-family: $default-font;
     line-height: 24px;
     font-size: 15px;
     background-color: $greybat;
+
+    margin-bottom: 130px;
 }
 
 a,
@@ -52,4 +59,29 @@ h4 {
 
 .container {
     background: #fff;
+}
+
+.glyph-play {
+
+    font-family: $vpro-icon-font;
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    text-transform: lowercase;
+    -webkit-font-smoothing: antialiased;
+    background: #c90;
+    right: 0;
+    top: 0;
+    text-align: center;
+    text-indent: 3px;
+
+    &:after {
+        content: "q";
+    }
 }

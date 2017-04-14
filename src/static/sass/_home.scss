@@ -1,7 +1,6 @@
 .home-text {
-	strong {
-		font-family: $title-font;
-		font-size: 24px;
+	ul {
+		padding-left: 20px;
 	}
 }
 
@@ -26,36 +25,12 @@
 	}
 }
 
-.tag-cloud {
-
-	overflow: hidden;
-
-	a {
-
-		margin: 2px;
-		background: #ddd;
-		padding: 2px 6px;
-		white-space: nowrap;
-		color: #000;
-		display: inline-block;
-		text-transform: lowercase;
-
-		&:hover {
-			background: #333;
-			color: #fff;
-		}
-		span {
-
-		}
-	}
-}
-
 .button-explore {
 	background: $vproDarkGold;
 	border: none;
 	font-family: $title-font;
 	text-transform: lowercase;
-	margin: 18px 0 0 0;
+	margin: 18px 0;
 
 	&:hover {
 		background: $vproDarkGold;

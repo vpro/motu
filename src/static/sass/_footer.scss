@@ -1,4 +1,9 @@
 #footer {
+
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+
     color: $greyjerboa;
     background-color: $greybat;
     padding-top: 2 * $defaultMargin;
@@ -23,4 +28,17 @@
 .footer-text {
     font-size: 13px;
     line-height: 20px;
+}
+
+.project-introduction {
+    background: $greywolf;
+    font-size: 13px;
+
+    a {
+        text-decoration: underline;
+    }
+
+    img {
+        margin-top: 12px;
+    }
 }
