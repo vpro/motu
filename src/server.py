@@ -189,7 +189,6 @@ def search():
 	)
 
 @app.route('/play')
-@requires_auth
 @nocache
 def play():
 	iid = request.args.get('id', None)
