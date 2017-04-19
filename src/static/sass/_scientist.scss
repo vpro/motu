@@ -12,15 +12,12 @@
 
 .interview {
     padding: 0 0 40px;
-}
 
-.video-embed {
-    .media {
-        .media-left {
-            position: relative;
-            .glyph-play {
-                right: 11px;
-            }
+    .scientist-image-container {
+        .glyph-play {
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
         }
     }
 }

@@ -1,3 +1,8 @@
+#video_player.jwplayer {
+    height: inherit;
+    padding-bottom: 56.25%;
+}
+
 #transcript-controls {
     height: 300px;
     width: 100%;
@@ -9,17 +14,46 @@
         color: $greygrizzly;
         font-size: 12px;
     }
+
+    .line-start-time {
+        margin: 0 12px 0 0;
+        color: $greyelephant;
+        min-width: 60px;
+        display: inline-block;
+    }
+}
+
+
+.transcript-heading {
+    font-size: 12px;
+    color: $greyelephant;
+    padding: 0 0 4px 10px;
+}
+
+.segment-row {
+    display: table;
+    height: 100%;
+}
+
+.segment-col {
+    display: table-cell;
+    float: none;
+    height: 100%;
 }
 
 .segment-nav {
-    height: 270px;
+    height: 100%;
+    overflow: auto;
+    float: left;
+    border: 1px solid #ccc;
+}
+
+.segment-container {
     width: 100%;
 }
 
 .segment-list {
-    height: 100%;
-    overflow-y: auto;
-    border: 1px solid #ccc;
+    list-style: none;
 
     .data {
         color: $greygrizzly;
@@ -65,14 +99,6 @@
     display:none;
 }
 
-.segment-list {
-    list-style: none;
-    li {
-
-    }
-}
-
-
 .modal-body {
     height: 60vh;
     overflow-y: hidden;
@@ -92,6 +118,17 @@
     line-height: 24px;
     padding: 20px 15px;
 }
+
+.downloads {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    .data {
+        font-size: 13px;
+    }
+}
+
 .download-link {
     text-decoration: underline;
 }

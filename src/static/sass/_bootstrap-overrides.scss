@@ -61,3 +61,15 @@ $thumbnail-padding: 1px;
 .navbar .navbar-form {
 	margin: 0;
 }
+
+.panel.faq {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.row-eq-height {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
