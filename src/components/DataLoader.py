@@ -266,37 +266,39 @@ class DataLoader():
 		return interviews
 
 	def __formatInterview(self, data, includeTranscript=True, includeSegmentAnnotations=True):
-		interviewId = scientistId = data['_id']
-		transcript = None
-		if interviewId.find('__') != -1:
-			scientistId = interviewId[0:interviewId.rfind('__')]
-		if includeTranscript:
-			transcript = self.__loadTranscript(scientistId, interviewId)
-		interview = {
-			'id' : interviewId,
-			'name' : data['_source']['name'],
-			'title' : '',
-			'description' : '',
-			'date' : None,
-			'poster' : data['_source']['posterURL'],
-			'video' : data['_source']['playableContent'][0], #there is always one
-			'transcript' : transcript,
-			'annotations' : self.__loadInterviewAnnotations(scientistId, interviewId, includeSegmentAnnotations)
-		}
+		interview = None
+		if data and '_source' in data:
+			interviewId = scientistId = data['_id']
+			transcript = None
+			if interviewId.find('__') != -1:
+				scientistId = interviewId[0:interviewId.rfind('__')]
+			if includeTranscript:
+				transcript = self.__loadTranscript(scientistId, interviewId)
+			interview = {
+				'id' : interviewId,
+				'name' : data['_source']['name'],
+				'title' : '',
+				'description' : '',
+				'date' : None,
+				'poster' : data['_source']['posterURL'],
+				'video' : data['_source']['playableContent'][0], #there is always one
+				'transcript' : transcript,
+				'annotations' : self.__loadInterviewAnnotations(scientistId, interviewId, includeSegmentAnnotations)
+			}
 
-		#add the basic metadata
-		if 'title_raw' in data['_source']:
-			interview['title'] = data['_source']['title_raw']
-		if 'description' in data['_source']:
-			interview['description'] = data['_source']['description']
-		if 'date' in data['_source']:
-			interview['date'] = data['_source']['date']
+			#add the basic metadata
+			if 'title_raw' in data['_source']:
+				interview['title'] = data['_source']['title_raw']
+			if 'description' in data['_source']:
+				interview['description'] = data['_source']['description']
+			if 'date' in data['_source']:
+				interview['date'] = data['_source']['date']
 
-		#add the interview tags
-		interviewTags = []
-		for cl in interview['annotations']['classifications']:
-			interviewTags.append(cl['label'])
-		interview['interviewTags'] = interviewTags
+			#add the interview tags
+			interviewTags = []
+			for cl in interview['annotations']['classifications']:
+				interviewTags.append(cl['label'])
+			interview['interviewTags'] = interviewTags
 
 		return interview
 
@@ -575,7 +577,7 @@ class DataLoader():
 		tags['title'] = 'Mind of the Universe'
 		tags['description'] = 'Mind of the Universe'
 		tags['image'] = 'http://motu.rdlabs.beeldengeluid.nl/static/images/og-image.png'
-		if dataType:
+		if data and dataType:
 			if dataType == 'interview':
 				tags['ogtype'] = 'video.movie'
 				tags['keywords'] = ','.join(data['interviewTags'])

@@ -191,19 +191,23 @@ def play():
 	iid = request.args.get('id', None)
 	searchTerm = request.args.get('st', None)
 	s = request.args.get('s', -1)
-	e = request.args.get('e', -1)	
+	e = request.args.get('e', -1)
 	downloads = []
+	interview = None
+	socialTags = {}
 	if iid:
 		interview = _dataLoader.loadInterview(iid)
 		downloads.append(interview)
 		socialTags = _dataLoader.getSocialMetaTags(request.base_url, request.url_root, interview, 'interview')
-	return render_template('play.html',
-		interview=interview,
-		downloads=downloads,
-		start=s,
-		end=e,
-		meta=socialTags
-	)
+	if interview:
+		return render_template('play.html',
+			interview=interview,
+			downloads=downloads,
+			start=s,
+			end=e,
+			meta=socialTags
+		)
+	return render_template('404.html'), 404
 
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')
