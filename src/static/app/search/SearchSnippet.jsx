@@ -67,8 +67,9 @@ class SearchSnippet extends React.Component {
 						{poster}
 						<div className="poster-title">{this.props.data.posterTitle}</div>
 					</a>
-					</div>
-					<div className="media-body">
+					<span className="glyph-play"></span>
+				</div>
+				<div className="media-body">
 					<h4 className="media-heading" title={this.props.data.id}>
 						{this.props.data.title ? this.props.data.title + ' ' : ''}
 						{this.props.data.date ? '(' + this.props.data.date + ')' : ''}

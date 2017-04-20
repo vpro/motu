@@ -32,6 +32,16 @@
 .navbar .navbar-form {
   margin: 0; }
 
+.panel.faq {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -3893,7 +3903,6 @@ tbody.collapse.in {
   margin-bottom: 8px; }
   @media (min-width: 768px) {
     .navbar-form .form-group {
-      display: inline-block;
       margin-bottom: 0;
       vertical-align: middle; }
     .navbar-form .form-control {
@@ -5842,12 +5851,17 @@ button.close {
 * {
   box-sizing: border-box !important; }
 
+html {
+  position: relative;
+  min-height: 100%; }
+
 body {
   margin: auto;
   font-family: "vpro_vesta", Verdana, Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
   line-height: 24px;
   font-size: 15px;
-  background-color: #333; }
+  background-color: #333;
+  margin-bottom: 130px; }
 
 a,
 a:hover,
@@ -5875,10 +5889,32 @@ h4 {
 
 .data {
   font-family: "vpro_vesta_big", Verdana, Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
-  font-size: 15px; }
+  font-size: 15px;
+  text-transform: lowercase; }
 
 .container {
   background: #fff; }
+
+.glyph-play {
+  font-family: vpro-iconfont;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  text-transform: lowercase;
+  -webkit-font-smoothing: antialiased;
+  background: #c90;
+  right: 0;
+  top: 0;
+  text-align: center;
+  text-indent: 3px; }
+  .glyph-play:after {
+    content: "q"; }
 
 .breadcrumb {
   margin-bottom: 0;
@@ -5931,7 +5967,7 @@ h4 {
 .box {
   width: 210px;
   height: 250px;
-  margin: 0 9px;
+  margin: 0 9px 20px;
   float: left; }
   .box img {
     width: 100%; }
@@ -5953,18 +5989,22 @@ h4 {
     margin-bottom: 0; }
 
 .explore-options {
-  overflow: hidden; }
+  display: none; }
   .explore-options a span {
     text-decoration: none;
     margin: 2px;
     padding: 2px 6px;
     white-space: nowrap;
     display: inline-block;
-    text-transform: lowercase; }
+    text-transform: lowercase;
+    color: #333; }
     .explore-options a span.selected, .explore-options a span:hover {
       background: #c90;
       color: #fff !important; }
 
+@media (min-width: 768px) {
+  .explore-options {
+    display: block; } }
 .highlighted.box .scientist-image-container:before {
   position: absolute;
   top: 0;
@@ -5973,7 +6013,8 @@ h4 {
   display: block;
   content: '';
   border-top: 8px solid transparent;
-  border-left: 8px solid #c90; }
+  border-left: 8px solid #cc9900;
+  animation: .5s ease-out 0s 1 border-left-transparency; }
 .highlighted.box .scientist-image-container:after {
   position: absolute;
   right: -8px;
@@ -5981,10 +6022,23 @@ h4 {
   bottom: -8px;
   display: block;
   content: '';
-  border-top: 8px solid #c90;
+  border-top: 8px solid #cc9900;
   border-left: 8px solid transparent; }
 
+@keyframes border-left-transparency {
+  0% {
+    border-left-color: rgba(204, 153, 0, 0); }
+  100% {
+    border-left-color: #cc9900; } }
+@keyframes border-top-transparency {
+  0% {
+    border-top-color: rgba(204, 153, 0, 0); }
+  100% {
+    border-top-color: #cc9900; } }
 #footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
   color: #eee;
   background-color: #333;
   padding-top: 20px;
@@ -6003,9 +6057,18 @@ h4 {
   font-size: 13px;
   line-height: 20px; }
 
-.home-text strong {
-  font-family: "simplistic_sans", "SimplisticSans", Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
-  font-size: 24px; }
+.project-introduction {
+  background: #d6d6d6;
+  font-size: 13px; }
+  .project-introduction a {
+    text-decoration: underline; }
+  .project-introduction .tv-icon {
+    float: left;
+    height: 40px;
+    margin: 2px 18px 12px 0; }
+
+.home-text ul {
+  padding-left: 20px; }
 
 .scientist-overview {
   padding-top: 15px; }
@@ -6018,26 +6081,12 @@ h4 {
     line-height: 20px;
     padding: 4px 8px 8px; }
 
-.tag-cloud {
-  overflow: hidden; }
-  .tag-cloud a {
-    margin: 2px;
-    background: #ddd;
-    padding: 2px 6px;
-    white-space: nowrap;
-    color: #000;
-    display: inline-block;
-    text-transform: lowercase; }
-    .tag-cloud a:hover {
-      background: #333;
-      color: #fff; }
-
 .button-explore {
   background: #c90;
   border: none;
   font-family: "simplistic_sans", "SimplisticSans", Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
   text-transform: lowercase;
-  margin: 18px 0 0 0; }
+  margin: 18px 0; }
   .button-explore:hover {
     background: #c90; }
   .button-explore a {
@@ -6071,16 +6120,23 @@ h4 {
   .navbar-collapse {
     padding-left: 0;
     padding-right: 0; } }
-.share-buttons .share-button {
-  float: right;
-  padding: 8px 0 0 20px;
-  height: 20px;
-  line-height: 20px; }
+.share-buttons {
+  display: none;
+  margin-top: -40px; }
+  .share-buttons .share-button {
+    float: right;
+    padding: 8px 0 0 20px;
+    height: 20px;
+    line-height: 20px; }
 
+@media all and (min-width: 768px) {
+  .share-buttons {
+    display: block; } }
 .breadcrumb .share-buttons {
   position: absolute;
-  top: 0;
-  right: 12px; }
+  top: -40px;
+  right: 12px;
+  margin-top: 0; }
 
 .motu-header-background {
   position: absolute;
@@ -6104,6 +6160,10 @@ h4 {
 @media all and (max-width: 768px) {
   .motu-header-logo {
     margin-left: 16px; } }
+#video_player.jwplayer {
+  height: inherit;
+  padding-bottom: 56.25%; }
+
 #transcript-controls {
   height: 300px;
   width: 100%;
@@ -6113,15 +6173,37 @@ h4 {
   #transcript-controls .data {
     color: #666;
     font-size: 12px; }
+  #transcript-controls .line-start-time {
+    margin: 0 12px 0 0;
+    color: #aaa;
+    min-width: 60px;
+    display: inline-block; }
+
+.transcript-heading {
+  font-size: 12px;
+  color: #aaa;
+  padding: 0 0 4px 10px; }
+
+.segment-row {
+  display: table;
+  height: 100%; }
+
+.segment-col {
+  display: table-cell;
+  float: none;
+  height: 100%; }
 
 .segment-nav {
-  height: 270px;
+  height: 100%;
+  overflow: auto;
+  float: left;
+  border: 1px solid #ccc; }
+
+.segment-container {
   width: 100%; }
 
 .segment-list {
-  height: 100%;
-  overflow-y: auto;
-  border: 1px solid #ccc; }
+  list-style: none; }
   .segment-list .data {
     color: #666;
     font-size: 12px; }
@@ -6135,6 +6217,11 @@ h4 {
   cursor: pointer; }
   .segment-list-item:hover {
     background: #aaa; }
+  .segment-list-item .glyph-play {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px; }
 
 .sub,
 .segment {
@@ -6150,27 +6237,35 @@ h4 {
 .share-panel {
   display: none; }
 
-.segment-list {
-  list-style: none; }
-
 .modal-body {
-  height: 66vh;
-  overflow-y: hidden; }
+  height: 60vh;
+  overflow-y: hidden;
+  padding: 0; }
   .modal-body #video-name {
     font-style: italic; }
   .modal-body .formAssemblyFrame {
     border: none; }
 
-.modal-download-info {
+.modal-intro {
   font-size: 15px;
   line-height: 24px;
-  padding: 0 0 20px; }
+  padding: 20px 15px; }
+
+.downloads {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  .downloads .data {
+    font-size: 13px; }
 
 .download-link {
   text-decoration: underline; }
 
 .download-link-info {
   font-size: 13px; }
+
+.modal-header .modal-title {
+  float: left; }
 
 .timebar {
   width: 100%;
@@ -6201,15 +6296,25 @@ h4 {
 .scientist-photo img {
   height: 200px; }
 
-.scientist-bio-image {
-  width: 100%; }
+.interview {
+  padding: 0 0 40px; }
+  .interview .scientist-image-container .glyph-play {
+    width: 40px;
+    height: 40px;
+    font-size: 40px; }
 
-.scientist-bio-text {
-  max-height: 11em;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical; }
+.tag-cloud {
+  overflow: hidden; }
+  .tag-cloud a {
+    margin: 2px;
+    padding: 2px 6px;
+    white-space: nowrap;
+    color: #000;
+    display: inline-block;
+    text-transform: lowercase; }
+    .tag-cloud a:hover {
+      color: #fff;
+      background: #c90; }
 
 /* ======================== Comparative Search / Facet Search (based on searchkit.co) ======================== */
 #fragment_search .form-inline button {
@@ -6232,6 +6337,12 @@ h4 {
     padding: 5px 0 0 0;
     font-size: 12px;
     text-transform: uppercase; }
+  .search-result .media-left.media-top {
+    position: relative; }
+  .search-result .glyph-play {
+    position: absolute;
+    right: 10px;
+    bottom: 0; }
 
 .media-fragments .fragment-hit.media {
   margin: 10px;

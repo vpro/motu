@@ -44,6 +44,10 @@
 
 .share-buttons {
 
+    display: none;
+
+    margin-top: -40px;
+
     .share-button {
         float: right;
         padding: 8px 0 0 20px;
@@ -52,12 +56,20 @@
     }
 }
 
+@media all and ( min-width: 768px ) {
+    .share-buttons {
+        display: block;
+    }
+}
+
 .breadcrumb {
 
     .share-buttons {
         position: absolute;
-        top: 0;
+        top: -40px;
         right: 12px;
+
+        margin-top: 0;
     }
 }
 

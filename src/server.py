@@ -14,12 +14,12 @@ import os
 
 
 def score_to_fontsize(size):
-	if size > 15:
-		size = 32 + ((size - 15) / 3)
+	if size > 12:
+		size = 12 + ((size - 13) / 4)
 		if size > 40:
 			return 40
 		return size
-	return 12 + size
+	return 8 + size
 	return size
 
 def score_to_fontcolor(size):
@@ -135,9 +135,6 @@ def home():
 @nocache
 def about():
 	return render_template('about.html',
-		about=_dataLoader.loadMarkdownFile('about.md'),
-		faq=_dataLoader.loadMarkdownFile('faq.md'),
-		colofon=_dataLoader.loadMarkdownFile('colofon.md'),
 		meta=_dataLoader.getSocialMetaTags(request.base_url, request.url_root, None, None)
 	)
 
@@ -189,18 +186,20 @@ def search():
 	)
 
 @app.route('/play')
-@requires_auth
 @nocache
 def play():
 	iid = request.args.get('id', None)
 	searchTerm = request.args.get('st', None)
 	s = request.args.get('s', -1)
-	e = request.args.get('e', -1)
+	e = request.args.get('e', -1)	
+	downloads = []
 	if iid:
 		interview = _dataLoader.loadInterview(iid)
+		downloads.append(interview)
 		socialTags = _dataLoader.getSocialMetaTags(request.base_url, request.url_root, interview, 'interview')
 	return render_template('play.html',
 		interview=interview,
+		downloads=downloads,
 		start=s,
 		end=e,
 		meta=socialTags

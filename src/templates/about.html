@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>Mind of the Universe | About</title>
+	<title>The Mind of the Universe | About</title>
 	 {% include 'head.html' %}
 </head>
 
@@ -28,23 +28,197 @@
 	</ol>
 
 	<div class="container">
+
 		<div class="row">
+
 			<div class="col-md-12">
-				<h1>About The Mind of the Universe</h1>
-				{{about|safe}}
+
+				<h3>About The Mind of the Universe</h3>
+
+				<p>
+					<a target="_blank" href="https://www.vpro.nl/mindenglish">The Mind of the Universe</a> is an international tv series and open source digital platform about the rapid evolution of our knowledge. It explores the human destiny and the world of tomorrow through the eyes of great minds from all continents all over the globe.
+					<br/>
+					The Mind of the Universe is a unique and unprecedented open source project in its scope and intention to provide all raw footage for free to everyone interested in learning and knowledge.
+					<br/>
+					The interviews were produced in 2015, 2016 and 2017 by Dutch public broadcaster <a target="_blank" href="https://www.vprobroadcast.com/">VPRO</a>  for a tv series featuring <a target="_blank" href="https://en.wikipedia.org/wiki/Robbert_Dijkgraaf">Robbert Dijkgraaf</a>. The project was made possible by NPO.
+					<br/>
+					The open access video platform was built by <a target="_blank" href="https://www.beeldengeluid.nl/en">The Netherlands Institute for Sound and Vision</a>.
+				</p>
+				<p>
+					<img src="/static/images/vpro-black.png">
+					&nbsp;
+					&nbsp;
+					&nbsp;
+					<img src="/static/images/nisv.png">
+				</p>
+				<p>
+					Please share with us your use of the videos and thus contribute to The Mind of the Universe.
+				</p>
+
+				<div class="row top-buffer"></div>
 
 				<h3>FAQ</h3>
-				<p>
-					{{faq|safe}}
-				</p>
+
+
+				<!--TODO: read FAQ's from file and output within a loop-->
+
+				<div class="panel faq">
+
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+								Where can I see what other people have created with this footage?
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapseOne" class="panel-collapse collapse">
+						<div class="panel-body">
+							Check the <a target="_blank" href="https://www.vpro.nl/mindremix">VPRO website</a> for a selection of contributions.
+						</div>
+					</div>
+
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+								Where can I see the whole tv series?
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapseTwo" class="panel-collapse collapse">
+						<div class="panel-body">
+							All tv-episodes will be available on <a target="_blank" href="https://www.youtube.com/user/VPROinternational">VPRO's YouTube-channel</a> and in Dutch on the <a target="_blank" href="https://www.vpro.nl/themind">VPRO-website</a>.
+						</div>
+					</div>
+
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">
+								I know a good scientist for you to interview. Should I tell you about him/her?
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapseThree" class="panel-collapse collapse">
+						<div class="panel-body">
+							Yes please! With your help we are hoping to create a new series. Please use the "Share Your Knowledge" button to contact us.
+						</div>
+					</div>
+
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion4" href="#collapseFour">
+								Where can I find more information about these scientists?
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapseFour" class="panel-collapse collapse">
+						<div class="panel-body">
+							Try Wikipedia, their institutes (see below) or use your preferred search engine. Good luck!
+						</div>
+					</div>
+
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion5" href="#collapseFive">
+								Will there be more interviews or is this all there will be?
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapseFive" class="panel-collapse collapse">
+						<div class="panel-body">
+							For now this is it but we hope to create a new series with your help! Please use the "Share Your Knowledge" button and share with us your ideas.
+						</div>
+					</div>
+
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion6" href="#collapseSix">
+								Why did you interview these scientists and not others?
+							</a>
+						</h4>
+					</div>
+
+					<div id="collapseSix" class="panel-collapse collapse">
+						<div class="panel-body">
+							This selection is the result of a combination of tv-research and recommendations by other scientists. But there are many more scientists out there worth interviewing. Please use the "Share Your Knowledge" button and share with us your ideas.
+						</div>
+					</div>
+
+				</div>
+
+
+				<div class="row top-buffer"></div>
 
 				<h3>Colofon</h3>
-				<p>
-					{{colofon|safe}}
-				</p>
+
+				The Mind of the Universe would like to thank all scientists and their institutions:
+
+				<div class="row top-buffer">
+
+					<div class="col-md-6">
+
+						<ul>
+
+							<li>African Insect Science for Food and Health, Kenia</li>
+							<li>Cambridge University, United Kingdom</li>
+							<li>Deep Space Industries, USA</li>
+							<li>Duke University Medical Center, USA</li>
+							<li>Emerging Analytic Center, University of Arkansas, USA</li>
+							<li>Erasmus Medisch Centrum, Netherlands</li>
+							<li>Erasmus University, Netherlands</li>
+							<li>Flerov Institute for Nuclear Research, Russia</li>
+							<li>Harvard Medical School, USA</li>
+							<li>Harvard University, USA</li>
+							<li>Hong Kong University, Hong Kong</li>
+							<li>Hubrecht Instituut, Netherlands</li>
+							<li>Institute for Advanced Study, USA</li>
+							<li>Institute for Neuroscience of Natal, Brazil</li>
+							<li>Instituto de Matematica Pura e Aplicada, Brazil</li>
+							<li>Joint Institute for Nuclear research, Russia</li>
+
+						</ul>
+
+					</div>
+
+					<div class="col-md-6">
+
+						<ul>
+
+							<li>Kavli Institute, USA</li>
+							<li>Massachusetts Institute of Technology, USA</li>
+							<li>Max Planck Institute for Evolutionary Anthropology, Germany</li>
+							<li>The Vatican Observatory, Italy</li>
+							<li>Universitair Medisch Centrum Utrecht, Netherlands</li>
+							<li>University of California, USA</li>
+							<li>University of Chicago, USA</li>
+							<li>University of Glasgow, United Kingdom</li>
+							<li>University of Irbid, Jordan</li>
+							<li>University of Montreal, Canada</li>
+							<li>University of Oslo, Norway</li>
+							<li>University of Oxford, United Kingdom</li>
+							<li>University of Tallinn, Estonia</li>
+							<li>USTC Shanghai institute, China</li>
+							<li>Wyss Institute, USA</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+				<div class="row top-buffer"></div>
+
 			</div>
+
 		</div>
+
 	</div>
+
+	{% include 'project-info.html' %}
 
 	{% include 'footer.html' %}
 

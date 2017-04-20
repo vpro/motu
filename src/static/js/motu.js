@@ -12,6 +12,12 @@ $( document ).ready( function(){
 
     });
 
+    $( '.knowledge-share-link' ).on( 'click', function () {
+
+        openKnowledgeModal();
+
+    });
+
     $( '.download-link' ).on( 'click', function ( e ) {
 
         if( isAnalyticsLoaded() ) {
@@ -24,7 +30,7 @@ $( document ).ready( function(){
             var videoId = $link.data( 'video-id' );
             var videoName = $link.data( 'video-name' );
 
-            openModal( videoName, href );
+            openDownloadModal( videoName, href );
 
             ga('send', {
                 hitType: 'event',
@@ -40,7 +46,7 @@ $( document ).ready( function(){
 });
 
 
-function openModal ( videoName, videoURL ) {
+function openDownloadModal ( videoName, videoURL ) {
 
     var $modal = $( '#formModal' );
     var $link = $modal.find( '.download-link' );
@@ -52,6 +58,13 @@ function openModal ( videoName, videoURL ) {
     // https://v4-alpha.getbootstrap.com/components/modal/#via-javascript
     $modal.modal( {} );
 }
+
+function openKnowledgeModal () {
+
+    var $modal = $( '#knowledgeFormModal' );
+    $modal.modal( {} );
+}
+
 
 function  isAnalyticsLoaded () {
     return window.GoogleAnalyticsObject !== undefined;

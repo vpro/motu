@@ -10,14 +10,37 @@
     }
 }
 
-.scientist-bio-image {
-    width: 100%;
+.interview {
+    padding: 0 0 40px;
+
+    .scientist-image-container {
+        .glyph-play {
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+        }
+    }
 }
 
-.scientist-bio-text {
-    max-height: 11em;
+.tag-cloud {
+
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
+
+    a {
+
+        margin: 2px;
+        padding: 2px 6px;
+        white-space: nowrap;
+        color: #000;
+        display: inline-block;
+        text-transform: lowercase;
+
+        &:hover {
+            color: #fff;
+            background: $vproDarkGold;
+        }
+        span {
+
+        }
+    }
 }
