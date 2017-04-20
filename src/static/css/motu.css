@@ -3903,7 +3903,6 @@ tbody.collapse.in {
   margin-bottom: 8px; }
   @media (min-width: 768px) {
     .navbar-form .form-group {
-      display: inline-block;
       margin-bottom: 0;
       vertical-align: middle; }
     .navbar-form .form-control {
