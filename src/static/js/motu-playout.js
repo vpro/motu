@@ -127,6 +127,12 @@ function gotoLine(index) {
 	if(_clickedLine) {
 		jw.seek(_clickedLine.start / 1000);
 	}
+
+    var url = '/play?&id=' + _interview.id + '&s=' + _clickedLine.start + '&e=' + _clickedLine.end;
+
+    // change history to resemble navigating the transcripts
+    window.history.pushState( 'play', 'Play', url );
+
 }
 
 function gotoSegment(index) {
@@ -134,7 +140,24 @@ function gotoSegment(index) {
 	if(_clickedSegment) {
 		jw.seek(_clickedSegment.start / 1000);
 	}
+
+	var url = '/play?&id=' + _interview.id + '&s=' + _clickedSegment.start + '&e=' + _clickedSegment.end;
+
+	// change history to resemble navigating the segments
+    window.history.pushState( 'play', 'Play', url );
+
 }
+
+// act on user navigation through browser history
+window.onpopstate = function( e ) {
+
+	var start = getParameterByName( 's', document.location );
+
+	if( start ) {
+        jw.seek( start / 1000 );
+    }
+
+};
 
 function togglePanel(button, panelId) {
 	var current = document.getElementById('panel_' + panelId).style.display;
@@ -152,4 +175,16 @@ function togglePanel(button, panelId) {
 		buttons[i].className = 'btn btn-default share-btn';
 	}
 	button.className = 'btn' + (current == 'block' ? ' btn-default share-btn' : ' btn-danger share-btn');
+}
+
+function getParameterByName(name, url) {
+    if (!url) {
+        url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }

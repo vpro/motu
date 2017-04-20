@@ -32,6 +32,16 @@
 .navbar .navbar-form {
   margin: 0; }
 
+.panel.faq {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -5880,7 +5890,8 @@ h4 {
 
 .data {
   font-family: "vpro_vesta_big", Verdana, Arial, Helvetica, Sans, FreeSans, "Nimbus Sans L", Garuda, sans-serif;
-  font-size: 15px; }
+  font-size: 15px;
+  text-transform: lowercase; }
 
 .container {
   background: #fff; }
@@ -5979,7 +5990,7 @@ h4 {
     margin-bottom: 0; }
 
 .explore-options {
-  overflow: hidden; }
+  display: none; }
   .explore-options a span {
     text-decoration: none;
     margin: 2px;
@@ -5992,6 +6003,9 @@ h4 {
       background: #c90;
       color: #fff !important; }
 
+@media (min-width: 768px) {
+  .explore-options {
+    display: block; } }
 .highlighted.box .scientist-image-container:before {
   position: absolute;
   top: 0;
@@ -6001,7 +6015,7 @@ h4 {
   content: '';
   border-top: 8px solid transparent;
   border-left: 8px solid #cc9900;
-  animation: .75s ease-out 0s 1 border-left-transparency; }
+  animation: .5s ease-out 0s 1 border-left-transparency; }
 .highlighted.box .scientist-image-container:after {
   position: absolute;
   right: -8px;
@@ -6010,8 +6024,7 @@ h4 {
   display: block;
   content: '';
   border-top: 8px solid #cc9900;
-  border-left: 8px solid transparent;
-  animation: .75s ease-out 0s 1 border-top-transparency; }
+  border-left: 8px solid transparent; }
 
 @keyframes border-left-transparency {
   0% {
@@ -6050,8 +6063,10 @@ h4 {
   font-size: 13px; }
   .project-introduction a {
     text-decoration: underline; }
-  .project-introduction img {
-    margin-top: 12px; }
+  .project-introduction .tv-icon {
+    float: left;
+    height: 40px;
+    margin: 2px 18px 12px 0; }
 
 .home-text ul {
   padding-left: 20px; }
@@ -6146,6 +6161,10 @@ h4 {
 @media all and (max-width: 768px) {
   .motu-header-logo {
     margin-left: 16px; } }
+#video_player.jwplayer {
+  height: inherit;
+  padding-bottom: 56.25%; }
+
 #transcript-controls {
   height: 300px;
   width: 100%;
@@ -6155,15 +6174,37 @@ h4 {
   #transcript-controls .data {
     color: #666;
     font-size: 12px; }
+  #transcript-controls .line-start-time {
+    margin: 0 12px 0 0;
+    color: #aaa;
+    min-width: 60px;
+    display: inline-block; }
+
+.transcript-heading {
+  font-size: 12px;
+  color: #aaa;
+  padding: 0 0 4px 10px; }
+
+.segment-row {
+  display: table;
+  height: 100%; }
+
+.segment-col {
+  display: table-cell;
+  float: none;
+  height: 100%; }
 
 .segment-nav {
-  height: 270px;
+  height: 100%;
+  overflow: auto;
+  float: left;
+  border: 1px solid #ccc; }
+
+.segment-container {
   width: 100%; }
 
 .segment-list {
-  height: 100%;
-  overflow-y: auto;
-  border: 1px solid #ccc; }
+  list-style: none; }
   .segment-list .data {
     color: #666;
     font-size: 12px; }
@@ -6197,9 +6238,6 @@ h4 {
 .share-panel {
   display: none; }
 
-.segment-list {
-  list-style: none; }
-
 .modal-body {
   height: 60vh;
   overflow-y: hidden;
@@ -6213,6 +6251,13 @@ h4 {
   font-size: 15px;
   line-height: 24px;
   padding: 20px 15px; }
+
+.downloads {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  .downloads .data {
+    font-size: 13px; }
 
 .download-link {
   text-decoration: underline; }
@@ -6254,11 +6299,10 @@ h4 {
 
 .interview {
   padding: 0 0 40px; }
-
-.video-embed .media .media-left {
-  position: relative; }
-  .video-embed .media .media-left .glyph-play {
-    right: 11px; }
+  .interview .scientist-image-container .glyph-play {
+    width: 40px;
+    height: 40px;
+    font-size: 40px; }
 
 .tag-cloud {
   overflow: hidden; }

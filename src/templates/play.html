@@ -60,41 +60,67 @@
 				<div class="col-md-12">
 					<h3>{{interview.title}} {{'(' + interview.date + ')' if interview.date != None}}</h3>
 					<p>{{interview.description}}</p>
+					<p>
+						<a href="/scientist?id={{scientistName[0]}}">
+							More videos with {{interview.name}}
+						</a>
+					</p>
 				</div>
 			</div>
 
 			<!-- THIRD ROW -->
+
 			<div class="row">
-				<div class="col-md-5">
+
+				<div class="col-xs-7">
 					<h3>&nbsp;</h3>
-					<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
-					<div id="video_player"></div>
 				</div>
-				<div class="col-md-7">
+
+				<div class="col-xs-5">
+					<h3>Segments</h3>
+				</div>
+
+			</div>
+
+			<div class="row segment-row">
+
+				<div class="col-xs-7 segment-col">
+
+					<!-- SHOW THE VIDEO PLAYER, WHICH IS RENDERED USING REACT -->
+					<div class="video-player-container">
+						<div id="video_player"></div>
+					</div>
+				</div>
+
+				<div class="col-xs-5 segment-col">
+
 					<div class="segment-nav">
 						{% if interview.annotations.segments | length > 0 %}
-						<h3>Segments</h3>
-						<div class="segment-list">
-							{% for s in interview.annotations.segments %}
-								<a class="segment-list-item" id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
-									<div class="container-fluid">
-										<div class="row">
-											<div class="col-md-3">
-										{% if s.poster != None %}
-											<img class="segment-poster" src="{{s.poster}}" alt="s.name">
-											<span class="glyph-play"></span>
-										{% endif %}
-											</div>
-											<div class="col-md-9">
-												{{s.title}}&nbsp;<span class="data">({{s.prettyStart}})</span>
+
+						<div class="segment-container">
+							<div class="segment-list">
+								{% for s in interview.annotations.segments %}
+									<a class="segment-list-item" id="{{loop.index}}" class="segment" onclick="gotoSegment({{loop.index -1}})">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-md-3">
+											{% if s.poster != None %}
+												<img class="segment-poster" src="{{s.poster}}" alt="s.name">
+												<span class="glyph-play"></span>
+											{% endif %}
+												</div>
+												<div class="col-md-9">
+													{{s.title}}&nbsp;<span class="data">({{s.prettyStart}})</span>
+												</div>
 											</div>
 										</div>
-									</div>
-								</a>
-							{% endfor %}
+									</a>
+								{% endfor %}
+							</div>
 						</div>
 						{% endif %}
 					</div>
+
 				</div>
 			</div>
 
@@ -108,9 +134,21 @@
 
 					<div id="panel_download" class="well share-panel">
 						<h4>Download</h4>
-						<p>
-							<a class="download-link" href="{{interview.video.url}}" data-video-id="{{interview.id}}" data-video-name="{{interview.name}}">{{interview.name}} - MP4 (4Mb CBR) </a>
-						</p>
+						<ul class="downloads">
+							{% for download in downloads %}
+								<li>
+									<!--TODO: replace this with the real data-->
+									<span class="data">MP4 (512x288, sd 659.8 MB)&nbsp;</span>
+
+									<a target="_blank" class="download-link" href="{{download.video.url}}" data-video-id="{{download.id}}" data-video-name="{{download.name}}">
+										 {{download.video.url}}
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+
+						<!--<a class="download-link" href="{{interview.video.url}}" data-video-id="{{interview.id}}" data-video-name="{{interview.name}}">{{interview.name}} - MP4 (4Mb CBR) </a>-->
+
 					</div>
 
 					<div id="panel_license" class="well share-panel">
@@ -125,14 +163,15 @@
 				</div>
 			</div>
 
-			<!-- FIFTH ROW -->
+			 <!--FIFTH ROW-->
 			<div class="row">
 				<div class="col-md-12 top-buffer">
+					<div class="data transcript-heading">automatically generated captions</div>
 					{% if interview.transcript %}
 						<div id="transcript-controls">
 							{% for line in interview.transcript %}
 							<span id="{{line.number}}" class="sub" onclick="gotoLine({{loop.index -1}})">
-								{{line.content}}&nbsp;<span class="data">({{line.prettystart}})</span>
+								<span class="data line-start-time">{{line.prettystart}}</span>&nbsp;{{line.content}}
 							</span><br>
 							{% endfor %}
 						</div>
