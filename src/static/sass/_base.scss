@@ -86,3 +86,23 @@ h4 {
         content: "q";
     }
 }
+
+// Fix for cookieconsent2 css in IE11
+.cc-banner {
+    .cc-compliance {
+        .cc-btn {
+            min-width: 140px;
+        }
+    }
+}
+
+// Fix for beeldengeluid/motu/issues/17
+@media all and ( min-width:768px ) {
+    .navbar-form .form-control {
+        display: block;
+
+        &.btn {
+            display: inline-block;
+        }
+    }
+}
